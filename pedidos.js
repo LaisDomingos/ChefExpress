@@ -56,6 +56,7 @@ function atenderPedido(cliente) {
             // Função para renderizar uma imagem e atualizar a posição
             function renderizarImagem(imagem) {
                 image(imagem, posXPedido, height * 0.85, width/30, height/20);
+                posXPedido += width/30 + 10;
             }
 
             if (cliente.pertenceAoGrupo) {
