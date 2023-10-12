@@ -31,6 +31,7 @@ function mostrarClientes() {
 }
 
 function criarClienteNaMesa(numeroMesa) {
+    
     let imagemCliente;
     let imagemSentadoCliente;
     let imagemMao;

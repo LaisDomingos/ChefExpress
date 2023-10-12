@@ -45,35 +45,30 @@ function pedir(cliente) {
 }
 
 function atenderPedido(cliente) {
-    let posXPedido = width * 0.15;
     if (cliente.fazerPedido) {
         if (cliente.tempoPedido >= 10 * 60) { 
-            // Verifique se passaram 10 segundos desde o pedido
-
             // Obtenha todas as imagens de pedido do cliente
             const { pedidoAImg, pedidoBImg, pedidoCImg, pedidoDImg } = cliente.imagensPedido;
 
-            // Função para renderizar uma imagem e atualizar a posição
-            function renderizarImagem(imagem) {
-                image(imagem, posXPedido, height * 0.85, width/30, height/20);
-                posXPedido += width/30 + 10;
-            }
-
             if (cliente.pertenceAoGrupo) {
                 // Se pertence ao grupo, exiba todas as imagens A, B, C e D
-                renderizarImagem(pedidoAImg);
-                renderizarImagem(pedidoBImg);
-                renderizarImagem(pedidoCImg);
-                renderizarImagem(pedidoDImg);
+                image(pedidoAImg, posXPedido, height * 0.85, width/30, height/20);
+                posXPedido += width/30 + 10;
+                image(pedidoBImg, posXPedido, height * 0.85, width/30, height/20);
+                posXPedido += width/30 + 10;
+                image(pedidoCImg, posXPedido, height * 0.85, width/30, height/20);
+                posXPedido += width/30 + 10;
+                image(pedidoDImg, posXPedido, height * 0.85, width/30, height/20);
             } else if (cliente.dupla) {
                 // Se for uma dupla, exiba as imagens A e B
-                renderizarImagem(pedidoAImg);
-                renderizarImagem(pedidoBImg);
+                image(pedidoAImg, posXPedido, height * 0.85, width/30, height/20);
+                posXPedido += width/30 + 10;
+                image(pedidoBImg, posXPedido, height * 0.85, width/30, height/20);
             } else {
                 // Se for apenas um cliente, exiba a imagem A
-                renderizarImagem(pedidoAImg);
+                image(pedidoAImg, posXPedido, height * 0.85, width/30, height/20);
             }
-           
+            
             // Marque o pedido como concluído
             cliente.fazerPedido = false;
         }
