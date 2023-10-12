@@ -1,0 +1,22 @@
+function menu() {
+    push();
+    fill("#2ebcae");
+    noStroke();
+    rect(width * 0.97, height * 0.1, width / 25, height / 1.5, 10);
+  
+    // Verifique se o mouse está sobre o retângulo
+    if (mouseX > width * 0.9 && mouseX < width * 0.9 + width / 13 && mouseY > height * 0.1 && mouseY < height * 0.1 + height / 1.5) {
+      isMouseOver = true;
+    } else {
+      isMouseOver = false;
+    }
+
+    if (isMouseOver) {
+      image(menuImg, width * 0.9, height * 0.1, width / 13, height / 1.5);
+    }
+    pop();
+}
+  
+function mouseMoved() {
+    menu();
+}
