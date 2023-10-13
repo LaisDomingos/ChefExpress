@@ -46,12 +46,7 @@ let mesa2468Y;
 
 let imagensPedido;
 
-let espaco4ocupado1 = false;
-let espaco4ocupado2 = false;
-let espaco2ocupado1 = false;
-let espaco2ocupado2 = false;
-let espaco1ocupado1 = false;
-let espaco1ocupado2 = false;
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -75,6 +70,7 @@ function draw() {
   chamarClientes();
   movimentoGarcon();
 
+  
   /*image(pratosIniciais[0], width * 0.15, height * 0.85, width/30, height/20);
   image(pratosIniciais[1], width * 0.2, height * 0.85, width/30, height/20);
   image(pratosIniciais[2], width * 0.25, height * 0.85, width/30, height/20);

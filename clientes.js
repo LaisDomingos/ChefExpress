@@ -212,6 +212,8 @@ function criarClienteNaMesa(numeroMesa) {
         dupla: dupla,
         imagensPedido,
         fazerPedido: false,
+        jaAtendeuPedido: false,
+        mostrouPedido: false,
         pediu: false,
         atendido: false,
         tempoPedido: 0, 
@@ -282,7 +284,6 @@ function moverClientes() {
             
         }
         pedir(cliente);
-        //atenderPedido(cliente);
     }
 }
 
