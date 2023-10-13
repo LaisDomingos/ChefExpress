@@ -282,7 +282,7 @@ function moverClientes() {
             
         }
         pedir(cliente);
-        atenderPedido(cliente);
+        //atenderPedido(cliente);
     }
 }
 

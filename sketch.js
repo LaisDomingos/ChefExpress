@@ -45,7 +45,13 @@ let mesa1357Y;
 let mesa2468Y;
 
 let imagensPedido;
-let posXPedido;
+
+let espaco4ocupado1 = false;
+let espaco4ocupado2 = false;
+let espaco2ocupado1 = false;
+let espaco2ocupado2 = false;
+let espaco1ocupado1 = false;
+let espaco1ocupado2 = false;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -59,8 +65,6 @@ function setup() {
   mesa1357Y = height*0.45;
   mesa2468Y = height*0.1;
 
-  posXPedido = width * 0.15;
-  
   setInterval(gerarCliente, 4000);
 }
   
