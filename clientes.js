@@ -1,4 +1,3 @@
-
 function chamarClientes(){
     mostrarClientes();
     moverClientes();

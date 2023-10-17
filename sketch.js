@@ -69,8 +69,8 @@ function draw() {
   menu();
   chamarClientes();
   movimentoGarcon();
+}
 
-  
   /*image(pratosIniciais[0], width * 0.15, height * 0.85, width/30, height/20);
   image(pratosIniciais[1], width * 0.2, height * 0.85, width/30, height/20);
   image(pratosIniciais[2], width * 0.25, height * 0.85, width/30, height/20);
@@ -85,4 +85,3 @@ function draw() {
   image(pratosIniciais[5], width * 0.7, height * 0.85, width/30, height/20);
   image(pratosIniciais[0], width * 0.75, height * 0.85, width/30, height/20);
   image(pratosIniciais[1], width * 0.8, height * 0.85, width/30, height/20);*/
-}
