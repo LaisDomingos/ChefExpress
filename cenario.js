@@ -74,3 +74,4 @@ function balcao() {
 function drawLixo(){
     image(lixo, width*0.9, height*0.82, width/17, height/6);
 }
+

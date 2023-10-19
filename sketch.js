@@ -46,7 +46,9 @@ let mesa2468Y;
 
 let imagensPedido;
 
-
+let mostrarMenu = false;
+let mostrarTelaFuncionarios = false;
+let mostrarTelaPratos = false;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -60,6 +62,9 @@ function setup() {
   mesa1357Y = height*0.45;
   mesa2468Y = height*0.1;
 
+  fecharFuncionarios = new ButtonFechar();
+  fecharPratos = new ButtonFechar();
+  
   setInterval(gerarCliente, 4000);
 }
   
@@ -69,19 +74,25 @@ function draw() {
   menu();
   chamarClientes();
   movimentoGarcon();
+  telasMenu();
+  
 }
 
-  /*image(pratosIniciais[0], width * 0.15, height * 0.85, width/30, height/20);
-  image(pratosIniciais[1], width * 0.2, height * 0.85, width/30, height/20);
-  image(pratosIniciais[2], width * 0.25, height * 0.85, width/30, height/20);
-  image(pratosIniciais[3], width * 0.3, height * 0.85, width/30, height/20);
-  image(pratosIniciais[4], width * 0.35, height * 0.85, width/30, height/20);
-  image(pratosIniciais[5], width * 0.4, height * 0.85, width/30, height/20);
-  image(pratosIniciais[0], width * 0.45, height * 0.85, width/30, height/20);
-  image(pratosIniciais[1], width * 0.5, height * 0.85, width/30, height/20);
-  image(pratosIniciais[2], width * 0.55, height * 0.85, width/30, height/20);
-  image(pratosIniciais[3], width * 0.6, height * 0.85, width/30, height/20);
-  image(pratosIniciais[4], width * 0.65, height * 0.85, width/30, height/20);
-  image(pratosIniciais[5], width * 0.7, height * 0.85, width/30, height/20);
-  image(pratosIniciais[0], width * 0.75, height * 0.85, width/30, height/20);
-  image(pratosIniciais[1], width * 0.8, height * 0.85, width/30, height/20);*/
+
+function mousePressed() {
+  if (isMouseOver && mostrarMenu) {
+    if (mouseX > width * 0.91 && mouseX < width * 0.91 + width / 16 && mouseY > height * 0.32 && mouseY < height * 0.32 + height / 5.5) {
+      telaFuncionarios();
+    } else if(mouseX > width * 0.91 && mouseX < width * 0.91 + width / 15.2 && mouseY > height * 0.6 && mouseY < height * 0.6 + height / 11){
+      telaPratos();
+    }
+  }
+  if (fecharFuncionarios.on_Click(mouseX, mouseY) && mostrarTelaFuncionarios) {
+    console.log("fechar funcionários");
+    mostrarTelaFuncionarios = false;
+  }
+  if (fecharPratos.on_Click(mouseX, mouseY) && mostrarTelaPratos) {
+    console.log("fechar pratos");
+    mostrarTelaPratos = false;
+  }
+}

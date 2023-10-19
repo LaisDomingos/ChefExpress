@@ -1,3 +1,4 @@
+
 function menu() {
     push();
     fill("#2ebcae");
@@ -9,14 +10,27 @@ function menu() {
       isMouseOver = true;
     } else {
       isMouseOver = false;
+      mostrarMenu = false;
     }
 
     if (isMouseOver) {
-      image(menuImg, width * 0.9, height * 0.1, width / 13, height / 1.5);
+      image(menuImg, width * 0.9, height * 0.1, width / 13, height / 1.5);  
     }
     pop();
 }
-  
+
 function mouseMoved() {
     menu();
+    mostrarMenu = true;
+}
+
+function telasMenu(){
+  if (mostrarTelaFuncionarios){
+      janela();
+      fecharFuncionarios.draw_ButtonFechar(width*0.85, height*0.11);
+  } else if(mostrarTelaPratos){
+      janela();
+      fecharPratos.draw_ButtonFechar(width*0.85, height*0.11);
+  }
+  
 }
