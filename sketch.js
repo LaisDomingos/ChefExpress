@@ -50,7 +50,12 @@ let mostrarMenu = false;
 let mostrarTelaFuncionarios = false;
 let mostrarTelaPratos = false;
 
-let imgTelaFuncionarios;
+let imgTelaFuncionarios=[];
+
+let contratarChef1 = false;
+let contratarChef2 = false;
+let contratarChef3 = false;
+let contratarChef4 = false;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -66,6 +71,14 @@ function setup() {
 
   fecharFuncionarios = new ButtonFechar();
   fecharPratos = new ButtonFechar();
+  addChef1 = new Button();
+  addChef2 = new Button();
+  addChef3 = new Button();
+  addChef4 = new Button();
+  addAjudante1 = new Button();
+  addAjudante2 = new Button();
+  addAjudante3 = new Button();
+  addAjudante4 = new Button();
   
   setInterval(gerarCliente, 4000);
 }
@@ -91,12 +104,46 @@ function mousePressed() {
       mostrarTelaFuncionarios = false;
     }
   }
-  if (fecharFuncionarios.on_Click(mouseX, mouseY) && mostrarTelaFuncionarios) {
-    console.log("fechar funcionários");
-    mostrarTelaFuncionarios = false;
+  if(mostrarTelaFuncionarios){
+    if (fecharFuncionarios.on_Click(mouseX, mouseY)) {
+      console.log("fechar funcionários");
+      mostrarTelaFuncionarios = false;
+    }
+    if (addChef1.on_Click(mouseX, mouseY)) {
+      addChef1.corBt = "#066315";
+      addChef2.corBt = "blue";
+      addChef3.corBt = "blue";
+      addChef4.corBt = "blue";
+    } else if (addChef2.on_Click(mouseX, mouseY)) {
+      addChef1.corBt = "blue";
+      addChef2.corBt = "#066315";
+      addChef3.corBt = "blue";
+      addChef4.corBt = "blue";
+    } else if (addChef3.on_Click(mouseX, mouseY)) {
+      addChef1.corBt = "blue";
+      addChef2.corBt = "blue";
+      addChef3.corBt = "#066315";
+      addChef4.corBt = "blue";
+    } else  if (addChef4.on_Click(mouseX, mouseY)) {
+      addChef1.corBt = "blue";
+      addChef2.corBt = "blue";
+      addChef3.corBt = "blue";
+      addChef4.corBt = "#066315";
+    }
+    if (addAjudante1.on_Click(mouseX, mouseY)) {
+      addAjudante1.corBt = "#066315";
+    } else if (addAjudante2.on_Click(mouseX, mouseY)) {
+      addAjudante2.corBt = "#066315";
+    } else if (addAjudante3.on_Click(mouseX, mouseY)) {
+      addAjudante3.corBt = "#066315";
+    } else  if (addAjudante4.on_Click(mouseX, mouseY)) {
+      addAjudante4.corBt = "#066315";
+    }
   }
+  
   if (fecharPratos.on_Click(mouseX, mouseY) && mostrarTelaPratos) {
     console.log("fechar pratos");
     mostrarTelaPratos = false;
   }
+  
 }

@@ -26,12 +26,11 @@ function mouseMoved() {
 
 function telasMenu(){
   if (mostrarTelaFuncionarios){
-      janela();
-      fecharFuncionarios.draw_ButtonFechar(width*0.87, height*0.05);
-      image(imgTelaFuncionarios, width * 0.28, height * 0.1, width / 2.5, height / 1.5);  
+      janelaFuncionarios();
+      
   } else if(mostrarTelaPratos){
-      janela();
-      fecharPratos.draw_ButtonFechar(width*0.87, height*0.05);
+      janelaPratos();
+      
   }
   
 }

@@ -71,6 +71,13 @@ function preload(){
 
     listaPedido = loadImage('imagens/pedido.png');
 
-    imgTelaFuncionarios = loadImage('imagens/telaFuncionarios.png');
+    imgTelaFuncionarios.push(loadImage('imagens/chef1.png'));
+    imgTelaFuncionarios.push(loadImage('imagens/chef2.png'));
+    imgTelaFuncionarios.push(loadImage('imagens/chef3.png'));
+    imgTelaFuncionarios.push(loadImage('imagens/chef4.png'));
+    imgTelaFuncionarios.push(loadImage('imagens/ajudante1.png'));
+    imgTelaFuncionarios.push(loadImage('imagens/ajudante2.png'));
+    imgTelaFuncionarios.push(loadImage('imagens/ajudante3.png'));
+    imgTelaFuncionarios.push(loadImage('imagens/ajudante4.png'));
     
 }
