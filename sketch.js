@@ -32,6 +32,7 @@ let clienteDuplaAposImagens = [];
 let garconImagens = [];
 let clientes = [];
 let pratosIniciais = [];
+let pratosGerais = [];
 
 let listaPedido;
 let xGarcon;

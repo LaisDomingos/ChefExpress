@@ -69,6 +69,31 @@ function preload(){
     pratosIniciais.push(loadImage('imagens/prato11Ini.png'));
     pratosIniciais.push(loadImage('imagens/prato12Ini.png'));
 
+    pratosGerais.push(loadImage('imagens/prato3.png'));
+    pratosGerais.push(loadImage('imagens/prato4.png'));
+    pratosGerais.push(loadImage('imagens/prato5.png'));
+    pratosGerais.push(loadImage('imagens/prato7.png'));
+    pratosGerais.push(loadImage('imagens/prato8.png'));
+    pratosGerais.push(loadImage('imagens/prato10.png'));
+    pratosGerais.push(loadImage('imagens/prato13.png'));
+    pratosGerais.push(loadImage('imagens/prato14.png'));
+    pratosGerais.push(loadImage('imagens/prato15.png'));
+    pratosGerais.push(loadImage('imagens/prato16.png'));
+    pratosGerais.push(loadImage('imagens/prato17.png'));
+    pratosGerais.push(loadImage('imagens/prato18.png'));
+    pratosGerais.push(loadImage('imagens/prato19.png'));
+    pratosGerais.push(loadImage('imagens/prato20.png'));
+    pratosGerais.push(loadImage('imagens/prato21.png'));
+    pratosGerais.push(loadImage('imagens/prato22.png'));
+    pratosGerais.push(loadImage('imagens/prato23.png'));
+    pratosGerais.push(loadImage('imagens/prato24.png'));
+    pratosGerais.push(loadImage('imagens/prato25.png'));
+    pratosGerais.push(loadImage('imagens/prato26.png'));
+    pratosGerais.push(loadImage('imagens/prato27.png'));
+    pratosGerais.push(loadImage('imagens/prato28.png'));
+    pratosGerais.push(loadImage('imagens/prato29.png'));
+    pratosGerais.push(loadImage('imagens/prato30.png'));
+
     listaPedido = loadImage('imagens/pedido.png');
 
     imgTelaFuncionarios.push(loadImage('imagens/chef1.png'));
