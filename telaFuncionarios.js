@@ -1,6 +1,6 @@
 function janela(){
     fill('#acefea');
-    rect(width*0.25, height*0.1, width*0.6, height*0.6);
+    rect(width*0.1, height*0.05, width*0.77, height*0.8);
 }
 
 function telaFuncionarios() {

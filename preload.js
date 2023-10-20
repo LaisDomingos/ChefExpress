@@ -70,5 +70,7 @@ function preload(){
     pratosIniciais.push(loadImage('imagens/prato12Ini.png'));
 
     listaPedido = loadImage('imagens/pedido.png');
+
+    imgTelaFuncionarios = loadImage('imagens/telaFuncionarios.png');
     
 }

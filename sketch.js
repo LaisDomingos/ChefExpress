@@ -50,6 +50,8 @@ let mostrarMenu = false;
 let mostrarTelaFuncionarios = false;
 let mostrarTelaPratos = false;
 
+let imgTelaFuncionarios;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   xGarcon = width*0.52;
@@ -83,8 +85,10 @@ function mousePressed() {
   if (isMouseOver && mostrarMenu) {
     if (mouseX > width * 0.91 && mouseX < width * 0.91 + width / 16 && mouseY > height * 0.32 && mouseY < height * 0.32 + height / 5.5) {
       telaFuncionarios();
+      mostrarTelaPratos = false;
     } else if(mouseX > width * 0.91 && mouseX < width * 0.91 + width / 15.2 && mouseY > height * 0.6 && mouseY < height * 0.6 + height / 11){
       telaPratos();
+      mostrarTelaFuncionarios = false;
     }
   }
   if (fecharFuncionarios.on_Click(mouseX, mouseY) && mostrarTelaFuncionarios) {
