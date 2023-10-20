@@ -79,7 +79,42 @@ function setup() {
   addAjudante2 = new Button();
   addAjudante3 = new Button();
   addAjudante4 = new Button();
+
+  check1 = new Checkbox();
+  check2 = new Checkbox();
+  check3 = new Checkbox();
+  check4 = new Checkbox();
+  check5 = new Checkbox();
+  check6 = new Checkbox();
+  check7 = new Checkbox();
+  check8 = new Checkbox();
+  check9 = new Checkbox();
+  check10 = new Checkbox();
+  check11 = new Checkbox();
+  check12 = new Checkbox();
+  check13 = new Checkbox();
+  check14 = new Checkbox();
+  check15 = new Checkbox();
+  check16 = new Checkbox();
+  check17 = new Checkbox();
+  check18 = new Checkbox();
+  check19 = new Checkbox();
+  check20 = new Checkbox();
+  check21 = new Checkbox();
+  check22 = new Checkbox();
+  check23 = new Checkbox();
+  check24 = new Checkbox();
+  check25 = new Checkbox();
+  check26 = new Checkbox();
+  check27 = new Checkbox();
+  check28 = new Checkbox();
+  check29 = new Checkbox();
+  check30 = new Checkbox();
   
+  pratosLista = new Button();
+  verListaTrocas = new Button();
+  presente = new Button();
+
   setInterval(gerarCliente, 4000);
 }
   
@@ -144,6 +179,36 @@ function mousePressed() {
   if (fecharPratos.on_Click(mouseX, mouseY) && mostrarTelaPratos) {
     console.log("fechar pratos");
     mostrarTelaPratos = false;
+    check1.destroy_checkbox();
+    check2.destroy_checkbox();
+    check3.destroy_checkbox();
+    check4.destroy_checkbox();
+    check5.destroy_checkbox();
+    check6.destroy_checkbox();
+    check7.destroy_checkbox();
+    check8.destroy_checkbox();
+    check9.destroy_checkbox();
+    check10.destroy_checkbox();
+    check11.destroy_checkbox();
+    check12.destroy_checkbox();
+    check13.destroy_checkbox();
+    check14.destroy_checkbox();
+    check15.destroy_checkbox();
+    check16.destroy_checkbox();
+    check17.destroy_checkbox();
+    check18.destroy_checkbox();
+    check19.destroy_checkbox();
+    check20.destroy_checkbox();
+    check21.destroy_checkbox();
+    check22.destroy_checkbox();
+    check23.destroy_checkbox();
+    check24.destroy_checkbox();
+    check25.destroy_checkbox();
+    check26.destroy_checkbox();
+    check27.destroy_checkbox();
+    check28.destroy_checkbox();
+    check29.destroy_checkbox();
+    check30.destroy_checkbox();
   }
   
 }

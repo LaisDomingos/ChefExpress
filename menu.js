@@ -31,6 +31,7 @@ function telasMenu(){
   } else if(mostrarTelaPratos){
       janelaPratos();
       
+      
   }
   
 }
