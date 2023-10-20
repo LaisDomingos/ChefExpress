@@ -20,14 +20,7 @@ function mesas(){
     image(mesasImagens[0], mesa78X, height*0.45, width/14, height/4);
 }
 
-/*function balcao(){
-    push();
-        fill("#6a6c6d");
-        noStroke();
-        rect(width*0.13, height*0.83, width/12, height/6);
-        rect(width*0.13, height*0.82, width/1.4, height/8);
-    pop();
-}*/
+
 function balcao() {
     push();
     fill("#6a6c6d");

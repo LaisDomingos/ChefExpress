@@ -58,6 +58,15 @@ let contratarChef2 = false;
 let contratarChef3 = false;
 let contratarChef4 = false;
 
+let garconMovendo1 = false; 
+let garconMovendo2 = false; 
+let garconMovendo3 = false; 
+let garconMovendo4 = false; 
+let garconMovendo5 = false; 
+let garconMovendo6 = false; 
+let garconMovendo7 = false; 
+let garconMovendo8 = false; 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   xGarcon = width*0.52;
@@ -126,6 +135,22 @@ function draw() {
   chamarClientes();
   movimentoGarcon();
   telasMenu();
+  push();
+  noFill();
+  stroke('red');
+  rect(mesa12X,height*0.45,width/14,height/4)
+  rect(mesa12X,height*0.1,width/14,height/4)
+  rect(mesa34X,height*0.1,width/10,height/4)
+  rect(mesa34X,height*0.45,width/10,height/4)
+  rect( mesa56X,height*0.1,width/10,height/4)
+  rect( mesa56X,height*0.45,width/10,height/4)
+  rect( mesa78X,height*0.1,width/14,height/4)
+  rect( mesa78X,height*0.45,width/14,height/4)
+  
+  pop();
+  
+  
+  
   
 }
 
@@ -212,4 +237,37 @@ function mousePressed() {
     check30.destroy_checkbox();
   }
   
+  
+  if (mouseX > mesa12X && mouseX < mesa12X + width / 14){
+    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
+      garconMovendo1= true; // Inicia o movimento do garçom
+    }
+    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
+      garconMovendo2= true; // Inicia o movimento do garçom
+    }
+  }
+  if (mouseX > mesa34X && mouseX < mesa34X + width / 10){
+    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
+      garconMovendo3= true; // Inicia o movimento do garçom
+    }
+    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
+      garconMovendo4= true; // Inicia o movimento do garçom
+    }
+  }
+  if (mouseX > mesa56X && mouseX < mesa56X + width / 10){
+    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
+      garconMovendo5= true; // Inicia o movimento do garçom
+    }
+    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
+      garconMovendo6= true; // Inicia o movimento do garçom
+    }
+  }
+  if (mouseX > mesa78X && mouseX < mesa78X + width / 14){
+    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
+      garconMovendo7= true; // Inicia o movimento do garçom
+    }
+    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
+      garconMovendo8= true; // Inicia o movimento do garçom
+    }
+  }
 }

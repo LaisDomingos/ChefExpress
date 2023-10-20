@@ -58,61 +58,6 @@ let espaco2ocupado2 = false;
 let espaco1ocupado1 = false;
 let espaco1ocupado2 = false;
 
-/*
-function atenderPedido(cliente) {
-    const { pedidoAImg, pedidoBImg, pedidoCImg, pedidoDImg } = cliente.imagensPedido;
-    if (cliente.pertenceAoGrupo) {
-         if (!espaco4ocupado1) {
-            image(pedidoAImg, width * 0.45, height * 0.85, width/30, height/20);
-            image(pedidoBImg, width * 0.5, height * 0.85, width/30, height/20);
-            image(pedidoCImg, width * 0.55, height * 0.85, width/30, height/20);
-            image(pedidoDImg, width * 0.6, height * 0.85, width/30, height/20);
-            
-            espaco4ocupado1 = true;
-            console.log("mudou espaco 4_1");
-
-        } else if (!espaco4ocupado2) {
-            image(pedidoAImg, width * 0.65, height * 0.85, width/30, height/20);
-            image(pedidoBImg, width * 0.7, height * 0.85, width/30, height/20);
-            image(pedidoCImg, width * 0.75, height * 0.85, width/30, height/20);
-            image(pedidoDImg, width * 0.8, height * 0.85, width/30, height/20);
-            espaco4ocupado2 = true;
-            console.log("mudou espaco 4_2");
-        } else {
-            console.log("aguarda");
-        }
-    } else if (cliente.dupla) {
-        if (!espaco2ocupado1) {
-            image(pedidoAImg,  width * 0.25, height * 0.85, width/30, height/20);
-            image(pedidoBImg,  width * 0.3, height * 0.85, width/30, height/20);
-            espaco2ocupado1 = true;
-            console.log("mudou espaco 2_1");
-        } else if (!espaco2ocupado2) {
-            image(pedidoAImg,  width * 0.35, height * 0.85, width/30, height/20);
-            image(pedidoBImg,  width * 0.4, height * 0.85, width/30, height/20);
-            espaco2ocupado2 = true;
-            console.log("mudou espaco 2_2");
-        } else {
-            console.log("aguarda");
-        }
-    } else {
-        if (!espaco1ocupado1) {
-            image(pedidoAImg,  width * 0.15, height * 0.85, width/30, height/20);
-            espaco1ocupado1 = true;
-            console.log("mudou espaco 1_1");
-        } else if (!espaco1ocupado2) {
-            image(pedidoAImg,  width * 0.2, height * 0.85, width/30, height/20);
-            espaco1ocupado2 = true;
-            console.log("mudou espaco 1_2");
-        } else {
-            console.log("aguarda");
-        }
-    }
-    cliente.fazerPedido = false;
-    
-}
-*/
-
 let espaco1S;
 let espaco2S;
 let espaco1D1;
