@@ -67,6 +67,21 @@ let garconMovendo6 = false;
 let garconMovendo7 = false; 
 let garconMovendo8 = false; 
 
+let buscarPrato1 = false; 
+let buscarPrato2 = false; 
+let buscarPrato3 = false; 
+let buscarPrato4 = false; 
+let buscarPrato5 = false; 
+let buscarPrato6 = false; 
+let buscarPrato7 = false; 
+let buscarPrato8 = false; 
+let buscarPrato9 = false; 
+let buscarPrato10 = false; 
+let buscarPrato11 = false; 
+let buscarPrato12 = false; 
+let buscarPrato13 = false; 
+let buscarPrato14 = false; 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   xGarcon = width*0.52;
@@ -138,20 +153,22 @@ function draw() {
   push();
   noFill();
   stroke('red');
-  rect(mesa12X,height*0.45,width/14,height/4)
-  rect(mesa12X,height*0.1,width/14,height/4)
-  rect(mesa34X,height*0.1,width/10,height/4)
-  rect(mesa34X,height*0.45,width/10,height/4)
-  rect( mesa56X,height*0.1,width/10,height/4)
-  rect( mesa56X,height*0.45,width/10,height/4)
-  rect( mesa78X,height*0.1,width/14,height/4)
-  rect( mesa78X,height*0.45,width/14,height/4)
-  
+  rect(width * 0.15, height * 0.85, width/30, height/20)
+  rect(width * 0.2, height * 0.85, width/30, height/20)
+  rect(width * 0.25, height * 0.85, width/30, height/20)
+  rect(width * 0.3, height * 0.85, width/30, height/20)
+  rect( width * 0.35, height * 0.85, width/30, height/20)
+  rect( width * 0.4, height * 0.85, width/30, height/20)
+  rect( width * 0.45, height * 0.85, width/30, height/20)
+  rect( width * 0.5, height * 0.85, width/30, height/20)
+  rect(width * 0.55, height * 0.85, width/30, height/20)
+  rect(width * 0.6, height * 0.85, width/30, height/20)
+  rect( width * 0.65, height * 0.85, width/30, height/20)
+  rect( width * 0.7, height * 0.85, width/30, height/20)
+  rect( width * 0.75, height * 0.85, width/30, height/20)
+  rect( width * 0.8, height * 0.85, width/30, height/20)
   pop();
-  
-  
-  
-  
+
 }
 
 
@@ -270,4 +287,49 @@ function mousePressed() {
       garconMovendo8= true; // Inicia o movimento do garçom
     }
   }
+  if(mouseY > height * 0.85 && mouseY < height * 0.85 + height / 20){
+    if ( mouseX > width * 0.15 && mouseX < width * 0.15 + width / 30) {
+      buscarPrato1 = true;
+    }
+    if ( mouseX > width * 0.2 && mouseX < width * 0.2 + width / 30) {
+      buscarPrato2 = true;
+    }
+    if ( mouseX > width * 0.25 && mouseX < width * 0.25 + width / 30) {
+      buscarPrato3 = true;
+    }
+    if ( mouseX > width * 0.3 && mouseX < width * 0.3 + width / 30) {
+      buscarPrato4 = true;
+    }
+    if ( mouseX > width * 0.35 && mouseX < width * 0.35 + width / 30) {
+      buscarPrato5 = true;
+    }
+    if ( mouseX > width * 0.4 && mouseX < width * 0.4 + width / 30) {
+      buscarPrato6 = true;
+    }
+    if ( mouseX > width * 0.45 && mouseX < width * 0.45 + width / 30) {
+      buscarPrato7 = true;
+    }
+    if ( mouseX > width * 0.5 && mouseX < width * 0.5 + width / 30) {
+      buscarPrato8 = true;
+    }
+    if ( mouseX > width * 0.55 && mouseX < width * 0.55 + width / 30) {
+      buscarPrato9 = true;
+    }
+    if ( mouseX > width * 0.6 && mouseX < width * 0.6 + width / 30) {
+      buscarPrato10 = true;
+    }
+    if ( mouseX > width * 0.65 && mouseX < width * 0.65 + width / 30) {
+      buscarPrato11 = true;
+    }
+    if ( mouseX > width * 0.7 && mouseX < width * 0.7 + width / 30) {
+      buscarPrato12 = true;
+    }
+    if ( mouseX > width * 0.75 && mouseX < width * 0.75 + width / 30) {
+      buscarPrato13= true;
+    }
+    if ( mouseX > width * 0.8 && mouseX < width * 0.8 + width / 30) {
+      buscarPrato14= true;
+    }
+  }
+  
 }

@@ -72,6 +72,105 @@ function movimentoGarcon(){
       garconMovendo8 = false;
     }
   }
+  if (buscarPrato1) {
+    if (xGarcon !== width * 0.14 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.14;
+      yGarcon = height*0.62;
+      buscarPrato1 = false;
+    }
+  }
+  if (buscarPrato2) {
+    if (xGarcon !== width * 0.19 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.19;
+      yGarcon = height*0.62;
+      buscarPrato2 = false;
+    }
+  }
+  if (buscarPrato3) {
+    if (xGarcon !== width * 0.24 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.24;
+      yGarcon = height*0.62;
+      buscarPrato3 = false;
+    }
+  }
+  if (buscarPrato4) {
+    if (xGarcon !== width * 0.29 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.29;
+      yGarcon = height*0.62;
+      buscarPrato4 = false;
+    }
+  }
+  if (buscarPrato5) {
+    if (xGarcon !== width * 0.34 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.34;
+      yGarcon = height*0.62;
+      buscarPrato5 = false;
+    }
+  }
+  if (buscarPrato6) {
+    if (xGarcon !== width * 0.39 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.39;
+      yGarcon = height*0.62;
+      buscarPrato6 = false;
+    }
+  }
+  if (buscarPrato7) {
+    if (xGarcon !== width * 0.44 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.44;
+      yGarcon = height*0.62;
+      buscarPrato7 = false;
+    }
+  }
+  if (buscarPrato8) {
+    if (xGarcon !== width * 0.49 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.49;
+      yGarcon = height*0.62;
+      buscarPrato8 = false;
+    }
+  }
+  if (buscarPrato9) {
+    if (xGarcon !== width * 0.54 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.54;
+      yGarcon = height*0.62;
+      buscarPrato9 = false;
+    }
+  }
+  if (buscarPrato10) {
+    if (xGarcon !== width * 0.59 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.59;
+      yGarcon = height*0.62;
+      buscarPrato10 = false;
+    }
+  }
+  if (buscarPrato11) {
+    if (xGarcon !== width * 0.64 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.64;
+      yGarcon = height*0.62;
+      buscarPrato11 = false;
+    }
+  }
+  if (buscarPrato12) {
+    if (xGarcon !== width * 0.69 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.69;
+      yGarcon = height*0.62;
+      buscarPrato12 = false;
+    }
+  }
+  if (buscarPrato13) {
+    if (xGarcon !== width * 0.74 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.74;
+      yGarcon = height*0.62;
+      buscarPrato13 = false;
+    }
+  }
+  if (buscarPrato14) {
+    if (xGarcon !== width * 0.79 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.79;
+      yGarcon = height*0.62;
+      buscarPrato14 = false;
+    }
+  }
+
 }
 
 
