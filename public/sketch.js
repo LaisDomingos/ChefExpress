@@ -1,4 +1,4 @@
-let tela = 2;
+let tela = 1;
 
 let imgLogo;
 let title;
@@ -24,7 +24,9 @@ function draw() {
   if (tela == 1){
     tela1()
   } else if (tela == 2){
-    tela2();
+    tela2Login();
+  } else if (tela == 3){
+    tela3Registro();
   }
 }
 
@@ -32,8 +34,10 @@ function draw() {
 function mousePressed() {
   if (start.on_Click(mouseX, mouseY) && tela == 1) {
     tela = 2;
-    console.log("2")
   } 
-  
+  if (mouseX > width * 0.53 && mouseX < width * 0.53 + 70 && mouseY > height * 0.77 && mouseY < height * 0.77 + 30) {
+    console.log("Clique dentro do retângulo!");
+    tela = 3;
+  } 
 }
 
