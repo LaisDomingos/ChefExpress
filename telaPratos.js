@@ -80,3 +80,35 @@ function telaPratos() {
     mostrarTelaPratos = true;
     
 }
+function retirarCheck(){
+    check1.destroy_checkbox();
+    check2.destroy_checkbox();
+    check3.destroy_checkbox();
+    check4.destroy_checkbox();
+    check5.destroy_checkbox();
+    check6.destroy_checkbox();
+    check7.destroy_checkbox();
+    check8.destroy_checkbox();
+    check9.destroy_checkbox();
+    check10.destroy_checkbox();
+    check11.destroy_checkbox();
+    check12.destroy_checkbox();
+    check13.destroy_checkbox();
+    check14.destroy_checkbox();
+    check15.destroy_checkbox();
+    check16.destroy_checkbox();
+    check17.destroy_checkbox();
+    check18.destroy_checkbox();
+    check19.destroy_checkbox();
+    check20.destroy_checkbox();
+    check21.destroy_checkbox();
+    check22.destroy_checkbox();
+    check23.destroy_checkbox();
+    check24.destroy_checkbox();
+    check25.destroy_checkbox();
+    check26.destroy_checkbox();
+    check27.destroy_checkbox();
+    check28.destroy_checkbox();
+    check29.destroy_checkbox();
+    check30.destroy_checkbox();
+}

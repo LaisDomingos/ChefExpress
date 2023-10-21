@@ -40,7 +40,7 @@ let buscarPrato10 = false;
 let buscarPrato11 = false; 
 let buscarPrato12 = false; 
 let buscarPrato13 = false; 
-let buscarPrato14 = false; 
+let buscarPrato14 = false;
 
 function movimentoGarcon(){
   image(garconImagens[0], xGarcon, yGarcon, width/19, height/5);
@@ -105,6 +105,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.14;
       yGarcon = height*0.62;
       buscarPrato1 = false;
+      if(espaco1ocupado1){
+        console.log('Pegar prato 1 individual');
+        espaco1ocupado1 = false;
+      }
     }
   }
   if (buscarPrato2) {
@@ -113,12 +117,20 @@ function movimentoGarcon(){
       yGarcon = height*0.62;
       buscarPrato2 = false;
     }
+    if(espaco1ocupado2){
+      console.log('Pegar prato 2 individual');
+      espaco1ocupado2 = false;
+    }
   }
   if (buscarPrato3) {
     if (xGarcon !== width * 0.24 || yGarcon !== height*0.62) {
       xGarcon = width * 0.24;
       yGarcon = height*0.62;
       buscarPrato3 = false;
+      if(espaco2ocupado1){
+        console.log('Pegar prato 1 da primeira dupla');
+        espaco2ocupado1 = false;
+      }
     }
   }
   if (buscarPrato4) {
@@ -126,6 +138,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.29;
       yGarcon = height*0.62;
       buscarPrato4 = false;
+      if(espaco2ocupado1){
+        console.log('Pegar prato 2 da primeira dupla');
+        espaco2ocupado1 = false;
+      }
     }
   }
   if (buscarPrato5) {
@@ -133,6 +149,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.34;
       yGarcon = height*0.62;
       buscarPrato5 = false;
+      if(espaco2ocupado2){
+        console.log('Pegar prato 1 da segunda dupla');
+        espaco2ocupado2 = false;
+      }
     }
   }
   if (buscarPrato6) {
@@ -140,6 +160,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.39;
       yGarcon = height*0.62;
       buscarPrato6 = false;
+      if(espaco2ocupado2){
+        console.log('Pegar prato 2 da segunda dupla');
+        espaco2ocupado2 = false;
+      }
     }
   }
   if (buscarPrato7) {
@@ -147,6 +171,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.44;
       yGarcon = height*0.62;
       buscarPrato7 = false;
+      if(espaco4ocupado1){
+        console.log('Pegar prato 1 do primeiro grupo');
+        espaco4ocupado1 = false;
+      }
     }
   }
   if (buscarPrato8) {
@@ -154,6 +182,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.49;
       yGarcon = height*0.62;
       buscarPrato8 = false;
+      if(espaco4ocupado1){
+        console.log('Pegar prato 2 do primeiro grupo');
+        espaco4ocupado1 = false;
+      }
     }
   }
   if (buscarPrato9) {
@@ -161,6 +193,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.54;
       yGarcon = height*0.62;
       buscarPrato9 = false;
+      if(espaco4ocupado1){
+        console.log('Pegar prato 3 do primeiro grupo');
+        espaco4ocupado1 = false;
+      }
     }
   }
   if (buscarPrato10) {
@@ -168,6 +204,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.59;
       yGarcon = height*0.62;
       buscarPrato10 = false;
+      if(espaco4ocupado1){
+        console.log('Pegar prato 4 do primeiro grupo');
+        espaco4ocupado1 = false;
+      }
     }
   }
   if (buscarPrato11) {
@@ -175,6 +215,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.64;
       yGarcon = height*0.62;
       buscarPrato11 = false;
+      if(espaco4ocupado2){
+        console.log('Pegar prato 1 do segundo grupo');
+        espaco4ocupado2 = false;
+      }
     }
   }
   if (buscarPrato12) {
@@ -182,6 +226,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.69;
       yGarcon = height*0.62;
       buscarPrato12 = false;
+      if(espaco4ocupado2){
+        console.log('Pegar prato 2 do segundo grupo');
+        espaco4ocupado2 = false;
+      }
     }
   }
   if (buscarPrato13) {
@@ -189,6 +237,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.74;
       yGarcon = height*0.62;
       buscarPrato13 = false;
+      if(espaco4ocupado2){
+        console.log('Pegar prato 3 do segundo grupo');
+        espaco4ocupado2 = false;
+      }
     }
   }
   if (buscarPrato14) {
@@ -196,6 +248,10 @@ function movimentoGarcon(){
       xGarcon = width * 0.79;
       yGarcon = height*0.62;
       buscarPrato14 = false;
+      if(espaco4ocupado2){
+        console.log('Pegar prato 4 do segundo grupo');
+        espaco4ocupado2 = false;
+      }
     }
   }
 

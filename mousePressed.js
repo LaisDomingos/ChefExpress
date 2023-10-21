@@ -3,6 +3,7 @@ function mousePressed() {
       if (mouseX > width * 0.91 && mouseX < width * 0.91 + width / 16 && mouseY > height * 0.32 && mouseY < height * 0.32 + height / 5.5) {
         telaFuncionarios();
         mostrarTelaPratos = false;
+        retirarCheck();
       } else if(mouseX > width * 0.91 && mouseX < width * 0.91 + width / 15.2 && mouseY > height * 0.6 && mouseY < height * 0.6 + height / 11){
         telaPratos();
         mostrarTelaFuncionarios = false;

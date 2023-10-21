@@ -31,12 +31,8 @@ function mouseMoved() {
 
 function telasMenu(){
   if (mostrarTelaFuncionarios){
-      janelaFuncionarios();
-      
+      janelaFuncionarios();  
   } else if(mostrarTelaPratos){
       janelaPratos();
-      
-      
   }
-  
 }
