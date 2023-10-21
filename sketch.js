@@ -150,25 +150,6 @@ function draw() {
   chamarClientes();
   movimentoGarcon();
   telasMenu();
-  push();
-  noFill();
-  stroke('red');
-  rect(width * 0.15, height * 0.85, width/30, height/20)
-  rect(width * 0.2, height * 0.85, width/30, height/20)
-  rect(width * 0.25, height * 0.85, width/30, height/20)
-  rect(width * 0.3, height * 0.85, width/30, height/20)
-  rect( width * 0.35, height * 0.85, width/30, height/20)
-  rect( width * 0.4, height * 0.85, width/30, height/20)
-  rect( width * 0.45, height * 0.85, width/30, height/20)
-  rect( width * 0.5, height * 0.85, width/30, height/20)
-  rect(width * 0.55, height * 0.85, width/30, height/20)
-  rect(width * 0.6, height * 0.85, width/30, height/20)
-  rect( width * 0.65, height * 0.85, width/30, height/20)
-  rect( width * 0.7, height * 0.85, width/30, height/20)
-  rect( width * 0.75, height * 0.85, width/30, height/20)
-  rect( width * 0.8, height * 0.85, width/30, height/20)
-  pop();
-
 }
 
 
