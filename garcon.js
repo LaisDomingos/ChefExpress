@@ -13,6 +13,34 @@
     }
   }
 }*/
+let garconImagens = [];
+
+let xGarcon;
+let yGarcon;
+
+let garconMovendo1 = false; 
+let garconMovendo2 = false; 
+let garconMovendo3 = false; 
+let garconMovendo4 = false; 
+let garconMovendo5 = false; 
+let garconMovendo6 = false; 
+let garconMovendo7 = false; 
+let garconMovendo8 = false; 
+
+let buscarPrato1 = false; 
+let buscarPrato2 = false; 
+let buscarPrato3 = false; 
+let buscarPrato4 = false; 
+let buscarPrato5 = false; 
+let buscarPrato6 = false; 
+let buscarPrato7 = false; 
+let buscarPrato8 = false; 
+let buscarPrato9 = false; 
+let buscarPrato10 = false; 
+let buscarPrato11 = false; 
+let buscarPrato12 = false; 
+let buscarPrato13 = false; 
+let buscarPrato14 = false; 
 
 function movimentoGarcon(){
   image(garconImagens[0], xGarcon, yGarcon, width/19, height/5);

@@ -1,3 +1,10 @@
+let pratosIniciais = [];
+let pratosGerais = [];
+
+let listaPedido;
+
+let imagensPedido;
+
 let pedidoAImg;
 let pedidoBImg;
 let pedidoCImg;

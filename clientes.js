@@ -1,3 +1,20 @@
+let clienteImagens = [];
+let clienteSentadoImagens = [];
+let clienteMaoImagens = [];
+let clienteAposImagens = [];
+
+let clienteGrupoImagens = [];
+let clienteSentadoGrupoImagens = [];
+let clienteGrupoMaoImagens = [];
+let clienteGrupoAposImagens = [];
+
+let clienteDuplaImagens = [];
+let clienteSentadoDuplaImagens = [];
+let clienteDuplaMaoImagens = [];
+let clienteDuplaAposImagens = [];
+
+let clientes = [];
+
 function chamarClientes(){
     mostrarClientes();
     moverClientes();

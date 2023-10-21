@@ -1,3 +1,8 @@
+let mostrarMenu = false;
+let mostrarTelaFuncionarios = false;
+let mostrarTelaPratos = false;
+
+
 
 function menu() {
     push();

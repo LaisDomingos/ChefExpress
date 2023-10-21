@@ -1,3 +1,9 @@
+let imgTelaFuncionarios=[];
+
+let contratarChef1 = false;
+let contratarChef2 = false;
+let contratarChef3 = false;
+let contratarChef4 = false;
 function janelaFuncionarios(){
     fill('#acefea');
     rect(width*0.1, height*0.02, width*0.77, height*0.9);

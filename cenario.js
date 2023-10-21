@@ -1,3 +1,27 @@
+let piso;
+let barra;
+let escada;
+let menuImg;
+let lixo;
+
+let mesa1 = false;
+let mesa2 = false;
+let mesa3 = false;
+let mesa4 = false;
+let mesa5 = false;
+let mesa6 = false;
+let mesa7 = false;
+let mesa8 = false;
+
+let mesasImagens = [];
+
+let mesa12X;
+let mesa34X;
+let mesa56X;
+let mesa78X;
+let mesa1357Y;
+let mesa2468Y;
+
 function cenario(){
     entrada(); 
     mesas();
