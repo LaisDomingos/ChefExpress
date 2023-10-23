@@ -15,4 +15,6 @@ function tela2Login(){
         textStyle(BOLD);
         text("Registrar", width * 0.53, height * 0.8)
     pop();
+
+    buttonVoltar1.draw_ButtonVoltar();
 }
