@@ -1,8 +1,8 @@
 function tela2Login(){
     background('black');
     image(title, width*0.32, height*0.1, width/3, height/5);
-    user.draw_Input(width * 0.37, height * 0.4, 310, 20, "User:");
-    pass.draw_Input(width * 0.37, height * 0.55, 310, 20, "Password:");
+    user.draw_Input(width * 0.37, height * 0.4, "User:");
+    pass.draw_Input(width * 0.37, height * 0.55, "Password:");
     login.draw_Button(200, 50, width*0.485, height*0.7, "Login", 20);
     push();
         fill('white');
