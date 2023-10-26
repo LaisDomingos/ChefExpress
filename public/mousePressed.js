@@ -1,4 +1,33 @@
 function mousePressed() {
+  if (start.on_Click(mouseX, mouseY) && tela == 1) {
+    tela = 2;
+    criarInputs2();
+  } 
+  if (tela == 2){
+    if (mouseX > width * 0.53 && mouseX < width * 0.53 + 70 && mouseY > height * 0.77 && mouseY < height * 0.77 + 30) {
+      tela = 3;
+      destruirInputs2();
+      criarInputs3();
+    } 
+    if(buttonVoltar1.on_ClickVoltar(mouseX,mouseY)){
+      tela = 1;
+      destruirInputs2();
+    }
+    if(login.on_Click(mouseX,mouseY)){
+      loginBD();
+    }
+  }
+  if(tela == 3){
+    if (buttonVoltar2.on_ClickVoltar(mouseX, mouseY)) {
+      tela = 2;    
+      criarInputs2();
+      destruirInputs3();
+    } 
+    if (registrar.on_Click(mouseX, mouseY)) {
+      registrarBD();
+    }
+  } 
+  if(tela == 4){
     if (isMouseOver && mostrarMenu) {
       if (mouseX > width * 0.91 && mouseX < width * 0.91 + width / 16 && mouseY > height * 0.32 && mouseY < height * 0.32 + height / 5.5) {
         telaFuncionarios();
@@ -132,3 +161,6 @@ function mousePressed() {
     }
     
   }
+}
+
+    

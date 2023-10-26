@@ -1,4 +1,7 @@
 function preload(){
+  imgLogo = loadImage('imagens/logoJogo.png');
+  title = loadImage('imagens/title.png');
+  
     piso = loadImage('imagens/piso.jpg');
     barra = loadImage('imagens/barra.png');
     escada = loadImage('imagens/escada.png');

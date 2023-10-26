@@ -1,6 +1,20 @@
+let tela = 1;
+
+let imgLogo;
+let title;
+
 let dinheiro;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  start = new Button();
+  login = new Button();
+  registrar = new Button();
+  //criarInputs3();
+  buttonVoltar1 = new ButtonVoltar();
+  buttonVoltar2 = new ButtonVoltar();
+
   xGarcon = width*0.52;
   yGarcon = height*0.3;
 
@@ -74,21 +88,27 @@ function setup() {
   pratosLista = new Button();
   verListaTrocas = new Button();
   presente = new Button();
-
  
   setInterval(gerarCliente, 4000);
 }
   
 function draw() {
-  
-  background(piso);   
-  cenario();
-  menu();
-  chamarClientes();
-  movimentoGarcon();
-  telasMenu();
+  if (tela == 1){
+    tela1();
+  } else if (tela == 2){
+    tela2Login();
 
-  
+  } else if (tela == 3){
+    tela3Registro();
+  } else if (tela == 4){
+    destruirInputs2();
+    background(piso);   
+    cenario();
+    menu();
+    chamarClientes();
+    movimentoGarcon();
+    telasMenu();
+  } 
   //noLoop();
   
 }
