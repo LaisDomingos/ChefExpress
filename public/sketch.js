@@ -4,7 +4,7 @@ let imgLogo;
 let title;
 
 let dinheiro;
-
+let idUsuario;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -120,6 +120,7 @@ function getDinheiro() {
   // Aqui você pode chamar o endpoint "/getDinheiro" para obter o valor atual do dinheiro do usuário
   loadJSON('/getDinheiro', (data) => {
     dinheiro = data.dinheiro;
+    idUsuario = data.idUser;
   }, (error) => {
     console.error('Erro ao obter o valor do dinheiro:', error);
   });

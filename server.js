@@ -103,7 +103,8 @@ app.get("/getDinheiro", (req, res) => {
       } else {
         if (result.length > 0) {
           const dinheiro = result[0].dinheiro;
-          res.json({ dinheiro });
+          res.json({ dinheiro, idUser});
+          //console.log(dinheiro, idUser)
         } else {
           res.status(404).json({ error: 'Usuário não encontrado' });
         }
@@ -113,6 +114,46 @@ app.get("/getDinheiro", (req, res) => {
     res.status(400).json({ error: 'ID do usuário não definido' });
   }
 });
+
+app.post('/postChef', (req, res) => {
+  const { chefId } = req.body;
+  
+  if (idUser) {
+    // Verifique se o jogador já possui este chefe associado
+    const checkAssociationQuery = 'SELECT * FROM users_chefs WHERE idUser = ?';
+    dbase.query(checkAssociationQuery, [idUser], (checkErr, checkResult) => {
+      if (checkErr) {
+        return res.status(500).json({ error: 'Erro no servidor' });
+      }
+
+      if (checkResult.length > 0) {
+        // O jogador já possui registros na tabela "users_chefs"
+        // Atualize o idChef correspondente, se existir
+        const updateAssociationQuery = 'UPDATE users_chefs SET idChef = ? WHERE idUser = ?';
+        dbase.query(updateAssociationQuery, [chefId, idUser], (updateErr, updateResult) => {
+          if (updateErr) {
+            return res.status(500).json({ error: 'Erro no servidor' });
+          }
+          res.json({ message: 'Associação entre jogador e chefe atualizada com sucesso' });
+        });
+      } else {
+        // O jogador não possui registros na tabela "users_chefs"
+        // Insira um novo registro com idUser e idChef
+        const insertAssociationQuery = 'INSERT INTO users_chefs (idUser, idChef) VALUES (?, ?)';
+        dbase.query(insertAssociationQuery, [idUser, chefId], (err, result) => {
+          if (err) {
+            return res.status(500).json({ error: 'Erro no servidor' });
+          }
+          res.json({ message: 'Associação entre jogador e chefe criada com sucesso' });
+        });
+      }
+    });
+  } else {
+    res.status(401).json({ error: 'Usuário não autenticado' });
+  }
+});
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

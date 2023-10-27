@@ -49,24 +49,25 @@ function mousePressed() {
         addChef2.corBt = "blue";
         addChef3.corBt = "blue";
         addChef4.corBt = "blue";
-
-        //chefId = 1; // Substitua pelo ID do Chef 1
-        //atualizarTabelaFuncionario(chefId);
+        postChef(1);
       } else if (addChef2.on_Click(mouseX, mouseY)) {
         addChef1.corBt = "blue";
         addChef2.corBt = "#066315";
         addChef3.corBt = "blue";
         addChef4.corBt = "blue";
+        postChef(2);
       } else if (addChef3.on_Click(mouseX, mouseY)) {
         addChef1.corBt = "blue";
         addChef2.corBt = "blue";
         addChef3.corBt = "#066315";
         addChef4.corBt = "blue";
+        postChef(3);
       } else  if (addChef4.on_Click(mouseX, mouseY)) {
         addChef1.corBt = "blue";
         addChef2.corBt = "blue";
         addChef3.corBt = "blue";
         addChef4.corBt = "#066315";
+        postChef(4);
       }
       if (addAjudante1.on_Click(mouseX, mouseY)) {
         addAjudante1.corBt = "#066315";
@@ -167,21 +168,28 @@ function mousePressed() {
   }
 }
 
-/*  
-function atualizarTabelaFuncionario(chefId) {
-  // Faça uma solicitação HTTP para o servidor Node.js
-  fetch('/atualizarFuncionario', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ chefId, idUser }),
-  })
-  .then((response) => response.json())
-  .then((data) => {
-    console.log('Tabela "funcionario" atualizada com sucesso.');
-  })
-  .catch((error) => {
-    console.error('Erro ao atualizar a tabela "funcionario":', error);
+function postChef(chefId){
+  let dataToSend = {
+    chefId: chefId
+  }
+  httpPost('/postChef', dataToSend, 'json', (data) => {
+    console.log(data);
+    loop();
   });
+} 
+/*function atualizarTabelaFuncionario(chefId) {
+   // Prepare os dados a serem enviados
+  const dadosRequisicao = {
+    chefId: chefId
+  };
+
+  // Envie uma solicitação HTTP POST para o servidor usando a função httpPost
+  httpPost('/postFuncionarios', dadosRequisicao, 'json', (data) => {
+    if (data.message === 'Tabela funcionario atualizada com sucesso') {
+      console.log('Tabela funcionario atualizada com sucesso.');
+    } 
+  });
+
+  // Certifique-se de que isso seja chamado apenas após a definição de idUsuario
+  loop();
 }*/
