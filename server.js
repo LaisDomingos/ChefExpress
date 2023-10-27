@@ -1,3 +1,5 @@
+let idUser;
+
 const express = require('express')
 var bodyParser = require('body-parser')
 const mysql = require('mysql')
@@ -27,21 +29,6 @@ app.use(bodyParser.json())
 
 app.use(express.static('public'))
 
-
-
-app.get("/getDinheiro",(req,res)=>{
-  //res.send({"resposta":text});
-
-  let sql="SELECT * FROM users";
-  dbase.query(sql, (err,result)=>{
-    if (err) throw err;
-
-    //console.log(result);
-    res.send(result);
-  })
-})
-
-
 app.post('/postRegistrar', (req, res) => {
   const { userRValue, emailValue, passRValue } = req.body;
 
@@ -49,26 +36,22 @@ app.post('/postRegistrar', (req, res) => {
   const checkUserQuery = 'SELECT * FROM users WHERE nome = ?';
   dbase.query(checkUserQuery, [userRValue], (checkErr, checkResult) => {
     if (checkErr) {
-      console.error('Erro na verificação do usuário:', checkErr);
       return res.status(500).json({ error: 'Erro no servidor' });
     }
 
     if (checkResult.length > 0) {
-      console.log('Usuário com mesmo nome já existe');
       return res.json({ message: 'Já existe um usuário com este nome' });
     }
 
     // Se não houver um usuário com o mesmo nome, prossiga com a inserção
     bcrypt.hash(passRValue, 10, (hashErr, hash) => {
       if (hashErr) {
-        console.error('Erro na criptografia da senha:', hashErr);
         return res.status(500).json({ error: 'Erro ao criptografar a senha' });
       }
 
       const insertQuery = 'INSERT INTO users (nome, email, password) VALUES (?, ?, ?)';
-      dbase.query(insertQuery, [userRValue, emailValue, hash], (insertErr, result) => {
+      dbase.query(insertQuery, [userRValue, emailValue, hash], (err, result) => {
         if (insertErr) {
-          console.error('Erro na inserção no banco de dados:', insertErr);
           return res.status(500).json({ error: 'Erro no servidor' });
         }
 
@@ -79,7 +62,6 @@ app.post('/postRegistrar', (req, res) => {
   });
 });
 
-
 app.post('/postLogin', (req, res) => {
   const { userValue, passValue } = req.body;
 
@@ -87,12 +69,10 @@ app.post('/postLogin', (req, res) => {
   const checkUserQuery = 'SELECT * FROM users WHERE nome = ?';
   dbase.query(checkUserQuery, [userValue], (checkErr, checkResult) => {
     if (checkErr) {
-      console.error('Erro na verificação do usuário:', checkErr);
       return res.status(500).json({ error: 'Erro no servidor' });
     }
 
     if (checkResult.length === 0) {
-      console.log('Usuário não encontrado');
       return res.json({ message: 'Usuário não encontrado' });
     }
 
@@ -100,23 +80,37 @@ app.post('/postLogin', (req, res) => {
     const user = checkResult[0];
     bcrypt.compare(passValue, user.password, (hashErr, passwordMatch) => {
       if (hashErr) {
-        console.error('Erro na comparação de senhas:', hashErr);
         return res.status(500).json({ error: 'Erro no servidor' });
       }
 
       if (!passwordMatch) {
-        console.log('Senha incorreta');
-        //return res.status(400).json({ error: 'Senha incorreta' });
         return res.json({ message: 'Senha incorreta' });
       }
-
-      console.log('Login bem-sucedido');
       res.json({ message: 'Login bem-sucedido' });
+      idUser = user.id;
+      console.log(idUser)
     });
   });
 });
 
+app.get("/getDinheiro",(req,res)=>{
+  
+  let sql="SELECT * FROM users ";
 
+  dbase.query(sql, (err,result)=>{
+    if (err) throw err;
+    res.send(result);
+  })
+})
+
+/*
+app.post('/postFuncionario', (req,res) => {
+  let sql = "SELECT * FROM users";
+  dbase.query(sql, (err,result)=>{
+    if (err) throw err;
+    res.send(result);
+  })
+});*/
 
 
 app.listen(port, () => {

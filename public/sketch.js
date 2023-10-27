@@ -5,6 +5,7 @@ let title;
 
 let dinheiro;
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
