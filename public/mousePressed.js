@@ -71,11 +71,23 @@ function mousePressed() {
       }
       if (addAjudante1.on_Click(mouseX, mouseY)) {
         addAjudante1.corBt = "#066315";
+        addAjudante2.corBt = "blue";
+        addAjudante3.corBt = "blue";
+        addAjudante4.corBt = "blue";
       } else if (addAjudante2.on_Click(mouseX, mouseY)) {
+        addAjudante1.corBt = "blue";
         addAjudante2.corBt = "#066315";
+        addAjudante3.corBt = "blue";
+        addAjudante4.corBt = "blue";
       } else if (addAjudante3.on_Click(mouseX, mouseY)) {
+        addAjudante1.corBt = "blue";
+        addAjudante2.corBt = "blue";
         addAjudante3.corBt = "#066315";
+        addAjudante4.corBt = "blue";
       } else  if (addAjudante4.on_Click(mouseX, mouseY)) {
+        addAjudante1.corBt = "blue";
+        addAjudante2.corBt = "blue";
+        addAjudante3.corBt = "blue";
         addAjudante4.corBt = "#066315";
       }
     }
