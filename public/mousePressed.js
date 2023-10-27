@@ -1,4 +1,5 @@
 let chefId;
+let ajudanteId;
 function mousePressed() {
   if (start.on_Click(mouseX, mouseY) && tela == 1) {
     tela = 2;
@@ -74,21 +75,25 @@ function mousePressed() {
         addAjudante2.corBt = "blue";
         addAjudante3.corBt = "blue";
         addAjudante4.corBt = "blue";
+        postAjudante(5);
       } else if (addAjudante2.on_Click(mouseX, mouseY)) {
         addAjudante1.corBt = "blue";
         addAjudante2.corBt = "#066315";
         addAjudante3.corBt = "blue";
         addAjudante4.corBt = "blue";
+        postAjudante(6);
       } else if (addAjudante3.on_Click(mouseX, mouseY)) {
         addAjudante1.corBt = "blue";
         addAjudante2.corBt = "blue";
         addAjudante3.corBt = "#066315";
         addAjudante4.corBt = "blue";
+        postAjudante(7);
       } else  if (addAjudante4.on_Click(mouseX, mouseY)) {
         addAjudante1.corBt = "blue";
         addAjudante2.corBt = "blue";
         addAjudante3.corBt = "blue";
         addAjudante4.corBt = "#066315";
+        postAjudante(8);
       }
     }
     
@@ -189,19 +194,13 @@ function postChef(chefId){
     loop();
   });
 } 
-/*function atualizarTabelaFuncionario(chefId) {
-   // Prepare os dados a serem enviados
-  const dadosRequisicao = {
-    chefId: chefId
-  };
 
-  // Envie uma solicitação HTTP POST para o servidor usando a função httpPost
-  httpPost('/postFuncionarios', dadosRequisicao, 'json', (data) => {
-    if (data.message === 'Tabela funcionario atualizada com sucesso') {
-      console.log('Tabela funcionario atualizada com sucesso.');
-    } 
+function postAjudante(ajudanteIdId){
+  let dataToSend = {
+    ajudanteId: ajudanteIdId
+  }
+  httpPost('/postAjudante', dataToSend, 'json', (data) => {
+    console.log(data);
+    loop();
   });
-
-  // Certifique-se de que isso seja chamado apenas após a definição de idUsuario
-  loop();
-}*/
+}

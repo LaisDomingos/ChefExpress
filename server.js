@@ -152,6 +152,43 @@ app.post('/postChef', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+app.post('/postAjudante', (req, res) => {
+  const { ajudanteId } = req.body;
+  
+  if (idUser) {
+    // Verifique se o jogador já possui este chefe associado
+    const checkAssociationQuery = 'SELECT * FROM users_ajudantes WHERE idUser = ?';
+    dbase.query(checkAssociationQuery, [idUser], (checkErr, checkResult) => {
+      if (checkErr) {
+        return res.status(500).json({ error: 'Erro no servidor' });
+      }
+
+      if (checkResult.length > 0) {
+        // O jogador já possui registros na tabela "users_chefs"
+        // Atualize o idChef correspondente, se existir
+        const updateAssociationQuery = 'UPDATE users_ajudantes SET idAjudante = ? WHERE idUser = ?';
+        dbase.query(updateAssociationQuery, [ajudanteId, idUser], (updateErr, updateResult) => {
+          if (updateErr) {
+            return res.status(500).json({ error: 'Erro no servidor' });
+          }
+          res.json({ message: 'Associação entre jogador e ajudante atualizada com sucesso' });
+        });
+      } else {
+        // O jogador não possui registros na tabela "users_chefs"
+        // Insira um novo registro com idUser e idChef
+        const insertAssociationQuery = 'INSERT INTO users_ajudantes (idUser, idAjudante) VALUES (?, ?)';
+        dbase.query(insertAssociationQuery, [idUser, ajudanteId], (err, result) => {
+          if (err) {
+            return res.status(500).json({ error: 'Erro no servidor' });
+          }
+          res.json({ message: 'Associação entre jogador e ajudante criada com sucesso' });
+        });
+      }
+    });
+  } else {
+    res.status(401).json({ error: 'Usuário não autenticado' });
+  }
+});
 
 
 
