@@ -1,3 +1,4 @@
+let chefId;
 function mousePressed() {
   if (start.on_Click(mouseX, mouseY) && tela == 1) {
     tela = 2;
@@ -48,6 +49,9 @@ function mousePressed() {
         addChef2.corBt = "blue";
         addChef3.corBt = "blue";
         addChef4.corBt = "blue";
+
+        //chefId = 1; // Substitua pelo ID do Chef 1
+        //atualizarTabelaFuncionario(chefId);
       } else if (addChef2.on_Click(mouseX, mouseY)) {
         addChef1.corBt = "blue";
         addChef2.corBt = "#066315";
@@ -163,4 +167,21 @@ function mousePressed() {
   }
 }
 
-    
+/*  
+function atualizarTabelaFuncionario(chefId) {
+  // Faça uma solicitação HTTP para o servidor Node.js
+  fetch('/atualizarFuncionario', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ chefId, idUser }),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    console.log('Tabela "funcionario" atualizada com sucesso.');
+  })
+  .catch((error) => {
+    console.error('Erro ao atualizar a tabela "funcionario":', error);
+  });
+}*/

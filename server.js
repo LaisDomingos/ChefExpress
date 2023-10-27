@@ -86,32 +86,33 @@ app.post('/postLogin', (req, res) => {
       if (!passwordMatch) {
         return res.json({ message: 'Senha incorreta' });
       }
-      res.json({ message: 'Login bem-sucedido' });
       idUser = user.id;
-      console.log(idUser)
+      res.json({ message: 'Login bem-sucedido' });
+      
     });
   });
 });
 
-app.get("/getDinheiro",(req,res)=>{
-  
-  let sql="SELECT * FROM users ";
-
-  dbase.query(sql, (err,result)=>{
-    if (err) throw err;
-    res.send(result);
-  })
-})
-
-/*
-app.post('/postFuncionario', (req,res) => {
-  let sql = "SELECT * FROM users";
-  dbase.query(sql, (err,result)=>{
-    if (err) throw err;
-    res.send(result);
-  })
-});*/
-
+app.get("/getDinheiro", (req, res) => {
+  // Certifique-se de que idUser está definido antes de usar
+  if (idUser) {
+    let sql = "SELECT dinheiro FROM users WHERE id = ?";
+    dbase.query(sql, [idUser], (err, result) => {
+      if (err) {
+        res.status(500).json({ error: 'Erro no servidor' });
+      } else {
+        if (result.length > 0) {
+          const dinheiro = result[0].dinheiro;
+          res.json({ dinheiro });
+        } else {
+          res.status(404).json({ error: 'Usuário não encontrado' });
+        }
+      }
+    });
+  } else {
+    res.status(400).json({ error: 'ID do usuário não definido' });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

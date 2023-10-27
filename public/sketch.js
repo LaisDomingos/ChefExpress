@@ -91,6 +91,8 @@ function setup() {
   presente = new Button();
  
   setInterval(gerarCliente, 4000);
+
+  
 }
   
 function draw() {
@@ -109,8 +111,17 @@ function draw() {
     chamarClientes();
     movimentoGarcon();
     telasMenu();
+    getDinheiro();
   } 
-  //noLoop();
-  
+
 }
 
+function getDinheiro() {
+  // Aqui você pode chamar o endpoint "/getDinheiro" para obter o valor atual do dinheiro do usuário
+  loadJSON('/getDinheiro', (data) => {
+    dinheiro = data.dinheiro;
+  }, (error) => {
+    console.error('Erro ao obter o valor do dinheiro:', error);
+  });
+  loop();
+}

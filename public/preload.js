@@ -107,9 +107,5 @@ function preload(){
   imgTelaFuncionarios.push(loadImage('imagens/ajudante2.png'));
   imgTelaFuncionarios.push(loadImage('imagens/ajudante3.png'));
   imgTelaFuncionarios.push(loadImage('imagens/ajudante4.png'));
-
-  loadJSON('/getDinheiro',(data) => { 
-    dinheiro = data[2].dinheiro;
-    //O indice tem que buscar o id do cliente
-  });
+  
 }
