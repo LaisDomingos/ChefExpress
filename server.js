@@ -130,8 +130,8 @@ app.post('/postChef', (req, res) => {
         // O jogador já possui registros na tabela "users_chefs"
         // Atualize o idChef correspondente, se existir
         const updateAssociationQuery = 'UPDATE users_chefs SET idChef = ? WHERE idUser = ?';
-        dbase.query(updateAssociationQuery, [chefId, idUser], (updateErr, updateResult) => {
-          if (updateErr) {
+        dbase.query(updateAssociationQuery, [chefId, idUser], (err, result) => {
+          if (err) {
             return res.status(500).json({ error: 'Erro no servidor' });
           }
           res.json({ message: 'Associação entre jogador e chefe atualizada com sucesso' });
@@ -189,6 +189,32 @@ app.post('/postAjudante', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+app.get('/getTempoPreparo', (req, res) => {
+  if (idUser) {
+    // Realize a consulta SQL para obter o tempo de preparo com base no userId
+    // Substitua 'seuClienteDeBancoDeDados' pelo cliente de banco de dados que você estiver usando.
+
+    // Exemplo de consulta fictícia
+    const query = `SELECT f.tempoPreparo FROM users_ajudantes u JOIN funcionarios f ON u.idAjudante = f.idFuncionario WHERE u.idUser = ?;`;
+
+    dbase.query(query, [idUser], (error, results) => {
+      if (error) {
+        res.status(500).json({ error: 'Erro no servidor' });
+      } else {
+        if (results.length > 0) {
+          const tempoPreparo = results[0].tempoPreparo;
+          res.json({ tempoPreparo });
+          //console.log(tempoPreparo)
+        } else {
+          res.status(404).json({ error: 'Usuário não tem um ajudante associado' });
+        }
+      }
+    });
+  } else {
+    res.status(401).json({ error: 'Usuário não autenticado' });
+  }
+});
+
 
 
 

@@ -5,6 +5,7 @@ let title;
 
 let dinheiro;
 let idUsuario;
+let tempoPreparo;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -112,6 +113,7 @@ function draw() {
     movimentoGarcon();
     telasMenu();
     getDinheiro();
+    getTempoPreparo();
   } 
 
 }
@@ -123,6 +125,16 @@ function getDinheiro() {
     idUsuario = data.idUser;
   }, (error) => {
     console.error('Erro ao obter o valor do dinheiro:', error);
+  });
+  loop();
+}
+
+function getTempoPreparo() {
+  // Aqui você pode chamar o endpoint "/getDinheiro" para obter o valor atual do dinheiro do usuário
+  loadJSON('/getTempoPreparo', (data) => {
+    tempoPreparo = data.tempoPreparo;
+  }, (error) => {
+    console.error('Erro ao obter o tempo:', error);
   });
   loop();
 }
