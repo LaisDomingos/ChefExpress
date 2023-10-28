@@ -2,8 +2,11 @@ let registrado = false;
 let senhasNao = false;
 let camposPreencherRegistro = false;
 let nomeExiste = false;
-
+let buttonVoltar2;
 function tela3Registro() {
+    registrar = new Button();
+    buttonVoltar2 = new ButtonVoltar();
+
     registradoText = new MensagemDB();
     senhasNaoText = new MensagemDB();
     camposPreencherRegistroText = new MensagemDB();

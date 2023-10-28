@@ -2,8 +2,11 @@ let usuarioInexistente = false;
 let camposPreencherLogin = false;
 let senhaErrada = false;
 let loginSucesso = false;
-
+let buttonVoltar1;
 function tela2Login(){
+    login = new Button();
+    buttonVoltar1 = new ButtonVoltar();
+
     usuarioInexistenteText = new MensagemDB();
     camposPreencherLoginText = new MensagemDB();
     senhaErradaText = new MensagemDB();

@@ -80,6 +80,38 @@ function telaPratos() {
     mostrarTelaPratos = true;
     
 }
+function criarCheck(){
+    check1 = new Checkbox();
+    check2 = new Checkbox();
+    check3 = new Checkbox();
+    check4 = new Checkbox();
+    check5 = new Checkbox();
+    check6 = new Checkbox();
+    check7 = new Checkbox();
+    check8 = new Checkbox();
+    check9 = new Checkbox();
+    check10 = new Checkbox();
+    check11 = new Checkbox();
+    check12 = new Checkbox();
+    check13 = new Checkbox();
+    check14 = new Checkbox();
+    check15 = new Checkbox();
+    check16 = new Checkbox();
+    check17 = new Checkbox();
+    check18 = new Checkbox();
+    check19 = new Checkbox();
+    check20 = new Checkbox();
+    check21 = new Checkbox();
+    check22 = new Checkbox();
+    check23 = new Checkbox();
+    check24 = new Checkbox();
+    check25 = new Checkbox();
+    check26 = new Checkbox();
+    check27 = new Checkbox();
+    check28 = new Checkbox();
+    check29 = new Checkbox();
+    check30 = new Checkbox();
+}
 function retirarCheck(){
     check1.destroy_checkbox();
     check2.destroy_checkbox();

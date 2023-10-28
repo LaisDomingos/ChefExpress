@@ -6,13 +6,14 @@ let title;
 let dinheiro;
 let idUsuario;
 let tempoPreparo;
+let lucroMais;
+let valorAjudante;
+let valorChef;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  start = new Button();
-  login = new Button();
-  registrar = new Button();
+ 
   //criarInputs3();
   buttonVoltar1 = new ButtonVoltar();
   buttonVoltar2 = new ButtonVoltar();
@@ -56,43 +57,14 @@ function setup() {
   addAjudante3 = new Button();
   addAjudante4 = new Button();
 
-  check1 = new Checkbox();
-  check2 = new Checkbox();
-  check3 = new Checkbox();
-  check4 = new Checkbox();
-  check5 = new Checkbox();
-  check6 = new Checkbox();
-  check7 = new Checkbox();
-  check8 = new Checkbox();
-  check9 = new Checkbox();
-  check10 = new Checkbox();
-  check11 = new Checkbox();
-  check12 = new Checkbox();
-  check13 = new Checkbox();
-  check14 = new Checkbox();
-  check15 = new Checkbox();
-  check16 = new Checkbox();
-  check17 = new Checkbox();
-  check18 = new Checkbox();
-  check19 = new Checkbox();
-  check20 = new Checkbox();
-  check21 = new Checkbox();
-  check22 = new Checkbox();
-  check23 = new Checkbox();
-  check24 = new Checkbox();
-  check25 = new Checkbox();
-  check26 = new Checkbox();
-  check27 = new Checkbox();
-  check28 = new Checkbox();
-  check29 = new Checkbox();
-  check30 = new Checkbox();
+  criarCheck();
   
   pratosLista = new Button();
   verListaTrocas = new Button();
   presente = new Button();
  
   setInterval(gerarCliente, 4000);
-
+  //setInterval(atualizarDinheiro, 4000);
   
 }
   
@@ -101,10 +73,11 @@ function draw() {
     tela1();
   } else if (tela == 2){
     tela2Login();
-
+    
   } else if (tela == 3){
     tela3Registro();
   } else if (tela == 4){
+    getDinheiro();
     destruirInputs2();
     background(piso);   
     cenario();
@@ -112,8 +85,9 @@ function draw() {
     chamarClientes();
     movimentoGarcon();
     telasMenu();
-    getDinheiro();
-    getTempoPreparo();
+    getTempoPreparoValor();
+    getValorChef();
+    
   } 
 
 }
@@ -129,12 +103,53 @@ function getDinheiro() {
   loop();
 }
 
-function getTempoPreparo() {
+function getTempoPreparoValor() {
   // Aqui você pode chamar o endpoint "/getDinheiro" para obter o valor atual do dinheiro do usuário
-  loadJSON('/getTempoPreparo', (data) => {
+  loadJSON('/getTempoPreparoValor', (data) => {
     tempoPreparo = data.tempoPreparo;
+    valorAjudante = data.valor;
   }, (error) => {
-    console.error('Erro ao obter o tempo:', error);
+    //console.error('Erro ao obter o tempo e valor:', error);
+
+    tempoPreparo = 30;
+    valorAjudante = 0;
   });
   loop();
 }
+
+function getValorChef() {
+  // Aqui você pode chamar o endpoint "/getDinheiro" para obter o valor atual do dinheiro do usuário
+  loadJSON('/getValorChef', (data) => {
+    lucroMais = data.lucro;
+    valorChef = data.valor;
+  }, (error) => {
+    //console.error('Erro ao obter o tempo e valor:', error);
+
+    lucroMais = 0;
+    valorChef = 0;
+  });
+  loop();
+}
+
+function atualizarDinheiro() {
+  let attDinheiro = dinheiro - (valorAjudante + valorChef);
+  if (attDinheiro >= 0) {
+    let attBancoDinheiro = {
+      "dinheiro": attDinheiro
+    };
+  // Enviar a atualização para o servidor
+  httpPost('/postDinheiro', attBancoDinheiro, 'json', (respostaServidor) => {
+    console.log(respostaServidor);
+    if (respostaServidor.status === 200) {
+      // Atualize o dinheiro após a atualização bem-sucedida
+      getDinheiro();
+    } else {
+      console.error('Erro ao atualizar o dinheiro:', respostaServidor.statusText);
+    }
+    });
+  } else {
+    console.error('Saldo insuficiente para concluir a transação.');
+  }
+  loop();
+}
+

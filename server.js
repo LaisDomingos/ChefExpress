@@ -51,7 +51,7 @@ app.post('/postRegistrar', (req, res) => {
 
       const insertQuery = 'INSERT INTO users (nome, email, password) VALUES (?, ?, ?)';
       dbase.query(insertQuery, [userRValue, emailValue, hash], (err, result) => {
-        if (insertErr) {
+        if (err) {
           return res.status(500).json({ error: 'Erro no servidor' });
         }
 
@@ -104,10 +104,26 @@ app.get("/getDinheiro", (req, res) => {
         if (result.length > 0) {
           const dinheiro = result[0].dinheiro;
           res.json({ dinheiro, idUser});
-          //console.log(dinheiro, idUser)
+          //console.log(dinheiro)
         } else {
           res.status(404).json({ error: 'Usuário não encontrado' });
         }
+      }
+    });
+  } else {
+    res.status(400).json({ error: 'ID do usuário não definido' });
+  }
+});
+app.post("/postDinheiro", (req, res) => {
+  // Certifique-se de que idUser está definido antes de usar
+  if (idUser) {
+    const novoDinheiro = req.body.dinheiro;
+    let sql = "UPDATE users SET dinheiro = ? WHERE id = ?";
+    dbase.query(sql, [novoDinheiro, idUser], (err, result) => {
+      if (err) {
+        res.status(500).json({ error: 'Erro no servidor' });
+      } else {
+        res.status(200).json({ message: 'Dinheiro atualizado com sucesso' });
       }
     });
   } else {
@@ -189,13 +205,11 @@ app.post('/postAjudante', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
-app.get('/getTempoPreparo', (req, res) => {
+app.get('/getTempoPreparoValor', (req, res) => {
   if (idUser) {
     // Realize a consulta SQL para obter o tempo de preparo com base no userId
-    // Substitua 'seuClienteDeBancoDeDados' pelo cliente de banco de dados que você estiver usando.
-
     // Exemplo de consulta fictícia
-    const query = `SELECT f.tempoPreparo FROM users_ajudantes u JOIN funcionarios f ON u.idAjudante = f.idFuncionario WHERE u.idUser = ?;`;
+    const query = `SELECT * FROM users_ajudantes u JOIN funcionarios f ON u.idAjudante = f.idFuncionario WHERE u.idUser = ?;`;
 
     dbase.query(query, [idUser], (error, results) => {
       if (error) {
@@ -203,10 +217,37 @@ app.get('/getTempoPreparo', (req, res) => {
       } else {
         if (results.length > 0) {
           const tempoPreparo = results[0].tempoPreparo;
-          res.json({ tempoPreparo });
+          const valor = results[0].valor;
+          res.json({ tempoPreparo, valor});
+          //console.log(results[0].valor)
           //console.log(tempoPreparo)
         } else {
           res.status(404).json({ error: 'Usuário não tem um ajudante associado' });
+        }
+      }
+    });
+  } else {
+    res.status(401).json({ error: 'Usuário não autenticado' });
+  }
+});
+
+app.get('/getValorChef', (req, res) => {
+  if (idUser) {
+    // Realize a consulta SQL para obter o tempo de preparo com base no userId
+    // Exemplo de consulta fictícia
+    const query = `SELECT * FROM users_chefs u JOIN funcionarios f ON u.idChef = f.idFuncionario WHERE u.idUser = ?;`;
+
+    dbase.query(query, [idUser], (error, results) => {
+      if (error) {
+        res.status(500).json({ error: 'Erro no servidor' });
+      } else {
+        if (results.length > 0) {
+          const lucro = results[0].lucro;
+          const valor = results[0].valor;
+          res.json({ lucro, valor});
+          //console.log(lucro, valor)
+        } else {
+          res.status(404).json({ error: 'Usuário não tem chef associado' });
         }
       }
     });

@@ -38,6 +38,7 @@ let posicaoPrato13X, posicaoPrato13Y;
 let posicaoPrato14X, posicaoPrato14Y;
 
 function cenario(){
+    
     entrada(); 
     mesas();
     balcao();
