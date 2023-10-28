@@ -1,3 +1,4 @@
+let imgLogo;
 function tela1(){
     start = new Button();
     background('black');

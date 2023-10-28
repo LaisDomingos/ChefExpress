@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt');
 const app = express()
 const port = 4000
 
-const dbase = mysql.createConnection({
+const dbase = mysql.createConnection({ //Conecta ao BD
   host:"localhost",
   port: "3306",
   user:"root",
@@ -29,10 +29,11 @@ app.use(bodyParser.json())
 
 app.use(express.static('public'))
 
+//postRegistrar - registrar usuário
 app.post('/postRegistrar', (req, res) => {
   const { userRValue, emailValue, passRValue } = req.body;
 
-  // Verifique se já existe um usuário com o mesmo nome
+  // Verifique se existe um usuário com o mesmo nome
   const checkUserQuery = 'SELECT * FROM users WHERE nome = ?';
   dbase.query(checkUserQuery, [userRValue], (checkErr, checkResult) => {
     if (checkErr) {
@@ -43,7 +44,8 @@ app.post('/postRegistrar', (req, res) => {
       return res.json({ message: 'Já existe um usuário com este nome' });
     }
 
-    // Se não houver um usuário com o mesmo nome, prossiga com a inserção
+    // Se não existir um usuário com o mesmo nome, insere
+    //Encriptar a senha usando bcrypt
     bcrypt.hash(passRValue, 10, (hashErr, hash) => {
       if (hashErr) {
         return res.status(500).json({ error: 'Erro ao criptografar a senha' });
@@ -62,6 +64,7 @@ app.post('/postRegistrar', (req, res) => {
   });
 });
 
+//postLogin - fazer o login
 app.post('/postLogin', (req, res) => {
   const { userValue, passValue } = req.body;
 
@@ -76,7 +79,7 @@ app.post('/postLogin', (req, res) => {
       return res.json({ message: 'Usuário não encontrado' });
     }
 
-    // Verifique se a senha está correta
+    // Verifique se a senha está correta - encripta a senha digitada e compara
     const user = checkResult[0];
     bcrypt.compare(passValue, user.password, (hashErr, passwordMatch) => {
       if (hashErr) {
@@ -93,8 +96,9 @@ app.post('/postLogin', (req, res) => {
   });
 });
 
+//getDinheiro - busca quanto o usuário tem de dinheiro
 app.get("/getDinheiro", (req, res) => {
-  // Certifique-se de que idUser está definido antes de usar
+  // Certifique de que já possui idUser
   if (idUser) {
     let sql = "SELECT dinheiro FROM users WHERE id = ?";
     dbase.query(sql, [idUser], (err, result) => {
@@ -114,6 +118,8 @@ app.get("/getDinheiro", (req, res) => {
     res.status(400).json({ error: 'ID do usuário não definido' });
   }
 });
+
+//postDinheiro - atualiza o valor no banco, descontando o chef e ajudante
 app.post("/postDinheiro", (req, res) => {
   // Certifique-se de que idUser está definido antes de usar
   if (idUser) {
@@ -131,9 +137,9 @@ app.post("/postDinheiro", (req, res) => {
   }
 });
 
+//postChef - coloca o chef que foi contratado na tabela users_chefs (idUser e idFuncionario)
 app.post('/postChef', (req, res) => {
   const { chefId } = req.body;
-  
   if (idUser) {
     // Verifique se o jogador já possui este chefe associado
     const checkAssociationQuery = 'SELECT * FROM users_chefs WHERE idUser = ?';
@@ -144,7 +150,7 @@ app.post('/postChef', (req, res) => {
 
       if (checkResult.length > 0) {
         // O jogador já possui registros na tabela "users_chefs"
-        // Atualize o idChef correspondente, se existir
+        // Atualize o idChef 
         const updateAssociationQuery = 'UPDATE users_chefs SET idChef = ? WHERE idUser = ?';
         dbase.query(updateAssociationQuery, [chefId, idUser], (err, result) => {
           if (err) {
@@ -168,6 +174,8 @@ app.post('/postChef', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+
+//postAjudante - coloca o ajudante que foi contratado na tabela users_ajudantes (idUser e idFuncionario)
 app.post('/postAjudante', (req, res) => {
   const { ajudanteId } = req.body;
   
@@ -180,8 +188,8 @@ app.post('/postAjudante', (req, res) => {
       }
 
       if (checkResult.length > 0) {
-        // O jogador já possui registros na tabela "users_chefs"
-        // Atualize o idChef correspondente, se existir
+        // O jogador já possui registros na tabela
+        // Atualize o idAjudante correspondente
         const updateAssociationQuery = 'UPDATE users_ajudantes SET idAjudante = ? WHERE idUser = ?';
         dbase.query(updateAssociationQuery, [ajudanteId, idUser], (updateErr, updateResult) => {
           if (updateErr) {
@@ -190,8 +198,8 @@ app.post('/postAjudante', (req, res) => {
           res.json({ message: 'Associação entre jogador e ajudante atualizada com sucesso' });
         });
       } else {
-        // O jogador não possui registros na tabela "users_chefs"
-        // Insira um novo registro com idUser e idChef
+        // O jogador não possui registros na tabela
+        // Insira um novo registro com idUser e idAjudante
         const insertAssociationQuery = 'INSERT INTO users_ajudantes (idUser, idAjudante) VALUES (?, ?)';
         dbase.query(insertAssociationQuery, [idUser, ajudanteId], (err, result) => {
           if (err) {
@@ -205,10 +213,11 @@ app.post('/postAjudante', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+
+//getTempoPreparoValor - busca o tempo de preparo e valor do ajudante contratato
 app.get('/getTempoPreparoValor', (req, res) => {
   if (idUser) {
-    // Realize a consulta SQL para obter o tempo de preparo com base no userId
-    // Exemplo de consulta fictícia
+    //Pegar todos os dados da tabela users_ajudantes faz uma ligação com a tabela funcionarios em que idAjudante = idFuncionario onde idUser foi igual o passadp
     const query = `SELECT * FROM users_ajudantes u JOIN funcionarios f ON u.idAjudante = f.idFuncionario WHERE u.idUser = ?;`;
 
     dbase.query(query, [idUser], (error, results) => {
@@ -219,10 +228,10 @@ app.get('/getTempoPreparoValor', (req, res) => {
           const tempoPreparo = results[0].tempoPreparo;
           const valor = results[0].valor;
           res.json({ tempoPreparo, valor});
-          //console.log(results[0].valor)
-          //console.log(tempoPreparo)
+          //console.log(tempoPreparo, valor)
         } else {
-          res.status(404).json({ error: 'Usuário não tem um ajudante associado' });
+          //res.status(404).json({ error: 'Usuário não tem um ajudante associado' });
+          res.json('Usuário não tem um ajudante associado' );
         }
       }
     });
@@ -233,8 +242,7 @@ app.get('/getTempoPreparoValor', (req, res) => {
 
 app.get('/getValorChef', (req, res) => {
   if (idUser) {
-    // Realize a consulta SQL para obter o tempo de preparo com base no userId
-    // Exemplo de consulta fictícia
+    //Pegar todos os dados da tabela users_chefs faz uma ligação com a tabela funcionarios em que idChef = idFuncionario onde idUser foi igual o passadp
     const query = `SELECT * FROM users_chefs u JOIN funcionarios f ON u.idChef = f.idFuncionario WHERE u.idUser = ?;`;
 
     dbase.query(query, [idUser], (error, results) => {
@@ -247,7 +255,8 @@ app.get('/getValorChef', (req, res) => {
           res.json({ lucro, valor});
           //console.log(lucro, valor)
         } else {
-          res.status(404).json({ error: 'Usuário não tem chef associado' });
+          //res.status(404).json({ error: 'Usuário não tem chef associado' });
+          res.json('Usuário não tem chef associado');
         }
       }
     });
@@ -255,8 +264,6 @@ app.get('/getValorChef', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
-
-
 
 
 app.listen(port, () => {

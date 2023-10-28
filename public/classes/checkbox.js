@@ -2,7 +2,7 @@ class Checkbox {
     constructor() {
         this.x = 0;
         this.y = 0;
-        this.checked = false; // Adiciona uma propriedade para salvar o estado do Checkbox
+        this.checked = false; //Salvar o estado do Checkbox
         this.checkbox = null;
     }
 

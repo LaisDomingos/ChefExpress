@@ -1,8 +1,5 @@
 let tela = 1;
 
-let imgLogo;
-let title;
-
 let dinheiro;
 let idUsuario;
 let tempoPreparo;
@@ -13,14 +10,14 @@ let valorChef;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
- 
-  //criarInputs3();
   buttonVoltar1 = new ButtonVoltar();
   buttonVoltar2 = new ButtonVoltar();
 
+  //Posição inicial do garçon
   xGarcon = width*0.52;
   yGarcon = height*0.3;
 
+  //Posições iniciais dos pratos 
   posicaoPrato1X = width * 0.15;
   posicaoPrato2X = width * 0.2;
   posicaoPrato3X = width * 0.25;
@@ -39,6 +36,7 @@ function setup() {
   posicaoPrato1Y = posicaoPrato2Y = posicaoPrato3Y = posicaoPrato4Y = posicaoPrato5Y = posicaoPrato6Y = posicaoPrato7Y = height * 0.85;
   posicaoPrato8Y = posicaoPrato9Y = posicaoPrato10Y = posicaoPrato11Y = posicaoPrato12Y = posicaoPrato13Y = posicaoPrato14Y = height * 0.85;
 
+  //Posições das mesas
   mesa12X = width*0.25;
   mesa34X = width*0.4;
   mesa56X = width*0.6;
@@ -46,6 +44,7 @@ function setup() {
   mesa1357Y = height*0.45;
   mesa2468Y = height*0.1;
 
+  //Telas fe funiconários e pratos
   fecharFuncionarios = new ButtonFechar();
   fecharPratos = new ButtonFechar();
   addChef1 = new Button();
@@ -86,70 +85,12 @@ function draw() {
     movimentoGarcon();
     telasMenu();
     getTempoPreparoValor();
-    getValorChef();
-    
+    getValorChef();  
   } 
 
 }
 
-function getDinheiro() {
-  // Aqui você pode chamar o endpoint "/getDinheiro" para obter o valor atual do dinheiro do usuário
-  loadJSON('/getDinheiro', (data) => {
-    dinheiro = data.dinheiro;
-    idUsuario = data.idUser;
-  }, (error) => {
-    console.error('Erro ao obter o valor do dinheiro:', error);
-  });
-  loop();
-}
 
-function getTempoPreparoValor() {
-  // Aqui você pode chamar o endpoint "/getDinheiro" para obter o valor atual do dinheiro do usuário
-  loadJSON('/getTempoPreparoValor', (data) => {
-    tempoPreparo = data.tempoPreparo;
-    valorAjudante = data.valor;
-  }, (error) => {
-    //console.error('Erro ao obter o tempo e valor:', error);
 
-    tempoPreparo = 30;
-    valorAjudante = 0;
-  });
-  loop();
-}
 
-function getValorChef() {
-  // Aqui você pode chamar o endpoint "/getDinheiro" para obter o valor atual do dinheiro do usuário
-  loadJSON('/getValorChef', (data) => {
-    lucroMais = data.lucro;
-    valorChef = data.valor;
-  }, (error) => {
-    //console.error('Erro ao obter o tempo e valor:', error);
-
-    lucroMais = 0;
-    valorChef = 0;
-  });
-  loop();
-}
-
-function atualizarDinheiro() {
-  let attDinheiro = dinheiro - (valorAjudante + valorChef);
-  if (attDinheiro >= 0) {
-    let attBancoDinheiro = {
-      "dinheiro": attDinheiro
-    };
-  // Enviar a atualização para o servidor
-  httpPost('/postDinheiro', attBancoDinheiro, 'json', (respostaServidor) => {
-    console.log(respostaServidor);
-    if (respostaServidor.status === 200) {
-      // Atualize o dinheiro após a atualização bem-sucedida
-      getDinheiro();
-    } else {
-      console.error('Erro ao atualizar o dinheiro:', respostaServidor.statusText);
-    }
-    });
-  } else {
-    console.error('Saldo insuficiente para concluir a transação.');
-  }
-  loop();
-}
 

@@ -19,19 +19,21 @@ function chamarClientes(){
     mostrarClientes();
     moverClientes();
 }
+
+
 function mostrarClientes() {
     for (let i = 0; i < clientes.length; i++) {
         const cliente = clientes[i];
         if (!cliente.chegou) {
-           if(cliente.pertenceAoGrupo == true){
+            if(cliente.pertenceAoGrupo == true){
                 image(cliente.imagemPe, cliente.x, cliente.y,  width/5, height/6); 
-           } else {
+            } else {
                 if(cliente.dupla == true){
                     image(cliente.imagemPe, cliente.x, cliente.y,  width/9, height/6); 
                 } else {
                     image(cliente.imagemPe, cliente.x, cliente.y, width/19, height/6);
                 } 
-           }
+            }
         } else {
             if(cliente.pertenceAoGrupo == true){
                 image(cliente.imagemFre, cliente.sentarX, cliente.sentarY,  width/9, height/3.5); 
@@ -189,7 +191,6 @@ function criarClienteNaMesa(numeroMesa) {
             mesaY = height * 0.1;
             listaPedidoX = width*0.82;
             if (dupla == true){
-                // Defina a posição inicial do cliente duplo corretamente
                 mesaXSentar = mesaX *1.08;
                 mesaYSentar = mesaY / 4;
             } else {
@@ -204,8 +205,7 @@ function criarClienteNaMesa(numeroMesa) {
     }
     // Gerar imagens de pedido aleatórias e armazená-las no objeto do cliente
     imagensPedido = gerarImagensPedidoAleatorias();
-    let novoCliente = {
-        // Seu objeto JSON com as informações do cliente
+    let novoCliente = {// JSON com as informações do cliente
         x: 0,
         y: 200,
         destinoX: mesaX,
