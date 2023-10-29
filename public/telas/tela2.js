@@ -13,14 +13,14 @@ function tela2Login(){
     senhaErradaText = new MensagemDB();
     loginSucessoText = new MensagemDB();
 
-    background('black');
+    background('#acefea');
     image(title, width*0.32, height*0.1, width/3, height/5);
     user.draw_Input(width * 0.37, height * 0.42, "User:");
     pass.draw_Input(width * 0.37, height * 0.57, "Password:");
    
-    login.draw_Button(200, 30, width*0.485, height*0.7, "Login", 20);
+    login.draw_Button(200, 30, width*0.495, height*0.7, "Login", 20);
     push();
-        fill('white');
+        fill('#00bdae');
         textSize(15);
         text("Ainda não tem uma conta?", width * 0.38, height * 0.8)
     pop();

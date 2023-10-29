@@ -4,7 +4,7 @@ class Inputs {
       this.posY = height * 0.4;
       this.sizeW = 310;
       this.sizeH = 30;
-      this.corText = "white";
+      this.corText = "#00bdae";
       this.tamText = 18;
       this.labelT = "User";
       this.input = createInput('');

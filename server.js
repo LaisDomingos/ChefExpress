@@ -239,7 +239,7 @@ app.get('/getTempoPreparoValor', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
-
+//getValorChef - busca o valor do chef contratato
 app.get('/getValorChef', (req, res) => {
   if (idUser) {
     //Pegar todos os dados da tabela users_chefs faz uma ligação com a tabela funcionarios em que idChef = idFuncionario onde idUser foi igual o passadp
@@ -264,7 +264,6 @@ app.get('/getValorChef', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

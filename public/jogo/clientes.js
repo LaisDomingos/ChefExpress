@@ -20,7 +20,6 @@ function chamarClientes(){
     moverClientes();
 }
 
-
 function mostrarClientes() {
     for (let i = 0; i < clientes.length; i++) {
         const cliente = clientes[i];
@@ -48,8 +47,7 @@ function mostrarClientes() {
     }
 }
 
-function criarClienteNaMesa(numeroMesa) {
-    
+function criarClienteNaMesa(numeroMesa) { 
     let imagemCliente;
     let imagemSentadoCliente;
     let imagemMao;
@@ -236,7 +234,7 @@ function criarClienteNaMesa(numeroMesa) {
     };
 
     clientes.push(novoCliente); //Adiciona um novo cliente com as infromações do Json no array clientes
-}
+} 
 
 function gerarCliente() {
     // Verificar se há mesas livres

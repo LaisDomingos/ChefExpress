@@ -59,7 +59,7 @@ function mousePressed() {
     movimentoAteMesa();
 
     //Movimento do garçom para os pedidos
-    movimentoAtePedidos();
+    movimentoAtePedidos()
     
   }
 }
