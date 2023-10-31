@@ -15,7 +15,6 @@ function janelaFuncionarios(){
     text('Chefs : Pode ter 0 a 1 chef e esse é pago diariamente, sendo possível contratá-lo e demiti-lo conforme necessário' , width*0.12, height*0.1);
     text('Chef contratado: ' + tipoChef + '    Valor: ' + valorChef + '€',width*0.12, height*0.15 )
     text('Ajudantes: Pode ter de 0 a 1 ajudante, que recebem pagamento diário, sendo possível contratá-lo ou demiti-lo conforme necessário.' , width*0.12, height*0.5);
-    //text('conforme necessário.', width*0.1, height*0.55)
     text('Ajudante contratado: ' + tipoAjudante + '    Valor: ' + valorAjudante + '€',width*0.12, height*0.55 )
   pop();
   image(imgTelaFuncionarios[0], width * 0.22, height * 0.18, width / 18, height / 6);

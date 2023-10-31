@@ -268,6 +268,31 @@ app.get('/getValorChef', (req, res) => {
   }
 });
 
+//postDeleteChefAjudante - Deleta o ajudante e o chef caso não tenha dinheiro
+app.post('/postDeleteChefAjudante', (req, res) => {
+  if (idUser) {
+    // Delete the ajudante row
+    let deleteAjudanteSql = 'DELETE FROM users_ajudantes WHERE idUser = ?';
+    dbase.query(deleteAjudanteSql, [idUser], (err, result) => {
+      if (err) {
+        return res.status(500).json({ error: 'Erro ao deletar a linha da tabela users_ajudantes' });
+      }
+
+      // Delete the chef row
+      let deleteChefSql = 'DELETE FROM users_chefs WHERE idUser = ?';
+      dbase.query(deleteChefSql, [idUser], (err, result) => {
+        if (err) {
+          return res.status(500).json({ error: 'Erro ao deletar a linha da tabela users_chefs' });
+        }
+
+        res.json({ message: 'Linhas deletadas com sucesso' });
+      });
+    });
+  } else {
+    res.status(401).json({ error: 'ID do usuário não definido' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

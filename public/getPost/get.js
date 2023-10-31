@@ -18,6 +18,7 @@ function getDinheiro() {//Busca o valor que o usuário tem
       tipoAjudante = "Não possui ajudante associado";
       tempoPreparo = 30;
       valorAjudante = 0;
+      console.log(tipoAjudante, tempoPreparo, valorAjudante);
     });
     loop();
   }
