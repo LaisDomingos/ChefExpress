@@ -1,4 +1,5 @@
 let tela = 1;
+let cobranca;
 
 let dinheiro;
 let idUsuario;
@@ -6,9 +7,13 @@ let tempoPreparo;
 let lucroMais;
 let valorAjudante;
 let valorChef;
+let tipoAjudante;
+let tipoChef;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  cobranca = false;
 
   buttonVoltar1 = new ButtonVoltar();
   buttonVoltar2 = new ButtonVoltar();
@@ -65,6 +70,7 @@ function setup() {
   setInterval(gerarCliente, 4000);
   //setInterval(atualizarDinheiro, 4000);
   
+  
 }
   
 function draw() {
@@ -72,13 +78,18 @@ function draw() {
     tela1();
   } else if (tela == 2){
     tela2Login();
-    
   } else if (tela == 3){
     tela3Registro();
   } else if (tela == 4){
-    getDinheiro();
     destruirInputs2();
-    background(piso);   
+    background(piso);  
+    getDinheiro();
+    if(dinheiro){
+      if(!cobranca){
+        postDinheiroServicos();
+        cobranca = true;
+      }
+    }
     cenario();
     menu();
     chamarClientes();

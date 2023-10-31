@@ -34,8 +34,8 @@ app.post('/postRegistrar', (req, res) => {
   const { userRValue, emailValue, passRValue } = req.body;
 
   // Verifique se existe um usuário com o mesmo nome
-  const checkUserQuery = 'SELECT * FROM users WHERE nome = ?';
-  dbase.query(checkUserQuery, [userRValue], (checkErr, checkResult) => {
+  const sql = 'SELECT * FROM users WHERE nome = ?';
+  dbase.query(sql, [userRValue], (checkErr, checkResult) => {
     if (checkErr) {
       return res.status(500).json({ error: 'Erro no servidor' });
     }
@@ -51,8 +51,8 @@ app.post('/postRegistrar', (req, res) => {
         return res.status(500).json({ error: 'Erro ao criptografar a senha' });
       }
 
-      const insertQuery = 'INSERT INTO users (nome, email, password) VALUES (?, ?, ?)';
-      dbase.query(insertQuery, [userRValue, emailValue, hash], (err, result) => {
+      const inSql = 'INSERT INTO users (nome, email, password) VALUES (?, ?, ?)';
+      dbase.query(inSql, [userRValue, emailValue, hash], (err, result) => {
         if (err) {
           return res.status(500).json({ error: 'Erro no servidor' });
         }
@@ -69,8 +69,8 @@ app.post('/postLogin', (req, res) => {
   const { userValue, passValue } = req.body;
 
   // Verifique se o usuário existe
-  const checkUserQuery = 'SELECT * FROM users WHERE nome = ?';
-  dbase.query(checkUserQuery, [userValue], (checkErr, checkResult) => {
+  const sql = 'SELECT * FROM users WHERE nome = ?';
+  dbase.query(sql, [userValue], (checkErr, checkResult) => {
     if (checkErr) {
       return res.status(500).json({ error: 'Erro no servidor' });
     }
@@ -120,7 +120,7 @@ app.get("/getDinheiro", (req, res) => {
 });
 
 //postDinheiro - atualiza o valor no banco, descontando o chef e ajudante
-app.post("/postDinheiro", (req, res) => {
+app.post("/postDinheiroServicos", (req, res) => {
   // Certifique-se de que idUser está definido antes de usar
   if (idUser) {
     const novoDinheiro = req.body.dinheiro;
@@ -142,8 +142,8 @@ app.post('/postChef', (req, res) => {
   const { chefId } = req.body;
   if (idUser) {
     // Verifique se o jogador já possui este chefe associado
-    const checkAssociationQuery = 'SELECT * FROM users_chefs WHERE idUser = ?';
-    dbase.query(checkAssociationQuery, [idUser], (checkErr, checkResult) => {
+    const sql = 'SELECT * FROM users_chefs WHERE idUser = ?';
+    dbase.query(sql, [idUser], (checkErr, checkResult) => {
       if (checkErr) {
         return res.status(500).json({ error: 'Erro no servidor' });
       }
@@ -151,8 +151,8 @@ app.post('/postChef', (req, res) => {
       if (checkResult.length > 0) {
         // O jogador já possui registros na tabela "users_chefs"
         // Atualize o idChef 
-        const updateAssociationQuery = 'UPDATE users_chefs SET idChef = ? WHERE idUser = ?';
-        dbase.query(updateAssociationQuery, [chefId, idUser], (err, result) => {
+        const upSql = 'UPDATE users_chefs SET idChef = ? WHERE idUser = ?';
+        dbase.query(upSql, [chefId, idUser], (err, result) => {
           if (err) {
             return res.status(500).json({ error: 'Erro no servidor' });
           }
@@ -161,14 +161,15 @@ app.post('/postChef', (req, res) => {
       } else {
         // O jogador não possui registros na tabela "users_chefs"
         // Insira um novo registro com idUser e idChef
-        const insertAssociationQuery = 'INSERT INTO users_chefs (idUser, idChef) VALUES (?, ?)';
-        dbase.query(insertAssociationQuery, [idUser, chefId], (err, result) => {
+        const inSql = 'INSERT INTO users_chefs (idUser, idChef) VALUES (?, ?)';
+        dbase.query(inSql, [idUser, chefId], (err, result) => {
           if (err) {
             return res.status(500).json({ error: 'Erro no servidor' });
           }
           res.json({ message: 'Associação entre jogador e chefe criada com sucesso' });
         });
       }
+      
     });
   } else {
     res.status(401).json({ error: 'Usuário não autenticado' });
@@ -181,8 +182,8 @@ app.post('/postAjudante', (req, res) => {
   
   if (idUser) {
     // Verifique se o jogador já possui este chefe associado
-    const checkAssociationQuery = 'SELECT * FROM users_ajudantes WHERE idUser = ?';
-    dbase.query(checkAssociationQuery, [idUser], (checkErr, checkResult) => {
+    const sql = 'SELECT * FROM users_ajudantes WHERE idUser = ?';
+    dbase.query(sql, [idUser], (checkErr, checkResult) => {
       if (checkErr) {
         return res.status(500).json({ error: 'Erro no servidor' });
       }
@@ -190,8 +191,8 @@ app.post('/postAjudante', (req, res) => {
       if (checkResult.length > 0) {
         // O jogador já possui registros na tabela
         // Atualize o idAjudante correspondente
-        const updateAssociationQuery = 'UPDATE users_ajudantes SET idAjudante = ? WHERE idUser = ?';
-        dbase.query(updateAssociationQuery, [ajudanteId, idUser], (updateErr, updateResult) => {
+        const upSql = 'UPDATE users_ajudantes SET idAjudante = ? WHERE idUser = ?';
+        dbase.query(upSql, [ajudanteId, idUser], (updateErr, updateResult) => {
           if (updateErr) {
             return res.status(500).json({ error: 'Erro no servidor' });
           }
@@ -200,8 +201,8 @@ app.post('/postAjudante', (req, res) => {
       } else {
         // O jogador não possui registros na tabela
         // Insira um novo registro com idUser e idAjudante
-        const insertAssociationQuery = 'INSERT INTO users_ajudantes (idUser, idAjudante) VALUES (?, ?)';
-        dbase.query(insertAssociationQuery, [idUser, ajudanteId], (err, result) => {
+        const inSql = 'INSERT INTO users_ajudantes (idUser, idAjudante) VALUES (?, ?)';
+        dbase.query(inSql, [idUser, ajudanteId], (err, result) => {
           if (err) {
             return res.status(500).json({ error: 'Erro no servidor' });
           }
@@ -218,16 +219,17 @@ app.post('/postAjudante', (req, res) => {
 app.get('/getTempoPreparoValor', (req, res) => {
   if (idUser) {
     //Pegar todos os dados da tabela users_ajudantes faz uma ligação com a tabela funcionarios em que idAjudante = idFuncionario onde idUser foi igual o passadp
-    const query = `SELECT * FROM users_ajudantes u JOIN funcionarios f ON u.idAjudante = f.idFuncionario WHERE u.idUser = ?;`;
+    const sql = `SELECT * FROM users_ajudantes u JOIN funcionarios f ON u.idAjudante = f.idFuncionario WHERE u.idUser = ?;`;
 
-    dbase.query(query, [idUser], (error, results) => {
+    dbase.query(sql, [idUser], (error, results) => {
       if (error) {
         res.status(500).json({ error: 'Erro no servidor' });
       } else {
         if (results.length > 0) {
           const tempoPreparo = results[0].tempoPreparo;
           const valor = results[0].valor;
-          res.json({ tempoPreparo, valor});
+          const tipoFuncionario = results[0].tipoFuncionario;
+          res.json({ tipoFuncionario, tempoPreparo, valor});
           //console.log(tempoPreparo, valor)
         } else {
           //res.status(404).json({ error: 'Usuário não tem um ajudante associado' });
@@ -243,17 +245,18 @@ app.get('/getTempoPreparoValor', (req, res) => {
 app.get('/getValorChef', (req, res) => {
   if (idUser) {
     //Pegar todos os dados da tabela users_chefs faz uma ligação com a tabela funcionarios em que idChef = idFuncionario onde idUser foi igual o passadp
-    const query = `SELECT * FROM users_chefs u JOIN funcionarios f ON u.idChef = f.idFuncionario WHERE u.idUser = ?;`;
+    const sql = `SELECT * FROM users_chefs u JOIN funcionarios f ON u.idChef = f.idFuncionario WHERE u.idUser = ?;`;
 
-    dbase.query(query, [idUser], (error, results) => {
+    dbase.query(sql, [idUser], (error, results) => {
       if (error) {
         res.status(500).json({ error: 'Erro no servidor' });
       } else {
         if (results.length > 0) {
           const lucro = results[0].lucro;
           const valor = results[0].valor;
-          res.json({ lucro, valor});
-          //console.log(lucro, valor)
+          const tipoFuncionario = results[0].tipoFuncionario;
+          res.json({ tipoFuncionario, lucro, valor});
+          //console.log(tipoFuncionario,lucro, valor)
         } else {
           //res.status(404).json({ error: 'Usuário não tem chef associado' });
           res.json('Usuário não tem chef associado');
