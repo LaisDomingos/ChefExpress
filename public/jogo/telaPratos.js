@@ -76,7 +76,6 @@ function janelaPratos(){
     presente.draw_Button(200, 20, width*0.45, height*0.8, "Comprar presente", 13);
 }
 function telaPratos() {
-    console.log("Funcionários");
     mostrarTelaPratos = true;
     
 }

@@ -58,7 +58,6 @@ function janelaFuncionarios(){
 }
 
 function telaFuncionarios() {
-  console.log("Funcionários");
   mostrarTelaFuncionarios = true;
 }
 

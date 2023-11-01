@@ -107,5 +107,4 @@ function preload(){
   imgTelaFuncionarios.push(loadImage('imagens/ajudante2.png'));
   imgTelaFuncionarios.push(loadImage('imagens/ajudante3.png'));
   imgTelaFuncionarios.push(loadImage('imagens/ajudante4.png'));
-  
 }

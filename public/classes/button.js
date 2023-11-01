@@ -40,6 +40,4 @@ class Button {
       return false;
     }
     }
-    
 }
-  

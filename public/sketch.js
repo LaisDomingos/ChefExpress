@@ -96,7 +96,8 @@ function draw() {
     movimentoGarcon();
     telasMenu();
     getTempoPreparoValor();
-    getValorChef();  
+    getValorChef();
+    //noLoop();
   } 
 
 }

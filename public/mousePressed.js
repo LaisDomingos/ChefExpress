@@ -60,9 +60,5 @@ function mousePressed() {
 
     //Movimento do garçom para os pedidos
     movimentoAtePedidos()
-    
   }
 }
-
-
-

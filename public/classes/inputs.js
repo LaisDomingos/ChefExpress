@@ -29,5 +29,5 @@ class Inputs {
         this.input.remove();
         this.input = null;
     }
-}
+  }
 }

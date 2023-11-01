@@ -15,7 +15,6 @@ function getDinheiro() {//Busca o valor que o usuário tem
       valorAjudante = data.valor;
     }, (error) => {
       //console.error('Erro ao obter o tempo e valor:', error);
-      tipoAjudante = "Não possui ajudante associado";
       tempoPreparo = 30;
       valorAjudante = 0;
       console.log(tipoAjudante, tempoPreparo, valorAjudante);
@@ -30,9 +29,8 @@ function getDinheiro() {//Busca o valor que o usuário tem
       valorChef = data.valor;
     }, (error) => {
       //console.error('Erro ao obter o tempo e valor:', error);
-      tipoChef = "Não possui chef associado";
       lucroMais = 0;
       valorChef = 0;
     });
     loop();
-  }
+}

@@ -29,7 +29,5 @@ class ButtonFechar {
           } else {
             return false;
           }
-    }
-    
+    }  
 }
-  
