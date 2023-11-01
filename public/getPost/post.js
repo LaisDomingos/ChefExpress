@@ -18,10 +18,11 @@ function postDinheiroServicos() { //Atualiza o dinheiro de acordo com o o chef e
       });
     } else {
       //caso não tenha dinheiro o chef e os ajudantes são demitidos
-      httpPost('/postDeleteChefAjudante', {}, 'json', (respostaServidor) => {
+      /*httpPost('/postDeleteChefAjudante', {}, 'json', (respostaServidor) => {
         console.log(respostaServidor);
         console.error('Saldo insuficiente para concluir a transação.');
-      });
+      });*/
+      console.error('Saldo insuficiente para concluir a transação.');
     }
     loop();
 }
