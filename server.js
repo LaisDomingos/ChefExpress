@@ -230,7 +230,7 @@ app.get('/getTempoPreparoValor', (req, res) => {
           const valor = results[0].valor;
           const tipoFuncionario = results[0].tipoFuncionario;
           res.json({ tipoFuncionario, tempoPreparo, valor});
-          //console.log(tempoPreparo, valor)
+          //console.log("Ajudante: ", tipoFuncionario, tempoPreparo, valor)
         } else {
           //res.status(404).json({ error: 'Usuário não tem um ajudante associado' });
           res.json('Usuário não tem um ajudante associado' );
@@ -256,7 +256,7 @@ app.get('/getValorChef', (req, res) => {
           const valor = results[0].valor;
           const tipoFuncionario = results[0].tipoFuncionario;
           res.json({ tipoFuncionario, lucro, valor});
-          //console.log(tipoFuncionario,lucro, valor)
+          //console.log("Chefe: ", tipoFuncionario,lucro, valor)
         } else {
           //res.status(404).json({ error: 'Usuário não tem chef associado' });
           res.json('Usuário não tem chef associado');
