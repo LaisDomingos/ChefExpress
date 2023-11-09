@@ -63,7 +63,37 @@ function preload(){
   clienteDuplaAposImagens.push(loadImage('imagens/clientesDupla3aposPedido.png'));
 
   garconImagens.push(loadImage('imagens/garcon.png'));
-  garconImagens.push(loadImage('imagens/garconPratos.png'));
+  garconImagens.push(loadImage('imagens/garcomP1.svg'));
+  garconImagens.push(loadImage('imagens/garcomP2.svg'));
+  garconImagens.push(loadImage('imagens/garcomP3.svg'));
+  garconImagens.push(loadImage('imagens/garcomP4.svg'));
+  garconImagens.push(loadImage('imagens/garcomP5.svg'));
+  garconImagens.push(loadImage('imagens/garcomP6.svg'));
+  garconImagens.push(loadImage('imagens/garcomP7.svg'));
+  garconImagens.push(loadImage('imagens/garcomP8.svg'));
+  garconImagens.push(loadImage('imagens/garcomP9.svg'));
+  garconImagens.push(loadImage('imagens/garcomP10.svg'));
+  garconImagens.push(loadImage('imagens/garcomP11.svg'));
+  garconImagens.push(loadImage('imagens/garcomP12.svg'));
+  garconImagens.push(loadImage('imagens/garcomP13.svg'));
+  garconImagens.push(loadImage('imagens/garcomP14.svg'));
+  garconImagens.push(loadImage('imagens/garcomP15.svg'));
+  garconImagens.push(loadImage('imagens/garcomP16.svg'));
+  garconImagens.push(loadImage('imagens/garcomP17.svg'));
+  garconImagens.push(loadImage('imagens/garcomP18.svg'));
+  garconImagens.push(loadImage('imagens/garcomP19.svg'));
+  garconImagens.push(loadImage('imagens/garcomP20.svg'));
+  garconImagens.push(loadImage('imagens/garcomP21.svg'));
+  garconImagens.push(loadImage('imagens/garcomP22.svg'));
+  garconImagens.push(loadImage('imagens/garcomP23.svg'));
+  garconImagens.push(loadImage('imagens/garcomP24.svg'));
+  garconImagens.push(loadImage('imagens/garcomP25.svg'));
+  garconImagens.push(loadImage('imagens/garcomP26.svg'));
+  garconImagens.push(loadImage('imagens/garcomP27.svg'));
+  garconImagens.push(loadImage('imagens/garcomP28.svg'));
+  garconImagens.push(loadImage('imagens/garcomP29.svg'));
+  garconImagens.push(loadImage('imagens/garcomP30.svg'));
+
 
   pratosIniciais.push(loadImage('imagens/prato1Ini.png'));
   pratosIniciais.push(loadImage('imagens/prato2Ini.png'));

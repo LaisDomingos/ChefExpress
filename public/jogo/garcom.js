@@ -28,6 +28,7 @@ let buscarPrato13 = false;
 let buscarPrato14 = false;
 
 function movimentoGarcon(){
+  //image(garconImagens[1], width*0.45,yGarcon, width/8, height/4);
   image(garconImagens[0], xGarcon, yGarcon, width/19, height/5);
   if (garconMovendo1) {
     if (xGarcon !== width * 0.2 || yGarcon !== mesa2468Y) {
