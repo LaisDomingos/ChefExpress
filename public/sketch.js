@@ -19,8 +19,8 @@ function setup() {
   buttonVoltar2 = new ButtonVoltar();
 
   //Posição inicial do garçon
-  xGarcon = width*0.52;
-  yGarcon = height*0.3;
+  xGarcon = width*0.48;
+  yGarcon = height*0.25;
 
   //Posições iniciais dos pratos 
   posicaoPrato1X = width * 0.15;
@@ -49,6 +49,7 @@ function setup() {
   mesa1357Y = height*0.45;
   mesa2468Y = height*0.1;
 
+  garcom  = garconImagens[0]
   //Telas fe funiconários e pratos
   fecharFuncionarios = new ButtonFechar();
   fecharPratos = new ButtonFechar();
@@ -91,15 +92,16 @@ function draw() {
       }
     }
     cenario();
+    balcao();
     menu();
     chamarClientes();
     movimentoGarcon();
     telasMenu();
     getTempoPreparoValor();
     getValorChef();
-    //noLoop();
+    noLoop();
   } 
-
+  
 }
 
 

@@ -58,38 +58,55 @@ function pedir(cliente) {
     
 }
 
-let espaco4ocupado1 = false;
-let espaco4ocupado2 = false;
-let espaco2ocupado1 = false;
-let espaco2ocupado2 = false;
-let espaco1ocupado1 = false;
-let espaco1ocupado2 = false;
+let espacoocupado1 = false;
+let espacoocupado2 = false;
+let espacoocupado3 = false;
+let espacoocupado4 = false;
+let espacoocupado5 = false;
+let espacoocupado6 = false;
+let espacoocupado7 = false;
+let espacoocupado8 = false;
+let espacoocupado9 = false;
+let espacoocupado10 = false;
+let espacoocupado11 = false;
+let espacoocupado12 = false;
+let espacoocupado13 = false;
+let espacoocupado14 = false;
+let espacoocupado15 = false;
 
-let espaco1S;
-let espaco2S;
-let espaco1D1;
-let espaco1D2;
-let espaco2D1;
-let espaco2D2;
-let espaco1G1;
-let espaco1G2;
-let espaco1G3;
-let espaco1G4;
-let espaco2G1;
-let espaco2G2;
-let espaco2G3;
-let espaco2G4;
+let espaco1;
+let espaco2;
+let espaco3;
+let espaco4;
+let espaco5;
+let espaco6;
+let espaco7;
+let espaco8;
+let espaco9;
+let espaco10;
+let espaco11;
+let espaco12;
+let espaco13;
+let espaco14;
 
 function aguardarEspacoDisponivel() {
   return new Promise((resolve) => {
     const interval = setInterval(() => {
       if (
-        !espaco4ocupado1 ||
-        !espaco4ocupado2 ||
-        !espaco2ocupado1 ||
-        !espaco2ocupado2 ||
-        !espaco1ocupado1 ||
-        !espaco1ocupado2
+        !espacoocupado1 ||
+        !espacoocupado2 ||
+        !espacoocupado3 ||
+        !espacoocupado4 ||
+        !espacoocupado5 ||
+        !espacoocupado6 ||
+        !espacoocupado7 ||
+        !espacoocupado8 ||
+        !espacoocupado9 ||
+        !espacoocupado10 ||
+        !espacoocupado11 ||
+        !espacoocupado12 ||
+        !espacoocupado13 ||
+        !espacoocupado14 
       ) {
         clearInterval(interval);
         resolve();
@@ -102,20 +119,24 @@ async function atenderPedido(cliente) {
   const { pedidoAImg, pedidoBImg, pedidoCImg, pedidoDImg } = cliente.imagensPedido;
 
   if (cliente.pertenceAoGrupo) {
-    if (!espaco4ocupado1) {
-      espaco1G1 = pedidoAImg;
-      espaco1G2 = pedidoBImg;
-      espaco1G3 = pedidoCImg;
-      espaco1G4 = pedidoDImg;
-      espaco4ocupado1 = true;
-      console.log("mudou espaco 4_1");
-    } else if (!espaco4ocupado2) {
-      espaco2G1 = pedidoAImg;
-      espaco2G2 = pedidoBImg;
-      espaco2G3 = pedidoCImg;
-      espaco2G4 = pedidoDImg;
-      espaco4ocupado2 = true;
-      console.log("mudou espaco 4_2");
+    if (!espacoocupado7 && !espacoocupado8 && !espacoocupado9 && !espacoocupado10) {
+      espaco7 = pedidoAImg;
+      espaco8 = pedidoBImg;
+      espaco9 = pedidoCImg;
+      espaco10 = pedidoDImg;
+      espacoocupado7 = true;
+      espacoocupado8 = true;
+      espacoocupado9 = true;
+      espacoocupado10 = true;
+    } else if (!espacoocupado11 && !espacoocupado12 && !espacoocupado13 && !espacoocupado14) {
+      espaco11 = pedidoAImg;
+      espaco12 = pedidoBImg;
+      espaco13 = pedidoCImg;
+      espaco14 = pedidoDImg;
+      espacoocupado11 = true;
+      espacoocupado12 = true;
+      espacoocupado13 = true;
+      espacoocupado14 = true;
     } else {
       console.log("Aguardando espaço disponível...");
       await aguardarEspacoDisponivel();
@@ -123,30 +144,28 @@ async function atenderPedido(cliente) {
       return await atenderPedido(cliente);
     }
   } else if (cliente.dupla) {
-    if (!espaco2ocupado1) {
-      espaco1D1 = pedidoAImg;
-      espaco1D2 = pedidoBImg;
-      espaco2ocupado1 = true;
-      console.log("mudou espaco 2_1");
-    } else if (!espaco2ocupado2) {
-      espaco2D1 = pedidoAImg;
-      espaco2D2 = pedidoBImg;
-      espaco2ocupado2 = true;
-      console.log("mudou espaco 2_2");
+    if (!espacoocupado3 && !espacoocupado4) {
+      espaco3 = pedidoAImg;
+      espaco4 = pedidoBImg;
+      espacoocupado3 = true;
+      espacoocupado4 = true;
+    } else if (!espacoocupado5 && !espacoocupado6) {
+      espaco5 = pedidoAImg;
+      espaco6 = pedidoBImg;
+      espacoocupado5 = true;
+      espacoocupado6 = true;
     } else {
       console.log("Aguardando espaço disponível...");
       await aguardarEspacoDisponivel();
       return await atenderPedido(cliente);
     }
   } else {
-    if (!espaco1ocupado1) {
-      espaco1S = pedidoAImg;
-      espaco1ocupado1 = true;
-      console.log("mudou espaco 1_1");
-    } else if (!espaco1ocupado2) {
-      espaco2S = pedidoAImg;
-      espaco1ocupado2 = true;
-      console.log("mudou espaco 1_2");
+    if (!espacoocupado1) {
+      espaco1 = pedidoAImg;
+      espacoocupado1 = true;
+    } else if (!espacoocupado2) {
+      espaco2 = pedidoAImg;
+      espacoocupado2 = true;
     } else {
       console.log("Aguardando espaço disponível...");
       await aguardarEspacoDisponivel();

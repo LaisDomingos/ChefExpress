@@ -62,19 +62,13 @@ function preload(){
   clienteDuplaAposImagens.push(loadImage('imagens/clientesDupla2aposPedido.png'));
   clienteDuplaAposImagens.push(loadImage('imagens/clientesDupla3aposPedido.png'));
 
-  garconImagens.push(loadImage('imagens/garcon.png'));
-  garconImagens.push(loadImage('imagens/garcomP1.svg'));
-  garconImagens.push(loadImage('imagens/garcomP2.svg'));
+  garconImagens.push(loadImage('imagens/garcon.svg'));
   garconImagens.push(loadImage('imagens/garcomP3.svg'));
   garconImagens.push(loadImage('imagens/garcomP4.svg'));
   garconImagens.push(loadImage('imagens/garcomP5.svg'));
-  garconImagens.push(loadImage('imagens/garcomP6.svg'));
   garconImagens.push(loadImage('imagens/garcomP7.svg'));
   garconImagens.push(loadImage('imagens/garcomP8.svg'));
-  garconImagens.push(loadImage('imagens/garcomP9.svg'));
   garconImagens.push(loadImage('imagens/garcomP10.svg'));
-  garconImagens.push(loadImage('imagens/garcomP11.svg'));
-  garconImagens.push(loadImage('imagens/garcomP12.svg'));
   garconImagens.push(loadImage('imagens/garcomP13.svg'));
   garconImagens.push(loadImage('imagens/garcomP14.svg'));
   garconImagens.push(loadImage('imagens/garcomP15.svg'));
@@ -93,7 +87,13 @@ function preload(){
   garconImagens.push(loadImage('imagens/garcomP28.svg'));
   garconImagens.push(loadImage('imagens/garcomP29.svg'));
   garconImagens.push(loadImage('imagens/garcomP30.svg'));
-
+  
+  garcomImagensPratosIni.push(loadImage('imagens/garcomP1.svg'));
+  garcomImagensPratosIni.push(loadImage('imagens/garcomP2.svg'));
+  garcomImagensPratosIni.push(loadImage('imagens/garcomP6.svg'));
+  garcomImagensPratosIni.push(loadImage('imagens/garcomP9.svg'));
+  garcomImagensPratosIni.push(loadImage('imagens/garcomP11.svg'));
+  garcomImagensPratosIni.push(loadImage('imagens/garcomP12.svg'));
 
   pratosIniciais.push(loadImage('imagens/prato1Ini.png'));
   pratosIniciais.push(loadImage('imagens/prato2Ini.png'));

@@ -40,7 +40,6 @@ let posicaoPrato14X, posicaoPrato14Y;
 function cenario(){
     entrada(); 
     mesas();
-    balcao();
     drawLixo();
 }
 
@@ -68,32 +67,49 @@ function balcao() {
         rect(width * 0.13, height * 0.82, width / 1.4, height / 8);
     pop();
     // Atualize a imagem dos pedidos no balcão de acordo com o espaço ocupado
-    if (espaco1ocupado1) {
-        image(espaco1S,  posicaoPrato1X, posicaoPrato1Y, width/30, height/20);
+    if(espacoocupado1){
+        image(espaco1,  posicaoPrato1X, posicaoPrato1Y, width/30, height/20);
     }
-    if (espaco1ocupado2) {
-        image(espaco2S,  posicaoPrato2X, posicaoPrato2Y, width/30, height/20);
+    if (espacoocupado2){
+        image(espaco2,  posicaoPrato2X, posicaoPrato2Y, width/30, height/20);
     }
-    if (espaco2ocupado1) {
-        image(espaco1D1,  posicaoPrato3X, posicaoPrato3Y, width/30, height/20);
-        image(espaco1D2,  posicaoPrato4X, posicaoPrato4Y, width/30, height/20);
+    if (espacoocupado3){
+        image(espaco3,  posicaoPrato3X, posicaoPrato3Y, width/30, height/20);
     }
-    if (espaco2ocupado2) {
-        image(espaco2D1,  posicaoPrato5X, posicaoPrato5Y, width/30, height/20);
-        image(espaco2D2,  posicaoPrato6X, posicaoPrato6Y, width/30, height/20);
+    if (espacoocupado4){
+        image(espaco4,  posicaoPrato4X, posicaoPrato4Y, width/30, height/20);
     }
-    if (espaco4ocupado1) {
-        image(espaco1G1, posicaoPrato7X, posicaoPrato7Y, width/30, height/20);
-        image(espaco1G2, posicaoPrato8X, posicaoPrato8Y, width/30, height/20);
-        image(espaco1G3, posicaoPrato9X, posicaoPrato9Y, width/30, height/20);
-        image(espaco1G4, posicaoPrato10X, posicaoPrato10Y, width/30, height/20);
+    if(espacoocupado5){
+        image(espaco5,  posicaoPrato5X, posicaoPrato5Y, width/30, height/20);
     }
-    if (espaco4ocupado2) {
-        image(espaco2G1, posicaoPrato11X, posicaoPrato11Y, width/30, height/20);
-        image(espaco2G2, posicaoPrato12X, posicaoPrato12Y, width/30, height/20);
-        image(espaco2G3, posicaoPrato13X, posicaoPrato13Y, width/30, height/20);
-        image(espaco2G4, posicaoPrato14X, posicaoPrato14Y, width/30, height/20);
+    if (espacoocupado6){
+        image(espaco6,  posicaoPrato6X, posicaoPrato6Y, width/30, height/20);
     }
+    if(espacoocupado7){
+        image(espaco7,  posicaoPrato7X, posicaoPrato7Y, width/30, height/20);
+    }
+    if (espacoocupado8){
+        image(espaco8,  posicaoPrato8X, posicaoPrato8Y, width/30, height/20);
+    }
+    if (espacoocupado9){
+        image(espaco9,  posicaoPrato9X, posicaoPrato9Y, width/30, height/20);
+    }
+    if (espacoocupado10){
+        image(espaco10,  posicaoPrato10X, posicaoPrato10Y, width/30, height/20);
+    }
+    if (espacoocupado11){
+        image(espaco11,  posicaoPrato11X, posicaoPrato11Y, width/30, height/20);
+    }
+    if (espacoocupado12){
+        image(espaco12,  posicaoPrato12X, posicaoPrato12Y, width/30, height/20);
+    }
+    if (espacoocupado13){
+        image(espaco13,  posicaoPrato13X, posicaoPrato13Y, width/30, height/20);
+    }
+    if (espacoocupado14){
+        image(espaco14,  posicaoPrato14X, posicaoPrato14Y, width/30, height/20);
+    } 
+    loop();
 }
 
 function drawLixo(){

@@ -18,6 +18,7 @@ let clientes = [];
 function chamarClientes(){
     mostrarClientes();
     moverClientes();
+    loop();
 }
 
 function mostrarClientes() {
@@ -291,7 +292,7 @@ function moverClientes() {
             for (let i = 0; i < clientes.length; i++) {
                 let cliente = clientes[i];
                 let distancia = dist(xGarcon, yGarcon, cliente.x, cliente.y)
-                if (distancia < 40 && cliente.pediu == true) { 
+                if (distancia < 80 && cliente.pediu == true) { 
                     cliente.atendido = true;
                 }
             }

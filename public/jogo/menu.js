@@ -29,6 +29,7 @@ function menu() {
      
     }
     pop();
+    loop();
 }
 
 function mouseMoved() {
@@ -42,4 +43,5 @@ function telasMenu(){
   } else if(mostrarTelaPratos){
       janelaPratos();
   }
+  loop();
 }
