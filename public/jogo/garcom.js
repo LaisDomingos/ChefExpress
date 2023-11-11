@@ -35,12 +35,311 @@ let garcomComPedido = false;
 function movimentoGarcon(){
   image(garcom, xGarcon, yGarcon, width/8, height/3);
   if (garconMovendo1) {
+    if (xGarcon !== width * 0.2 || yGarcon !== mesa1357Y) {
+      xGarcon = width * 0.16;
+      yGarcon = height * 0.4;
+      let mesaAtendida = 1;
+      if(garcomComPedido){
+        entregarPedido();
+        verificarIndicesPedidos(mesaAtendida);
+      }
+      garconMovendo1 = false;
+    }
+  }
+  if (garconMovendo2) {
     if (xGarcon !== width * 0.2 || yGarcon !== mesa2468Y) {
       xGarcon = width * 0.16;
       yGarcon = height * 0.05;
+      let mesaAtendida = 2;
       if(garcomComPedido){
         entregarPedido();
-        verificarIndicesPedidos(cliente);
+        verificarIndicesPedidos(mesaAtendida);
+      }
+      garconMovendo2 = false;
+    }
+  }
+  if (garconMovendo3) {
+    if (xGarcon !== width * 0.35 || yGarcon !== mesa1357Y) {
+      xGarcon = width * 0.31;
+      yGarcon = height * 0.4;
+      let mesaAtendida = 3;
+      if(garcomComPedido){
+        entregarPedido();
+        verificarIndicesPedidos(mesaAtendida);
+      }
+      garconMovendo3 = false;
+    }
+  }
+  if (garconMovendo4) {
+    if (xGarcon !== width * 0.35 || yGarcon !== mesa2468Y) {
+      xGarcon = width * 0.31;
+      yGarcon = height * 0.05;
+      let mesaAtendida = 4;
+      if(garcomComPedido){
+        entregarPedido();
+        verificarIndicesPedidos(mesaAtendida);
+      }
+      garconMovendo4 = false;
+    }
+  }
+  if (garconMovendo5) {
+    if (xGarcon !== width * 0.55 || yGarcon !== mesa1357Y) {
+      xGarcon = width * 0.51;
+      yGarcon = height * 0.4;
+      let mesaAtendida = 5;
+      if(garcomComPedido){
+        entregarPedido();
+        verificarIndicesPedidos(mesaAtendida);
+      }
+      garconMovendo5 = false;
+    }
+  }
+  if (garconMovendo6) {
+    if (xGarcon !== width * 0.55 || yGarcon !== mesa2468Y) {
+      xGarcon = width * 0.51;
+      yGarcon = height * 0.05;
+    
+      let mesaAtendida = 6;
+      if(garcomComPedido){
+        entregarPedido();
+        verificarIndicesPedidos(mesaAtendida);
+      }
+      garconMovendo6= false;
+    }
+  }
+  if (garconMovendo7) {
+    if (xGarcon !== width * 0.7 || yGarcon !== mesa1357Y) {
+      xGarcon = width * 0.66;
+      yGarcon = height * 0.4;
+      let mesaAtendida = 7;
+      if(garcomComPedido){
+        entregarPedido();
+        verificarIndicesPedidos(mesaAtendida);
+      }
+      garconMovendo7 = false;
+    }
+  }
+  if (garconMovendo8) {
+    if (xGarcon !== width * 0.7 || yGarcon !== mesa2468Y) {
+      xGarcon = width * 0.66;
+      yGarcon = height * 0.05;
+
+      let mesaAtendida = 8;
+      if(garcomComPedido){
+        entregarPedido();
+        verificarIndicesPedidos(mesaAtendida);
+      }
+      garconMovendo8 = false;
+    }
+  }
+  if (buscarPrato1) {
+    if (xGarcon !== width * 0.14 || yGarcon !== height * 0.62) {
+      xGarcon = width * 0.1;
+      yGarcon = height * 0.52;
+      buscarPrato1 = false;
+      if (espacoocupado1) {
+        const indicePrato = pratosIniciais.indexOf(espaco1);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado1 = false;
+      }
+    }
+  }
+  if (buscarPrato2) {
+    if (xGarcon !== width * 0.19 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.15;
+      yGarcon = height * 0.52;
+      buscarPrato2 = false;
+    }
+    if(espacoocupado2){
+      const indicePrato = pratosIniciais.indexOf(espaco2);
+      garcomImgI = indicePrato;
+      garcom = garcomImagensPratosIni[indicePrato];
+      garcomComPedido = true;
+      espacoocupado2 = false;
+    }
+  }
+  if (buscarPrato3) {
+    if (xGarcon !== width * 0.24 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.2;
+      yGarcon = height * 0.52;
+      buscarPrato3 = false;
+      if(espacoocupado3){
+        const indicePrato = pratosIniciais.indexOf(espaco3);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado3 = false;
+      }
+    }
+  }
+  if (buscarPrato4) {
+    if (xGarcon !== width * 0.29 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.25;
+      yGarcon = height * 0.52;
+      buscarPrato4 = false;
+      if(espacoocupado4){
+        const indicePrato = pratosIniciais.indexOf(espaco4);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado4 = false;
+      }
+    }
+  }
+  if (buscarPrato5) {
+    if (xGarcon !== width * 0.34 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.3;
+      yGarcon = height * 0.52;
+      buscarPrato5 = false;
+      if(espacoocupado5){
+        const indicePrato = pratosIniciais.indexOf(espaco5);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado5 = false;
+      }
+    }
+  }
+  if (buscarPrato6) {
+    if (xGarcon !== width * 0.39 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.35;
+      yGarcon = height * 0.52;
+      buscarPrato6 = false;
+      if(espacoocupado6){
+        const indicePrato = pratosIniciais.indexOf(espaco6);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado6 = false;
+      }
+    }
+  }
+  if (buscarPrato7) {
+    if (xGarcon !== width * 0.44 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.4;
+      yGarcon = height * 0.52;
+      buscarPrato7 = false;
+      if(espacoocupado7){
+        const indicePrato = pratosIniciais.indexOf(espaco7);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado7 = false;
+      }
+    }
+  }
+  if (buscarPrato8) {
+    if (xGarcon !== width * 0.49 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.45;
+      yGarcon = height * 0.52;
+      buscarPrato8 = false;
+      if(espacoocupado8){
+        const indicePrato = pratosIniciais.indexOf(espaco8);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado8 = false;
+      }
+    }
+  }
+  if (buscarPrato9) {
+    if (xGarcon !== width * 0.54 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.5;
+      yGarcon = height * 0.52;
+      buscarPrato9 = false;
+      if(espacoocupado9){
+        const indicePrato = pratosIniciais.indexOf(espaco9);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado9 = false;
+      }
+    }
+  }
+  if (buscarPrato10) {
+    if (xGarcon !== width * 0.59 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.55;
+      yGarcon = height * 0.52;
+      buscarPrato10 = false;
+      if(espacoocupado10){
+        const indicePrato = pratosIniciais.indexOf(espaco10);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado10 = false;
+      }
+    }
+  }
+  if (buscarPrato11) {
+    if (xGarcon !== width * 0.64 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.6;
+      yGarcon = height * 0.52;
+      buscarPrato11 = false;
+      if(espacoocupado11){
+        const indicePrato = pratosIniciais.indexOf(espaco11);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado11 = false;
+      }
+    }
+  }
+  if (buscarPrato12) {
+    if (xGarcon !== width * 0.69 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.65;
+      yGarcon = height * 0.52;
+      buscarPrato12 = false;
+      if(espacoocupado12){
+        const indicePrato = pratosIniciais.indexOf(espaco12);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado12 = false;
+      }
+    }
+  }
+  if (buscarPrato13) {
+    if (xGarcon !== width * 0.74 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.7;
+      yGarcon = height * 0.52;
+      buscarPrato13 = false;
+      if(espacoocupado13){
+        const indicePrato = pratosIniciais.indexOf(espaco13);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado13 = false;
+      }
+    }
+  }
+  if (buscarPrato14) {
+    if (xGarcon !== width * 0.79 || yGarcon !== height*0.62) {
+      xGarcon = width * 0.75;
+      yGarcon = height * 0.52;
+      buscarPrato14 = false;
+      if(espacoocupado14){
+        const indicePrato = pratosIniciais.indexOf(espaco14);
+        garcomImgI = indicePrato;
+        garcom = garcomImagensPratosIni[indicePrato];
+        garcomComPedido = true;
+        espacoocupado14 = false;
+      }
+    }
+  }
+  loop();
+}
+/*function movimentoGarcon(){
+  image(garcom, xGarcon, yGarcon, width/8, height/3);
+  if (garconMovendo1) {
+    if (xGarcon !== width * 0.2 || yGarcon !== mesa2468Y) {
+      xGarcon = width * 0.16;
+      yGarcon = height * 0.05;
+      let mesaAtendida = 1;
+      if(garcomComPedido){
+        entregarPedido();
+        verificarIndicesPedidos(mesaAtendida);
       }
       garconMovendo1 = false;
     }
@@ -49,9 +348,10 @@ function movimentoGarcon(){
     if (xGarcon !== width * 0.2 || yGarcon !== mesa1357Y) {
       xGarcon = width * 0.16;
       yGarcon = height * 0.4;
+      let mesaAtendida = 2;
       if(garcomComPedido){
         entregarPedido();
-        verificarIndicesPedidos(cliente);
+        verificarIndicesPedidos(mesaAtendida);
       }
       garconMovendo2 = false;
     }
@@ -60,9 +360,10 @@ function movimentoGarcon(){
     if (xGarcon !== width * 0.35 || yGarcon !== mesa2468Y) {
       xGarcon = width * 0.31;
       yGarcon = height * 0.05;
+      let mesaAtendida = 3;
       if(garcomComPedido){
         entregarPedido();
-        verificarIndicesPedidos(cliente);
+        verificarIndicesPedidos(mesaAtendida);
       }
       garconMovendo3 = false;
     }
@@ -71,9 +372,10 @@ function movimentoGarcon(){
     if (xGarcon !== width * 0.35 || yGarcon !== mesa1357Y) {
       xGarcon = width * 0.31;
       yGarcon = height * 0.4;
+      let mesaAtendida = 4;
       if(garcomComPedido){
         entregarPedido();
-        verificarIndicesPedidos(cliente);
+        verificarIndicesPedidos(mesaAtendida);
       }
       garconMovendo4 = false;
     }
@@ -82,9 +384,10 @@ function movimentoGarcon(){
     if (xGarcon !== width * 0.55 || yGarcon !== mesa2468Y) {
       xGarcon = width * 0.51;
       yGarcon = height * 0.05;
+      let mesaAtendida = 5;
       if(garcomComPedido){
         entregarPedido();
-        verificarIndicesPedidos(cliente);
+        verificarIndicesPedidos(mesaAtendida);
       }
       garconMovendo5 = false;
     }
@@ -93,9 +396,10 @@ function movimentoGarcon(){
     if (xGarcon !== width * 0.55 || yGarcon !== mesa1357Y) {
       xGarcon = width * 0.51;
       yGarcon = height * 0.4;
+      let mesaAtendida = 6;
       if(garcomComPedido){
         entregarPedido();
-        verificarIndicesPedidos(cliente);
+        verificarIndicesPedidos(mesaAtendida);
       }
       garconMovendo6= false;
     }
@@ -104,9 +408,10 @@ function movimentoGarcon(){
     if (xGarcon !== width * 0.7 || yGarcon !== mesa2468Y) {
       xGarcon = width * 0.66;
       yGarcon = height * 0.05;
+      let mesaAtendida = 7;
       if(garcomComPedido){
         entregarPedido();
-        verificarIndicesPedidos(cliente);
+        verificarIndicesPedidos(mesaAtendida);
       }
       garconMovendo7 = false;
     }
@@ -115,9 +420,10 @@ function movimentoGarcon(){
     if (xGarcon !== width * 0.7 || yGarcon !== mesa1357Y) {
       xGarcon = width * 0.66;
       yGarcon = height * 0.4;
+      let mesaAtendida = 8;
       if(garcomComPedido){
         entregarPedido();
-        verificarIndicesPedidos(cliente);
+        verificarIndicesPedidos(mesaAtendida);
       }
       garconMovendo8 = false;
     }
@@ -355,8 +661,44 @@ function movimentoAteMesa(){
     }
   }
   loop();
+}*/
+function movimentoAteMesa(){
+  if (mouseX > mesa12X && mouseX < mesa12X + width / 14){
+    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
+      garconMovendo1= true;
+    }
+    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
+      garconMovendo2= true;
+    }
+  }
+  if (mouseX > mesa34X && mouseX < mesa34X + width / 10){
+    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
+      garconMovendo3= true;
+    }
+    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
+      garconMovendo4= true; 
+    }
+  }
+  if (mouseX > mesa56X && mouseX < mesa56X + width / 10){
+    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
+      garconMovendo5= true;
+    }
+    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
+    
+      garconMovendo6= true;
+    }
+  }
+  if (mouseX > mesa78X && mouseX < mesa78X + width / 14){
+    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
+      garconMovendo7= true;
+    }
+    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
+    
+      garconMovendo8= true;
+    }
+  }
+  loop();
 }
-
 function movimentoAtePedidos(){
   if(mouseY > height * 0.85 && mouseY < height * 0.85 + height / 20){
     if ( mouseX > width * 0.15 && mouseX < width * 0.15 + width / 30) {
@@ -405,15 +747,26 @@ function movimentoAtePedidos(){
   loop();
 }
 
-function verificarIndicesPedidos(cliente) {
+function verificarIndicesPedidos(mesaAtendida) {
   
-    const indicePedidoA = pratosIniciais.indexOf(cliente.mesa.pedidoAImg);
-    const indicePedidoB = pratosIniciais.indexOf(cliente.mesa.pedidoBImg);
-    const indicePedidoC = pratosIniciais.indexOf(cliente.mesa.pedidoCImg);
-    const indicePedidoD = pratosIniciais.indexOf(cliente.mesa.pedidoDImg);
-
-    console.log("Índices das imagens dos clientes na mesa:", indicePedidoA, indicePedidoB, indicePedidoC, indicePedidoD);
- 
+  if (mesaAtendida == 1){
+    console.log("Mesa 1:", indiceMesa1);
+  } else if (mesaAtendida == 2){
+    console.log("Mesa 2:", indiceMesa2);
+  } else if (mesaAtendida == 3){
+    console.log("Mesa 3:", indiceMesa3);
+  } else if (mesaAtendida == 4){    
+    console.log("Mesa 4:", indiceMesa4);
+  } else if (mesaAtendida == 5){
+    console.log("Mesa 5:", indiceMesa5);
+  } else if (mesaAtendida == 6){
+    console.log("Mesa 6:", indiceMesa6);
+  } else if (mesaAtendida == 7){
+    console.log("Mesa 7:", indiceMesa7);
+  } else if (mesaAtendida == 8){
+    console.log("Mesa 8:", indiceMesa8);
+  }
+   
 }
 
 

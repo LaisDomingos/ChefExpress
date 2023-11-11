@@ -23,6 +23,22 @@ function gerarImagensPedidoAleatorias() {
         pedidoDImg,
     };
 }
+let indiceMesa1 = [];
+let indiceMesa2 = [];
+let indiceMesa3 = [];
+let indiceMesa4 = [];
+let indiceMesa5 = [];
+let indiceMesa6 = [];
+let indiceMesa7 = [];
+let indiceMesa8 = [];
+let indicesSalvosMesa1 = false;
+let indicesSalvosMesa2 = false;
+let indicesSalvosMesa3 = false;
+let indicesSalvosMesa4 = false;
+let indicesSalvosMesa5 = false;
+let indicesSalvosMesa6 = false;
+let indicesSalvosMesa7 = false;
+let indicesSalvosMesa8 = false;
 
 function pedir(cliente) {
     const { pedidoAImg, pedidoBImg, pedidoCImg, pedidoDImg } = cliente.imagensPedido;
@@ -35,17 +51,73 @@ function pedir(cliente) {
             image(pedidoBImg, cliente.pedidoX, cliente.pedidoB, width/30, height/20);
             image(pedidoCImg, cliente.pedidoX, cliente.pedidoC, width/30, height/20);
             image(pedidoDImg, cliente.pedidoX, cliente.pedidoD, width/30, height/20);
+            if (cliente.mesa == 3 && !indicesSalvosMesa3){
+              indiceMesa3.push(pratosIniciais.indexOf(pedidoAImg));
+              indiceMesa3.push(pratosIniciais.indexOf(pedidoBImg));
+              indiceMesa3.push(pratosIniciais.indexOf(pedidoCImg));
+              indiceMesa3.push(pratosIniciais.indexOf(pedidoDImg));
+              indicesSalvosMesa3 = true;
+            } else if (cliente.mesa == 4 && !indicesSalvosMesa4){
+              indiceMesa4.push(pratosIniciais.indexOf(pedidoAImg));
+              indiceMesa4.push(pratosIniciais.indexOf(pedidoBImg));
+              indiceMesa4.push(pratosIniciais.indexOf(pedidoCImg));
+              indiceMesa4.push(pratosIniciais.indexOf(pedidoDImg));
+              indicesSalvosMesa4 = true;
+            } else if (cliente.mesa == 5 && !indicesSalvosMesa5){
+              indiceMesa5.push(pratosIniciais.indexOf(pedidoAImg));
+              indiceMesa5.push(pratosIniciais.indexOf(pedidoBImg));
+              indiceMesa5.push(pratosIniciais.indexOf(pedidoCImg));
+              indiceMesa5.push(pratosIniciais.indexOf(pedidoDImg));
+              indicesSalvosMesa5 = true;
+            } else if (cliente.mesa == 6 && !indicesSalvosMesa6){
+              indiceMesa6.push(pratosIniciais.indexOf(pedidoAImg));
+              indiceMesa6.push(pratosIniciais.indexOf(pedidoBImg));
+              indiceMesa6.push(pratosIniciais.indexOf(pedidoCImg));
+              indiceMesa6.push(pratosIniciais.indexOf(pedidoDImg));
+              indicesSalvosMesa6 = true;
+            }
+
             cliente.tempoPedido++;
             cliente.fazerPedido = true;
         } else if (cliente.dupla) {
             image(listaPedido, cliente.listaPedidoX, cliente.destinoY, width/23, height/4);
             image(pedidoAImg, cliente.pedidoX, cliente.pedidoA, width/30, height/20);
             image(pedidoBImg, cliente.pedidoX, cliente.pedidoB, width/30, height/20);
+            if (cliente.mesa == 1 && !indicesSalvosMesa1){
+              indiceMesa1.push(pratosIniciais.indexOf(pedidoAImg));
+              indiceMesa1.push(pratosIniciais.indexOf(pedidoBImg));
+              indicesSalvosMesa1 = true;
+            } else if (cliente.mesa == 2 && !indicesSalvosMesa2){
+              indiceMesa2.push(pratosIniciais.indexOf(pedidoAImg));
+              indiceMesa2.push(pratosIniciais.indexOf(pedidoBImg));
+              indicesSalvosMesa2 = true;
+            } else if (cliente.mesa == 7 && !indicesSalvosMesa7){
+              indiceMesa7.push(pratosIniciais.indexOf(pedidoAImg));
+              indiceMesa7.push(pratosIniciais.indexOf(pedidoBImg));
+              indicesSalvosMesa7 = true;
+            } else if (cliente.mesa == 8 && !indicesSalvosMesa8){
+              indiceMesa8.push(pratosIniciais.indexOf(pedidoAImg));
+              indiceMesa8.push(pratosIniciais.indexOf(pedidoBImg));
+              indicesSalvosMesa8 = true;
+            }
             cliente.tempoPedido++;
             cliente.fazerPedido = true;
         } else {
             image(listaPedido, cliente.listaPedidoX, cliente.destinoY, width/23, height/4);
             image(pedidoAImg, cliente.pedidoX, cliente.pedidoA, width/30, height/20);
+            if (cliente.mesa == 1 && !indicesSalvosMesa1){
+              indiceMesa1.push(pratosIniciais.indexOf(pedidoAImg));
+              indicesSalvosMesa1 = true;
+            } else if (cliente.mesa == 2 && !indicesSalvosMesa2){
+              indiceMesa2.push(pratosIniciais.indexOf(pedidoAImg));
+              indicesSalvosMesa2 = true;
+            } else if (cliente.mesa == 7 && !indicesSalvosMesa7){
+              indiceMesa7.push(pratosIniciais.indexOf(pedidoAImg));
+              indicesSalvosMesa7 = true;
+            } else if (cliente.mesa == 8 && !indicesSalvosMesa8){
+              indiceMesa8.push(pratosIniciais.indexOf(pedidoAImg));
+              indicesSalvosMesa8 = true;
+            }
             cliente.tempoPedido++;
             cliente.fazerPedido = true;
         }
