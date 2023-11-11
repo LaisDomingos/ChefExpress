@@ -14,7 +14,7 @@ let clienteDuplaMaoImagens = [];
 let clienteDuplaAposImagens = [];
 
 let clientes = [];
-
+let cliente;
 function chamarClientes(){
     mostrarClientes();
     moverClientes();
@@ -264,7 +264,7 @@ function moverClientes() {
     let velocidade = 2;
     
     for (let i = 0; i < clientes.length; i++) {
-        let cliente = clientes[i];
+        cliente = clientes[i];
         if (!cliente.chegou) {
             // Calcula a direção em que o cliente deve se mover. 
             // Pega o destino final - o local do cliente e divide a distancia entre os pontos x e y do cliente e o x e y da mesa

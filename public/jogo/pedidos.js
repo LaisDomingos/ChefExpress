@@ -9,6 +9,7 @@ let pedidoAImg;
 let pedidoBImg;
 let pedidoCImg;
 let pedidoDImg;
+
 function gerarImagensPedidoAleatorias() {
     const pedidoAImg = random(pratosIniciais);
     const pedidoBImg = random(pratosIniciais);
@@ -138,7 +139,6 @@ async function atenderPedido(cliente) {
       espacoocupado13 = true;
       espacoocupado14 = true;
     } else {
-      console.log("Aguardando espaço disponível...");
       await aguardarEspacoDisponivel();
       // Quando o espaço estiver disponível, a função irá continuar a partir daqui
       return await atenderPedido(cliente);
@@ -155,7 +155,6 @@ async function atenderPedido(cliente) {
       espacoocupado5 = true;
       espacoocupado6 = true;
     } else {
-      console.log("Aguardando espaço disponível...");
       await aguardarEspacoDisponivel();
       return await atenderPedido(cliente);
     }
@@ -167,7 +166,6 @@ async function atenderPedido(cliente) {
       espaco2 = pedidoAImg;
       espacoocupado2 = true;
     } else {
-      console.log("Aguardando espaço disponível...");
       await aguardarEspacoDisponivel();
       return await atenderPedido(cliente);
     }
