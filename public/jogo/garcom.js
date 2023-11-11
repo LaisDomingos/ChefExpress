@@ -28,20 +28,25 @@ let buscarPrato12 = false;
 let buscarPrato13 = false; 
 let buscarPrato14 = false;
 let garcom;
+let garcomPedido;
 
 let garcomImgI;
 let garcomComPedido = false;
 
 function movimentoGarcon(){
-  image(garcom, xGarcon, yGarcon, width/8, height/3);
+  if (!garcomComPedido){
+    image(garcom, xGarcon, yGarcon, width/8, height/3);
+  } else {
+    image(garcomPedido, xGarcon, yGarcon, width/8, height/3);
+  }
+  
   if (garconMovendo1) {
     if (xGarcon !== width * 0.2 || yGarcon !== mesa1357Y) {
       xGarcon = width * 0.16;
       yGarcon = height * 0.4;
       let mesaAtendida = 1;
       if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
+        verificarPedidos(mesaAtendida);
       }
       garconMovendo1 = false;
     }
@@ -52,8 +57,7 @@ function movimentoGarcon(){
       yGarcon = height * 0.05;
       let mesaAtendida = 2;
       if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
+        verificarPedidos(mesaAtendida);
       }
       garconMovendo2 = false;
     }
@@ -64,8 +68,7 @@ function movimentoGarcon(){
       yGarcon = height * 0.4;
       let mesaAtendida = 3;
       if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
+        verificarPedidos(mesaAtendida);
       }
       garconMovendo3 = false;
     }
@@ -76,8 +79,7 @@ function movimentoGarcon(){
       yGarcon = height * 0.05;
       let mesaAtendida = 4;
       if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
+        verificarPedidos(mesaAtendida);
       }
       garconMovendo4 = false;
     }
@@ -88,8 +90,7 @@ function movimentoGarcon(){
       yGarcon = height * 0.4;
       let mesaAtendida = 5;
       if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
+        verificarPedidos(mesaAtendida);
       }
       garconMovendo5 = false;
     }
@@ -98,11 +99,9 @@ function movimentoGarcon(){
     if (xGarcon !== width * 0.55 || yGarcon !== mesa2468Y) {
       xGarcon = width * 0.51;
       yGarcon = height * 0.05;
-    
       let mesaAtendida = 6;
       if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
+        verificarPedidos(mesaAtendida);
       }
       garconMovendo6= false;
     }
@@ -113,8 +112,7 @@ function movimentoGarcon(){
       yGarcon = height * 0.4;
       let mesaAtendida = 7;
       if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
+        verificarPedidos(mesaAtendida);
       }
       garconMovendo7 = false;
     }
@@ -123,11 +121,9 @@ function movimentoGarcon(){
     if (xGarcon !== width * 0.7 || yGarcon !== mesa2468Y) {
       xGarcon = width * 0.66;
       yGarcon = height * 0.05;
-
       let mesaAtendida = 8;
       if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
+        verificarPedidos(mesaAtendida);
       }
       garconMovendo8 = false;
     }
@@ -140,7 +136,7 @@ function movimentoGarcon(){
       if (espacoocupado1) {
         const indicePrato = pratosIniciais.indexOf(espaco1);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado1 = false;
       }
@@ -155,7 +151,7 @@ function movimentoGarcon(){
     if(espacoocupado2){
       const indicePrato = pratosIniciais.indexOf(espaco2);
       garcomImgI = indicePrato;
-      garcom = garcomImagensPratosIni[indicePrato];
+      garcomPedido = garcomImagensPratosIni[indicePrato];
       garcomComPedido = true;
       espacoocupado2 = false;
     }
@@ -168,7 +164,7 @@ function movimentoGarcon(){
       if(espacoocupado3){
         const indicePrato = pratosIniciais.indexOf(espaco3);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado3 = false;
       }
@@ -182,7 +178,7 @@ function movimentoGarcon(){
       if(espacoocupado4){
         const indicePrato = pratosIniciais.indexOf(espaco4);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado4 = false;
       }
@@ -196,7 +192,7 @@ function movimentoGarcon(){
       if(espacoocupado5){
         const indicePrato = pratosIniciais.indexOf(espaco5);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado5 = false;
       }
@@ -210,7 +206,7 @@ function movimentoGarcon(){
       if(espacoocupado6){
         const indicePrato = pratosIniciais.indexOf(espaco6);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado6 = false;
       }
@@ -224,7 +220,7 @@ function movimentoGarcon(){
       if(espacoocupado7){
         const indicePrato = pratosIniciais.indexOf(espaco7);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado7 = false;
       }
@@ -238,7 +234,7 @@ function movimentoGarcon(){
       if(espacoocupado8){
         const indicePrato = pratosIniciais.indexOf(espaco8);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado8 = false;
       }
@@ -252,7 +248,7 @@ function movimentoGarcon(){
       if(espacoocupado9){
         const indicePrato = pratosIniciais.indexOf(espaco9);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado9 = false;
       }
@@ -266,7 +262,7 @@ function movimentoGarcon(){
       if(espacoocupado10){
         const indicePrato = pratosIniciais.indexOf(espaco10);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado10 = false;
       }
@@ -280,7 +276,7 @@ function movimentoGarcon(){
       if(espacoocupado11){
         const indicePrato = pratosIniciais.indexOf(espaco11);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado11 = false;
       }
@@ -294,7 +290,7 @@ function movimentoGarcon(){
       if(espacoocupado12){
         const indicePrato = pratosIniciais.indexOf(espaco12);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado12 = false;
       }
@@ -308,7 +304,7 @@ function movimentoGarcon(){
       if(espacoocupado13){
         const indicePrato = pratosIniciais.indexOf(espaco13);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado13 = false;
       }
@@ -322,303 +318,7 @@ function movimentoGarcon(){
       if(espacoocupado14){
         const indicePrato = pratosIniciais.indexOf(espaco14);
         garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado14 = false;
-      }
-    }
-  }
-  loop();
-}
-/*function movimentoGarcon(){
-  image(garcom, xGarcon, yGarcon, width/8, height/3);
-  if (garconMovendo1) {
-    if (xGarcon !== width * 0.2 || yGarcon !== mesa2468Y) {
-      xGarcon = width * 0.16;
-      yGarcon = height * 0.05;
-      let mesaAtendida = 1;
-      if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
-      }
-      garconMovendo1 = false;
-    }
-  }
-  if (garconMovendo2) {
-    if (xGarcon !== width * 0.2 || yGarcon !== mesa1357Y) {
-      xGarcon = width * 0.16;
-      yGarcon = height * 0.4;
-      let mesaAtendida = 2;
-      if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
-      }
-      garconMovendo2 = false;
-    }
-  }
-  if (garconMovendo3) {
-    if (xGarcon !== width * 0.35 || yGarcon !== mesa2468Y) {
-      xGarcon = width * 0.31;
-      yGarcon = height * 0.05;
-      let mesaAtendida = 3;
-      if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
-      }
-      garconMovendo3 = false;
-    }
-  }
-  if (garconMovendo4) {
-    if (xGarcon !== width * 0.35 || yGarcon !== mesa1357Y) {
-      xGarcon = width * 0.31;
-      yGarcon = height * 0.4;
-      let mesaAtendida = 4;
-      if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
-      }
-      garconMovendo4 = false;
-    }
-  }
-  if (garconMovendo5) {
-    if (xGarcon !== width * 0.55 || yGarcon !== mesa2468Y) {
-      xGarcon = width * 0.51;
-      yGarcon = height * 0.05;
-      let mesaAtendida = 5;
-      if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
-      }
-      garconMovendo5 = false;
-    }
-  }
-  if (garconMovendo6) {
-    if (xGarcon !== width * 0.55 || yGarcon !== mesa1357Y) {
-      xGarcon = width * 0.51;
-      yGarcon = height * 0.4;
-      let mesaAtendida = 6;
-      if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
-      }
-      garconMovendo6= false;
-    }
-  }
-  if (garconMovendo7) {
-    if (xGarcon !== width * 0.7 || yGarcon !== mesa2468Y) {
-      xGarcon = width * 0.66;
-      yGarcon = height * 0.05;
-      let mesaAtendida = 7;
-      if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
-      }
-      garconMovendo7 = false;
-    }
-  }
-  if (garconMovendo8) {
-    if (xGarcon !== width * 0.7 || yGarcon !== mesa1357Y) {
-      xGarcon = width * 0.66;
-      yGarcon = height * 0.4;
-      let mesaAtendida = 8;
-      if(garcomComPedido){
-        entregarPedido();
-        verificarIndicesPedidos(mesaAtendida);
-      }
-      garconMovendo8 = false;
-    }
-  }
-  if (buscarPrato1) {
-    if (xGarcon !== width * 0.14 || yGarcon !== height * 0.62) {
-      xGarcon = width * 0.1;
-      yGarcon = height * 0.52;
-      buscarPrato1 = false;
-      if (espacoocupado1) {
-        const indicePrato = pratosIniciais.indexOf(espaco1);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado1 = false;
-      }
-    }
-  }
-  if (buscarPrato2) {
-    if (xGarcon !== width * 0.19 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.15;
-      yGarcon = height * 0.52;
-      buscarPrato2 = false;
-    }
-    if(espacoocupado2){
-      const indicePrato = pratosIniciais.indexOf(espaco2);
-      garcomImgI = indicePrato;
-      garcom = garcomImagensPratosIni[indicePrato];
-      garcomComPedido = true;
-      espacoocupado2 = false;
-    }
-  }
-  if (buscarPrato3) {
-    if (xGarcon !== width * 0.24 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.2;
-      yGarcon = height * 0.52;
-      buscarPrato3 = false;
-      if(espacoocupado3){
-        const indicePrato = pratosIniciais.indexOf(espaco3);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado3 = false;
-      }
-    }
-  }
-  if (buscarPrato4) {
-    if (xGarcon !== width * 0.29 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.25;
-      yGarcon = height * 0.52;
-      buscarPrato4 = false;
-      if(espacoocupado4){
-        const indicePrato = pratosIniciais.indexOf(espaco4);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado4 = false;
-      }
-    }
-  }
-  if (buscarPrato5) {
-    if (xGarcon !== width * 0.34 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.3;
-      yGarcon = height * 0.52;
-      buscarPrato5 = false;
-      if(espacoocupado5){
-        const indicePrato = pratosIniciais.indexOf(espaco5);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado5 = false;
-      }
-    }
-  }
-  if (buscarPrato6) {
-    if (xGarcon !== width * 0.39 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.35;
-      yGarcon = height * 0.52;
-      buscarPrato6 = false;
-      if(espacoocupado6){
-        const indicePrato = pratosIniciais.indexOf(espaco6);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado6 = false;
-      }
-    }
-  }
-  if (buscarPrato7) {
-    if (xGarcon !== width * 0.44 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.4;
-      yGarcon = height * 0.52;
-      buscarPrato7 = false;
-      if(espacoocupado7){
-        const indicePrato = pratosIniciais.indexOf(espaco7);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado7 = false;
-      }
-    }
-  }
-  if (buscarPrato8) {
-    if (xGarcon !== width * 0.49 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.45;
-      yGarcon = height * 0.52;
-      buscarPrato8 = false;
-      if(espacoocupado8){
-        const indicePrato = pratosIniciais.indexOf(espaco8);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado8 = false;
-      }
-    }
-  }
-  if (buscarPrato9) {
-    if (xGarcon !== width * 0.54 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.5;
-      yGarcon = height * 0.52;
-      buscarPrato9 = false;
-      if(espacoocupado9){
-        const indicePrato = pratosIniciais.indexOf(espaco9);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado9 = false;
-      }
-    }
-  }
-  if (buscarPrato10) {
-    if (xGarcon !== width * 0.59 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.55;
-      yGarcon = height * 0.52;
-      buscarPrato10 = false;
-      if(espacoocupado10){
-        const indicePrato = pratosIniciais.indexOf(espaco10);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado10 = false;
-      }
-    }
-  }
-  if (buscarPrato11) {
-    if (xGarcon !== width * 0.64 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.6;
-      yGarcon = height * 0.52;
-      buscarPrato11 = false;
-      if(espacoocupado11){
-        const indicePrato = pratosIniciais.indexOf(espaco11);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado11 = false;
-      }
-    }
-  }
-  if (buscarPrato12) {
-    if (xGarcon !== width * 0.69 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.65;
-      yGarcon = height * 0.52;
-      buscarPrato12 = false;
-      if(espacoocupado12){
-        const indicePrato = pratosIniciais.indexOf(espaco12);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado12 = false;
-      }
-    }
-  }
-  if (buscarPrato13) {
-    if (xGarcon !== width * 0.74 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.7;
-      yGarcon = height * 0.52;
-      buscarPrato13 = false;
-      if(espacoocupado13){
-        const indicePrato = pratosIniciais.indexOf(espaco13);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
-        garcomComPedido = true;
-        espacoocupado13 = false;
-      }
-    }
-  }
-  if (buscarPrato14) {
-    if (xGarcon !== width * 0.79 || yGarcon !== height*0.62) {
-      xGarcon = width * 0.75;
-      yGarcon = height * 0.52;
-      buscarPrato14 = false;
-      if(espacoocupado14){
-        const indicePrato = pratosIniciais.indexOf(espaco14);
-        garcomImgI = indicePrato;
-        garcom = garcomImagensPratosIni[indicePrato];
+        garcomPedido = garcomImagensPratosIni[indicePrato];
         garcomComPedido = true;
         espacoocupado14 = false;
       }
@@ -627,41 +327,6 @@ function movimentoGarcon(){
   loop();
 }
 
-function movimentoAteMesa(){
-  if (mouseX > mesa12X && mouseX < mesa12X + width / 14){
-    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
-      garconMovendo1= true;
-    }
-    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
-      garconMovendo2= true;
-    }
-  }
-  if (mouseX > mesa34X && mouseX < mesa34X + width / 10){
-    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
-      garconMovendo3= true;
-    }
-    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
-      garconMovendo4= true; 
-    }
-  }
-  if (mouseX > mesa56X && mouseX < mesa56X + width / 10){
-    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
-      garconMovendo5= true;
-    }
-    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
-      garconMovendo6= true;
-    }
-  }
-  if (mouseX > mesa78X && mouseX < mesa78X + width / 14){
-    if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
-      garconMovendo7= true;
-    }
-    if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
-      garconMovendo8= true;
-    }
-  }
-  loop();
-}*/
 function movimentoAteMesa(){
   if (mouseX > mesa12X && mouseX < mesa12X + width / 14){
     if (mouseY > mesa1357Y && mouseY < mesa1357Y + height / 4 ) {
@@ -747,30 +412,80 @@ function movimentoAtePedidos(){
   loop();
 }
 
-function verificarIndicesPedidos(mesaAtendida) {
-  
+function verificarPedidos(mesaAtendida) {
+  console.log(garcomImgI);
   if (mesaAtendida == 1){
     console.log("Mesa 1:", indiceMesa1);
+    for (var i = 0; i < indiceMesa1.length; i++) {
+      if (indiceMesa1[i] === garcomImgI) {
+        indiceMesa1.splice(i, 1);
+        garcomComPedido = false;
+        break;
+      }
+    }
   } else if (mesaAtendida == 2){
     console.log("Mesa 2:", indiceMesa2);
+    for (var i = 0; i < indiceMesa2.length; i++) {
+      if (indiceMesa2[i] === garcomImgI) {
+        indiceMesa2.splice(i, 1);
+        garcomComPedido = false;
+        break;
+      }
+    }
   } else if (mesaAtendida == 3){
     console.log("Mesa 3:", indiceMesa3);
+    for (var i = 0; i < indiceMesa3.length; i++) {
+      if (indiceMesa3[i] === garcomImgI) {
+        indiceMesa3.splice(i, 1);
+        garcomComPedido = false;
+        break;
+      }
+    }
   } else if (mesaAtendida == 4){    
     console.log("Mesa 4:", indiceMesa4);
+    for (var i = 0; i < indiceMesa4.length; i++) {
+      if (indiceMesa4[i] === garcomImgI) {
+        indiceMesa4.splice(i, 1);
+        garcomComPedido = false;
+        break;
+      }
+    }
   } else if (mesaAtendida == 5){
     console.log("Mesa 5:", indiceMesa5);
+    for (var i = 0; i < indiceMesa5.length; i++) {
+      if (indiceMesa5[i] === garcomImgI) {
+        indiceMesa5.splice(i, 1);
+        garcomComPedido = false;
+        break;
+      }
+    }
   } else if (mesaAtendida == 6){
     console.log("Mesa 6:", indiceMesa6);
+    for (var i = 0; i < indiceMesa6.length; i++) {
+      if (indiceMesa6[i] === garcomImgI) {
+        indiceMesa6.splice(i, 1);
+        garcomComPedido = false;
+        break;
+      }
+    }
   } else if (mesaAtendida == 7){
     console.log("Mesa 7:", indiceMesa7);
+    for (var i = 0; i < indiceMesa7.length; i++) {
+      if (indiceMesa7[i] === garcomImgI) {
+        indiceMesa7.splice(i, 1);
+        garcomComPedido = false;
+        break;
+      }
+    }
   } else if (mesaAtendida == 8){
     console.log("Mesa 8:", indiceMesa8);
+    for (var i = 0; i < indiceMesa8.length; i++) {
+      if (indiceMesa8[i] === garcomImgI) {
+        garcomComPedido = false;
+        indiceMesa8.splice(i, 1);
+        break;
+      }
+    }
   }
    
-}
-
-
-function entregarPedido(){
-  console.log("tm pedido na mão")
-  console.log(garcomImgI)
 }
