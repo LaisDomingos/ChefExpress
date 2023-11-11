@@ -412,6 +412,8 @@ function movimentoAtePedidos(){
   loop();
 }
 
+let check;
+
 function verificarPedidos(mesaAtendida) {
   console.log(garcomImgI);
   if (mesaAtendida == 1){

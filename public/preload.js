@@ -9,6 +9,7 @@ function preload(){
   mesasImagens.push(loadImage('imagens/mesa4.png'));
   lixo = loadImage('imagens/lixo.png');
   menuImg = loadImage('imagens/menu.png')
+  check = loadImage('imagens/check.svg')
 
   clienteImagens.push(loadImage('imagens/cliente1pe.png'));
   clienteImagens.push(loadImage('imagens/cliente2pe.png'));

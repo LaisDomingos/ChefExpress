@@ -68,10 +68,7 @@ function setup() {
   verListaTrocas = new Button();
   presente = new Button();
  
-  setInterval(gerarCliente, 4000);
-  //setInterval(atualizarDinheiro, 4000);
-  
-  
+  setInterval(gerarCliente, 4000); 
 }
   
 function draw() {
@@ -92,13 +89,13 @@ function draw() {
       }
     }
     cenario();
-    balcao();
     menu();
     chamarClientes();
     movimentoGarcon();
     telasMenu();
     getTempoPreparoValor();
     getValorChef();
+    //image(check,100,100,  width/30, height/18 )
     noLoop();
   } 
   
