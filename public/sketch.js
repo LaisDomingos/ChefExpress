@@ -90,6 +90,7 @@ function draw() {
     }
     cenario();
     menu();
+    balcao();
     chamarClientes();
     movimentoGarcon();
     telasMenu();

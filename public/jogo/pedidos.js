@@ -40,6 +40,19 @@ let indicesSalvosMesa6 = false;
 let indicesSalvosMesa7 = false;
 let indicesSalvosMesa8 = false;
 
+function checkImg(){
+  image(check,cliente.pedidoX, cliente.pedidoA,  width/30, height/18 )
+  image(check,cliente.pedidoX, cliente.pedidoB,  width/30, height/18 )
+  image(check,cliente.pedidoX, cliente.pedidoC,  width/30, height/18 )
+  image(check,cliente.pedidoX, cliente.pedidoD,  width/30, height/18 )
+}
+function checkImgD(){
+  image(check,cliente.pedidoX, cliente.pedidoA,  width/30, height/18 )
+  image(check,cliente.pedidoX, cliente.pedidoB,  width/30, height/18 )
+}
+function checkImgS(){
+  image(check,cliente.pedidoX, cliente.pedidoA,  width/30, height/18 )
+}
 function pedir(cliente) {
     const { pedidoAImg, pedidoBImg, pedidoCImg, pedidoDImg } = cliente.imagensPedido;
 
@@ -51,30 +64,52 @@ function pedir(cliente) {
             image(pedidoBImg, cliente.pedidoX, cliente.pedidoB, width/30, height/20);
             image(pedidoCImg, cliente.pedidoX, cliente.pedidoC, width/30, height/20);
             image(pedidoDImg, cliente.pedidoX, cliente.pedidoD, width/30, height/20);
-            if (cliente.mesa == 3 && !indicesSalvosMesa3){
-              indiceMesa3.push(pratosIniciais.indexOf(pedidoAImg));
-              indiceMesa3.push(pratosIniciais.indexOf(pedidoBImg));
-              indiceMesa3.push(pratosIniciais.indexOf(pedidoCImg));
-              indiceMesa3.push(pratosIniciais.indexOf(pedidoDImg));
-              indicesSalvosMesa3 = true;
-            } else if (cliente.mesa == 4 && !indicesSalvosMesa4){
-              indiceMesa4.push(pratosIniciais.indexOf(pedidoAImg));
-              indiceMesa4.push(pratosIniciais.indexOf(pedidoBImg));
-              indiceMesa4.push(pratosIniciais.indexOf(pedidoCImg));
-              indiceMesa4.push(pratosIniciais.indexOf(pedidoDImg));
-              indicesSalvosMesa4 = true;
-            } else if (cliente.mesa == 5 && !indicesSalvosMesa5){
-              indiceMesa5.push(pratosIniciais.indexOf(pedidoAImg));
-              indiceMesa5.push(pratosIniciais.indexOf(pedidoBImg));
-              indiceMesa5.push(pratosIniciais.indexOf(pedidoCImg));
-              indiceMesa5.push(pratosIniciais.indexOf(pedidoDImg));
-              indicesSalvosMesa5 = true;
-            } else if (cliente.mesa == 6 && !indicesSalvosMesa6){
-              indiceMesa6.push(pratosIniciais.indexOf(pedidoAImg));
-              indiceMesa6.push(pratosIniciais.indexOf(pedidoBImg));
-              indiceMesa6.push(pratosIniciais.indexOf(pedidoCImg));
-              indiceMesa6.push(pratosIniciais.indexOf(pedidoDImg));
-              indicesSalvosMesa6 = true;
+            if (cliente.mesa == 3) {
+              if(!indicesSalvosMesa3){
+                indiceMesa3.push(pratosIniciais.indexOf(pedidoAImg));
+                indiceMesa3.push(pratosIniciais.indexOf(pedidoBImg));
+                indiceMesa3.push(pratosIniciais.indexOf(pedidoCImg));
+                indiceMesa3.push(pratosIniciais.indexOf(pedidoDImg));
+                indicesSalvosMesa3 = true;
+              } 
+              if(tudoAtendido3){
+                checkImg();
+              }
+            }
+            else if (cliente.mesa == 4){
+              if(!indicesSalvosMesa4){
+                indiceMesa4.push(pratosIniciais.indexOf(pedidoAImg));
+                indiceMesa4.push(pratosIniciais.indexOf(pedidoBImg));
+                indiceMesa4.push(pratosIniciais.indexOf(pedidoCImg));
+                indiceMesa4.push(pratosIniciais.indexOf(pedidoDImg));
+                indicesSalvosMesa4 = true;
+              }
+              if(tudoAtendido4){
+                checkImg();
+              }
+            } else if (cliente.mesa == 5){
+              if(!indicesSalvosMesa5){
+                indiceMesa5.push(pratosIniciais.indexOf(pedidoAImg));
+                indiceMesa5.push(pratosIniciais.indexOf(pedidoBImg));
+                indiceMesa5.push(pratosIniciais.indexOf(pedidoCImg));
+                indiceMesa5.push(pratosIniciais.indexOf(pedidoDImg));
+                indicesSalvosMesa5 = true;
+              }
+              if(tudoAtendido5){
+                checkImg();
+              }
+            }
+            else if (cliente.mesa == 6){
+              if(!indicesSalvosMesa6){
+                indiceMesa6.push(pratosIniciais.indexOf(pedidoAImg));
+                indiceMesa6.push(pratosIniciais.indexOf(pedidoBImg));
+                indiceMesa6.push(pratosIniciais.indexOf(pedidoCImg));
+                indiceMesa6.push(pratosIniciais.indexOf(pedidoDImg));
+                indicesSalvosMesa6 = true;
+              }
+              if(tudoAtendido6){
+                checkImg();
+              }
             }
 
             cliente.tempoPedido++;
@@ -83,40 +118,80 @@ function pedir(cliente) {
             image(listaPedido, cliente.listaPedidoX, cliente.destinoY, width/23, height/4);
             image(pedidoAImg, cliente.pedidoX, cliente.pedidoA, width/30, height/20);
             image(pedidoBImg, cliente.pedidoX, cliente.pedidoB, width/30, height/20);
-            if (cliente.mesa == 1 && !indicesSalvosMesa1){
-              indiceMesa1.push(pratosIniciais.indexOf(pedidoAImg));
-              indiceMesa1.push(pratosIniciais.indexOf(pedidoBImg));
-              indicesSalvosMesa1 = true;
-            } else if (cliente.mesa == 2 && !indicesSalvosMesa2){
-              indiceMesa2.push(pratosIniciais.indexOf(pedidoAImg));
-              indiceMesa2.push(pratosIniciais.indexOf(pedidoBImg));
-              indicesSalvosMesa2 = true;
-            } else if (cliente.mesa == 7 && !indicesSalvosMesa7){
-              indiceMesa7.push(pratosIniciais.indexOf(pedidoAImg));
-              indiceMesa7.push(pratosIniciais.indexOf(pedidoBImg));
-              indicesSalvosMesa7 = true;
-            } else if (cliente.mesa == 8 && !indicesSalvosMesa8){
-              indiceMesa8.push(pratosIniciais.indexOf(pedidoAImg));
-              indiceMesa8.push(pratosIniciais.indexOf(pedidoBImg));
-              indicesSalvosMesa8 = true;
+            if (cliente.mesa == 1){
+              if(!indicesSalvosMesa1){
+                indiceMesa1.push(pratosIniciais.indexOf(pedidoAImg));
+                indiceMesa1.push(pratosIniciais.indexOf(pedidoBImg));
+                indicesSalvosMesa1 = true;
+              }
+              if(tudoAtendido1){
+                checkImgD();
+              }
+            } else if (cliente.mesa == 2){
+              if(!indicesSalvosMesa2){
+                indiceMesa2.push(pratosIniciais.indexOf(pedidoAImg));
+                indiceMesa2.push(pratosIniciais.indexOf(pedidoBImg));
+                indicesSalvosMesa2 = true;
+              }
+              if(tudoAtendido2){
+                checkImgD();
+              }
+            } else if (cliente.mesa == 7){
+              if(!indicesSalvosMesa7){
+                indiceMesa7.push(pratosIniciais.indexOf(pedidoAImg));
+                indiceMesa7.push(pratosIniciais.indexOf(pedidoBImg));
+                indicesSalvosMesa7 = true;
+              }
+              if(tudoAtendido7){
+                checkImgD();
+              }
+            } else if (cliente.mesa == 8){
+              if(!indicesSalvosMesa8){
+                indiceMesa8.push(pratosIniciais.indexOf(pedidoAImg));
+                indiceMesa8.push(pratosIniciais.indexOf(pedidoBImg));
+                indicesSalvosMesa8 = true;
+              }
+              if(tudoAtendido8){
+                checkImgD();
+              }
             }
             cliente.tempoPedido++;
             cliente.fazerPedido = true;
         } else {
             image(listaPedido, cliente.listaPedidoX, cliente.destinoY, width/23, height/4);
             image(pedidoAImg, cliente.pedidoX, cliente.pedidoA, width/30, height/20);
-            if (cliente.mesa == 1 && !indicesSalvosMesa1){
-              indiceMesa1.push(pratosIniciais.indexOf(pedidoAImg));
-              indicesSalvosMesa1 = true;
-            } else if (cliente.mesa == 2 && !indicesSalvosMesa2){
-              indiceMesa2.push(pratosIniciais.indexOf(pedidoAImg));
-              indicesSalvosMesa2 = true;
-            } else if (cliente.mesa == 7 && !indicesSalvosMesa7){
-              indiceMesa7.push(pratosIniciais.indexOf(pedidoAImg));
-              indicesSalvosMesa7 = true;
-            } else if (cliente.mesa == 8 && !indicesSalvosMesa8){
-              indiceMesa8.push(pratosIniciais.indexOf(pedidoAImg));
-              indicesSalvosMesa8 = true;
+            if (cliente.mesa == 1) {
+              if(!indicesSalvosMesa1){
+                indiceMesa1.push(pratosIniciais.indexOf(pedidoAImg));
+                indicesSalvosMesa1 = true;
+              }
+              if(tudoAtendido1){
+                checkImgS();
+              }
+            } if (cliente.mesa == 2) {
+              if(!indicesSalvosMesa2){
+                indiceMesa2.push(pratosIniciais.indexOf(pedidoAImg));
+                indicesSalvosMesa2 = true;
+              }
+              if(tudoAtendido2){
+                checkImgS();
+              }
+            } if (cliente.mesa == 7) {
+              if(!indicesSalvosMesa7){
+                indiceMesa7.push(pratosIniciais.indexOf(pedidoAImg));
+                indicesSalvosMesa7 = true;
+              }
+              if(tudoAtendido7){
+                checkImgS();
+              }
+            } if (cliente.mesa == 8) {
+              if(!indicesSalvosMesa8){
+                indiceMesa8.push(pratosIniciais.indexOf(pedidoAImg));
+                indicesSalvosMesa8 = true;
+              }
+              if(tudoAtendido8){
+                checkImgS();
+              }
             }
             cliente.tempoPedido++;
             cliente.fazerPedido = true;
