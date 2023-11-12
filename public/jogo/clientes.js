@@ -15,6 +15,16 @@ let clienteDuplaAposImagens = [];
 
 let clientes = [];
 let cliente;
+
+let mesa1O;
+let mesa2O;
+let mesa3O;
+let mesa4O;
+let mesa5O;
+let mesa6O;
+let mesa7O;
+let mesa8O;
+
 function chamarClientes(){
     mostrarClientes();
     moverClientes();
@@ -98,7 +108,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoX = width*0.325;
             pedidoA = mesa1357Y*1.025;
             pedidoB = mesa1357Y*1.15;
-            mesa1 = true;
+            mesa1O = true;
             break;
         case 2:
             mesaX = width*0.2;
@@ -114,7 +124,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoX = width*0.325;
             pedidoA = mesa2468Y*1.07;
             pedidoB = mesa2468Y*1.66;
-            mesa2 = true;
+            mesa2O = true;
             break;
         case 3:
             mesaX = width * 0.35;
@@ -127,7 +137,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoB = mesa1357Y*1.15;
             pedidoC = mesa1357Y*1.28;
             pedidoD = mesa1357Y*1.42;
-            mesa3 = true;
+            mesa3O = true;
             break;
         case 4:
             mesaX = width * 0.35;
@@ -140,7 +150,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoB = mesa2468Y*1.66;
             pedidoC = mesa2468Y*2.25;
             pedidoD = mesa2468Y*2.85;
-            mesa4 = true;
+            mesa4O = true;
             break;
         case 5:
             mesaX = width * 0.55;
@@ -153,7 +163,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoB = mesa1357Y*1.15;
             pedidoC = mesa1357Y*1.28;
             pedidoD = mesa1357Y*1.42;
-            mesa5 = true;
+            mesa5O = true;
             break;
         case 6:
             mesaX = width * 0.55;
@@ -166,7 +176,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoB = mesa2468Y*1.66;
             pedidoC = mesa2468Y*2.25;
             pedidoD = mesa2468Y*2.85;
-            mesa6 = true;
+            mesa6O = true;
             break;
         case 7:
             mesaX = width * 0.7;
@@ -182,7 +192,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoX = width*0.825;
             pedidoA = mesa1357Y*1.025;
             pedidoB = mesa1357Y*1.15;
-            mesa7 = true;
+            mesa7O = true;
             break;
         case 8:
             case 8:
@@ -199,7 +209,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoX = width * 0.825;
             pedidoA = mesa2468Y * 1.07;
             pedidoB = mesa2468Y * 1.66;
-            mesa8 = true;
+            mesa8O = true;
             break;
     }
     // Gerar imagens de pedido aleatórias e armazená-las no objeto do cliente
@@ -239,21 +249,21 @@ function criarClienteNaMesa(numeroMesa) {
 
 function gerarCliente() {
     // Verificar se há mesas livres
-    if (!mesa1) {
+    if (!mesa1O) {
         criarClienteNaMesa(1);
-    } else if (!mesa2) {
+    } else if (!mesa2O) {
         criarClienteNaMesa(2);
-    } else if (!mesa3) {
+    } else if (!mesa3O) {
         criarClienteNaMesa(3);
-    } else if (!mesa4) {
+    } else if (!mesa4O) {
         criarClienteNaMesa(4);
-    } else if (!mesa5) {
+    } else if (!mesa5O) {
         criarClienteNaMesa(5);
-    } else if (!mesa6) {
+    } else if (!mesa6O) {
         criarClienteNaMesa(6);
-    } else if (!mesa7) {
+    } else if (!mesa7O) {
         criarClienteNaMesa(7);
-    } else if (!mesa8) {
+    } else if (!mesa8O) {
         criarClienteNaMesa(8);
     } else {
         // Todas as mesas estão ocupadas, nada acontece 
@@ -306,31 +316,44 @@ function sairMesa(cliente) {
     // Libere a mesa correspondente
     switch (cliente.mesa) {
         case 1:
-            mesa1 = false;
+            mesa1O = false;
+            indicesSalvosMesa1 = false;
+            tudoAtendido1 = false;
             break;
         case 2:
-            mesa2 = false;
+            mesa2O = false;
+            indicesSalvosMesa2 = false;
+            tudoAtendido2 = false;
             break;
         case 3:
-            mesa3 = false;
+            mesa3O = false;
+            indicesSalvosMesa3 = false;
+            tudoAtendido3 = false;
             break;
         case 4:
-            mesa4 = false;
+            mesa4O = false;
+            indicesSalvosMesa4 = false;
+            tudoAtendido4 = false;
             break;
         case 5:
-            mesa5 = false;
+            mesa5O = false;
+            indicesSalvosMesa5 = false;
+            tudoAtendido5 = false;
             break;
         case 6:
-            mesa6 = false;
+            mesa6O = false;
+            indicesSalvosMesa6 = false;
+            tudoAtendido6 = false;
             break;
         case 7:
-            mesa7 = false;
+            mesa7O = false;
+            indicesSalvosMesa7 = false;
+            tudoAtendido7 = false;
             break;
         case 8:
-            mesa8 = false;
-            break;
-        case 9:
-            mesa9 = false;
+            mesa8O = false;
+            indicesSalvosMesa8 = false;
+            tudoAtendido8 = false;
             break;
     }
 
