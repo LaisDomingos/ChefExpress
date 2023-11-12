@@ -108,7 +108,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoX = width*0.325;
             pedidoA = mesa1357Y*1.025;
             pedidoB = mesa1357Y*1.15;
-            mesa1O = true;
+            //mesa1O = true;
             break;
         case 2:
             mesaX = width*0.2;
@@ -124,7 +124,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoX = width*0.325;
             pedidoA = mesa2468Y*1.07;
             pedidoB = mesa2468Y*1.66;
-            mesa2O = true;
+            //mesa2O = true;
             break;
         case 3:
             mesaX = width * 0.35;
@@ -137,7 +137,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoB = mesa1357Y*1.15;
             pedidoC = mesa1357Y*1.28;
             pedidoD = mesa1357Y*1.42;
-            mesa3O = true;
+            //mesa3O = true;
             break;
         case 4:
             mesaX = width * 0.35;
@@ -150,7 +150,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoB = mesa2468Y*1.66;
             pedidoC = mesa2468Y*2.25;
             pedidoD = mesa2468Y*2.85;
-            mesa4O = true;
+            //mesa4O = true;
             break;
         case 5:
             mesaX = width * 0.55;
@@ -163,7 +163,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoB = mesa1357Y*1.15;
             pedidoC = mesa1357Y*1.28;
             pedidoD = mesa1357Y*1.42;
-            mesa5O = true;
+            //mesa5O = true;
             break;
         case 6:
             mesaX = width * 0.55;
@@ -176,7 +176,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoB = mesa2468Y*1.66;
             pedidoC = mesa2468Y*2.25;
             pedidoD = mesa2468Y*2.85;
-            mesa6O = true;
+            //mesa6O = true;
             break;
         case 7:
             mesaX = width * 0.7;
@@ -192,7 +192,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoX = width*0.825;
             pedidoA = mesa1357Y*1.025;
             pedidoB = mesa1357Y*1.15;
-            mesa7O = true;
+            //mesa7O = true;
             break;
         case 8:
             case 8:
@@ -209,7 +209,7 @@ function criarClienteNaMesa(numeroMesa) {
             pedidoX = width * 0.825;
             pedidoA = mesa2468Y * 1.07;
             pedidoB = mesa2468Y * 1.66;
-            mesa8O = true;
+            //mesa8O = true;
             break;
     }
     // Gerar imagens de pedido aleatórias e armazená-las no objeto do cliente
@@ -251,23 +251,32 @@ function gerarCliente() {
     // Verificar se há mesas livres
     if (!mesa1O) {
         criarClienteNaMesa(1);
+        mesa1O = true;
     } else if (!mesa2O) {
         criarClienteNaMesa(2);
+        mesa2O = true;
     } else if (!mesa3O) {
         criarClienteNaMesa(3);
+        mesa3O = true;
     } else if (!mesa4O) {
         criarClienteNaMesa(4);
+        mesa4O = true;
     } else if (!mesa5O) {
         criarClienteNaMesa(5);
+        mesa5O = true;
     } else if (!mesa6O) {
         criarClienteNaMesa(6);
+        mesa6O = true;
     } else if (!mesa7O) {
         criarClienteNaMesa(7);
+        mesa7O = true;
     } else if (!mesa8O) {
         criarClienteNaMesa(8);
+        mesa8O = true;
     } else {
         // Todas as mesas estão ocupadas, nada acontece 
     }
+    loop();
 }
 
 function moverClientes() {

@@ -98,9 +98,21 @@ function draw() {
     telasMenu();
     getTempoPreparoValor();
     getValorChef();
+    test();
     noLoop();
   } 
   
+}
+function test(){
+  console.log("mesa 1:",mesa1O)
+  console.log("mesa 2:",mesa2O)
+  /*console.log("mesa 3:",mesa3O)
+  console.log("mesa 4:",mesa4O)
+  console.log("mesa 5:",mesa5O)
+  console.log("mesa 6:",mesa6O)
+  console.log("mesa 7:",mesa7O)
+  console.log("mesa 8:",mesa8O)*/
+  loop();
 }
 
 

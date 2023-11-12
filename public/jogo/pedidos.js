@@ -74,9 +74,10 @@ function pedir(cliente) {
               } 
               if(tudoAtendido3){
                 checkImg();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 10000);
+                }, 10000);*/
               }
             }
             else if (cliente.mesa == 4){
@@ -89,9 +90,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido4){
                 checkImg();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 10000);
+                }, 10000);*/
               }
             } else if (cliente.mesa == 5){
               if(!indicesSalvosMesa5){
@@ -103,9 +105,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido5){
                 checkImg();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 10000);
+                }, 10000);*/
               }
             }
             else if (cliente.mesa == 6){
@@ -118,9 +121,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido6){
                 checkImg();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 10000);
+                }, 10000);*/
               }
             }
 
@@ -138,9 +142,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido1){
                 checkImgD();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 2000);
+                }, 2000);*/
               }
             } else if (cliente.mesa == 2){
               if(!indicesSalvosMesa2){
@@ -150,9 +155,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido2){
                 checkImgD();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 2000);
+                }, 2000);*/
               }
             } else if (cliente.mesa == 7){
               if(!indicesSalvosMesa7){
@@ -162,9 +168,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido7){
                 checkImgD();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 2000);
+                }, 2000);*/
               }
             } else if (cliente.mesa == 8){
               if(!indicesSalvosMesa8){
@@ -174,9 +181,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido8){
                 checkImgD();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 2000);
+                }, 2000);*/
               }
             }
             cliente.tempoPedido++;
@@ -191,9 +199,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido1){
                 checkImgS();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 5000);
+                }, 5000);*/
               }
             } if (cliente.mesa == 2) {
               if(!indicesSalvosMesa2){
@@ -202,9 +211,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido2){
                 checkImgS();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 5000);
+                }, 5000);*/
               }
             } if (cliente.mesa == 7) {
               if(!indicesSalvosMesa7){
@@ -213,9 +223,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido7){
                 checkImgS();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 5000);
+                }, 5000);*/
               }
             } if (cliente.mesa == 8) {
               if(!indicesSalvosMesa8){
@@ -224,9 +235,10 @@ function pedir(cliente) {
               }
               if(tudoAtendido8){
                 checkImgS();
-                setTimeout(function () {
+                sairMesa(cliente);
+                /*setTimeout(function () {
                   sairMesa(cliente);
-                }, 5000);
+                }, 5000);*/
               }
             }
             cliente.tempoPedido++;
