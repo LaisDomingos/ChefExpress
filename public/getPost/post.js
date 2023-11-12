@@ -9,7 +9,6 @@ function postDinheiroServicos() { //Atualiza o dinheiro de acordo com o o chef e
     httpPost('/postDinheiroServicos', attBancoDinheiro, 'json', (respostaServidor) => {
       console.log(respostaServidor);
       if (respostaServidor.status === 200) {
-        // Atualize o dinheiro após a atualização bem-sucedida
         getDinheiro();
        
       } else {
@@ -17,12 +16,12 @@ function postDinheiroServicos() { //Atualiza o dinheiro de acordo com o o chef e
       }
       });
     } else {
-      //caso não tenha dinheiro o chef e os ajudantes são demitidos
-      /*httpPost('/postDeleteChefAjudante', {}, 'json', (respostaServidor) => {
-        console.log(respostaServidor);
-        console.error('Saldo insuficiente para concluir a transação.');
-      });*/
-      console.error('Saldo insuficiente para concluir a transação.');
+      httpPost('/postAjudanteAtivo', { ativo: 0 }, 'json', (respostaAtivo) => {
+        console.log(respostaAtivo);
+      });
+      httpPost('/postChefAtivo', { ativo: 0 }, 'json', (respostaAtivo) => {
+        console.log(respostaAtivo);
+      });
     }
     loop();
 }

@@ -151,7 +151,7 @@ app.post('/postChef', (req, res) => {
       if (checkResult.length > 0) {
         // O jogador já possui registros na tabela "users_chefs"
         // Atualize o idChef 
-        const upSql = 'UPDATE users_chefs SET idChef = ? WHERE idUser = ?';
+        const upSql = 'UPDATE users_chefs SET idChef = ?,  ativo = 1 WHERE idUser = ?';
         dbase.query(upSql, [chefId, idUser], (err, result) => {
           if (err) {
             return res.status(500).json({ error: 'Erro no servidor' });
@@ -161,7 +161,7 @@ app.post('/postChef', (req, res) => {
       } else {
         // O jogador não possui registros na tabela "users_chefs"
         // Insira um novo registro com idUser e idChef
-        const inSql = 'INSERT INTO users_chefs (idUser, idChef) VALUES (?, ?)';
+        const inSql = 'INSERT INTO users_chefs (idUser, idChef, ativo) VALUES (?, ?, 1)';
         dbase.query(inSql, [idUser, chefId], (err, result) => {
           if (err) {
             return res.status(500).json({ error: 'Erro no servidor' });
@@ -179,7 +179,7 @@ app.post('/postChef', (req, res) => {
 //postAjudante - coloca o ajudante que foi contratado na tabela users_ajudantes (idUser e idFuncionario)
 app.post('/postAjudante', (req, res) => {
   const { ajudanteId } = req.body;
-  
+
   if (idUser) {
     // Verifique se o jogador já possui este chefe associado
     const sql = 'SELECT * FROM users_ajudantes WHERE idUser = ?';
@@ -190,8 +190,8 @@ app.post('/postAjudante', (req, res) => {
 
       if (checkResult.length > 0) {
         // O jogador já possui registros na tabela
-        // Atualize o idAjudante correspondente
-        const upSql = 'UPDATE users_ajudantes SET idAjudante = ? WHERE idUser = ?';
+        // Atualize o idAjudante correspondente e defina ativo como 1
+        const upSql = 'UPDATE users_ajudantes SET idAjudante = ?, ativo = 1 WHERE idUser = ?';
         dbase.query(upSql, [ajudanteId, idUser], (updateErr, updateResult) => {
           if (updateErr) {
             return res.status(500).json({ error: 'Erro no servidor' });
@@ -200,8 +200,8 @@ app.post('/postAjudante', (req, res) => {
         });
       } else {
         // O jogador não possui registros na tabela
-        // Insira um novo registro com idUser e idAjudante
-        const inSql = 'INSERT INTO users_ajudantes (idUser, idAjudante) VALUES (?, ?)';
+        // Insira um novo registro com idUser, idAjudante e ativo igual a 1
+        const inSql = 'INSERT INTO users_ajudantes (idUser, idAjudante, ativo) VALUES (?, ?, 1)';
         dbase.query(inSql, [idUser, ajudanteId], (err, result) => {
           if (err) {
             return res.status(500).json({ error: 'Erro no servidor' });
@@ -215,11 +215,12 @@ app.post('/postAjudante', (req, res) => {
   }
 });
 
+
 //getTempoPreparoValor - busca o tempo de preparo e valor do ajudante contratato
 app.get('/getTempoPreparoValor', (req, res) => {
   if (idUser) {
-    //Pegar todos os dados da tabela users_ajudantes faz uma ligação com a tabela funcionarios em que idAjudante = idFuncionario onde idUser foi igual o passadp
-    const sql = `SELECT * FROM users_ajudantes u JOIN funcionarios f ON u.idAjudante = f.idFuncionario WHERE u.idUser = ?;`;
+    // Pegar todos os dados da tabela users_ajudantes faz uma ligação com a tabela funcionarios em que idAjudante = idFuncionario onde idUser foi igual o passado
+    const sql = `SELECT u.*, f.*, u.ativo FROM users_ajudantes u JOIN funcionarios f ON u.idAjudante = f.idFuncionario WHERE u.idUser = ?;`;
 
     dbase.query(sql, [idUser], (error, results) => {
       if (error) {
@@ -229,11 +230,12 @@ app.get('/getTempoPreparoValor', (req, res) => {
           const tempoPreparo = results[0].tempoPreparo;
           const valor = results[0].valor;
           const tipoFuncionario = results[0].tipoFuncionario;
-          res.json({ tipoFuncionario, tempoPreparo, valor});
-          //console.log("Ajudante: ", tipoFuncionario, tempoPreparo, valor)
+          const ativo = results[0].ativo;
+
+          res.json({ tipoFuncionario, tempoPreparo, valor, ativo });
+          //console.log("Ajudante: ", tipoFuncionario, tempoPreparo, valor, ativo);
         } else {
-          //res.status(404).json({ error: 'Usuário não tem um ajudante associado' });
-          res.json('Usuário não tem um ajudante associado' );
+          res.json('Usuário não tem um ajudante associado');
         }
       }
     });
@@ -241,11 +243,12 @@ app.get('/getTempoPreparoValor', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+
 //getValorChef - busca o valor do chef contratato
 app.get('/getValorChef', (req, res) => {
   if (idUser) {
-    //Pegar todos os dados da tabela users_chefs faz uma ligação com a tabela funcionarios em que idChef = idFuncionario onde idUser foi igual o passadp
-    const sql = `SELECT * FROM users_chefs u JOIN funcionarios f ON u.idChef = f.idFuncionario WHERE u.idUser = ?;`;
+    // Pegar todos os dados da tabela users_chefs faz uma ligação com a tabela funcionarios em que idChef = idFuncionario onde idUser foi igual o passado
+    const sql = `SELECT u.*, f.*, u.ativo FROM users_chefs u JOIN funcionarios f ON u.idChef = f.idFuncionario WHERE u.idUser = ?;`;
 
     dbase.query(sql, [idUser], (error, results) => {
       if (error) {
@@ -255,10 +258,11 @@ app.get('/getValorChef', (req, res) => {
           const lucro = results[0].lucro;
           const valor = results[0].valor;
           const tipoFuncionario = results[0].tipoFuncionario;
-          res.json({ tipoFuncionario, lucro, valor});
-          //console.log("Chefe: ", tipoFuncionario,lucro, valor)
+          const ativo = results[0].ativo; // Novo campo adicionado
+
+          res.json({ tipoFuncionario, lucro, valor, ativo });
+          //console.log("Chefe: ", tipoFuncionario, lucro, valor, ativo);
         } else {
-          //res.status(404).json({ error: 'Usuário não tem chef associado' });
           res.json('Usuário não tem chef associado');
         }
       }
@@ -267,32 +271,38 @@ app.get('/getValorChef', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+app.post('/postAjudanteAtivo', (req, res) => {
+  const { ativo } = req.body;
 
-//postDeleteChefAjudante - Deleta o ajudante e o chef caso não tenha dinheiro
-app.post('/postDeleteChefAjudante', (req, res) => {
   if (idUser) {
-    // Delete the ajudante row
-    let deleteAjudanteSql = 'DELETE FROM users_ajudantes WHERE idUser = ?';
-    dbase.query(deleteAjudanteSql, [idUser], (err, result) => {
-      if (err) {
-        return res.status(500).json({ error: 'Erro ao deletar a linha da tabela users_ajudantes' });
+    // Atualize a coluna 'ativo' na tabela users_ajudantes
+    const sql = 'UPDATE users_ajudantes SET ativo = ? WHERE idUser = ?';
+    
+    dbase.query(sql, [ativo, idUser], (updateErr, updateResult) => {
+      if (updateErr) {
+        return res.status(500).json({ error: 'Erro no servidor' });
       }
-
-      // Delete the chef row
-      let deleteChefSql = 'DELETE FROM users_chefs WHERE idUser = ?';
-      dbase.query(deleteChefSql, [idUser], (err, result) => {
-        if (err) {
-          return res.status(500).json({ error: 'Erro ao deletar a linha da tabela users_chefs' });
-        }
-
-        res.json({ message: 'Linhas deletadas com sucesso' });
-      });
     });
   } else {
-    res.status(401).json({ error: 'ID do usuário não definido' });
+    res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+app.post('/postChefAtivo', (req, res) => {
+  const { ativo } = req.body;
 
+  if (idUser) {
+    // Atualize a coluna 'ativo' na tabela users_ajudantes
+    const sql = 'UPDATE users_chefs SET ativo = ? WHERE idUser = ?';
+    
+    dbase.query(sql, [ativo, idUser], (updateErr, updateResult) => {
+      if (updateErr) {
+        return res.status(500).json({ error: 'Erro no servidor' });
+      }
+    });
+  } else {
+    res.status(401).json({ error: 'Usuário não autenticado' });
+  }
+});
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

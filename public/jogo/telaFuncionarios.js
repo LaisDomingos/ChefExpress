@@ -13,9 +13,17 @@ function janelaFuncionarios(){
     fill('black');
     textSize(15);
     text('Chefs : Pode ter 0 a 1 chef e esse é pago diariamente, sendo possível contratá-lo e demiti-lo conforme necessário' , width*0.12, height*0.1);
-    text('Chef contratado: ' + tipoChef + '    Valor: ' + valorChef + '€',width*0.12, height*0.15 )
     text('Ajudantes: Pode ter de 0 a 1 ajudante, que recebem pagamento diário, sendo possível contratá-lo ou demiti-lo conforme necessário.' , width*0.12, height*0.5);
-    text('Ajudante contratado: ' + tipoAjudante + '    Valor: ' + valorAjudante + '€',width*0.12, height*0.55 )
+    if (chefAtivo == 1){
+      text('Chef contratado: ' + tipoChef + '    Valor: ' + valorChef + '€',width*0.12, height*0.15 )
+    } else {
+      text('Nenhum chef contratado',width*0.12, height*0.15)
+    } 
+    if (ajudanteAtivo == 1){
+      text('Ajudante contratado: ' + tipoAjudante + '    Valor: ' + valorAjudante + '€',width*0.12, height*0.55 )
+    } else {
+      text('Nenhum ajudante contratado',width*0.12, height*0.55)
+    } 
   pop();
   image(imgTelaFuncionarios[0], width * 0.22, height * 0.18, width / 18, height / 6);
   image(imgTelaFuncionarios[1], width * 0.37, height * 0.18, width / 20, height / 6); 
@@ -42,7 +50,7 @@ function janelaFuncionarios(){
     text('Valor: 100€', width*0.43, height*0.704)
     text('Tempo de Preparo: -15s' , width*0.58, height*0.674);
     text('Valor: 150€', width*0.58, height*0.704)
-    text('Tempo de Preparo: -20s' , width*0.73, height*0.674);
+    text('Tempo de Preparo: -25s' , width*0.73, height*0.674);
     text('Valor: 270€', width*0.73, height*0.704)
   pop();
   push();

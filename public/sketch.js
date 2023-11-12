@@ -9,6 +9,8 @@ let valorAjudante;
 let valorChef;
 let tipoAjudante;
 let tipoChef;
+let chefAtivo;
+let ajudanteAtivo;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -96,7 +98,6 @@ function draw() {
     telasMenu();
     getTempoPreparoValor();
     getValorChef();
-    //image(check,100,100,  width/30, height/18 )
     noLoop();
   } 
   
