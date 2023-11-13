@@ -98,7 +98,7 @@ function draw() {
     telasMenu();
     getTempoPreparoValor();
     getValorChef();
-    test();
+    pagamento();
     noLoop();
   } 
   

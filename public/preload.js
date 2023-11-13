@@ -10,6 +10,7 @@ function preload(){
   lixo = loadImage('imagens/lixo.png');
   menuImg = loadImage('imagens/menu.png')
   check = loadImage('imagens/check.svg')
+  imgDinheiro = loadImage('imagens/dinheiro.svg')
 
   clienteImagens.push(loadImage('imagens/cliente1pe.png'));
   clienteImagens.push(loadImage('imagens/cliente2pe.png'));
