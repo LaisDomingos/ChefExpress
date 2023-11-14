@@ -47,10 +47,9 @@ function postAjudante(ajudanteIdId){ //Coloca o ajudante que o usuário contrato
 }
 
 function postDinheiroPagamento() { //Atualiza o dinheiro de acordo com o o chef e ajudante que tem
-  let valorPagamento = 20;
   let valorComLucro = ((lucroMais/100) * valorPagamento) + valorPagamento;
-  console.log(valorComLucro);
   let attDinheiroP = dinheiro + valorComLucro;
+  
   let attDinheiroPagamento = {
     "dinheiro": attDinheiroP
   };

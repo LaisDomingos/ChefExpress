@@ -320,7 +320,7 @@ function moverClientes() {
         pedir(cliente);
     }
 }
-
+let valorPagamento;
 let imgDinheiro;
 function sairMesa(cliente) {
     // Libere a mesa correspondente
@@ -374,6 +374,16 @@ function sairMesa(cliente) {
             tudoAtendido8 = false;
             break;
     }
+    
+
+    if (cliente.dupla) {
+        valorPagamento = 40; // ou qualquer valor para duplas
+    } else if (cliente.pertenceAoGrupo) {
+        valorPagamento = 80; // ou qualquer valor para grupos
+    } else {
+        valorPagamento = 20; // ou qualquer valor para clientes individuais
+    }
+
     // Remove o cliente da lista para liberar recursos
     let index = clientes.indexOf(cliente);
     if (index !== -1) {
