@@ -271,6 +271,7 @@ app.get('/getValorChef', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+//postAjudanteAtivo - atualiza se o ajudante está ativo ou não
 app.post('/postAjudanteAtivo', (req, res) => {
   const { ativo } = req.body;
 
@@ -287,6 +288,7 @@ app.post('/postAjudanteAtivo', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+//postChefAtivo - atualiza se o chef está ativo ou não
 app.post('/postChefAtivo', (req, res) => {
   const { ativo } = req.body;
 
@@ -303,6 +305,26 @@ app.post('/postChefAtivo', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+
+//postDinheiroPagamento -> atualizar o dinheiro com o pagamento dos clientes
+app.post("/postDinheiroPagamento", (req, res) => {
+  // Certifique-se de que idUser está definido antes de usar
+  if (idUser) {
+    const novoDinheiro = req.body.dinheiro;
+    let sql = "UPDATE users SET dinheiro = ? WHERE id = ?";
+    dbase.query(sql, [novoDinheiro, idUser], (err, result) => {
+      if (err) {
+        res.status(500).json({ error: 'Erro no servidor' });
+      } else {
+        res.status(200).json({ message: 'Dinheiro atualizado com sucesso' });
+      }
+    });
+  } else {
+    res.status(400).json({ error: 'ID do usuário não definido' });
+  }
+});
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

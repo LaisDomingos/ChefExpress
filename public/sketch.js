@@ -40,9 +40,6 @@ function setup() {
   posicaoPrato13X = width * 0.75;
   posicaoPrato14X = width * 0.8;
 
-  posicaoPrato1Y = posicaoPrato2Y = posicaoPrato3Y = posicaoPrato4Y = posicaoPrato5Y = posicaoPrato6Y = posicaoPrato7Y = height * 0.85;
-  posicaoPrato8Y = posicaoPrato9Y = posicaoPrato10Y = posicaoPrato11Y = posicaoPrato12Y = posicaoPrato13Y = posicaoPrato14Y = height * 0.85;
-
   //Posições das mesas
   mesa12X = width*0.25;
   mesa34X = width*0.4;

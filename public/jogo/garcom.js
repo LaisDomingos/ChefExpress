@@ -48,6 +48,11 @@ function movimentoGarcon(){
       if(garcomComPedido){
         verificarPedidos(mesaAtendida);
       }
+      if(pagamentoMesa1){
+        console.log('Pegando dinheiro');
+        //mesa1O = false;
+        //pagamentoMesa1 = false;
+      }
       garconMovendo1 = false;
     }
   }
@@ -349,7 +354,6 @@ function movimentoAteMesa(){
       garconMovendo5= true;
     }
     if (mouseY > mesa2468Y && mouseY < mesa2468Y + height / 4 ) {
-    
       garconMovendo6= true;
     }
   }
@@ -425,7 +429,7 @@ let tudoAtendido8 = false;
 function verificarPedidos(mesaAtendida) {
   console.log(garcomImgI);
   if (mesaAtendida == 1){
-    console.log("Mesa 1:", indiceMesa1);
+    //console.log("Mesa 1:", indiceMesa1);
     for (var i = 0; i < indiceMesa1.length; i++) {
       if (indiceMesa1[i] === garcomImgI) {
         indiceMesa1.splice(i, 1);
@@ -438,7 +442,7 @@ function verificarPedidos(mesaAtendida) {
       tudoAtendido1 = true;
     }
   } else if (mesaAtendida == 2){
-    console.log("Mesa 2:", indiceMesa2);
+    //console.log("Mesa 2:", indiceMesa2);
     for (var i = 0; i < indiceMesa2.length; i++) {
       if (indiceMesa2[i] === garcomImgI) {
         indiceMesa2.splice(i, 1);
@@ -451,8 +455,7 @@ function verificarPedidos(mesaAtendida) {
       tudoAtendido2 = true;
     }
   } else if (mesaAtendida == 3) {
-    console.log("Mesa 3:", indiceMesa3);
-  
+    //console.log("Mesa 3:", indiceMesa3);
     for (var i = 0; i < indiceMesa3.length; i++) {
       if (indiceMesa3[i] === garcomImgI) {
         indiceMesa3.splice(i, 1);
@@ -460,14 +463,13 @@ function verificarPedidos(mesaAtendida) {
         break;
       }
     }
-  
-    //Verifica se todos os pedidos foram atendidos
+      //Verifica se todos os pedidos foram atendidos
     if (indiceMesa3.length === 0) {
       tudoAtendido3 = true;
     }
   }
    else if (mesaAtendida == 4){    
-    console.log("Mesa 4:", indiceMesa4);
+    //console.log("Mesa 4:", indiceMesa4);
     for (var i = 0; i < indiceMesa4.length; i++) {
       if (indiceMesa4[i] === garcomImgI) {
         indiceMesa4.splice(i, 1);
@@ -480,7 +482,7 @@ function verificarPedidos(mesaAtendida) {
       tudoAtendido4 = true;
     }
   } else if (mesaAtendida == 5){
-    console.log("Mesa 5:", indiceMesa5);
+    //console.log("Mesa 5:", indiceMesa5);
     for (var i = 0; i < indiceMesa5.length; i++) {
       if (indiceMesa5[i] === garcomImgI) {
         indiceMesa5.splice(i, 1);
@@ -493,7 +495,7 @@ function verificarPedidos(mesaAtendida) {
       tudoAtendido5 = true;
     }
   } else if (mesaAtendida == 6){
-    console.log("Mesa 6:", indiceMesa6);
+    //console.log("Mesa 6:", indiceMesa6);
     for (var i = 0; i < indiceMesa6.length; i++) {
       if (indiceMesa6[i] === garcomImgI) {
         indiceMesa6.splice(i, 1);
@@ -506,7 +508,7 @@ function verificarPedidos(mesaAtendida) {
       tudoAtendido6 = true;
     }
   } else if (mesaAtendida == 7){
-    console.log("Mesa 7:", indiceMesa7);
+    //console.log("Mesa 7:", indiceMesa7);
     for (var i = 0; i < indiceMesa7.length; i++) {
       if (indiceMesa7[i] === garcomImgI) {
         indiceMesa7.splice(i, 1);
@@ -519,7 +521,7 @@ function verificarPedidos(mesaAtendida) {
       tudoAtendido7 = true;
     }
   } else if (mesaAtendida == 8){
-    console.log("Mesa 8:", indiceMesa8);
+    //console.log("Mesa 8:", indiceMesa8);
     for (var i = 0; i < indiceMesa8.length; i++) {
       if (indiceMesa8[i] === garcomImgI) {
         garcomComPedido = false;
