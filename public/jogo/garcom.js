@@ -49,9 +49,10 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa1){
-        console.log('Pegando dinheiro');
-        //mesa1O = false;
-        //pagamentoMesa1 = false;
+        //console.log('Pegando dinheiro');
+        postDinheiroPagamento();
+        pagamentoMesa1 = false;
+        mesa1O = false;
       }
       garconMovendo1 = false;
     }
@@ -64,6 +65,12 @@ function movimentoGarcon(){
       if(garcomComPedido){
         verificarPedidos(mesaAtendida);
       }
+      if(pagamentoMesa2){
+        //console.log('Pegando dinheiro');
+        postDinheiroPagamento();
+        pagamentoMesa2 = false;
+        mesa2O = false;
+      }
       garconMovendo2 = false;
     }
   }
@@ -74,6 +81,12 @@ function movimentoGarcon(){
       let mesaAtendida = 3;
       if(garcomComPedido){
         verificarPedidos(mesaAtendida);
+      }
+      if(pagamentoMesa3){
+        //console.log('Pegando dinheiro');
+        postDinheiroPagamento();
+        pagamentoMesa3 = false;
+        mesa3O = false;
       }
       garconMovendo3 = false;
     }
@@ -86,6 +99,12 @@ function movimentoGarcon(){
       if(garcomComPedido){
         verificarPedidos(mesaAtendida);
       }
+      if(pagamentoMesa4){
+        //console.log('Pegando dinheiro');
+        postDinheiroPagamento();
+        pagamentoMesa4 = false;
+        mesa4O = false;
+      }
       garconMovendo4 = false;
     }
   }
@@ -96,6 +115,12 @@ function movimentoGarcon(){
       let mesaAtendida = 5;
       if(garcomComPedido){
         verificarPedidos(mesaAtendida);
+      }
+      if(pagamentoMesa5){
+        //console.log('Pegando dinheiro');
+        postDinheiroPagamento();
+        pagamentoMesa5 = false;
+        mesa5O = false;
       }
       garconMovendo5 = false;
     }
@@ -108,6 +133,12 @@ function movimentoGarcon(){
       if(garcomComPedido){
         verificarPedidos(mesaAtendida);
       }
+      if(pagamentoMesa6){
+        //console.log('Pegando dinheiro');
+        postDinheiroPagamento();
+        pagamentoMesa6 = false;
+        mesa6O = false;
+      }
       garconMovendo6= false;
     }
   }
@@ -119,6 +150,12 @@ function movimentoGarcon(){
       if(garcomComPedido){
         verificarPedidos(mesaAtendida);
       }
+      if(pagamentoMesa7){
+        //console.log('Pegando dinheiro');
+        postDinheiroPagamento();
+        pagamentoMesa7 = false;
+        mesa7O = false;
+      }
       garconMovendo7 = false;
     }
   }
@@ -129,6 +166,12 @@ function movimentoGarcon(){
       let mesaAtendida = 8;
       if(garcomComPedido){
         verificarPedidos(mesaAtendida);
+      }
+      if(pagamentoMesa8){
+        //console.log('Pegando dinheiro');
+        postDinheiroPagamento();
+        pagamentoMesa8 = false;
+        mesa8O = false;
       }
       garconMovendo8 = false;
     }

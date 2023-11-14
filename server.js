@@ -310,7 +310,7 @@ app.post('/postChefAtivo', (req, res) => {
 app.post("/postDinheiroPagamento", (req, res) => {
   // Certifique-se de que idUser está definido antes de usar
   if (idUser) {
-    const novoDinheiro = req.body.dinheiro;
+    const {novoDinheiro} = req.body.dinheiro;
     let sql = "UPDATE users SET dinheiro = ? WHERE id = ?";
     dbase.query(sql, [novoDinheiro, idUser], (err, result) => {
       if (err) {

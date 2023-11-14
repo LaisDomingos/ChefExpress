@@ -47,6 +47,19 @@ function postAjudante(ajudanteIdId){ //Coloca o ajudante que o usuário contrato
 }
 
 function postDinheiroPagamento() { //Atualiza o dinheiro de acordo com o o chef e ajudante que tem
-  
-    loop();
+  let attDinheiroPagamento = dinheiro + 20;
+  let attDinheiroPagagemeto = {
+    "dinheiro": attDinheiroPagamento
+  };
+// Enviar a atualização para o servidor
+httpPost('/postDinheiroServicos', attDinheiroPagagemeto, 'json', (respostaServidor) => {
+  console.log(respostaServidor);
+  if (respostaServidor.status === 200) {
+    getDinheiro();
+   
+  } else {
+    console.error('Erro ao atualizar o dinheiro:', respostaServidor.statusText);
+  }
+  });
+  loop();
 }
