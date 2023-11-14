@@ -11,6 +11,7 @@ function preload(){
   menuImg = loadImage('imagens/menu.png')
   check = loadImage('imagens/check.svg')
   imgDinheiro = loadImage('imagens/dinheiro.svg')
+  garcomInicial = loadImage('imagens/garcon.svg')
 
   clienteImagens.push(loadImage('imagens/cliente1pe.png'));
   clienteImagens.push(loadImage('imagens/cliente2pe.png'));
@@ -64,13 +65,13 @@ function preload(){
   clienteDuplaAposImagens.push(loadImage('imagens/clientesDupla2aposPedido.png'));
   clienteDuplaAposImagens.push(loadImage('imagens/clientesDupla3aposPedido.png'));
 
-  garconImagens.push(loadImage('imagens/garcon.svg'));
-  garconImagens.push(loadImage('imagens/garcomP3.svg'));
-  garconImagens.push(loadImage('imagens/garcomP4.svg'));
-  garconImagens.push(loadImage('imagens/garcomP5.svg'));
+  
   garconImagens.push(loadImage('imagens/garcomP7.svg'));
   garconImagens.push(loadImage('imagens/garcomP8.svg'));
+  garconImagens.push(loadImage('imagens/garcomP9.svg'));
   garconImagens.push(loadImage('imagens/garcomP10.svg'));
+  garconImagens.push(loadImage('imagens/garcomP11.svg'));
+  garconImagens.push(loadImage('imagens/garcomP12.svg'));
   garconImagens.push(loadImage('imagens/garcomP13.svg'));
   garconImagens.push(loadImage('imagens/garcomP14.svg'));
   garconImagens.push(loadImage('imagens/garcomP15.svg'));
@@ -92,24 +93,26 @@ function preload(){
   
   garcomImagensPratosIni.push(loadImage('imagens/garcomP1.svg'));
   garcomImagensPratosIni.push(loadImage('imagens/garcomP2.svg'));
+  garcomImagensPratosIni.push(loadImage('imagens/garcomP3.svg'));
+  garcomImagensPratosIni.push(loadImage('imagens/garcomP4.svg'));
+  garcomImagensPratosIni.push(loadImage('imagens/garcomP5.svg'));
   garcomImagensPratosIni.push(loadImage('imagens/garcomP6.svg'));
-  garcomImagensPratosIni.push(loadImage('imagens/garcomP9.svg'));
-  garcomImagensPratosIni.push(loadImage('imagens/garcomP11.svg'));
-  garcomImagensPratosIni.push(loadImage('imagens/garcomP12.svg'));
 
   pratosIniciais.push(loadImage('imagens/prato1Ini.png'));
   pratosIniciais.push(loadImage('imagens/prato2Ini.png'));
+  pratosIniciais.push(loadImage('imagens/prato3Ini.png'));
+  pratosIniciais.push(loadImage('imagens/prato4Ini.png'));
+  pratosIniciais.push(loadImage('imagens/prato5Ini.png'));
   pratosIniciais.push(loadImage('imagens/prato6Ini.png'));
-  pratosIniciais.push(loadImage('imagens/prato9Ini.png'));
-  pratosIniciais.push(loadImage('imagens/prato11Ini.png'));
-  pratosIniciais.push(loadImage('imagens/prato12Ini.png'));
+  
 
-  pratosGerais.push(loadImage('imagens/prato3.png'));
-  pratosGerais.push(loadImage('imagens/prato4.png'));
-  pratosGerais.push(loadImage('imagens/prato5.png'));
+  
   pratosGerais.push(loadImage('imagens/prato7.png'));
   pratosGerais.push(loadImage('imagens/prato8.png'));
+  pratosGerais.push(loadImage('imagens/prato9.png'));
   pratosGerais.push(loadImage('imagens/prato10.png'));
+  pratosGerais.push(loadImage('imagens/prato11.png'));
+  pratosGerais.push(loadImage('imagens/prato12.png'));
   pratosGerais.push(loadImage('imagens/prato13.png'));
   pratosGerais.push(loadImage('imagens/prato14.png'));
   pratosGerais.push(loadImage('imagens/prato15.png'));
