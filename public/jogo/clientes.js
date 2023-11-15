@@ -320,75 +320,55 @@ function moverClientes() {
         pedir(cliente);
     }
 }
-let valorPagamento;
+
 let imgDinheiro;
 function sairMesa(cliente) {
     // Libere a mesa correspondente
     switch (cliente.mesa) {
         case 1:
-            //mesa1O = false;
             pagamentoMesa1 = true;
             indicesSalvosMesa1 = false;
             tudoAtendido1 = false;
             break;
         case 2:
-            //mesa2O = false;
             pagamentoMesa2 = true;
             indicesSalvosMesa2 = false;
             tudoAtendido2 = false;
             break;
         case 3:
-            //mesa3O = false;
             pagamentoMesa3 = true;
             indicesSalvosMesa3 = false;
             tudoAtendido3 = false;
             break;
         case 4:
-            //mesa4O = false;
             pagamentoMesa4 = true;
             indicesSalvosMesa4 = false;
             tudoAtendido4 = false;
             break;
         case 5:
-            //mesa5O = false;
             pagamentoMesa5 = true;
             indicesSalvosMesa5 = false;
             tudoAtendido5 = false;
             break;
         case 6:
-            //mesa6O = false;
             pagamentoMesa6 = true;
             indicesSalvosMesa6 = false;
             tudoAtendido6 = false;
             break;
         case 7:
-            //mesa7O = false;
             pagamentoMesa7 = true;
             indicesSalvosMesa7 = false;
             tudoAtendido7 = false;
             break;
         case 8:
-            //mesa8O = false;
             pagamentoMesa8 = true;
             indicesSalvosMesa8 = false;
             tudoAtendido8 = false;
             break;
     }
     
-    let tempoRestaurante = cliente.tempoNaMesa/60;
+    condicoesPagemento();
     
-    if (cliente.dupla) {
-        valorPagamento = 40; 
-        calcularTempo(tempoRestaurante, valorPagamento);
-    } else if (cliente.pertenceAoGrupo) {
-        valorPagamento = 80; 
-        calcularTempo(tempoRestaurante, valorPagamento);
-    } else {
-        console.log("Index: ", pratosIniciais.indexOf(pedidoAImg));
-        valorPagamento = 20; 
-        calcularTempo(tempoRestaurante, valorPagamento);
-    }
-
     // Remove o cliente da lista para liberar recursos
     let index = clientes.indexOf(cliente);
     if (index !== -1) {
@@ -396,14 +376,3 @@ function sairMesa(cliente) {
     }
 }
 
-function calcularTempo(tempoRestaurante, valorPagamento){
-    if(tempoRestaurante<=20){
-        valorPagamento = valorPagamento + 25;
-    } else if(tempoRestaurante<=30){
-        valorPagamento = valorPagamento + 15;
-    } else if(tempoRestaurante<=40){
-        valorPagamento = valorPagamento + 5;
-    } else {
-        valorPagamento = valorPagamento + 1;
-    }
-}

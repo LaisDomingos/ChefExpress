@@ -43,14 +43,12 @@ function mousePressed() {
     }
     if(mostrarTelaFuncionarios){
       if (fecharFuncionarios.on_Click(mouseX, mouseY)) {
-        console.log("fechar funcionários");
         mostrarTelaFuncionarios = false;
       }
       botoesFuncionarios();
     }
     
     if (fecharPratos.on_Click(mouseX, mouseY) && mostrarTelaPratos) {
-      console.log("fechar pratos");
       mostrarTelaPratos = false;
       retirarCheck();
     }

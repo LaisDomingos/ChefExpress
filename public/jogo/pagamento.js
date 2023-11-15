@@ -7,6 +7,8 @@ let pagamentoMesa6;
 let pagamentoMesa7;
 let pagamentoMesa8;
 
+
+let valorPagamento;
 function pagamento(){
     if (pagamentoMesa1){
         image(imgDinheiro,width*0.27, height*0.52,  width/25, height/12);
@@ -33,4 +35,49 @@ function pagamento(){
         image(imgDinheiro,width*0.77, height*0.17,  width/25, height/12);
     }
     loop();
+}
+
+function condicoesPagemento(){
+    let tempoRestaurante = cliente.tempoNaMesa/60;
+    let qtdPrato = pratosIniciais.length;
+    if (cliente.dupla) {
+        valorPagamento = aumentarValorPrato(qtdPrato) * 2; 
+        aumentarValorTempo(tempoRestaurante, qtdPrato);
+    } else if (cliente.pertenceAoGrupo) {
+        valorPagamento = aumentarValorPrato(qtdPrato) * 4; 
+        aumentarValorTempo(tempoRestaurante, valorPagamento);
+    } else {
+        valorPagamento = aumentarValorPrato(qtdPrato); 
+        aumentarValorTempo(tempoRestaurante, valorPagamento);
+    }
+}
+
+//Depende de quantas variedades de pratos o utilizador possui
+function aumentarValorPrato(qtdPrato) {
+    if(qtdPrato <= 6){
+        valorPagamento = 10
+    } else if(qtdPrato <= 12){
+        valorPagamento = 16
+    } else if(qtdPrato <= 18){
+        valorPagamento = 22
+    } else if(qtdPrato <= 25){
+        valorPagamento = 29
+    } else if(qtdPrato <= 30){
+        valorPagamento = 34
+    }
+    
+    return valorPagamento; 
+}
+
+//Depende de do tempo que demorou para atender o cliente
+function aumentarValorTempo(tempoRestaurante, valorPagamento){
+    if(tempoRestaurante<=20){
+        valorPagamento = valorPagamento + 25;
+    } else if(tempoRestaurante<=30){
+        valorPagamento = valorPagamento + 15;
+    } else if(tempoRestaurante<=40){
+        valorPagamento = valorPagamento + 5;
+    } else {
+        valorPagamento = valorPagamento + 1;
+    }
 }
