@@ -375,18 +375,34 @@ function sairMesa(cliente) {
             break;
     }
     
-
+    let tempoRestaurante = cliente.tempoNaMesa/60;
+    
     if (cliente.dupla) {
         valorPagamento = 40; // ou qualquer valor para duplas
+        calcularTempo(tempoRestaurante, valorPagamento);
     } else if (cliente.pertenceAoGrupo) {
         valorPagamento = 80; // ou qualquer valor para grupos
+        calcularTempo(tempoRestaurante, valorPagamento);
     } else {
         valorPagamento = 20; // ou qualquer valor para clientes individuais
+        calcularTempo(tempoRestaurante, valorPagamento);
     }
 
     // Remove o cliente da lista para liberar recursos
     let index = clientes.indexOf(cliente);
     if (index !== -1) {
         clientes.splice(index, 1);
+    }
+}
+
+function calcularTempo(tempoRestaurante, valorPagamento){
+    if(tempoRestaurante<=20){
+        valorPagamento = valorPagamento + 25;
+    } else if(tempoRestaurante<=30){
+        valorPagamento = valorPagamento + 15;
+    } else if(tempoRestaurante<=40){
+        valorPagamento = valorPagamento + 5;
+    } else {
+        valorPagamento = valorPagamento + 1;
     }
 }
