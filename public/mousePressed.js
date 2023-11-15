@@ -32,13 +32,17 @@ function mousePressed() {
   } 
   if(tela == 4){
     if (isMouseOver && mostrarMenu) {
-      if (mouseX > width * 0.91 && mouseX < width * 0.91 + width / 16 && mouseY > height * 0.32 && mouseY < height * 0.32 + height / 5.5) {
+      if (mouseX > width * 0.924 && mouseX < width * 0.924 + width/16.2 && mouseY > height * 0.22 && mouseY < height * 0.22 + height / 5.5) {
         telaFuncionarios();
         mostrarTelaPratos = false;
         retirarCheck();
-      } else if(mouseX > width * 0.91 && mouseX < width * 0.91 + width / 15.2 && mouseY > height * 0.6 && mouseY < height * 0.6 + height / 11){
+      } else if(mouseX > width * 0.92 && mouseX < width * 0.92 + width / 16 && mouseY > height * 0.42 && mouseY < height * 0.42 + height / 11){
         telaPratos();
         mostrarTelaFuncionarios = false;
+      } else if(mouseX > width * 0.924 && mouseX < width * 0.924 + width / 16 && mouseY > height * 0.55 && mouseY < height * 0.55 + height / 10){
+        console.log("Ranking")
+      } else if(mouseX > width * 0.92 && mouseX < width * 0.92 + width / 15 && mouseY > height * 0.68 && mouseY < height * 0.68 + height / 11){
+        console.log("Avaliações")
       }
     }
     if(mostrarTelaFuncionarios){

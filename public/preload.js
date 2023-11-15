@@ -8,7 +8,8 @@ function preload(){
   mesasImagens.push(loadImage('imagens/mesa2.png'));
   mesasImagens.push(loadImage('imagens/mesa4.png'));
   lixo = loadImage('imagens/lixo.png');
-  menuImg = loadImage('imagens/menu.png')
+  //menuImg = loadImage('imagens/menu.png')
+  menuImg = loadImage('imagens/menu1.png')
   check = loadImage('imagens/check.svg')
   imgDinheiro = loadImage('imagens/dinheiro.svg')
   garcomInicial = loadImage('imagens/garcon.svg')
