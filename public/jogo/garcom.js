@@ -470,7 +470,7 @@ let tudoAtendido7 = false;
 let tudoAtendido8 = false;
 
 function verificarPedidos(mesaAtendida) {
-  console.log(garcomImgI);
+  //console.log(garcomImgI);
   if (mesaAtendida == 1){
     //console.log("Mesa 1:", indiceMesa1);
     for (var i = 0; i < indiceMesa1.length; i++) {

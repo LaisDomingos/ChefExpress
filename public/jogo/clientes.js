@@ -378,13 +378,14 @@ function sairMesa(cliente) {
     let tempoRestaurante = cliente.tempoNaMesa/60;
     
     if (cliente.dupla) {
-        valorPagamento = 40; // ou qualquer valor para duplas
+        valorPagamento = 40; 
         calcularTempo(tempoRestaurante, valorPagamento);
     } else if (cliente.pertenceAoGrupo) {
-        valorPagamento = 80; // ou qualquer valor para grupos
+        valorPagamento = 80; 
         calcularTempo(tempoRestaurante, valorPagamento);
     } else {
-        valorPagamento = 20; // ou qualquer valor para clientes individuais
+        console.log("Index: ", pratosIniciais.indexOf(pedidoAImg));
+        valorPagamento = 20; 
         calcularTempo(tempoRestaurante, valorPagamento);
     }
 
