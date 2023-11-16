@@ -51,3 +51,11 @@ function getDinheiro() {//Busca o valor que o usuário tem
     });
     loop();
 }
+function getPratos() {//Busca o valor que o usuário tem 
+  loadJSON('/getPratos', (data) => {
+    pratosNovos = data.idPratos;
+  }, (error) => {
+    console.error('Erro ao obter os pratos', error);
+  });
+  loop();
+}

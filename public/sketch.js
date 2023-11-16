@@ -11,7 +11,7 @@ let tipoAjudante;
 let tipoChef;
 let chefAtivo;
 let ajudanteAtivo;
-
+let pratosNovos = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -100,6 +100,8 @@ function draw() {
     getTempoPreparoValor();
     getValorChef();
     pagamento();
+    getPratos();
+  
     noLoop();
   } 
   
