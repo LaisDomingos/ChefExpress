@@ -15,11 +15,11 @@ function janelaPresente(){
     image(pratoPresente, width * 0.33, height * 0.3, width / 4, height /3);
     comprarNovoP.draw_Button(200, 20, width*0.7, height*0.7, "Comprar presente", 13);
     } else{
-    push();
-    fill('black');
-    textSize(18);
-    text('Não tem dinheiro suficiente' , width*0.3, height*0.5);
-    pop();
+        push();
+        fill('black');
+        textSize(18);
+        text('Não tem dinheiro suficiente' , width*0.3, height*0.5);
+        pop();
     }
     
 }
