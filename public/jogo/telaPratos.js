@@ -1,3 +1,4 @@
+let mostrarTelaPresente = false;
 function janelaPratos(){
     fill('#acefea');
     rect(width*0.1, height*0.02, width*0.7, height*0.9);
@@ -39,45 +40,38 @@ function janelaPratos(){
     image(pratosGerais[21], width * 0.48, height * 0.67, width / 18, height / 18);
     image(pratosGerais[22], width * 0.58, height * 0.67, width / 18, height / 18);
     image(pratosGerais[23], width * 0.68, height * 0.67, width / 18, height / 18);
-    
-    check1.draw_checkbox(width * 0.21, height * 0.14);
-    check2.draw_checkbox(width * 0.31, height * 0.14);
-    check3.draw_checkbox(width * 0.41, height * 0.14);
-    check4.draw_checkbox(width * 0.51, height * 0.14);
-    check5.draw_checkbox(width * 0.61, height * 0.14);
-    check6.draw_checkbox(width * 0.71, height * 0.14);
-    check7.draw_checkbox(width * 0.21, height * 0.27);
-    check8.draw_checkbox(width * 0.31, height * 0.27);
-    check9.draw_checkbox(width * 0.41, height * 0.27);
-    check10.draw_checkbox(width * 0.51, height * 0.27);
-    check11.draw_checkbox(width * 0.61, height * 0.27);
-    check12.draw_checkbox(width * 0.71, height * 0.27);
-    check13.draw_checkbox(width * 0.21, height * 0.4);
-    check14.draw_checkbox(width * 0.31, height * 0.4);
-    check15.draw_checkbox(width * 0.41, height * 0.4);
-    check16.draw_checkbox(width * 0.51, height * 0.4);
-    check17.draw_checkbox(width * 0.61, height * 0.4);
-    check18.draw_checkbox(width * 0.71, height * 0.4);
-    check19.draw_checkbox(width * 0.21, height * 0.53);
-    check20.draw_checkbox(width * 0.31, height * 0.53);
-    check21.draw_checkbox(width * 0.41, height * 0.53);
-    check22.draw_checkbox(width * 0.51, height * 0.53);
-    check23.draw_checkbox(width * 0.61, height * 0.53);
-    check24.draw_checkbox(width * 0.71, height * 0.53);
-    check25.draw_checkbox(width * 0.21, height * 0.66);
-    check26.draw_checkbox(width * 0.31, height * 0.66);
-    check27.draw_checkbox(width * 0.41, height * 0.66);
-    check28.draw_checkbox(width * 0.51, height * 0.66);
-    check29.draw_checkbox(width * 0.61, height * 0.66);
-    check30.draw_checkbox(width * 0.71, height * 0.66);
+
+    check1.draw_checkbox(width * 0.21, height * 0.27);
+    check2.draw_checkbox(width * 0.31, height * 0.27);
+    check3.draw_checkbox(width * 0.41, height * 0.27);
+    check4.draw_checkbox(width * 0.51, height * 0.27);
+    check5.draw_checkbox(width * 0.61, height * 0.27);
+    check6.draw_checkbox(width * 0.71, height * 0.27);
+    check7.draw_checkbox(width * 0.21, height * 0.4);
+    check8.draw_checkbox(width * 0.31, height * 0.4);
+    check9.draw_checkbox(width * 0.41, height * 0.4);
+    check10.draw_checkbox(width * 0.51, height * 0.4);
+    check11.draw_checkbox(width * 0.61, height * 0.4);
+    check12.draw_checkbox(width * 0.71, height * 0.4);
+    check13.draw_checkbox(width * 0.21, height * 0.53);
+    check14.draw_checkbox(width * 0.31, height * 0.53);
+    check15.draw_checkbox(width * 0.41, height * 0.53);
+    check16.draw_checkbox(width * 0.51, height * 0.53);
+    check17.draw_checkbox(width * 0.61, height * 0.53);
+    check18.draw_checkbox(width * 0.71, height * 0.53);
+    check19.draw_checkbox(width * 0.21, height * 0.66);
+    check20.draw_checkbox(width * 0.31, height * 0.66);
+    check21.draw_checkbox(width * 0.41, height * 0.66);
+    check22.draw_checkbox(width * 0.51, height * 0.66);
+    check23.draw_checkbox(width * 0.61, height * 0.66);
+    check24.draw_checkbox(width * 0.71, height * 0.66);
 
     pratosLista.draw_Button(200, 20, width*0.245, height*0.8, "Adiconar a lista de troca", 13);
     verListaTrocas.draw_Button(200, 20, width*0.67, height*0.8, "Lista de trocas", 13);
     presente.draw_Button(200, 20, width*0.45, height*0.8, "Comprar presente", 13);
 }
 function telaPratos() {
-    mostrarTelaPratos = true;
-    
+    mostrarTelaPratos = true;   
 }
 function criarCheck(){
     check1 = new Checkbox();
@@ -104,12 +98,6 @@ function criarCheck(){
     check22 = new Checkbox();
     check23 = new Checkbox();
     check24 = new Checkbox();
-    check25 = new Checkbox();
-    check26 = new Checkbox();
-    check27 = new Checkbox();
-    check28 = new Checkbox();
-    check29 = new Checkbox();
-    check30 = new Checkbox();
 }
 function retirarCheck(){
     check1.destroy_checkbox();
@@ -136,10 +124,4 @@ function retirarCheck(){
     check22.destroy_checkbox();
     check23.destroy_checkbox();
     check24.destroy_checkbox();
-    check25.destroy_checkbox();
-    check26.destroy_checkbox();
-    check27.destroy_checkbox();
-    check28.destroy_checkbox();
-    check29.destroy_checkbox();
-    check30.destroy_checkbox();
 }

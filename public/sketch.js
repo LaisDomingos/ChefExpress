@@ -52,6 +52,7 @@ function setup() {
   //Telas fe funiconários e pratos
   fecharFuncionarios = new ButtonFechar();
   fecharPratos = new ButtonFechar();
+  fecharPresentes = new ButtonFechar();
   addChef1 = new Button();
   addChef2 = new Button();
   addChef3 = new Button();

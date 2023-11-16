@@ -52,10 +52,21 @@ function mousePressed() {
       botoesFuncionarios();
     }
     
-    if (fecharPratos.on_Click(mouseX, mouseY) && mostrarTelaPratos) {
-      mostrarTelaPratos = false;
-      retirarCheck();
+    if(mostrarTelaPratos){
+      if (fecharPratos.on_Click(mouseX, mouseY)) {
+        mostrarTelaPratos = false;
+        retirarCheck();
+      }
+      if(presente.on_Click(mouseX, mouseY)){
+        mostrarTelaPresente = true;
+        if(mostrarTelaPresente){
+          if(fecharPresentes.on_Click(mouseX, mouseY)){
+            mostrarTelaPresente = false;
+          }
+        }
+      }
     }
+   
     
     //Movimento do garçom para as mesas
     movimentoAteMesa();
