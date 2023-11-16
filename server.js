@@ -324,6 +324,61 @@ app.post("/postDinheiroPagamento", (req, res) => {
   }
 });
 
+//postGastoPresente - atualiza o dinheiro com a compra do presente
+app.post("/postGastoPresente", (req, res) => {
+  // Certifique-se de que idUser está definido antes de usar
+  if (idUser) {
+    const novoDinheiro = req.body.dinheiro;
+    let sql = "UPDATE users SET dinheiro = ? WHERE id = ?";
+    dbase.query(sql, [novoDinheiro, idUser], (err, result) => {
+      if (err) {
+        res.status(500).json({ error: 'Erro no servidor' });
+      } else {
+        res.status(200).json({ message: 'Dinheiro atualizado com sucesso' });
+      }
+    });
+  } else {
+    res.status(400).json({ error: 'ID do usuário não definido' });
+  }
+});
+//postPresenteGanho
+app.post('/postPresenteGanho', (req, res) => {
+  const { chefId } = req.body;
+  if (idUser) {
+    // Verifique se o jogador já possui este chefe associado
+    const sql = 'SELECT * FROM users_chefs WHERE idUser = ?';
+    dbase.query(sql, [idUser], (checkErr, checkResult) => {
+      if (checkErr) {
+        return res.status(500).json({ error: 'Erro no servidor' });
+      }
+
+      if (checkResult.length > 0) {
+        // O jogador já possui registros na tabela "users_chefs"
+        // Atualize o idChef 
+        const upSql = 'UPDATE users_chefs SET idChef = ?,  ativo = 1 WHERE idUser = ?';
+        dbase.query(upSql, [chefId, idUser], (err, result) => {
+          if (err) {
+            return res.status(500).json({ error: 'Erro no servidor' });
+          }
+          res.json({ message: 'Associação entre jogador e chefe atualizada com sucesso' });
+        });
+      } else {
+        // O jogador não possui registros na tabela "users_chefs"
+        // Insira um novo registro com idUser e idChef
+        const inSql = 'INSERT INTO users_chefs (idUser, idChef, ativo) VALUES (?, ?, 1)';
+        dbase.query(inSql, [idUser, chefId], (err, result) => {
+          if (err) {
+            return res.status(500).json({ error: 'Erro no servidor' });
+          }
+          res.json({ message: 'Associação entre jogador e chefe criada com sucesso' });
+        });
+      }
+      
+    });
+  } else {
+    res.status(401).json({ error: 'Usuário não autenticado' });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

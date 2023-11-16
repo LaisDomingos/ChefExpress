@@ -53,8 +53,27 @@ function postDinheiroPagamento() { //Atualiza o dinheiro de acordo com o o chef 
   let attDinheiroPagamento = {
     "dinheiro": attDinheiroP
   };
-// Enviar a atualização para o servidor
-httpPost('/postDinheiroServicos', attDinheiroPagamento, 'json', (respostaServidor) => {
+  // Enviar a atualização para o servidor
+  httpPost('/postDinheiroServicos', attDinheiroPagamento, 'json', (respostaServidor) => {
+  console.log(respostaServidor);
+  if (respostaServidor.status === 200) {
+    getDinheiro();
+   
+  } else {
+    console.error('Erro ao atualizar o dinheiro:', respostaServidor.statusText);
+  }
+  });
+  loop();
+}
+
+function postGastoPresente(){
+  let attDinheiroPre = dinheiro - 30;
+  
+  let attDinheiroPresente = {
+    "dinheiro": attDinheiroPre
+  };
+  // Enviar a atualização para o servidor
+  httpPost('/postGastoPresente', attDinheiroPresente, 'json', (respostaServidor) => {
   console.log(respostaServidor);
   if (respostaServidor.status === 200) {
     getDinheiro();

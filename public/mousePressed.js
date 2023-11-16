@@ -56,6 +56,7 @@ function mousePressed() {
       }
       if(presente.on_Click(mouseX, mouseY)){
         pratoPresente = random(pratosGerais);
+        postGastoPresente();
         mostrarTelaPresente = true;
       }
     }
@@ -65,6 +66,7 @@ function mousePressed() {
       }
       if(comprarNovoP.on_Click(mouseX,mouseY)){
         pratoPresente = random(pratosGerais);
+        postGastoPresente();
       }
     }
    
