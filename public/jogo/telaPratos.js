@@ -8,7 +8,7 @@ function janelaPratos(){
         textSize(18);
         text('Escolha os pratos que deseja adicionar à lista de trocas.' , width*0.26, height*0.1);
         textSize(15);
-        text('Ao comprar um presente no valor de 30€, você ganha um prato aleatório como brinde.' , width*0.24, height*0.87);
+        text('Ao comprar um presente no valor de 30€, você ganha um prato aleatório.' , width*0.24, height*0.87);
     pop();
     image(pratosIniciais[0], width * 0.18, height * 0.15, width / 18, height / 18);
     image(pratosIniciais[1], width * 0.28, height * 0.15, width / 18, height / 18);

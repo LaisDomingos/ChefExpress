@@ -53,6 +53,7 @@ function setup() {
   fecharFuncionarios = new ButtonFechar();
   fecharPratos = new ButtonFechar();
   fecharPresentes = new ButtonFechar();
+  
   addChef1 = new Button();
   addChef2 = new Button();
   addChef3 = new Button();
@@ -68,6 +69,8 @@ function setup() {
   verListaTrocas = new Button();
   presente = new Button();
  
+  comprarNovoP = new Button();
+  
   setInterval(gerarCliente, 4000); 
 }
   

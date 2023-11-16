@@ -44,9 +44,13 @@ function telasMenu(){
   } else if(mostrarTelaPratos){
     janelaPratos();
     mostrarTelaFuncionarios = false;
-    mostrarTelaPresente = false;
   } 
-  janelaPresente();
+  if(mostrarTelaPresente){
+    janelaPresente();
+    mostrarTelaPratos = false;
+    retirarCheck();
+  }
+  
   
   loop();
 }

@@ -55,14 +55,19 @@ function mousePressed() {
         retirarCheck();
       }
       if(presente.on_Click(mouseX, mouseY)){
+        pratoPresente = random(pratosGerais);
         mostrarTelaPresente = true;
-        janelaPresente();
-        console.log(mostrarTelaPresente)
       }
     }
-    
+    if(mostrarTelaPresente){
+      if (fecharPresentes.on_Click(mouseX, mouseY)) {
+        mostrarTelaPresente = false;
+      }
+      if(comprarNovoP.on_Click(mouseX,mouseY)){
+        pratoPresente = random(pratosGerais);
+      }
+    }
    
-    
     //Movimento do garçom para as mesas
     movimentoAteMesa();
 
