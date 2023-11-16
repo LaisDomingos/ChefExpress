@@ -2,8 +2,6 @@ let mostrarMenu = false;
 let mostrarTelaFuncionarios = false;
 let mostrarTelaPratos = false;
 
-
-
 function menu() {
     push();
     fill("#2ebcae");
@@ -39,9 +37,16 @@ function mouseMoved() {
 
 function telasMenu(){
   if (mostrarTelaFuncionarios){
-      janelaFuncionarios();  
+    janelaFuncionarios();  
+    mostrarTelaPresente = false;
+    mostrarTelaPratos = false;
+    retirarCheck();
   } else if(mostrarTelaPratos){
-      janelaPratos();
-  }
+    janelaPratos();
+    mostrarTelaFuncionarios = false;
+    mostrarTelaPresente = false;
+  } 
+  janelaPresente();
+  
   loop();
 }

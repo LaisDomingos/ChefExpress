@@ -34,13 +34,10 @@ function mousePressed() {
     if (isMouseOver && mostrarMenu) {
       if (mouseX > width * 0.924 && mouseX < width * 0.924 + width/16.2 && mouseY > height * 0.22 && mouseY < height * 0.22 + height / 5.5) {
         telaFuncionarios();
-        mostrarTelaPratos = false;
-        retirarCheck();
       } else if(mouseX > width * 0.92 && mouseX < width * 0.92 + width / 16 && mouseY > height * 0.42 && mouseY < height * 0.42 + height / 11){
         telaPratos();
-        mostrarTelaFuncionarios = false;
       } else if(mouseX > width * 0.924 && mouseX < width * 0.924 + width / 16 && mouseY > height * 0.55 && mouseY < height * 0.55 + height / 10){
-        console.log("Ranking")
+        console.log("Ranking");       
       } else if(mouseX > width * 0.92 && mouseX < width * 0.92 + width / 15 && mouseY > height * 0.68 && mouseY < height * 0.68 + height / 11){
         console.log("Avaliações")
       }
@@ -59,13 +56,11 @@ function mousePressed() {
       }
       if(presente.on_Click(mouseX, mouseY)){
         mostrarTelaPresente = true;
-        if(mostrarTelaPresente){
-          if(fecharPresentes.on_Click(mouseX, mouseY)){
-            mostrarTelaPresente = false;
-          }
-        }
+        janelaPresente();
+        console.log(mostrarTelaPresente)
       }
     }
+    
    
     
     //Movimento do garçom para as mesas
