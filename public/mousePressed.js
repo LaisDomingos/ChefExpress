@@ -55,8 +55,14 @@ function mousePressed() {
         retirarCheck();
       }
       if(presente.on_Click(mouseX, mouseY)){
-        pratoPresente = random(pratosGerais);
         postGastoPresente();
+        if(presenteComprado){
+          pratoPresente = random(pratosGerais);
+          let idPrato = pratosGerais.indexOf(pratoPresente);
+          console.log(idPrato);
+          postPratos(idPrato);
+        }
+        
         mostrarTelaPresente = true;
       }
     }
@@ -65,8 +71,13 @@ function mousePressed() {
         mostrarTelaPresente = false;
       }
       if(comprarNovoP.on_Click(mouseX,mouseY)){
-        pratoPresente = random(pratosGerais);
         postGastoPresente();
+        if(presenteComprado){
+          pratoPresente = random(pratosGerais);
+          let idPrato = pratosGerais.indexOf(pratoPresente);
+          console.log(idPrato);
+          postPratos(idPrato);
+        }
       }
     }
    

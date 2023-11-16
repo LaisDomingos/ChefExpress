@@ -341,44 +341,44 @@ app.post("/postGastoPresente", (req, res) => {
     res.status(400).json({ error: 'ID do usuário não definido' });
   }
 });
-//postPresenteGanho
-app.post('/postPresenteGanho', (req, res) => {
-  const { chefId } = req.body;
+
+//postPratos - atualiza a quantidade se tiver esse prato, se não adiciona
+app.post('/postPratos', (req, res) => {
+  const { idPrato } = req.body;
   if (idUser) {
-    // Verifique se o jogador já possui este chefe associado
-    const sql = 'SELECT * FROM users_chefs WHERE idUser = ?';
-    dbase.query(sql, [idUser], (checkErr, checkResult) => {
+    // Verifique se o jogador já possui este prato associado
+    const sql = 'SELECT * FROM users_pratos WHERE idUser = ? AND idPratos = ?';
+    dbase.query(sql, [idUser, idPrato], (checkErr, checkResult) => {
       if (checkErr) {
         return res.status(500).json({ error: 'Erro no servidor' });
       }
 
       if (checkResult.length > 0) {
-        // O jogador já possui registros na tabela "users_chefs"
-        // Atualize o idChef 
-        const upSql = 'UPDATE users_chefs SET idChef = ?,  ativo = 1 WHERE idUser = ?';
-        dbase.query(upSql, [chefId, idUser], (err, result) => {
-          if (err) {
-            return res.status(500).json({ error: 'Erro no servidor' });
-          }
-          res.json({ message: 'Associação entre jogador e chefe atualizada com sucesso' });
+        // O jogador já possui o prato na tabela "users_pratos"
+        // Atualize a coluna quantidade
+        const updateSql = 'UPDATE users_pratos SET qtdPrato = qtdPrato + 1 WHERE idUser = ? AND idPratos = ?';
+        dbase.query(updateSql, [idUser, idPrato], (updateErr, updateResult) => {
+            if (updateErr) {
+                return res.status(500).json({ error: 'Erro no servidor' });
+            }
+            res.json({ message: 'Quantidade de pratos iguais alterada' });
         });
       } else {
-        // O jogador não possui registros na tabela "users_chefs"
-        // Insira um novo registro com idUser e idChef
-        const inSql = 'INSERT INTO users_chefs (idUser, idChef, ativo) VALUES (?, ?, 1)';
-        dbase.query(inSql, [idUser, chefId], (err, result) => {
-          if (err) {
-            return res.status(500).json({ error: 'Erro no servidor' });
-          }
-          res.json({ message: 'Associação entre jogador e chefe criada com sucesso' });
+        // Se o prato não existir, insira um novo registro
+        const insertSql = 'INSERT INTO users_pratos (idUser, idPratos, qtdPrato) VALUES (?, ?, 1)';
+        dbase.query(insertSql, [idUser, idPrato], (insertErr, insertResult) => {
+            if (insertErr) {
+                return res.status(500).json({ error: 'Erro no servidor' });
+            }
+            res.json({ message: 'Novo prato adicionado' });
         });
       }
-      
     });
   } else {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

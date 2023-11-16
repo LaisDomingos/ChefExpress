@@ -1,3 +1,4 @@
+let presenteComprado;
 function postDinheiroServicos() { //Atualiza o dinheiro de acordo com o o chef e ajudante que tem
   let servicos = valorAjudante + valorChef;  
     if (dinheiro >= servicos) {
@@ -67,20 +68,35 @@ function postDinheiroPagamento() { //Atualiza o dinheiro de acordo com o o chef 
 }
 
 function postGastoPresente(){
-  let attDinheiroPre = dinheiro - 30;
+  if (dinheiro >= 30){
+    presenteComprado = true;
+    let attDinheiroPre = dinheiro - 30;
   
-  let attDinheiroPresente = {
-    "dinheiro": attDinheiroPre
-  };
-  // Enviar a atualização para o servidor
-  httpPost('/postGastoPresente', attDinheiroPresente, 'json', (respostaServidor) => {
-  console.log(respostaServidor);
-  if (respostaServidor.status === 200) {
-    getDinheiro();
-   
+    let attDinheiroPresente = {
+      "dinheiro": attDinheiroPre
+    };
+    // Enviar a atualização para o servidor
+    httpPost('/postGastoPresente', attDinheiroPresente, 'json', (respostaServidor) => {
+    console.log(respostaServidor);
+    if (respostaServidor.status === 200) {
+      getDinheiro();
+    
+    } else {
+      console.error('Erro ao atualizar o dinheiro:', respostaServidor.statusText);
+    }
+    });
+    loop();
   } else {
-    console.error('Erro ao atualizar o dinheiro:', respostaServidor.statusText);
+    presenteComprado = false;
   }
+}
+
+function postPratos(idPrato){
+  let dataToSend = {
+    idPrato: idPrato
+  }
+  httpPost('/postPratos', dataToSend, 'json', (data) => {
+    console.log(data);
+    loop();
   });
-  loop();
 }
