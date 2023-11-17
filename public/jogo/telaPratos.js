@@ -70,9 +70,11 @@ function janelaPratos(){
     verListaTrocas.draw_Button(200, 20, width*0.67, height*0.8, "Lista de trocas", 13);
     presente.draw_Button(200, 20, width*0.45, height*0.8, "Comprar presente", 13);
 }
+
 function telaPratos() {
     mostrarTelaPratos = true;   
 }
+
 function criarCheck(){
     check1 = new Checkbox();
     check2 = new Checkbox();
@@ -99,6 +101,7 @@ function criarCheck(){
     check23 = new Checkbox();
     check24 = new Checkbox();
 }
+
 function retirarCheck(){
     check1.destroy_checkbox();
     check2.destroy_checkbox();

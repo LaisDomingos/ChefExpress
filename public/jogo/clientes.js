@@ -375,4 +375,3 @@ function sairMesa(cliente) {
         clientes.splice(index, 1);
     }
 }
-

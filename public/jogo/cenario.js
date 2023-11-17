@@ -47,6 +47,7 @@ function entrada(){
     image(barra, 0, 0, width/45, height);
     image(escada, width*0.019, height*0.18, width/12, height/2);
 }
+
 function mesas(){
     image(mesasImagens[0], mesa12X, height*0.1, width/14, height/4);
     image(mesasImagens[0], mesa12X, height*0.45, width/14, height/4);
@@ -57,7 +58,6 @@ function mesas(){
     image(mesasImagens[0], mesa78X, height*0.1, width/14, height/4);
     image(mesasImagens[0], mesa78X, height*0.45, width/14, height/4);
 }
-
 
 function balcao() {
     push();

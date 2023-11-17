@@ -8,7 +8,7 @@ function getDinheiro() {//Busca o valor que o usuário tem
     loop();
 }
   
-  function getTempoPreparoValor() {//Busca o valor do ajudante contratado pelo usuário e o tempo de preparo que ele vai ter
+function getTempoPreparoValor() {//Busca o valor do ajudante contratado pelo usuário e o tempo de preparo que ele vai ter
     loadJSON('/getTempoPreparoValor', (data) => {
       if(data.ativo == 1){
         ajudanteAtivo = data.ativo;
@@ -29,9 +29,9 @@ function getDinheiro() {//Busca o valor que o usuário tem
       console.log(tipoAjudante, tempoPreparo, valorAjudante, ajudanteAtivo);
     });
     loop();
-  }
+}
   
-  function getValorChef() {//Busca o valor do chef contratado pelo usuário e o lucro a mais que ele terá
+function getValorChef() {//Busca o valor do chef contratado pelo usuário e o lucro a mais que ele terá
     loadJSON('/getValorChef', (data) => {
       if(data.ativo == 1){
         chefAtivo = data.ativo;

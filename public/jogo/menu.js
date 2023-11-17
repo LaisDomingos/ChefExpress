@@ -50,7 +50,5 @@ function telasMenu(){
     mostrarTelaPratos = false;
     retirarCheck();
   }
-  
-  
   loop();
 }

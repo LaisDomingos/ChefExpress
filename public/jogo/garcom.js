@@ -411,6 +411,7 @@ function movimentoAteMesa(){
   }
   loop();
 }
+
 function movimentoAtePedidos(){
   if(mouseY > height * 0.85 && mouseY < height * 0.85 + height / 20){
     if ( mouseX > width * 0.15 && mouseX < width * 0.15 + width / 30) {

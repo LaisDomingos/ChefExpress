@@ -23,6 +23,7 @@ function gerarImagensPedidoAleatorias() {
         pedidoDImg,
     };
 }
+
 let indiceMesa1 = [];
 let indiceMesa2 = [];
 let indiceMesa3 = [];
@@ -46,13 +47,16 @@ function checkImg(){
   image(check,cliente.pedidoX, cliente.pedidoC,  width/30, height/18 )
   image(check,cliente.pedidoX, cliente.pedidoD,  width/30, height/18 )
 }
+
 function checkImgD(){
   image(check,cliente.pedidoX, cliente.pedidoA,  width/30, height/18 )
   image(check,cliente.pedidoX, cliente.pedidoB,  width/30, height/18 )
 }
+
 function checkImgS(){
   image(check,cliente.pedidoX, cliente.pedidoA,  width/30, height/18 )
 }
+
 function pedir(cliente) {
     const { pedidoAImg, pedidoBImg, pedidoCImg, pedidoDImg } = cliente.imagensPedido;
 
