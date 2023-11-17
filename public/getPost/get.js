@@ -1,7 +1,8 @@
 function getDinheiro() {//Busca o valor que o usuário tem 
     loadJSON('/getDinheiro', (data) => {
       dinheiro = data.dinheiro;
-      idUsuario = data.idUser;     
+      idUsuario = data.idUser;   
+      console.log(dinheiro);  
     }, (error) => {
       console.error('Erro ao obter o valor do dinheiro:', error);
     });
@@ -26,7 +27,6 @@ function getTempoPreparoValor() {//Busca o valor do ajudante contratado pelo usu
       ajudanteAtivo = 0;
       tempoPreparo = 30;
       valorAjudante = 0;
-      console.log(tipoAjudante, tempoPreparo, valorAjudante, ajudanteAtivo);
     });
     loop();
 }
@@ -50,12 +50,4 @@ function getValorChef() {//Busca o valor do chef contratado pelo usuário e o lu
       valorChef = 0;
     });
     loop();
-}
-function getPratos() {//Busca o valor que o usuário tem 
-  loadJSON('/getPratos', (data) => {
-    pratosNovos = data.idPratos;
-  }, (error) => {
-    console.error('Erro ao obter os pratos', error);
-  });
-  loop();
 }

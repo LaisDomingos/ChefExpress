@@ -49,7 +49,7 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa1){
-        //console.log('Pegando dinheiro');
+        console.log('Pegando dinheiro');
         postDinheiroPagamento();
         pagamentoMesa1 = false;
         mesa1O = false;
@@ -66,7 +66,7 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa2){
-        //console.log('Pegando dinheiro');
+        console.log('Pegando dinheiro');
         postDinheiroPagamento();
         pagamentoMesa2 = false;
         mesa2O = false;

@@ -317,6 +317,7 @@ app.post("/postDinheiroPagamento", (req, res) => {
         res.status(500).json({ error: 'Erro no servidor' });
       } else {
         res.status(200).json({ message: 'Dinheiro atualizado com sucesso' });
+        console.log(novoDinheiro);
       }
     });
   } else {
@@ -373,25 +374,6 @@ app.post('/postPratos', (req, res) => {
             res.json({ message: 'Novo prato adicionado' });
         });
       }
-    });
-  } else {
-    res.status(401).json({ error: 'Usuário não autenticado' });
-  }
-});
-
-app.get('/getPratos', (req, res) => {
-  if (idUser) {
-    // Consulta SQL para obter todos os idPratos associados a um idUser
-    const sql = 'SELECT idPratos FROM users_pratos WHERE idUser = ?';
-    
-    dbase.query(sql, [idUser], (err, result) => {
-      if (err) {
-        return res.status(500).json({ error: 'Erro no servidor' });
-      }
-
-      // Extrai os idPratos do resultado da consulta
-      const idPratos = result.map((row) => row.idPratos);
-      //console.log(idPratos)
     });
   } else {
     res.status(401).json({ error: 'Usuário não autenticado' });

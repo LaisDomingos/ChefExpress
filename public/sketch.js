@@ -100,9 +100,7 @@ function draw() {
     telasMenu();
     getTempoPreparoValor();
     getValorChef();
-    pagamento();
-    getPratos();
-  
+    pagamento();  
     noLoop();
   } 
 }
