@@ -50,7 +50,6 @@ function postAjudante(ajudanteIdId){ //Coloca o ajudante que o usuário contrato
 function postDinheiroPagamento() { //Atualiza o dinheiro de acordo com o o chef e ajudante que tem
   let valorComLucro = ((lucroMais/100) * valorPagamento) + valorPagamento;
   let attDinheiroP = dinheiro + valorComLucro;
-  console.log(attDinheiroP);
   let attDinheiroPagamento = {
     "dinheiro": attDinheiroP
   };
@@ -94,9 +93,8 @@ function postGastoPresente(){
 function postPratos(idPrato){
   let dataToSend = {
     idPrato: idPrato
-  }
+  } 
   httpPost('/postPratos', dataToSend, 'json', (data) => {
-    console.log(data);
     loop();
   });
 }

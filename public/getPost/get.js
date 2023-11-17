@@ -1,8 +1,7 @@
 function getDinheiro() {//Busca o valor que o usuário tem 
     loadJSON('/getDinheiro', (data) => {
       dinheiro = data.dinheiro;
-      idUsuario = data.idUser;   
-      console.log(dinheiro);  
+      idUsuario = data.idUser;  
     }, (error) => {
       console.error('Erro ao obter o valor do dinheiro:', error);
     });
