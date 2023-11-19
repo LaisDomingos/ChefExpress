@@ -42,3 +42,23 @@ let avaliacoes4 = ["Infelizmente, tanto a qualidade da comida quanto o atendimen
     "Infelizmente, tanto a comida quanto o atendimento foram abaixo do aceitável. Uma visita que não proporcionou nenhum prazer gastronômico.",
     "A comida estava longe de ser satisfatória, e o atendimento foi pouco acolhedor. Uma experiência que me fez reconsiderar a escolha deste restaurante."
 ] //Comida ruim e atendimento ruim
+
+function avaliacao(){
+    let avaliacao;
+    let estrela;
+    if (qtdPrato <= 10 && tempoRestaurante <=25 ){
+        avaliacao = random(avaliacoes3);
+        estrela = 2;
+    } else if (qtdPrato <= 10 && tempoRestaurante > 25 ) {
+        avaliacao = random(avaliacoes4);
+        estrela = 0;
+    } else if (qtdPrato > 10 && tempoRestaurante <=25){
+        avaliacao = random(avaliacoes1);
+        estrela = 5;
+    } else {
+        avaliacao = random(avaliacoes2);
+        estrela = 4;
+    }
+    console.log("Avaliação: ",avaliacao);
+    console.log("Estrela:", estrela);
+}

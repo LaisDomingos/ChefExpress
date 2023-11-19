@@ -36,10 +36,11 @@ function pagamento(){
     }
     loop();
 }
-
+let tempoRestaurante;
+let qtdPrato;
 function condicoesPagemento(){
-    let tempoRestaurante = cliente.tempoNaMesa/60;
-    let qtdPrato = pratosIniciais.length;
+    tempoRestaurante = cliente.tempoNaMesa/60;
+    qtdPrato = pratosIniciais.length;
     if (cliente.dupla) {
         valorPagamento = aumentarValorPrato(qtdPrato) * 2; 
         aumentarValorTempo(tempoRestaurante, qtdPrato);
