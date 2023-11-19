@@ -380,23 +380,6 @@ app.post('/postPratos', (req, res) => {
   }
 });
 
-app.get('/getPratos', (req, res) => {
-  if (idUser) {
-    const sql = 'SELECT idPratos, qtdPrato FROM users_pratos WHERE idUser = ?';
-
-    dbase.query(sql, [idUser], (err, results) => {
-      if (err) {
-        return res.status(500).json({ err });
-      } else {
-        const idPratos = results.map((row) => row.idPratos);
-        //console.log(idPratos)
-      }
-    });
-  } else {
-    res.status(401).json({ error: 'Usuário não autenticado' });
-  }
-});
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
