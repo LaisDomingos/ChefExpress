@@ -380,6 +380,24 @@ app.post('/postPratos', (req, res) => {
   }
 });
 
+//postAvaliacao - insere a avaliação do cliente no bd
+app.post('/postavaliacao', (req, res) => {
+  const { estrelas, comentarios } = req.body;
+  const userId = idUser; 
+ // Insere a avaliação na tabela
+ const insertSql = 'INSERT INTO avaliacoes (idUser, estrelas, comentarios) VALUES (?, ?, ?)';
+ dbase.query(insertSql, [userId, estrelas, comentarios], (insertErr, insertResult) => {
+   if (insertErr) {
+     console.error('Erro ao inserir avaliação:', insertErr);
+     return res.status(500).json({ error: 'Erro no servidor ao inserir avaliação' });
+   }
+
+   console.log('Avaliação registrada com sucesso');
+   res.json({ message: 'Avaliação registrada com sucesso' });
+ });
+});
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

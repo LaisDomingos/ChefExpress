@@ -36,6 +36,7 @@ function pagamento(){
     }
     loop();
 }
+
 let tempoRestaurante;
 let qtdPrato;
 function condicoesPagemento(){

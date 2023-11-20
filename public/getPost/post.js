@@ -98,3 +98,13 @@ function postPratos(idPrato){
     loop();
   });
 }
+
+function postavaliacao(estrelas, comentarios) {
+  let dataToSend = {
+    estrelas: estrelas,
+    comentarios: comentarios,
+  };
+  console.log(dataToSend)
+  httpPost('/postavaliacao', dataToSend, 'json', (data) => {
+  });
+}
