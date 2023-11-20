@@ -53,6 +53,7 @@ function setup() {
   fecharFuncionarios = new ButtonFechar();
   fecharPratos = new ButtonFechar();
   fecharPresentes = new ButtonFechar();
+  fecharAvaliacoes = new ButtonFechar();
   
   addChef1 = new Button();
   addChef2 = new Button();

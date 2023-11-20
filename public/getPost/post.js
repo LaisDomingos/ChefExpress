@@ -105,6 +105,6 @@ function postavaliacao(estrelas, comentarios) {
     comentarios: comentarios,
   };
   console.log(dataToSend)
-  httpPost('/postavaliacao', dataToSend, 'json', (data) => {
+  httpPost('/postAvaliacao', dataToSend, 'json', (data) => {
   });
 }

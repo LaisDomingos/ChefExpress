@@ -1,6 +1,7 @@
 let mostrarMenu = false;
 let mostrarTelaFuncionarios = false;
 let mostrarTelaPratos = false;
+let mostrarTelaAvaliacoes = false;
 
 function menu() {
     push();
@@ -44,6 +45,11 @@ function telasMenu(){
   } else if(mostrarTelaPratos){
     janelaPratos();
     mostrarTelaFuncionarios = false;
+  } else if(mostrarTelaAvaliacoes){
+    janelaAvaliacoes();
+    mostrarTelaFuncionarios = false;
+    mostrarTelaPratos = false;
+    retirarCheck();
   } 
   if(mostrarTelaPresente){
     janelaPresente();

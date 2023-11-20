@@ -60,3 +60,23 @@ function avaliacao(){
     }
     postavaliacao(estrela, comentarios);
 }
+
+function janelaAvaliacoes(){
+    push();
+    fill('#acefea');
+    rect(width*0.1, height*0.02, width*0.7, height*0.9);
+    fecharAvaliacoes.draw_ButtonFechar(width*0.8, height*0.03);
+    pop();
+    
+    push();
+    fill('black');
+    textSize(18);
+    text('Últimas Avaliações:' , width*0.26, height*0.15);
+    pop();
+    
+}
+
+function telaAvaliacoes() {
+    mostrarTelaAvaliacoes = true;
+}
+  

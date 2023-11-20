@@ -381,7 +381,7 @@ app.post('/postPratos', (req, res) => {
 });
 
 //postAvaliacao - insere a avaliação do cliente no bd
-app.post('/postavaliacao', (req, res) => {
+app.post('/postAvaliacao', (req, res) => {
   const { estrelas, comentarios } = req.body;
   const userId = idUser; 
  // Insere a avaliação na tabela
@@ -397,6 +397,9 @@ app.post('/postavaliacao', (req, res) => {
  });
 });
 
+app.get('/getUltimasAvaliacoes', (req, res) => {
+  
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

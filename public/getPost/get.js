@@ -50,3 +50,12 @@ function getValorChef() {//Busca o valor do chef contratado pelo usuário e o lu
     });
     loop();
 }
+
+let avaliacoes = [];
+function getUltimasAvaliacoes() {//Busca o valor que o usuário tem 
+  loadJSON('/getUltimasAvaliacoes', (data) => {
+  }, (error) => {
+    console.error('Erro ao obter o valor do dinheiro:', error);
+  });
+  loop();
+}
