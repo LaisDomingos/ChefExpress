@@ -37,7 +37,7 @@ function mousePressed() {
       } else if(mouseX > width * 0.92 && mouseX < width * 0.92 + width / 16 && mouseY > height * 0.42 && mouseY < height * 0.42 + height / 11){
         telaPratos();
       } else if(mouseX > width * 0.924 && mouseX < width * 0.924 + width / 16 && mouseY > height * 0.55 && mouseY < height * 0.55 + height / 10){
-        console.log("Ranking");       
+        telaRanking();    
       } else if(mouseX > width * 0.92 && mouseX < width * 0.92 + width / 15 && mouseY > height * 0.68 && mouseY < height * 0.68 + height / 11){
         telaAvaliacoes();
       }
@@ -81,6 +81,12 @@ function mousePressed() {
       }
     }
    
+    if(mostrarTelaRanking){
+      if (fecharRanking.on_Click(mouseX, mouseY)) {
+        mostrarTelaRanking = false;
+      }
+    }
+
     if(mostrarTelaAvaliacoes){
       if (fecharAvaliacoes.on_Click(mouseX, mouseY)) {
         mostrarTelaAvaliacoes = false;

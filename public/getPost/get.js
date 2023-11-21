@@ -61,3 +61,18 @@ function getUltimasAvaliacoes() {
   });
   loop();
 }
+
+let pratosGanhados = [];
+function getPratos(){
+  loadJSON('/getPratos', (data) => {
+    pratosGanhados = data;
+    //console.log('Pratos:', pratosGanhados);
+  }, (error) => {
+    console.error('Erro ao obter os pratos:', error);
+  });
+  loop();
+}
+
+function getRanking(){
+  loadJSON('/top-10-ricos', gotData);
+}

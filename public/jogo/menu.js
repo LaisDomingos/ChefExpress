@@ -2,6 +2,7 @@ let mostrarMenu = false;
 let mostrarTelaFuncionarios = false;
 let mostrarTelaPratos = false;
 let mostrarTelaAvaliacoes = false;
+let mostrarTelaRanking = false;
 
 function menu() {
     push();
@@ -50,7 +51,14 @@ function telasMenu(){
     mostrarTelaFuncionarios = false;
     mostrarTelaPratos = false;
     retirarCheck();
-  } 
+  } else  if (mostrarTelaRanking){
+    janelaRanking();
+    mostrarTelaFuncionarios = false;
+    mostrarTelaAvaliacoes = false;
+    mostrarTelaPratos = false;
+    retirarCheck();
+  }
+
   if(mostrarTelaPresente){
     janelaPresente();
     mostrarTelaPratos = false;

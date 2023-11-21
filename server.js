@@ -288,6 +288,7 @@ app.post('/postAjudanteAtivo', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+
 //postChefAtivo - atualiza se o chef está ativo ou não
 app.post('/postChefAtivo', (req, res) => {
   const { ativo } = req.body;
@@ -380,6 +381,25 @@ app.post('/postPratos', (req, res) => {
   }
 });
 
+app.get('/getPratos', (req, res) => {
+  if (idUser) {
+    // Seleciona as últimas 5 avaliações do idUser ordenadas pela data de criação
+    const sql = 'SELECT idPratos, qtdPrato FROM users_pratos WHERE idUser = ?';
+
+    dbase.query(sql, [idUser], (err, result) => {
+      if (err) {
+        console.error('Erro ao obter os pratos:', err);
+        return res.status(500).json({ error: 'Erro no servidor ao obter pratos' });
+      }
+
+      res.json(result);
+      //console.log(result);
+    });
+  } else {
+    res.status(400).json({ error: 'ID do usuário não fornecido' });
+  }
+});
+
 //postAvaliacao - insere a avaliação do cliente no bd
 app.post('/postAvaliacao', (req, res) => {
   const { estrelas, comentarios } = req.body;
@@ -395,7 +415,7 @@ app.post('/postAvaliacao', (req, res) => {
    res.json({ message: 'Avaliação registrada com sucesso' });
  });
 });
-
+//getUltimasAvaliacoes - busca as ultimas 9 avaliações feitas
 app.get('/getUltimasAvaliacoes', (req, res) => {
   if (idUser) {
     // Seleciona as últimas 5 avaliações do idUser ordenadas pela data de criação
@@ -410,9 +430,17 @@ app.get('/getUltimasAvaliacoes', (req, res) => {
       res.json(result);
     });
   } else {
-    // Se idUser não estiver definido, retorne uma resposta de erro
     res.status(400).json({ error: 'ID do usuário não fornecido' });
   }
+});
+
+app.get('/top-10-ricos', (req, res) => {
+  const query = 'SELECT nome, dinheiro FROM users ORDER BY dinheiro DESC LIMIT 10';
+
+  dbase.query(query, (err, result) => {
+    if (err) throw err;
+    res.json(result);
+  });
 });
 
 
