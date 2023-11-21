@@ -52,6 +52,7 @@ let avaliacoes1 = [
   
 let comentarios;
 let estrela;
+
 function avaliacao(){
     if (qtdPrato <= 10 && tempoRestaurante <=25 ){
         comentarios = random(avaliacoes3);

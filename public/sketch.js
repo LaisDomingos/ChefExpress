@@ -105,6 +105,7 @@ function draw() {
     pagamento();  
     getUltimasAvaliacoes();
     getPratos();
+    qtdPratos();
     noLoop();
   } 
 }

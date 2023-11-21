@@ -59,13 +59,13 @@ function aumentarValorPrato(qtdPrato) {
     if(qtdPrato <= 6){
         valorPagamento = 10
     } else if(qtdPrato <= 12){
-        valorPagamento = 16
+        valorPagamento = 14
     } else if(qtdPrato <= 18){
-        valorPagamento = 22
+        valorPagamento = 20
     } else if(qtdPrato <= 25){
-        valorPagamento = 29
+        valorPagamento = 25
     } else if(qtdPrato <= 30){
-        valorPagamento = 34
+        valorPagamento = 30
     }
     
     return valorPagamento; 
@@ -74,12 +74,12 @@ function aumentarValorPrato(qtdPrato) {
 //Depende de do tempo que demorou para atender o cliente
 function aumentarValorTempo(tempoRestaurante, valorPagamento){
     if(tempoRestaurante<=20){
-        valorPagamento = valorPagamento + 25;
-    } else if(tempoRestaurante<=30){
         valorPagamento = valorPagamento + 15;
-    } else if(tempoRestaurante<=40){
+    } else if(tempoRestaurante<=30){
         valorPagamento = valorPagamento + 5;
+    } else if(tempoRestaurante<=40){
+        valorPagamento = valorPagamento + 2;
     } else {
-        valorPagamento = valorPagamento + 1;
+        valorPagamento = valorPagamento;
     }
 }
