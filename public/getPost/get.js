@@ -17,14 +17,14 @@ function getTempoPreparoValor() {//Busca o valor do ajudante contratado pelo usu
         valorAjudante = data.valor;
       } else {
         ajudanteAtivo = 0;
-        tempoPreparo = 30;
+        tempoPreparo = 20;
         valorAjudante = 0;
       }
       
     }, (error) => {
       //console.error('Erro ao obter o tempo e valor:', error);
       ajudanteAtivo = 0;
-      tempoPreparo = 30;
+      tempoPreparo = 20;
       valorAjudante = 0;
     });
     loop();

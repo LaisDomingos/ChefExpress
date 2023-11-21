@@ -50,7 +50,7 @@ function janelaFuncionarios(){
     text('Valor: 100€', width*0.43, height*0.704)
     text('Tempo de Preparo: -15s' , width*0.58, height*0.674);
     text('Valor: 150€', width*0.58, height*0.704)
-    text('Tempo de Preparo: -25s' , width*0.73, height*0.674);
+    text('Tempo de Preparo: -18s' , width*0.73, height*0.674);
     text('Valor: 270€', width*0.73, height*0.704)
   pop();
   push();
