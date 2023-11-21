@@ -41,6 +41,8 @@ function janelaPratos(){
     image(pratosGerais[22], width * 0.58, height * 0.67, width / 18, height / 18);
     image(pratosGerais[23], width * 0.68, height * 0.67, width / 18, height / 18);
 
+    qtdPratos();
+
     check1.draw_checkbox(width * 0.21, height * 0.27);
     check2.draw_checkbox(width * 0.31, height * 0.27);
     check3.draw_checkbox(width * 0.41, height * 0.27);
@@ -127,4 +129,188 @@ function retirarCheck(){
     check22.destroy_checkbox();
     check23.destroy_checkbox();
     check24.destroy_checkbox();
+}
+
+let qtd0;
+let qtd1;
+let qtd2;
+let qtd3;
+let qtd4;
+let qtd5;
+let qtd6;
+let qtd7;
+let qtd8;
+let qtd9;
+let qtd10;
+let qtd11;
+let qtd12;
+let qtd13;
+let qtd14;
+let qtd15;
+let qtd16;
+let qtd17;
+let qtd18;
+let qtd19;
+let qtd20;
+let qtd21;
+let qtd22;
+let qtd23;
+
+function qtdPratos() {
+    for (let i = 0; i < pratosGanhados.length; i++) {
+        const idPratos = pratosGanhados[i].idPratos;
+        const qtdPrato = pratosGanhados[i].qtdPrato;
+
+       
+        
+        if (idPratos === 0) {
+            qtd0 = qtdPrato;  
+        } else {
+            qtd0 = 0;
+        }
+        if (idPratos === 1) {
+            qtd1 = qtdPrato;  
+        } else {
+            qtd1 = 0;
+        }
+        if (idPratos === 2) {
+            qtd2 = qtdPrato;  
+        } else {
+            qtd2 = 0;
+        }
+        if (idPratos === 3) {
+            qtd3 = qtdPrato;  
+        } else {
+            qtd3 = 0;
+        }
+        if (idPratos === 4) {
+            qtd4 = qtdPrato;  
+        } else {
+            qtd4 = 0;
+        }
+        if (idPratos === 5) {
+            qtd5 = qtdPrato;  
+        } else {
+            qtd5 = 0;
+        }
+        if (idPratos === 6) {
+            qtd6 = qtdPrato;  
+        } else {
+            qtd6 = 0;
+        }
+        if (idPratos === 7) {
+            qtd7 = qtdPrato;  
+        } else {
+            qtd7 = 0;
+        }
+        if (idPratos === 8) {
+            qtd8 = qtdPrato;  
+        } else {
+            qtd8 = 0;
+        }
+        if (idPratos === 9) {
+            qtd9 = qtdPrato;  
+        } else {
+            qtd9 = 0;
+        }
+        if (idPratos === 10) {
+            qtd10 = qtdPrato;  
+        } else {
+            qtd10 = 0;
+        }
+        if (idPratos === 11) {
+            qtd11 = qtdPrato;  
+        } else {
+            qtd11 = 0;
+        }
+        if (idPratos === 12) {
+            qtd12 = qtdPrato;  
+        } else {
+            qtd12 = 0;
+        }
+        if (idPratos === 13) {
+            qtd13 = qtdPrato;  
+        } else {
+            qtd13 = 0;
+        }
+        if (idPratos === 14) {
+            qtd14 = qtdPrato;  
+        } else {
+            qtd14 = 0;
+        }
+        if (idPratos === 15) {
+            qtd15 = qtdPrato;  
+        } else {
+            qtd15 = 0;
+        }
+        if (idPratos === 16) {
+            qtd16 = qtdPrato;  
+        } else {
+            qtd16 = 0;
+        }
+        if (idPratos === 17) {
+            qtd17 = qtdPrato;  
+        } else {
+            qtd17 = 0;
+        }
+        if (idPratos === 18) {
+            qtd18 = qtdPrato;  
+        } else {
+            qtd18 = 0;
+        }
+        if (idPratos === 19) {
+            qtd19 = qtdPrato;  
+        } else {
+            qtd19 = 0;
+        }
+        if (idPratos === 20) {
+            qtd20 = qtdPrato;  
+        } else {
+            qtd20 = 0;
+        }
+        if (idPratos === 21) {
+            qtd21 = qtdPrato;  
+        } else {
+            qtd21 = 0;
+        }
+        if (idPratos === 22) {
+            qtd22 = qtdPrato;  
+        } else {
+            qtd22 = 0;
+        }
+        if (idPratos === 23) {
+            qtd23 = qtdPrato;  
+        } else {
+            qtd23= 0;
+        }
+    }
+    push();
+    textSize(14);
+    fill('green');
+    text(qtd0, width * 0.24, height * 0.33);
+    text(qtd1, width * 0.34, height * 0.33);
+    text(qtd2, width * 0.44, height * 0.33);
+    text(qtd3, width * 0.54, height * 0.33);
+    text(qtd4, width * 0.64, height * 0.33);
+    text(qtd5, width * 0.74, height * 0.33);
+    text(qtd6, width * 0.24, height * 0.46);
+    text(qtd7, width * 0.34, height * 0.46);
+    text(qtd8, width * 0.44, height * 0.46);
+    text(qtd9, width * 0.54, height * 0.46);
+    text(qtd10, width * 0.64, height * 0.46);
+    text(qtd11, width * 0.74, height * 0.46);
+    text(qtd12, width * 0.24, height * 0.59);
+    text(qtd13, width * 0.34, height * 0.59);
+    text(qtd14, width * 0.44, height * 0.59);
+    text(qtd15, width * 0.54, height * 0.59);
+    text(qtd16, width * 0.64, height * 0.59);
+    text(qtd17, width * 0.74, height * 0.59);
+    text(qtd18, width * 0.24, height * 0.72);
+    text(qtd19, width * 0.34, height * 0.72);
+    text(qtd20, width * 0.44, height * 0.72);
+    text(qtd21, width * 0.54, height * 0.72);
+    text(qtd22, width * 0.64, height * 0.72);
+    text(qtd23, width * 0.74, height * 0.72);
+    pop();
+    loop();
 }
