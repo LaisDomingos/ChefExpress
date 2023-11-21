@@ -74,5 +74,5 @@ function getPratos(){
 }
 
 function getRanking(){
-  loadJSON('/top-10-ricos', gotData);
+  loadJSON('/get10avaliacoes', gotData);
 }

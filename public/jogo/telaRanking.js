@@ -13,7 +13,7 @@ pop();
     // Verificar se os dados foram carregados
     if (data) {
       // Definir as posições iniciais para a tabela
-      let x = width * 0.4;
+      let x = width * 0.35;
       let y = height * 0.25;
 
       // Definir a largura e a altura das células
@@ -28,8 +28,9 @@ pop();
       push();
       textSize(18);
       fill('blue')
-      text("Usuário", width * 0.45, height * 0.25);
-      text("Média - Avaliação", width * 0.45 + cellWidth, height * 0.25);
+      text("Usuário", width * 0.4, height * 0.25);
+      text("Média - Avaliação", width * 0.4 + cellWidth, height * 0.25);
+      text("Dinheiro", width * 0.4 + 2 * cellWidth, height * 0.25);
       pop();
       // Desenhar os dados na tabela
       for (let i = 0; i < data.length; i++) {
@@ -37,12 +38,14 @@ pop();
 
         fill('#acefea');
         rect(x, y, cellWidth, cellHeight); // Célula para o nome
-        rect(x + cellWidth, y, cellWidth, cellHeight); // Célula para o dinheiro
+        rect(x + cellWidth, y, cellWidth, cellHeight); // Célula para o avaliação
+        rect(x + 2 * cellWidth, y, cellWidth, cellHeight); // Célula para o dinheiro
 
         fill(0);
         textAlign(CENTER, CENTER);
         text(data[i].nome, x + cellWidth / 2, y + cellHeight / 2);
-        text(data[i].dinheiro, x + 3 * cellWidth / 2, y + cellHeight / 2);
+        text(data[i].avaliacao, x + 3 * cellWidth / 2, y + cellHeight / 2);
+        text(data[i].dinheiro, x + 5 * cellWidth / 2, y + cellHeight / 2); 
       }
     }
   pop(); 

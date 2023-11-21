@@ -108,3 +108,11 @@ function postavaliacao(estrelas, comentarios) {
   httpPost('/postAvaliacao', dataToSend, 'json', (data) => {
   });
 }
+function postMediaAvaliacao(mediaAvaliacao){
+  let dataToSend = {
+    mediaAvaliacao: mediaAvaliacao
+  };
+  console.log(dataToSend)
+  httpPost('/postMediaAvaliacao', dataToSend, 'json', (data) => {
+  });
+}

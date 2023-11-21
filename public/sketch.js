@@ -106,6 +106,7 @@ function draw() {
     getUltimasAvaliacoes();
     getPratos();
     qtdPratos();
+    mediaAvaliacao();
     noLoop();
   } 
 }

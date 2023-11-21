@@ -115,4 +115,21 @@ function janelaAvaliacoes() {
 function telaAvaliacoes() {
     mostrarTelaAvaliacoes = true;
 }
+
+// Função para calcular a média das avaliações
+function mediaAvaliacao() {
+  let totalEstrelas = 0;
+
+  // Iterar sobre as avaliações e somar as estrelas
+  for (let i = 0; i < avaliacoes.length; i++) {
+    totalEstrelas += avaliacoes[i].estrelas;
+  }
+
+  // Calcular a média das estrelas
+  const media = totalEstrelas/avaliacoes.length;
+
+  postMediaAvaliacao(media);
+  
+  loop();
+}
   

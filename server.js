@@ -434,8 +434,28 @@ app.get('/getUltimasAvaliacoes', (req, res) => {
   }
 });
 
-app.get('/top-10-ricos', (req, res) => {
-  const query = 'SELECT nome, dinheiro FROM users ORDER BY dinheiro DESC LIMIT 10';
+//postMediaAvalição - insere a media de avaliação do restaurante
+app.post('/postMediaAvaliacao', (req, res) => {
+  if(idUser){
+    const {mediaAvaliacao } = req.body;
+ 
+  // Atualiza a média de avaliação na tabela users
+  const updateSql = 'UPDATE users SET avaliacao = ? WHERE id = ?';
+
+  dbase.query(updateSql, [mediaAvaliacao, idUser], (updateErr, updateResult) => {
+    if (updateErr) {
+      console.error('Erro ao atualizar avaliação:', updateErr);
+      return res.status(500).json({ error: 'Erro no servidor ao atualizar avaliação' });
+    }
+
+    res.json({ message: 'Avaliação atualizada com sucesso' });
+  });
+  }
+  
+});
+
+app.get('/get10avaliacoes', (req, res) => {
+  const query = 'SELECT nome, avaliacao, dinheiro FROM users ORDER BY avaliacao DESC LIMIT 10';
 
   dbase.query(query, (err, result) => {
     if (err) throw err;
