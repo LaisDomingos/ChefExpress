@@ -42,14 +42,20 @@ function telasMenu(){
     janelaFuncionarios();  
     mostrarTelaPresente = false;
     mostrarTelaPratos = false;
+    mostrarTelaRanking = false;
+    mostrarTelaAvaliacoes = false;
     retirarCheck();
   } else if(mostrarTelaPratos){
     janelaPratos();
     mostrarTelaFuncionarios = false;
+    mostrarTelaRanking = false;
+    mostrarTelaAvaliacoes = false;
   } else if(mostrarTelaAvaliacoes){
     janelaAvaliacoes();
+    mostrarTelaPresente = false;
     mostrarTelaFuncionarios = false;
     mostrarTelaPratos = false;
+    mostrarTelaRanking = false;
     retirarCheck();
   } else  if (mostrarTelaRanking){
     janelaRanking();
