@@ -75,49 +75,78 @@ function botoesFuncionarios(){
       addChef2.corBt = "blue";
       addChef3.corBt = "blue";
       addChef4.corBt = "blue";
-      postChef(1);
+      if(dinheiro >= 70){
+        postChef(1);
+        cobranca = false;
+      }
+      
     } else if (addChef2.on_Click(mouseX, mouseY)) {
       addChef1.corBt = "blue";
       addChef2.corBt = "#066315";
       addChef3.corBt = "blue";
       addChef4.corBt = "blue";
-      postChef(2);
+      if(dinheiro >= 130){
+        postChef(2);
+        cobranca = false;
+      }
     } else if (addChef3.on_Click(mouseX, mouseY)) {
       addChef1.corBt = "blue";
       addChef2.corBt = "blue";
       addChef3.corBt = "#066315";
       addChef4.corBt = "blue";
-      postChef(3);
+      if(dinheiro >= 180){
+        postChef(3);
+        cobranca = false;
+      }
     } else  if (addChef4.on_Click(mouseX, mouseY)) {
       addChef1.corBt = "blue";
       addChef2.corBt = "blue";
       addChef3.corBt = "blue";
       addChef4.corBt = "#066315";
-      postChef(4);
+      if(dinheiro >= 300){
+        postChef(4);
+        cobranca = false;
+      }
     }
     if (addAjudante1.on_Click(mouseX, mouseY)) {
       addAjudante1.corBt = "#066315";
       addAjudante2.corBt = "blue";
       addAjudante3.corBt = "blue";
       addAjudante4.corBt = "blue";
-      postAjudante(5);
+      if(dinheiro >= 30){
+        postAjudante(5);
+        cobranca = false;
+      }
     } else if (addAjudante2.on_Click(mouseX, mouseY)) {
       addAjudante1.corBt = "blue";
       addAjudante2.corBt = "#066315";
       addAjudante3.corBt = "blue";
       addAjudante4.corBt = "blue";
-      postAjudante(6);
+      if(dinheiro >= 100){
+        postAjudante(6);
+        cobranca = false;
+      }
     } else if (addAjudante3.on_Click(mouseX, mouseY)) {
       addAjudante1.corBt = "blue";
       addAjudante2.corBt = "blue";
       addAjudante3.corBt = "#066315";
       addAjudante4.corBt = "blue";
-      postAjudante(7);
+      if(dinheiro >= 150){
+        postAjudante(7);
+        cobranca = false;
+      }
     } else  if (addAjudante4.on_Click(mouseX, mouseY)) {
       addAjudante1.corBt = "blue";
       addAjudante2.corBt = "blue";
       addAjudante3.corBt = "blue";
       addAjudante4.corBt = "#066315";
-      postAjudante(8);
+      if(dinheiro >= 270){
+        postAjudante(8);
+        cobranca = false;
+      }
+    }
+    if(!cobranca){
+      postDinheiroServicos();
+      cobranca = true;
     }
 }
