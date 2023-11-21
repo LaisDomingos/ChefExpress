@@ -6,7 +6,7 @@ const mysql = require('mysql')
 const bcrypt = require('bcrypt');
 
 const app = express()
-const port = 4000
+const port = 3000
 
 const dbase = mysql.createConnection({ //Conecta ao BD
   host:"localhost",
@@ -392,14 +392,30 @@ app.post('/postAvaliacao', (req, res) => {
      return res.status(500).json({ error: 'Erro no servidor ao inserir avaliação' });
    }
 
-   console.log('Avaliação registrada com sucesso');
    res.json({ message: 'Avaliação registrada com sucesso' });
  });
 });
 
 app.get('/getUltimasAvaliacoes', (req, res) => {
-  
+  if (idUser) {
+    // Seleciona as últimas 5 avaliações do idUser ordenadas pela data de criação
+    const sql = 'SELECT estrelas, comentarios FROM avaliacoes WHERE idUser = ? ORDER BY dataCriacao DESC LIMIT 9';
+
+    dbase.query(sql, [idUser], (err, result) => {
+      if (err) {
+        console.error('Erro ao obter as últimas avaliações:', err);
+        return res.status(500).json({ error: 'Erro no servidor ao obter avaliações' });
+      }
+
+      res.json(result);
+    });
+  } else {
+    // Se idUser não estiver definido, retorne uma resposta de erro
+    res.status(400).json({ error: 'ID do usuário não fornecido' });
+  }
 });
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

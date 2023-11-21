@@ -101,7 +101,7 @@ function draw() {
     getTempoPreparoValor();
     getValorChef();
     pagamento();  
-   
+    getUltimasAvaliacoes();
     noLoop();
   } 
 }

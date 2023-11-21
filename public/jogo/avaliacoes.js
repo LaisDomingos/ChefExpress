@@ -1,47 +1,55 @@
-let avaliacoes1 = ["Excelente experiência! A comida estava deliciosa, o atendimento foi impecável e a rapidez no serviço superou as expectativas. Recomendo sem hesitar!",
-    "A refeição foi uma verdadeira explosão de sabores! O atendimento foi atencioso e ágil, proporcionando uma experiência gastronômica memorável. Com certeza voltarei!",
-    "Ótimo restaurante! A comida estava divina, o atendimento foi cordial e eficiente, e a rapidez na entrega dos pratos nos surpreendeu positivamente. Recomendo a todos!",
-    "Jantar perfeito! A qualidade da comida foi excepcional, o atendimento foi amigável e o serviço foi rápido, tornando nossa noite ainda mais agradável. Voltaremos com certeza!",
-    "Uma experiência gastronômica incrível! A comida estava deliciosa, fomos atendidos com simpatia e a eficiência no serviço nos impressionou. Recomendo a todos que buscam uma refeição de qualidade.",
-    "Simplesmente maravilhoso! A comida estava deliciosa, o atendimento foi atencioso e a rapidez no serviço fez toda a diferença. Uma combinação perfeita para uma experiência gastronômica incrível.",
-    "Estou encantado com a experiência neste restaurante. A comida era saborosa, o atendimento foi excepcionalmente amigável e a agilidade no serviço foi surpreendente. Recomendo a todos!",
-    "Que prazer foi jantar aqui! A comida estava divina, fomos atendidos com sorrisos calorosos e a rapidez no atendimento nos permitiu desfrutar de uma refeição deliciosa sem demora. Nota máxima!",
-    "Uma experiência cinco estrelas! A comida era de dar água na boca, o atendimento foi amável e a rapidez no serviço nos deixou impressionados. Definitivamente, um lugar para voltar.",
-    "Adorei cada momento! A comida foi uma verdadeira obra-prima, o atendimento foi cortês e a rapidez no serviço tornou nossa refeição ainda mais agradável. Recomendo a todos que valorizam qualidade e eficiência."
-] //Comida boa e atendimento bom
-let avaliacoes2 = [ "A comida estava deliciosa, mas o atendimento deixou um pouco a desejar. Mesmo assim, a experiência geral foi positiva graças ao sabor incrível dos pratos.",
-    "Gostei muito da qualidade da comida, porém, o atendimento foi apenas razoável. Acredito que com um serviço mais atencioso, a experiência poderia ter sido excelente.",
-    "A comida era realmente saborosa, mas infelizmente o atendimento não acompanhou o mesmo nível de excelência. Espero que possam melhorar esse aspecto para tornar a experiência mais completa.",
-    "Sabores surpreendentes na comida, no entanto, o atendimento deixou a desejar. Se houvesse mais atenção aos clientes, tenho certeza de que seria um lugar incrível.",
-    "Os pratos eram deliciosos, mas o atendimento foi um pouco desatento. Espero que possam aprimorar esse aspecto, pois a qualidade da comida merece uma experiência mais completa.",
-    "A comida era realmente boa, mas o atendimento foi apenas mediano. Se houver uma melhoria na hospitalidade, este lugar pode se tornar um destino gastronômico imperdível.",
-    "Os pratos eram saborosos, no entanto, o atendimento deixou a desejar em termos de rapidez e atenção. Uma boa experiência, mas com potencial para ser ainda melhor.",
-    "A cozinha merece elogios pela comida deliciosa, mas o atendimento foi um ponto fraco. Espero que a equipe se dedique mais à experiência do cliente para elevar o padrão geral.",
-    "A comida era muito saborosa, mas o atendimento foi apenas regular. Se houver uma melhoria na interação com os clientes, tenho certeza de que este lugar se destacaria ainda mais.",
-    "Experimentei pratos incríveis, no entanto, o atendimento deixou a desejar. Se houver um aprimoramento na hospitalidade, este restaurante poderá se tornar uma referência gastronômica."
-] //Comida boa e atendimento mais ou menos
-let avaliacoes3 = ["Infelizmente, a qualidade da comida não correspondeu às expectativas, mas o atendimento foi excepcional, tornando a visita mais tolerável.",
-    "Os pratos deixaram a desejar em sabor, no entanto, o atendimento foi o ponto positivo da experiência. A equipe foi atenciosa e prestativa.",
-    "A comida não estava no nível desejado, mas o atendimento eficiente e cordial da equipe proporcionou algum conforto durante a refeição.",
-    "Embora a gastronomia tenha decepcionado, o atendimento foi bastante elogiável. A equipe fez o possível para compensar a qualidade dos pratos.",
-    "Não fiquei impressionado com os sabores dos pratos, mas devo elogiar o atendimento, que foi amigável e atencioso do início ao fim.",
-    "A qualidade da comida deixou a desejar, mas o atendimento foi um ponto positivo. A equipe mostrou profissionalismo e cortesia, apesar das limitações na cozinha.",
-    "Os pratos não atenderam às minhas expectativas em termos de sabor, mas o atendimento foi notavelmente bom. A equipe foi dedicada e receptiva.",
-    "A culinária não estava à altura, no entanto, o atendimento foi agradável. A equipe fez o possível para garantir uma experiência positiva, apesar das falhas na cozinha.",
-    "A comida deixou a desejar, mas o atendimento foi um ponto forte. A equipe foi atenciosa e tentou compensar as deficiências na qualidade dos pratos.",
-    "Infelizmente, a experiência gastronômica não foi positiva devido à qualidade dos pratos, mas o atendimento foi um destaque, demonstrando profissionalismo e cortesia."
-] //Comida ruim e atendimento bom
-let avaliacoes4 = ["Infelizmente, tanto a qualidade da comida quanto o atendimento deixaram a desejar. Uma experiência que não atendeu às expectativas em nenhum aspecto.",
-    "A comida estava aquém do esperado, e o atendimento não foi satisfatório. Uma combinação desapontadora que comprometeu totalmente a experiência.",
-    "Tanto a qualidade da comida quanto o atendimento deixaram muito a desejar. Uma experiência que definitivamente não pretendo repetir.",
-    "A experiência foi decepcionante, com uma comida pouco apetitosa e um atendimento desinteressado. Infelizmente, não recomendaria este lugar.",
-    "Tive uma experiência negativa, tanto em relação à qualidade da comida quanto ao atendimento. Não consegui encontrar pontos positivos durante a visita.",
-    "A comida deixou a desejar em sabor, e o atendimento foi bastante desatencioso. Uma combinação que tornou a refeição uma verdadeira decepção.",
-    "Tanto a comida quanto o atendimento não atenderam às expectativas. Uma experiência que definitivamente não correspondeu ao que eu esperava.",
-    "A qualidade da comida era questionável, e o atendimento deixou muito a desejar. Uma experiência que deixou uma impressão negativa.",
-    "Infelizmente, tanto a comida quanto o atendimento foram abaixo do aceitável. Uma visita que não proporcionou nenhum prazer gastronômico.",
-    "A comida estava longe de ser satisfatória, e o atendimento foi pouco acolhedor. Uma experiência que me fez reconsiderar a escolha deste restaurante."
-] //Comida ruim e atendimento ruim
+let avaliacoes1 = [
+    "Experiência excelente! Comida deliciosa, atendimento impecável e serviço rápido.",
+    "Refeição explosão de sabores! Atendimento atencioso, experiência memorável.",
+    "Ótimo restaurante! Comida divina, atendimento cordial e serviço ágil.",
+    "Jantar perfeito! Comida excepcional, atendimento amigável e serviço rápido.",
+    "Experiência gastronômica incrível! Comida deliciosa, atendimento simpático e eficiente.",
+    "Simplesmente maravilhoso! Comida deliciosa, atendimento atencioso e serviço rápido.",
+    "Encantado com a experiência! Comida saborosa, atendimento amigável e serviço surpreendente.",
+    "Prazer em jantar aqui! Comida divina, atendimento com sorrisos calorosos e rapidez no atendimento.",
+    "Experiência cinco estrelas! Comida deliciosa, atendimento amável e rapidez impressionante.",
+    "Adorei cada momento! Comida obra-prima, atendimento cortês e rapidez na refeição. Recomendo."
+  ]; //Comida boa e atendimento bom
+  
+  let avaliacoes2 = [
+    "Comida deliciosa, atendimento razoável. Experiência positiva pelo sabor incrível.",
+    "Gostei da qualidade da comida, atendimento mediano. Poderia ser excelente com mais atenção.",
+    "Comida saborosa, mas atendimento precisa melhorar. Espero melhorias para uma experiência completa.",
+    "Sabores surpreendentes, mas atendimento desatento. Mais atenção aos clientes seria incrível.",
+    "Pratos deliciosos, atendimento um pouco desatento. Espero melhorias para uma experiência completa.",
+    "Comida boa, atendimento mediano. Com melhoria na hospitalidade, pode ser um destino imperdível.",
+    "Pratos saborosos, atendimento desatento. Boa experiência, com potencial para ser melhor.",
+    "Cozinha elogiável, atendimento ponto fraco. Espero equipe dedicada para elevar padrão.",
+    "Comida muito saborosa, atendimento regular. Com melhoria na interação, lugar se destacará mais.",
+    "Pratos incríveis, atendimento deixou a desejar."
+  ]; //Comida boa e atendimento mais ou menos
+  
+  let avaliacoes3 = [
+    "Comida abaixo das expectativas, atendimento excepcional.",
+    "Pratos aquém em sabor, atendimento ponto positivo. Equipe atenciosa e prestativa.",
+    "Comida não atendeu, atendimento eficiente e cordial proporcionou conforto.",
+    "Gastronomia decepcionou, atendimento bastante elogiável.",
+    "Sabores negativos, elogio ao atendimento, amigável e atencioso.",
+    "Comida abaixo do esperado, atendimento ponto positivo. Equipe dedicada e receptiva.",
+    "Pratos não atenderam em sabor, atendimento notavelmente bom. Equipe dedicada e receptiva.",
+    "Culinária não esta à altura, mas a equipe fez o possível para garantir experiência positiva.",
+    "Comida abaixo das expectativas, atendimento ponto forte.",
+    "Experiência não positiva, destaque para atendimento, demonstrando profissionalismo e cortesia."
+  ];//Comida ruim e atendimento bom
+  
+  let avaliacoes4 = [
+    "Comida e atendimento abaixo do esperado. Experiência que não atendeu expectativas.",
+    "Comida aquém, atendimento insatisfatório. Combinação comprometeu totalmente experiência.",
+    "Qualidade da comida e atendimento muito abaixo. Não pretendo repetir.",
+    "Comida pouco apetitosa e atendimento desinteressado. Não recomendaria.",
+    "Experiência negativa, tanto na qualidade da comida quanto no atendimento.",
+    "Comida abaixo do esperado em sabor, atendimento desatento. Necessita melhorias para se destacar.",
+    "Pratos não atenderam em sabor, atendimento abaixo. Experiência que não correspondeu às expectativas.",
+    "Culinária questionável, atendimento deixou a desejar. Experiência com impressão negativa.",
+    "Comida aquém, atendimento pouco acolhedor. Experiência sem prazer gastronômico.",
+    "Comida insatisfatória, atendimento pouco acolhedor. "
+  ];//Comida ruim e atendimento ruim
+  
 let comentarios;
 let estrela;
 function avaliacao(){
@@ -61,20 +69,47 @@ function avaliacao(){
     postavaliacao(estrela, comentarios);
 }
 
-function janelaAvaliacoes(){
+function janelaAvaliacoes() {
     push();
     fill('#acefea');
-    rect(width*0.1, height*0.02, width*0.7, height*0.9);
-    fecharAvaliacoes.draw_ButtonFechar(width*0.8, height*0.03);
+    rect(width * 0.1, height * 0.02, width * 0.7, height * 0.9);
+    fecharAvaliacoes.draw_ButtonFechar(width * 0.8, height * 0.03);
     pop();
-    
+  
     push();
     fill('black');
     textSize(18);
-    text('Últimas Avaliações:' , width*0.26, height*0.15);
+    text('Últimas Avaliações:', width * 0.26, height * 0.15);
     pop();
-    
-}
+  
+    // Posição inicial para exibir as avaliações
+    let x = width * 0.15;
+    let y = height * 0.2;
+  
+    // Espaçamento vertical entre as avaliações
+    const spacing = 50;
+  
+    // Itera sobre as avaliações e as exibe
+    for (let i = 0; i < avaliacoes.length; i++) {
+      const estrelas = avaliacoes[i].estrelas;
+      const comentarios = avaliacoes[i].comentarios;
+  
+      // Exibe estrelas
+      push();
+      fill('black');
+      textSize(14);
+      text('Estrelas: ' + estrelas, x, y + i * spacing);
+      pop();
+  
+      // Exibe comentários
+      push();
+      fill('black');
+      textSize(14);
+      text('Comentários: ' + comentarios, x + 110, y + i * spacing);
+      pop();
+    }
+  }
+  
 
 function telaAvaliacoes() {
     mostrarTelaAvaliacoes = true;
