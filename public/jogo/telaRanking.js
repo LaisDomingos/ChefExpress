@@ -6,17 +6,15 @@ function janelaRanking(){
   fecharRanking.draw_ButtonFechar(width*0.87, height*0.05);
   push();
   fill('black');
-  textSize(25);
-  text('Ranking' , width*0.12, height*0.1);
-  textSize(15);
-  text('Ranking dos 10 jogadores mais ricos' , width*0.12, height*0.2);
+  textSize(20);
+  text('Ranking dos 10 restaurantes mais bem avalidados' , width*0.20, height*0.14);
 pop();
   push();
     // Verificar se os dados foram carregados
     if (data) {
       // Definir as posições iniciais para a tabela
-      let x = 720;
-      let y = 200;
+      let x = width * 0.4;
+      let y = height * 0.25;
 
       // Definir a largura e a altura das células
       const cellWidth = 150;
@@ -27,6 +25,12 @@ pop();
       textAlign(CENTER, CENTER);
       textSize(16);
       
+      push();
+      textSize(18);
+      fill('blue')
+      text("Usuário", width * 0.45, height * 0.25);
+      text("Média - Avaliação", width * 0.45 + cellWidth, height * 0.25);
+      pop();
       // Desenhar os dados na tabela
       for (let i = 0; i < data.length; i++) {
         y += cellHeight;

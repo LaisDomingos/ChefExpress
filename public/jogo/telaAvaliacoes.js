@@ -78,8 +78,8 @@ function janelaAvaliacoes() {
   
     push();
     fill('black');
-    textSize(18);
-    text('Últimas Avaliações:', width * 0.26, height * 0.15);
+    textSize(20);
+    text('Últimas Avaliações:', width * 0.20, height * 0.14);
     pop();
   
     // Posição inicial para exibir as avaliações

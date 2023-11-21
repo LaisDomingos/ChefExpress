@@ -160,121 +160,113 @@ let qtd23;
 
 function qtdPratos() {
     for (let i = 0; i < pratosGanhados.length; i++) {
-        /*if(pratosGanhados.length <= 0){
-            qtd0 = qtd1 = qtd2 = qtd3 = qtd4 = qtd5 = 0;
-            qtd6 = qtd7 = qtd8 = qtd9 = qtd10 = qtd11 = 0;
-            qtd12 = qtd13 = qtd14 = qtd15 = qtd16 = qtd17 = 0;
-            qtd18 = qtd19 = qtd20 = qtd21 = qtd22 = qtd23 = 0;
-        } else {*/
-            const idPratos = pratosGanhados[i].idPratos;
-            const qtdPrato = pratosGanhados[i].qtdPrato;
+       const idPratos = pratosGanhados[i].idPratos;
+       const qtdPrato = pratosGanhados[i].qtdPrato;
 
-            if (idPratos === 0) {
-                qtd0 = qtdPrato;  
-            } 
-            if (idPratos === 1) {
-                qtd1 = qtdPrato;  
-            } 
-            if (idPratos === 2) {
-                qtd2 = qtdPrato;  
-            } 
-            if (idPratos === 3) {
-                qtd3 = qtdPrato;  
-            } 
-            if (idPratos === 4) {
-                qtd4 = qtdPrato;  
-            } 
-            if (idPratos === 5) {
-                qtd5 = qtdPrato;  
-            } 
-            if (idPratos === 6) {
-                qtd6 = qtdPrato;  
-            } 
-            if (idPratos === 7) {
-                qtd7 = qtdPrato;  
-            } 
-            if (idPratos === 8) {
-                qtd8 = qtdPrato;  
-            } 
-            if (idPratos === 9) {
-                qtd9 = qtdPrato;  
-            } 
-            if (idPratos === 10) {
-                qtd10 = qtdPrato;  
-            } 
-            if (idPratos === 11) {
-                qtd11 = qtdPrato;  
-            } 
-            if (idPratos === 12) {
-                qtd12 = qtdPrato;  
-            } 
-            if (idPratos === 13) {
-                qtd13 = qtdPrato;  
-            } 
-            if (idPratos === 14) {
-                qtd14 = qtdPrato;  
-            } 
-            if (idPratos === 15) {
-                qtd15 = qtdPrato;  
-            } 
-            if (idPratos === 16) {
-                qtd16 = qtdPrato;  
-            } 
-            if (idPratos === 17) {
-                qtd17 = qtdPrato;  
-            } 
-            if (idPratos === 18) {
-                qtd18 = qtdPrato;  
-            } 
-            if (idPratos === 19) {
-                qtd19 = qtdPrato;  
-            } 
-            if (idPratos === 20) {
-                qtd20 = qtdPrato;  
-            } 
-            if (idPratos === 21) {
-                qtd21 = qtdPrato;  
-            } 
-            if (idPratos === 22) {
-                qtd22 = qtdPrato;  
-            } 
-            if (idPratos === 23) {                
-                qtd23 = qtdPrato; 
-            } 
-        //}
-        
-    
-    }
-        
+       if (idPratos === 0) {
+           qtd0 = qtdPrato;  
+       } 
+       if (idPratos === 1) {
+           qtd1 = qtdPrato;  
+       } 
+       if (idPratos === 2) {
+           qtd2 = qtdPrato;  
+       } 
+       if (idPratos === 3) {
+           qtd3 = qtdPrato;  
+       } 
+       if (idPratos === 4) {
+           qtd4 = qtdPrato;  
+       } 
+       if (idPratos === 5) {
+           qtd5 = qtdPrato;  
+       } 
+       if (idPratos === 6) {
+           qtd6 = qtdPrato;  
+       } 
+       if (idPratos === 7) {
+           qtd7 = qtdPrato;  
+       } 
+       if (idPratos === 8) {
+           qtd8 = qtdPrato;  
+       } 
+       if (idPratos === 9) {
+           qtd9 = qtdPrato;  
+       } 
+       if (idPratos === 10) {
+           qtd10 = qtdPrato;  
+       } 
+       if (idPratos === 11) {
+           qtd11 = qtdPrato;  
+       } 
+       if (idPratos === 12) {
+           qtd12 = qtdPrato;  
+       } 
+       if (idPratos === 13) {
+           qtd13 = qtdPrato;  
+       } 
+       if (idPratos === 14) {
+           qtd14 = qtdPrato;  
+       } 
+       if (idPratos === 15) {
+           qtd15 = qtdPrato;  
+       } 
+       if (idPratos === 16) {
+           qtd16 = qtdPrato;  
+       } 
+       if (idPratos === 17) {
+           qtd17 = qtdPrato;  
+       } 
+       if (idPratos === 18) {
+           qtd18 = qtdPrato;  
+       } 
+       if (idPratos === 19) {
+           qtd19 = qtdPrato;  
+       } 
+       if (idPratos === 20) {
+           qtd20 = qtdPrato;  
+       } 
+       if (idPratos === 21) {
+           qtd21 = qtdPrato;  
+       } 
+       if (idPratos === 22) {
+           qtd22 = qtdPrato;  
+       } 
+       if (idPratos === 23) {                
+           qtd23 = qtdPrato; 
+       }        
 
-    push();
-        textSize(14);
-        fill('green');
-        text(qtd0, width * 0.24, height * 0.33);
-        text(qtd1, width * 0.34, height * 0.33);
-        text(qtd2, width * 0.44, height * 0.33);
-        text(qtd3, width * 0.54, height * 0.33);
-        text(qtd4, width * 0.64, height * 0.33);
-        text(qtd5, width * 0.74, height * 0.33);
-        text(qtd6, width * 0.24, height * 0.46);
-        text(qtd7, width * 0.34, height * 0.46);
-        text(qtd8, width * 0.44, height * 0.46);
-        text(qtd9, width * 0.54, height * 0.46);
-        text(qtd10, width * 0.64, height * 0.46);
-        text(qtd11, width * 0.74, height * 0.46);
-        text(qtd12, width * 0.24, height * 0.59);
-        text(qtd13, width * 0.34, height * 0.59);
-        text(qtd14, width * 0.44, height * 0.59);
-        text(qtd15, width * 0.54, height * 0.59);
-        text(qtd16, width * 0.64, height * 0.59);
-        text(qtd17, width * 0.74, height * 0.59);
-        text(qtd18, width * 0.24, height * 0.72);
-        text(qtd19, width * 0.34, height * 0.72);
-        text(qtd20, width * 0.44, height * 0.72);
-        text(qtd21, width * 0.54, height * 0.72);
-        text(qtd22, width * 0.64, height * 0.72);
-        text(qtd23, width * 0.74, height * 0.72);
-        pop();
+   }
+   
 
-    loop();
+push();
+   textSize(14);
+   fill('green');
+   text(qtd0, width * 0.24, height * 0.33);
+   text(qtd1, width * 0.34, height * 0.33);
+   text(qtd2, width * 0.44, height * 0.33);
+   text(qtd3, width * 0.54, height * 0.33);
+   text(qtd4, width * 0.64, height * 0.33);
+   text(qtd5, width * 0.74, height * 0.33);
+   text(qtd6, width * 0.24, height * 0.46);
+   text(qtd7, width * 0.34, height * 0.46);
+   text(qtd8, width * 0.44, height * 0.46);
+   text(qtd9, width * 0.54, height * 0.46);
+   text(qtd10, width * 0.64, height * 0.46);
+   text(qtd11, width * 0.74, height * 0.46);
+   text(qtd12, width * 0.24, height * 0.59);
+   text(qtd13, width * 0.34, height * 0.59);
+   text(qtd14, width * 0.44, height * 0.59);
+   text(qtd15, width * 0.54, height * 0.59);
+   text(qtd16, width * 0.64, height * 0.59);
+   text(qtd17, width * 0.74, height * 0.59);
+   text(qtd18, width * 0.24, height * 0.72);
+   text(qtd19, width * 0.34, height * 0.72);
+   text(qtd20, width * 0.44, height * 0.72);
+   text(qtd21, width * 0.54, height * 0.72);
+   text(qtd22, width * 0.64, height * 0.72);
+   text(qtd23, width * 0.74, height * 0.72);
+   pop();
+
+   loop();
 }
