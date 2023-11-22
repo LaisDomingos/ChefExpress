@@ -463,8 +463,8 @@ let tudoAtendido7 = false;
 let tudoAtendido8 = false;
 
 let pedidoErrado;
+
 function verificarPedidos(mesaAtendida) {
-  //console.log(garcomImgI);
   if (mesaAtendida == 1){
     for (var i = 0; i < indiceMesa1.length; i++) {
       if (indiceMesa1[i] === garcomImgI) {

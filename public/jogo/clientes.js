@@ -279,6 +279,7 @@ function gerarCliente() {
     loop();
 }
 
+let semComer = false;
 function moverClientes() {
     let velocidade = 2;
     
@@ -303,11 +304,16 @@ function moverClientes() {
         else {
             cliente.tempoNaMesa++;
             
-            // Verifica se o cliente já tem 10 segundos na mesa para sair
+            // Verifica se o cliente já tem 5 segundos na mesa para sair
             if (cliente.tempoNaMesa >= 5 * 60) { 
                 cliente.imagemFre = cliente.imagemMao;
-                cliente.pediu= true;                
+                cliente.pediu= true;             
             }
+            if(cliente.tempoNaMesa >= 50*60 ){
+                semComer = true;
+                sairMesa(cliente);
+                
+            } 
             for (let i = 0; i < clientes.length; i++) {
                 let cliente = clientes[i];
                 let distancia = dist(xGarcon, yGarcon, cliente.x, cliente.y)
@@ -316,12 +322,10 @@ function moverClientes() {
                     if(!garcomComPedido){
                         balaoGarcom();
                     } else if (pedidoErrado){
-                        balaoCliente();
-                        
+                        balaoCliente(); 
                     }
                 }
-            }
-            
+            } 
         }
         pedir(cliente);
     }
@@ -330,51 +334,88 @@ function moverClientes() {
 let imgDinheiro;
 function sairMesa(cliente) {
     // Libere a mesa correspondente
-    switch (cliente.mesa) {
-        case 1:
-            pagamentoMesa1 = true;
-            indicesSalvosMesa1 = false;
-            tudoAtendido1 = false;
-            break;
-        case 2:
-            pagamentoMesa2 = true;
-            indicesSalvosMesa2 = false;
-            tudoAtendido2 = false;
-            break;
-        case 3:
-            pagamentoMesa3 = true;
-            indicesSalvosMesa3 = false;
-            tudoAtendido3 = false;
-            break;
-        case 4:
-            pagamentoMesa4 = true;
-            indicesSalvosMesa4 = false;
-            tudoAtendido4 = false;
-            break;
-        case 5:
-            pagamentoMesa5 = true;
-            indicesSalvosMesa5 = false;
-            tudoAtendido5 = false;
-            break;
-        case 6:
-            pagamentoMesa6 = true;
-            indicesSalvosMesa6 = false;
-            tudoAtendido6 = false;
-            break;
-        case 7:
-            pagamentoMesa7 = true;
-            indicesSalvosMesa7 = false;
-            tudoAtendido7 = false;
-            break;
-        case 8:
-            pagamentoMesa8 = true;
-            indicesSalvosMesa8 = false;
-            tudoAtendido8 = false;
-            break;
+    if(!semComer){
+        switch (cliente.mesa) {
+            case 1:
+                pagamentoMesa1 = true;
+                indicesSalvosMesa1 = false;
+                tudoAtendido1 = false;
+                break;
+            case 2:
+                pagamentoMesa2 = true;
+                indicesSalvosMesa2 = false;
+                tudoAtendido2 = false;
+                break;
+            case 3:
+                pagamentoMesa3 = true;
+                indicesSalvosMesa3 = false;
+                tudoAtendido3 = false;
+                break;
+            case 4:
+                pagamentoMesa4 = true;
+                indicesSalvosMesa4 = false;
+                tudoAtendido4 = false;
+                break;
+            case 5:
+                pagamentoMesa5 = true;
+                indicesSalvosMesa5 = false;
+                tudoAtendido5 = false;
+                break;
+            case 6:
+                pagamentoMesa6 = true;
+                indicesSalvosMesa6 = false;
+                tudoAtendido6 = false;
+                break;
+            case 7:
+                pagamentoMesa7 = true;
+                indicesSalvosMesa7 = false;
+                tudoAtendido7 = false;
+                break;
+            case 8:
+                pagamentoMesa8 = true;
+                indicesSalvosMesa8 = false;
+                tudoAtendido8 = false;
+                break;
+        }
+        condicoesPagemento();
+        avaliacao();
+    }  else if (semComer) {
+        switch (cliente.mesa) {
+            case 1:
+                tudoAtendido1 = false;
+                mesa1O = false;
+                break;
+            case 2:
+                tudoAtendido2 = false;
+                mesa2O = false;
+                break;
+            case 3:
+                tudoAtendido3 = false;
+                mesa3O = false;
+                break;
+            case 4:
+                tudoAtendido4 = false;
+                mesa4O = false;
+                break;
+            case 5:
+                tudoAtendido5 = false;
+                mesa5O = false;
+                break;
+            case 6:
+                tudoAtendido6 = false;
+                mesa6O = false;
+                break;
+            case 7:
+                tudoAtendido7 = false;
+                mesa7O = false;
+                break;
+            case 8:
+                tudoAtendido8 = false;
+                mesa8O = false;
+                break;
+        }
     }
     
-    condicoesPagemento();
-    avaliacao();
     // Remove o cliente da lista para liberar recursos
     let index = clientes.indexOf(cliente);
     if (index !== -1) {
