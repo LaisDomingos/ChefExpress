@@ -313,8 +313,9 @@ function moverClientes() {
                 let distancia = dist(xGarcon, yGarcon, cliente.x, cliente.y)
                 if (distancia < 80 && cliente.pediu == true) { 
                     cliente.atendido = true;
-                    balaoGarcom();
-                    
+                    if(!garcomComPedido){
+                        balaoGarcom();
+                    }
                 }
             }
             

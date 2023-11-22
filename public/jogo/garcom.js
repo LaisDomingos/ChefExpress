@@ -465,7 +465,6 @@ let tudoAtendido8 = false;
 function verificarPedidos(mesaAtendida) {
   //console.log(garcomImgI);
   if (mesaAtendida == 1){
-    //console.log("Mesa 1:", indiceMesa1);
     for (var i = 0; i < indiceMesa1.length; i++) {
       if (indiceMesa1[i] === garcomImgI) {
         indiceMesa1.splice(i, 1);
