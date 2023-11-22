@@ -253,7 +253,7 @@ function qtdPratos() {
            if(!pratoAdicionado0){
             pratosIniciais.push(pratosGerais[4]);
             garcomImagensPratosIni.push(garconImagens[4]);
-            pratoAdicionado0 = true;
+            pratoAdicionado4 = true;
            }
        } 
        if (idPratos === 5) {
@@ -405,7 +405,7 @@ function qtdPratos() {
            if(!pratoAdicionado23){
             pratosIniciais.push(pratosGerais[23]);
             garcomImagensPratosIni.push(garconImagens[23]);
-            pratoAdicionado20 = true;
+            pratoAdicionado23 = true;
            } 
        }        
 

@@ -44,28 +44,31 @@ function condicoesPagemento(){
     qtdPrato = pratosIniciais.length;
     if (cliente.dupla) {
         valorPagamento = aumentarValorPrato(qtdPrato) * 2; 
-        aumentarValorTempo(tempoRestaurante, qtdPrato);
+        aumentarValorTempo(tempoRestaurante, valorPagamento);
+        //console.log(valorPagamento);
     } else if (cliente.pertenceAoGrupo) {
         valorPagamento = aumentarValorPrato(qtdPrato) * 4; 
         aumentarValorTempo(tempoRestaurante, valorPagamento);
+        //console.log(valorPagamento);
     } else {
         valorPagamento = aumentarValorPrato(qtdPrato); 
         aumentarValorTempo(tempoRestaurante, valorPagamento);
+        //console.log(valorPagamento);
     }
 }
 
 //Depende de quantas variedades de pratos o utilizador possui
 function aumentarValorPrato(qtdPrato) {
     if(qtdPrato <= 6){
-        valorPagamento = 10
-    } else if(qtdPrato <= 12){
-        valorPagamento = 14
-    } else if(qtdPrato <= 18){
-        valorPagamento = 20
-    } else if(qtdPrato <= 25){
-        valorPagamento = 25
-    } else if(qtdPrato <= 30){
-        valorPagamento = 30
+        valorPagamento = 6
+    } else if(qtdPrato > 6 && qtdPrato <= 12){
+        valorPagamento = 12
+    } else if(qtdPrato > 12 && qtdPrato <= 18){
+        valorPagamento = 18
+    } else if(qtdPrato > 18 && qtdPrato <= 25){
+        valorPagamento = 24
+    } else if(qtdPrato > 25 && qtdPrato <= 30){
+        valorPagamento = 28
     }
     
     return valorPagamento; 
@@ -73,11 +76,11 @@ function aumentarValorPrato(qtdPrato) {
 
 //Depende de do tempo que demorou para atender o cliente
 function aumentarValorTempo(tempoRestaurante, valorPagamento){
-    if(tempoRestaurante<=20){
-        valorPagamento = valorPagamento + 15;
-    } else if(tempoRestaurante<=30){
+    if(tempoRestaurante <= 20){
+        valorPagamento = valorPagamento + 10;
+    } else if(tempoRestaurante > 20 && tempoRestaurante <= 30){
         valorPagamento = valorPagamento + 5;
-    } else if(tempoRestaurante<=40){
+    } else if(tempoRestaurante > 30 && tempoRestaurante <= 40){
         valorPagamento = valorPagamento + 2;
     } else {
         valorPagamento = valorPagamento;

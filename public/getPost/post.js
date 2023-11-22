@@ -104,7 +104,7 @@ function postavaliacao(estrelas, comentarios) {
     estrelas: estrelas,
     comentarios: comentarios,
   };
-  console.log(dataToSend)
+  //console.log(dataToSend)
   httpPost('/postAvaliacao', dataToSend, 'json', (data) => {
   });
 }
@@ -112,7 +112,7 @@ function postMediaAvaliacao(mediaAvaliacao){
   let dataToSend = {
     mediaAvaliacao: mediaAvaliacao
   };
-  console.log(dataToSend)
+  //console.log(dataToSend)
   httpPost('/postMediaAvaliacao', dataToSend, 'json', (data) => {
   });
 }

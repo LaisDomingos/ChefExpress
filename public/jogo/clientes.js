@@ -304,7 +304,7 @@ function moverClientes() {
             cliente.tempoNaMesa++;
             
             // Verifica se o cliente já tem 10 segundos na mesa para sair
-            if (cliente.tempoNaMesa >= 10 * 60) { 
+            if (cliente.tempoNaMesa >= 5 * 60) { 
                 cliente.imagemFre = cliente.imagemMao;
                 cliente.pediu= true;                
             }
