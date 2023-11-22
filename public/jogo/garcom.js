@@ -49,7 +49,6 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa1){
-        //console.log();
         postDinheiroPagamento();
         pagamentoMesa1 = false;
         mesa1O = false;
@@ -66,7 +65,6 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa2){
-        //console.log('Pegando dinheiro');
         postDinheiroPagamento();
         pagamentoMesa2 = false;
         mesa2O = false;
@@ -83,7 +81,6 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa3){
-        //console.log('Pegando dinheiro');
         postDinheiroPagamento();
         pagamentoMesa3 = false;
         mesa3O = false;
@@ -100,7 +97,6 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa4){
-        //console.log('Pegando dinheiro');
         postDinheiroPagamento();
         pagamentoMesa4 = false;
         mesa4O = false;
@@ -117,7 +113,6 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa5){
-        //console.log('Pegando dinheiro');
         postDinheiroPagamento();
         pagamentoMesa5 = false;
         mesa5O = false;
@@ -134,7 +129,6 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa6){
-        //console.log('Pegando dinheiro');
         postDinheiroPagamento();
         pagamentoMesa6 = false;
         mesa6O = false;
@@ -151,7 +145,6 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa7){
-        //console.log('Pegando dinheiro');
         postDinheiroPagamento();
         pagamentoMesa7 = false;
         mesa7O = false;
@@ -168,7 +161,6 @@ function movimentoGarcon(){
         verificarPedidos(mesaAtendida);
       }
       if(pagamentoMesa8){
-        //console.log('Pegando dinheiro');
         postDinheiroPagamento();
         pagamentoMesa8 = false;
         mesa8O = false;

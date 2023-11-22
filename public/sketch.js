@@ -96,8 +96,9 @@ function draw() {
     cenario();
     menu();
     balcao();
-    chamarClientes();
+    
     movimentoGarcon();
+    chamarClientes();
     telasMenu();
     getTempoPreparoValor();
     getValorChef();
