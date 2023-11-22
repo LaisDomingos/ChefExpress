@@ -42,18 +42,16 @@ let qtdPrato;
 function condicoesPagemento(){
     tempoRestaurante = cliente.tempoNaMesa/60;
     qtdPrato = pratosIniciais.length;
+    let porcentagem = lucroMais/100;
     if (cliente.dupla) {
-        valorPagamento = aumentarValorPrato(qtdPrato) * 2; 
+        valorPagamento = ((aumentarValorPrato(qtdPrato) * porcentagem) + aumentarValorPrato(qtdPrato)) * 2; 
         aumentarValorTempo(tempoRestaurante, valorPagamento);
-        //console.log(valorPagamento);
     } else if (cliente.pertenceAoGrupo) {
-        valorPagamento = aumentarValorPrato(qtdPrato) * 4; 
+        valorPagamento = ((aumentarValorPrato(qtdPrato) * porcentagem) + aumentarValorPrato(qtdPrato)) * 4; 
         aumentarValorTempo(tempoRestaurante, valorPagamento);
-        //console.log(valorPagamento);
     } else {
-        valorPagamento = aumentarValorPrato(qtdPrato); 
+        valorPagamento = ((aumentarValorPrato(qtdPrato) * porcentagem) + aumentarValorPrato(qtdPrato)); 
         aumentarValorTempo(tempoRestaurante, valorPagamento);
-        //console.log(valorPagamento);
     }
 }
 
@@ -86,3 +84,4 @@ function aumentarValorTempo(tempoRestaurante, valorPagamento){
         valorPagamento = valorPagamento;
     }
 }
+
