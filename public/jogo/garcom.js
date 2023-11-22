@@ -462,6 +462,7 @@ let tudoAtendido6 = false;
 let tudoAtendido7 = false;
 let tudoAtendido8 = false;
 
+let pedidoErrado;
 function verificarPedidos(mesaAtendida) {
   //console.log(garcomImgI);
   if (mesaAtendida == 1){
@@ -470,6 +471,8 @@ function verificarPedidos(mesaAtendida) {
         indiceMesa1.splice(i, 1);
         garcomComPedido = false;
         break;
+      } else {
+        pedidoErrado  = true;
       }
     }
     //Verifica se todos os pedidos foram atendidos
@@ -482,7 +485,10 @@ function verificarPedidos(mesaAtendida) {
       if (indiceMesa2[i] === garcomImgI) {
         indiceMesa2.splice(i, 1);
         garcomComPedido = false;
+        pedidoErrado = false;
         break;
+      }  else {
+        pedidoErrado  = true;
       }
     }
     //Verifica se todos os pedidos foram atendidos
@@ -496,6 +502,8 @@ function verificarPedidos(mesaAtendida) {
         indiceMesa3.splice(i, 1);
         garcomComPedido = false;
         break;
+      } else {
+        pedidoErrado  = true;
       }
     }
       //Verifica se todos os pedidos foram atendidos
@@ -510,6 +518,8 @@ function verificarPedidos(mesaAtendida) {
         indiceMesa4.splice(i, 1);
         garcomComPedido = false;
         break;
+      } else {
+        pedidoErrado  = true;
       }
     }
     //Verifica se todos os pedidos foram atendidos
@@ -523,6 +533,8 @@ function verificarPedidos(mesaAtendida) {
         indiceMesa5.splice(i, 1);
         garcomComPedido = false;
         break;
+      } else {
+        pedidoErrado  = true;
       }
     }
     //Verifica se todos os pedidos foram atendidos
@@ -536,6 +548,8 @@ function verificarPedidos(mesaAtendida) {
         indiceMesa6.splice(i, 1);
         garcomComPedido = false;
         break;
+      } else {
+        pedidoErrado  = true;
       }
     }
     //Verifica se todos os pedidos foram atendidos
@@ -549,6 +563,8 @@ function verificarPedidos(mesaAtendida) {
         indiceMesa7.splice(i, 1);
         garcomComPedido = false;
         break;
+      } else {
+        pedidoErrado  = true;
       }
     }
     //Verifica se todos os pedidos foram atendidos
@@ -562,6 +578,8 @@ function verificarPedidos(mesaAtendida) {
         garcomComPedido = false;
         indiceMesa8.splice(i, 1);
         break;
+      } else {
+        pedidoErrado  = true;
       }
     }
     //Verifica se todos os pedidos foram atendidos

@@ -315,6 +315,9 @@ function moverClientes() {
                     cliente.atendido = true;
                     if(!garcomComPedido){
                         balaoGarcom();
+                    } else if (pedidoErrado){
+                        balaoCliente();
+                        
                     }
                 }
             }

@@ -24,3 +24,30 @@ function balaoGarcom(){ //Preparando pedido
 
     pop();
 }
+
+function balaoCliente(){ //Preparando pedido
+    push();
+    fill('white');
+    stroke('red')
+    strokeWeight(2);
+    let xCircle = xGarcon + width * 0.05
+    circle(xCircle, yGarcon, 60);
+    pop();
+    push();
+
+    let texto = "Esse";
+    let texto1 = "pedido não ";
+    let texto2 = "é daqui!";
+
+    let xTexto = xCircle;
+    let yTexto = yGarcon - width * 0.012;
+
+    textSize(10)
+    fill('black');
+    textAlign(CENTER, CENTER);
+    text(texto, xTexto, yTexto);
+    text(texto1,xTexto , yTexto + 15);
+    text(texto2,xTexto , yTexto +30);
+
+    pop();
+}
