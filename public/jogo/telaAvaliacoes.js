@@ -52,6 +52,7 @@ let avaliacoes1 = [
   
 let comentarios;
 let estrela;
+let imgEstrela = [];
 
 function avaliacao(){
     if (qtdPrato <= 10 && tempoRestaurante <=25 ){
@@ -83,23 +84,39 @@ function janelaAvaliacoes() {
     text('Últimas Avaliações:', width * 0.20, height * 0.14);
     pop();
   
+   
     // Posição inicial para exibir as avaliações
     let x = width * 0.15;
     let y = height * 0.2;
   
+    let xImg = width * 0.14;
+    let yImg = height * 0.16;
     // Espaçamento vertical entre as avaliações
     const spacing = 50;
-  
+    let imgEstrelaC;
     // Itera sobre as avaliações e as exibe
     for (let i = 0; i < avaliacoes.length; i++) {
       const estrelas = avaliacoes[i].estrelas;
       const comentarios = avaliacoes[i].comentarios;
-  
+
+      if (estrelas === 0){
+        imgEstrelaC = imgEstrela[0];
+      } else if (estrelas === 1){
+        imgEstrelaC = imgEstrela[1];
+      } else if (estrelas === 2){
+        imgEstrelaC = imgEstrela[2];
+      } else if (estrelas === 3){
+        imgEstrelaC = imgEstrela[3];
+      } else if (estrelas === 4){
+        imgEstrelaC = imgEstrela[4];
+      } else if (estrelas === 5){
+        imgEstrelaC = imgEstrela[5];
+      }
       // Exibe estrelas
       push();
       fill('black');
       textSize(14);
-      text('Estrelas: ' + estrelas, x, y + i * spacing);
+      image(imgEstrelaC,xImg, yImg + i * spacing,  width/11, height/15);
       pop();
   
       // Exibe comentários

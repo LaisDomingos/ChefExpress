@@ -20,6 +20,8 @@ pop();
       const cellWidth = 150;
       const cellHeight = 30;
 
+      let imgEstrelaC;
+
       // Desenhar o cabeçalho da tabela
       fill('#acefea');
       textAlign(CENTER, CENTER);
@@ -40,11 +42,28 @@ pop();
         rect(x, y, cellWidth, cellHeight); // Célula para o nome
         rect(x + cellWidth, y, cellWidth, cellHeight); // Célula para o avaliação
         rect(x + 2 * cellWidth, y, cellWidth, cellHeight); // Célula para o dinheiro
+        
+        if (data[i].avaliacao === 0){
+          imgEstrelaC = imgEstrela[0];
+        } else if (data[i].avaliacao === 1){
+          imgEstrelaC = imgEstrela[1];
+        } else if (data[i].avaliacao === 2){
+          imgEstrelaC = imgEstrela[2];
+        } else if (data[i].avaliacao === 3){
+          imgEstrelaC = imgEstrela[3];
+        } else if (data[i].avaliacao === 4){
+          imgEstrelaC = imgEstrela[4];
+        } else if (data[i].avaliacao === 5){
+          imgEstrelaC = imgEstrela[5];
+        }
 
         fill(0);
         textAlign(CENTER, CENTER);
         text(data[i].nome, x + cellWidth / 2, y + cellHeight / 2);
-        text(data[i].avaliacao, x + 3 * cellWidth / 2, y + cellHeight / 2);
+        
+        let imgX = x + 3 * cellWidth / 2 - width / 23; 
+        let imgY = y + cellHeight / 2 - height / 35; 
+        image(imgEstrelaC, imgX, imgY, width/12, height/20);
         text(data[i].dinheiro, x + 5 * cellWidth / 2, y + cellHeight / 2); 
       }
     }

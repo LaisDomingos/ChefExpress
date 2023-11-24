@@ -142,4 +142,11 @@ function preload(){
   imgTelaFuncionarios.push(loadImage('imagens/ajudante2.png'));
   imgTelaFuncionarios.push(loadImage('imagens/ajudante3.png'));
   imgTelaFuncionarios.push(loadImage('imagens/ajudante4.png'));
+
+  imgEstrela.push(loadImage('imagens/estrela0.svg'))
+  imgEstrela.push(loadImage('imagens/estrela1.svg'))
+  imgEstrela.push(loadImage('imagens/estrela2.svg'))
+  imgEstrela.push(loadImage('imagens/estrela3.svg'))
+  imgEstrela.push(loadImage('imagens/estrela4.svg'))
+  imgEstrela.push(loadImage('imagens/estrela5.svg'))
 }
