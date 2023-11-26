@@ -464,6 +464,102 @@ app.get('/get10avaliacoes', (req, res) => {
 });
 
 
+app.post('/checkUser', (req, res) => {
+  let idUser = req.body.idUser;
+
+  // Verifique se o usuário existe no banco de dados
+  let sqlCheckUser = "SELECT * FROM users_pratos WHERE idUser = ?;";
+
+  dbase.query(sqlCheckUser, [idUser], (err, resultCheckUser) => {
+    if (err) {
+      console.error("Erro na consulta SQL:", err);
+      res.status(500).send({ "ack": -1 }); // Erro na verificação do usuário
+    } else {
+
+      if (resultCheckUser.length > 0) {
+        // Usuário encontrado, você pode realizar ações adicionais se necessário
+        res.send({ "ack": 1 });
+      } else {
+        // Usuário não encontrado
+        res.send({ "ack": 0 });
+      }
+    }
+  });
+});
+
+const util = require('util');
+const beginTransaction = util.promisify(dbase.beginTransaction).bind(dbase);
+const commit = util.promisify(dbase.commit).bind(dbase);
+const rollback = util.promisify(dbase.rollback).bind(dbase);
+
+app.post('/tradeItems', async (req, res) => {
+  try {
+    const { user1Id, user2Id, prato1Id, prato2Id } = req.body;
+
+    // Iniciar a transação automaticamente
+    await beginTransaction();
+
+    try {
+      // Verificar se o usuário 1 possui o item que deseja trocar
+      const resultCheckItemUser1 = await queryAsync(`SELECT * FROM users_pratos WHERE idUser = ? AND idPratos = ? AND qtdPrato >= 1 FOR UPDATE`, [user1Id, prato1Id]);
+
+      if (resultCheckItemUser1.length > 0) {
+        // Subtrair 1 da qtdItem do item que o usuário 1 está trocando
+        await queryAsync(`UPDATE users_pratos SET qtdPrato = qtdPrato - 1 WHERE idUser = ? AND idPratos = ?`, [user1Id, prato1Id]);
+
+        // Adicionar 1 à qtdItem do item que o usuário 1 está trocando
+        await queryAsync(`UPDATE users_pratos SET qtdPrato = qtdPrato + 1 WHERE idUser = ? AND idPratos = ?`, [user1Id, prato2Id]);
+
+        // Confirmar a transação para o usuário 1
+        await commit();
+
+        // Iniciar uma nova transação para o usuário 2
+        await beginTransaction();
+
+        // Verificar se o usuário 2 possui o item que deseja trocar
+        const resultCheckItemUser2 = await queryAsync(`SELECT * FROM users_pratos WHERE idUser = ? AND idPratos = ? FOR UPDATE`, [user2Id, prato2Id]);
+
+        if (resultCheckItemUser2.length > 0) {
+          // Subtrair 1 da qtdItem do item que o usuário 2 está trocando
+          await queryAsync(`UPDATE users_pratos SET qtdPrato = qtdPrato - 1 WHERE idUser = ? AND idPratos = ?`, [user2Id, prato2Id]);
+          // Adicionar 1 à qtdItem do item que o usuário 2 está trocando
+          await queryAsync(`UPDATE users_pratos SET qtdPrato = qtdPrato + 1 WHERE idUser = ? AND idPratos = ?`, [user2Id, prato1Id]);
+        } else {
+          // Se o usuário 2 não possuir o item, adicioná-lo ao inventário
+          await queryAsync(`INSERT INTO users_pratos (idUser, idPratos, qtdPrato) VALUES (?, ?, 1)`, [user2Id, prato2Id]);
+        }
+
+        // Confirmar a transação para o usuário 2
+        await commit();
+
+        res.send({ "ack": 1 }); // Troca efetuada com sucesso
+      } else {
+        res.send({ "ack": 0 }); // Usuário 1 não possui o item para trocar
+      }
+    } catch (errUser1) {
+      // Rollback em caso de erro para o usuário 1
+      await rollback();
+      console.error(errUser1);
+      res.status(500).send({ "ack": -1 }); // Erro na troca
+    }
+  } catch (err) {
+    // Rollback em caso de erro geral
+    await rollback();
+    console.error(err);
+    res.status(500).send({ "ack": -1 }); // Erro na troca
+  }
+});
+
+// Função para realizar consultas assíncronas no banco de dados
+function queryAsync(sql, values) {
+  return new Promise((resolve, reject) => {
+    dbase.query(sql, values, (err, result) => {
+      if (err) reject(err);
+      resolve(result);
+    });
+  });
+}
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

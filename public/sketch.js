@@ -55,6 +55,7 @@ function setup() {
   fecharPresentes = new ButtonFechar();
   fecharAvaliacoes = new ButtonFechar();
   fecharRanking = new ButtonFechar();
+  fecharTrocas = new ButtonFechar();
 
   addChef1 = new Button();
   addChef2 = new Button();
@@ -72,6 +73,9 @@ function setup() {
   presente = new Button();
  
   comprarNovoP = new Button();
+
+  tradeBtn = new Button();
+  findUserBtn = new Button();
   
   setInterval(gerarCliente, 4000); 
 }

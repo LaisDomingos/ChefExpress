@@ -41,6 +41,7 @@ function telasMenu(){
   if (mostrarTelaFuncionarios){
     janelaFuncionarios();  
     mostrarTelaPresente = false;
+    mostrarTelaTrocas = false;
     mostrarTelaPratos = false;
     mostrarTelaRanking = false;
     mostrarTelaAvaliacoes = false;
@@ -53,6 +54,7 @@ function telasMenu(){
   } else if(mostrarTelaAvaliacoes){
     janelaAvaliacoes();
     mostrarTelaPresente = false;
+    mostrarTelaTrocas = false;
     mostrarTelaFuncionarios = false;
     mostrarTelaPratos = false;
     mostrarTelaRanking = false;
@@ -67,6 +69,11 @@ function telasMenu(){
 
   if(mostrarTelaPresente){
     janelaPresente();
+    mostrarTelaPratos = false;
+    retirarCheck();
+  }
+  if(mostrarTelaTrocas){
+    janelaTrocas();
     mostrarTelaPratos = false;
     retirarCheck();
   }

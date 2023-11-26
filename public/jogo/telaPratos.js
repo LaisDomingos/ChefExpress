@@ -1,4 +1,5 @@
 let mostrarTelaPresente = false;
+let mostrarTelaTrocas = false;
 function janelaPratos(){
     fill('#acefea');
     rect(width*0.1, height*0.02, width*0.7, height*0.9);
