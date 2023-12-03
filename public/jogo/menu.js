@@ -33,8 +33,10 @@ function menu() {
 }
 
 function mouseMoved() {
+  if(tela == 4){
     menu();
     mostrarMenu = true;
+  } 
 }
 
 function telasMenu(){

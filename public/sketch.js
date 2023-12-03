@@ -14,7 +14,7 @@ let ajudanteAtivo;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-
+  carregandoImg();
   cobranca = false;
 
   buttonVoltar1 = new ButtonVoltar();
@@ -79,8 +79,12 @@ function setup() {
   
   setInterval(gerarCliente, 4000); 
 }
-  
+let imgLoading;
 function draw() {
+  background('#acefea');
+  image(imgLoading, width*0.3, height*0.3, width/2, height/3);
+  if(tudoCarregado){
+    //console.log(imgCarregada);
   if (tela == 1){
     tela1();
   } else if (tela == 2){
@@ -113,4 +117,5 @@ function draw() {
     mediaAvaliacao();
     noLoop();
   } 
+}
 }
