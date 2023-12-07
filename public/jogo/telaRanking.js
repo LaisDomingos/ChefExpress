@@ -16,8 +16,8 @@ pop();
     // Verificar se os dados foram carregados
     if (data) {
       // Definir as posições iniciais para a tabela
-      let x = width * 0.35;
-      let y = height * 0.25;
+      let x = width * 0.37;
+      let y = height * 0.26;
 
       // Definir a largura e a altura das células
       const cellWidth = 150;
@@ -64,9 +64,9 @@ pop();
         textAlign(CENTER, CENTER);
         text(data[i].nome, x + cellWidth / 2, y + cellHeight / 2);
         
-        let imgX = x + 3 * cellWidth / 2 - width / 23; 
-        let imgY = y + cellHeight / 2 - height / 35; 
-        image(imgEstrelaC, imgX, imgY, width/12, height/20);
+        let imgX = x + cellWidth + (cellWidth - width / 15) / 2; // Ajuste para centralizar horizontalmente
+        let imgY = y + (cellHeight - height / 25) / 2; 
+        image(imgEstrelaC, imgX, imgY, width/15, height/25);
         text(data[i].dinheiro, x + 5 * cellWidth / 2, y + cellHeight / 2); 
       }
     }

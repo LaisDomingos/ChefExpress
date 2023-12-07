@@ -91,7 +91,7 @@ function janelaAvaliacoes() {
     let x = width * 0.15;
     let y = height * 0.2;
   
-    let xImg = width * 0.14;
+    let xImg = width * 0.12;
     let yImg = height * 0.16;
     // Espaçamento vertical entre as avaliações
     const spacing = 50;
@@ -117,7 +117,7 @@ function janelaAvaliacoes() {
       // Exibe estrelas
       push();
       fill('black');
-      image(imgEstrelaC,xImg, yImg + i * spacing,  width/11, height/15);
+      image(imgEstrelaC,xImg, yImg + i * spacing,  width/16, height/19);
       pop();
   
       // Exibe comentários
