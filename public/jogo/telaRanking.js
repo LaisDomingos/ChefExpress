@@ -1,6 +1,9 @@
 let data;
 
 function janelaRanking(){
+  let textS1 = width/70;
+  let textS2 = width/82;
+  let textS3 = width/75;
   fill('#acefea');
   rect(width*0.1, height*0.02, width*0.77, height*0.9);
   fecharRanking.draw_ButtonFechar(width*0.87, height*0.05);
@@ -25,10 +28,10 @@ pop();
       // Desenhar o cabeçalho da tabela
       fill('#acefea');
       textAlign(CENTER, CENTER);
-      textSize(16);
+      textSize(textS2);
       
       push();
-      textSize(18);
+      textSize(textS3);
       fill('blue')
       text("Usuário", width * 0.4, height * 0.25);
       text("Média - Avaliação", width * 0.4 + cellWidth, height * 0.25);

@@ -2,8 +2,8 @@ class Inputs {
   constructor() {
       this.posX = width * 0.4;
       this.posY = height * 0.4;
-      this.sizeW = 310;
-      this.sizeH = 30;
+      this.sizeW = width/5;
+      this.sizeH = height/25;
       this.corText = "#00bdae";
       this.tamText = 18;
       this.labelT = "User";

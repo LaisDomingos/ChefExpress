@@ -1,4 +1,5 @@
 function balaoGarcom(){ //Preparando pedido
+    let textS1 = width/105;
     push();
     fill('white');
     stroke('green')
@@ -15,7 +16,7 @@ function balaoGarcom(){ //Preparando pedido
     let xTexto = xCircle;
     let yTexto = yGarcon - width * 0.01;
 
-    textSize(10)
+    textSize(textS1)
     fill('black');
     textAlign(CENTER, CENTER);
     text(texto, xTexto, yTexto);
@@ -25,7 +26,8 @@ function balaoGarcom(){ //Preparando pedido
     pop();
 }
 
-function balaoCliente(){ //Preparando pedido
+function balaoCliente(){ 
+    let textS1 = width/105;
     push();
     fill('white');
     stroke('red')
@@ -42,7 +44,7 @@ function balaoCliente(){ //Preparando pedido
     let xTexto = xCircle;
     let yTexto = yGarcon - width * 0.012;
 
-    textSize(10)
+    textSize(textS1)
     fill('black');
     textAlign(CENTER, CENTER);
     text(texto, xTexto, yTexto);

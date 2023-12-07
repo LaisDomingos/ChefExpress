@@ -1,52 +1,52 @@
 let avaliacoes1 = [
-    "Experiência excelente! Comida deliciosa, atendimento impecável e serviço rápido.",
-    "Refeição explosão de sabores! Atendimento atencioso, experiência memorável.",
-    "Ótimo restaurante! Comida divina, atendimento cordial e serviço ágil.",
-    "Jantar perfeito! Comida excepcional, atendimento amigável e serviço rápido.",
-    "Experiência gastronômica incrível! Comida deliciosa, atendimento simpático e eficiente.",
-    "Simplesmente maravilhoso! Comida deliciosa, atendimento atencioso e serviço rápido.",
-    "Encantado com a experiência! Comida saborosa, atendimento amigável e serviço surpreendente.",
-    "Prazer em jantar aqui! Comida divina, atendimento com sorrisos calorosos e rapidez no atendimento.",
-    "Experiência cinco estrelas! Comida deliciosa, atendimento amável e rapidez impressionante.",
-    "Adorei cada momento! Comida obra-prima, atendimento cortês e rapidez na refeição. Recomendo."
+    "Experiência excelente! Comida deliciosa, atendimento impecável.",
+    "Refeição saborosa! Atendimento atencioso, experiência memorável.",
+    "Ótimo restaurante! Comida divina, atendimento cordial e ágil.",
+    "Jantar perfeito! Comida excepcional, atendimento amigável e rápido.",
+    "Experiência gastronômica incrível! Atendimento simpático e eficiente.",
+    "Simplesmente maravilhoso! Comida deliciosa, atendimento atencioso.",
+    "Encantado com a experiência! Comida saborosa, serviço surpreendente.",
+    "Prazer em jantar aqui! Comida divina, atendimento calorosos.",
+    "Experiência cinco estrelas! Comida e atendimento perfeito.",
+    "Adorei cada momento! Recomendo."
   ]; //Comida boa e atendimento bom
   
   let avaliacoes2 = [
-    "Comida deliciosa, atendimento razoável. Experiência positiva pelo sabor incrível.",
-    "Gostei da qualidade da comida, atendimento mediano. Poderia ser excelente com mais atenção.",
-    "Comida saborosa, mas atendimento precisa melhorar. Espero melhorias para uma experiência completa.",
-    "Sabores surpreendentes, mas atendimento desatento. Mais atenção aos clientes seria incrível.",
-    "Pratos deliciosos, atendimento um pouco desatento. Espero melhorias para uma experiência completa.",
-    "Comida boa, atendimento mediano. Com melhoria na hospitalidade, pode ser um destino imperdível.",
-    "Pratos saborosos, atendimento desatento. Boa experiência, com potencial para ser melhor.",
-    "Cozinha elogiável, atendimento ponto fraco. Espero equipe dedicada para elevar padrão.",
-    "Comida muito saborosa, atendimento regular. Com melhoria na interação, lugar se destacará mais.",
-    "Pratos incríveis, atendimento deixou a desejar."
+    "Comida deliciosa, atendimento razoável.",
+    "Gostei da qualidade da comida, atendimento mediano.",
+    "Comida saborosa, mas atendimento precisa melhorar.",
+    "Sabores surpreendentes, mas atendimento desatento. ",
+    "Pratos deliciosos, atendimento um pouco desatento.",
+    "Comida boa, atendimento ruim;",
+    "Pratos saborosos, mas o atendimento precisa melhorar.",
+    "Cozinha elogiável, atendimento é ponto fraco.",
+    "Comida muito saborosa, atendimento lento.",
+    "Pratos incríveis, mas atendimento deixou a desejar."
   ]; //Comida boa e atendimento mais ou menos
   
   let avaliacoes3 = [
     "Comida abaixo das expectativas, atendimento excepcional.",
-    "Pratos aquém em sabor, atendimento ponto positivo. Equipe atenciosa e prestativa.",
-    "Comida não atendeu, atendimento eficiente e cordial proporcionou conforto.",
-    "Gastronomia decepcionou, atendimento bastante elogiável.",
+    "Pratos mais ou menos, atendimento é ponto positivo.",
+    "Atendimento eficiente, mas a comida ficou a desejar.",
+    "Gastronomia decepcionou, mas o atendimento bastante elogiável.",
     "Sabores negativos, elogio ao atendimento, amigável e atencioso.",
-    "Comida abaixo do esperado, atendimento ponto positivo. Equipe dedicada e receptiva.",
-    "Pratos não atenderam em sabor, atendimento notavelmente bom. Equipe dedicada e receptiva.",
-    "Culinária não esta à altura, mas a equipe fez o possível para garantir experiência positiva.",
+    "Comida abaixo do esperado, mas a equipe é dedicada e receptiva.",
+    "Pratos não atenderam no sabor, atendimento notavelmente bom.",
+    "Culinária ruim, mas a equipe fez o possível para garantir experiência.",
     "Comida abaixo das expectativas, atendimento ponto forte.",
-    "Experiência não positiva, destaque para atendimento, demonstrando profissionalismo e cortesia."
+    "Experiência negativa, destaque para atendimento."
   ];//Comida ruim e atendimento bom
   
   let avaliacoes4 = [
-    "Comida e atendimento abaixo do esperado. Experiência que não atendeu expectativas.",
-    "Comida aquém, atendimento insatisfatório. Combinação comprometeu totalmente experiência.",
-    "Qualidade da comida e atendimento muito abaixo. Não pretendo repetir.",
-    "Comida pouco apetitosa e atendimento desinteressado. Não recomendaria.",
-    "Experiência negativa, tanto na qualidade da comida quanto no atendimento.",
-    "Comida abaixo do esperado em sabor, atendimento desatento. Necessita melhorias para se destacar.",
-    "Pratos não atenderam em sabor, atendimento abaixo. Experiência que não correspondeu às expectativas.",
-    "Culinária questionável, atendimento deixou a desejar. Experiência com impressão negativa.",
-    "Comida aquém, atendimento pouco acolhedor. Experiência sem prazer gastronômico.",
+    "Comida e atendimento abaixo do esperado.",
+    "Comida ruim, atendimento insatisfatório.",
+    "Qualidade da comida e atendimento muito abaixo.",
+    "Comida pouco apetitosa e atendimento desinteressado.",
+    "Experiência negativa, não recomendo.",
+    "Comida abaixo do esperado em sabor, atendimento desatento.",
+    "Pratos não atenderam em sabor, atendimento ruim.",
+    "Culinária questionável, atendimento deixou a desejar. Experiência negativa.",
+    "Comida ruim, atendimento pouco acolhedor. Experiência sem prazer gastronômico.",
     "Comida insatisfatória, atendimento pouco acolhedor. "
   ];//Comida ruim e atendimento ruim
   
@@ -72,6 +72,8 @@ function avaliacao(){
 }
 
 function janelaAvaliacoes() {
+  let textS1 = width/70;
+  let textS2 = width/85;
     push();
     fill('#acefea');
     rect(width * 0.1, height * 0.02, width * 0.7, height * 0.9);
@@ -80,7 +82,7 @@ function janelaAvaliacoes() {
   
     push();
     fill('black');
-    textSize(20);
+    textSize(textS1);
     text('Últimas Avaliações:', width * 0.20, height * 0.14);
     pop();
   
@@ -115,14 +117,13 @@ function janelaAvaliacoes() {
       // Exibe estrelas
       push();
       fill('black');
-      textSize(14);
       image(imgEstrelaC,xImg, yImg + i * spacing,  width/11, height/15);
       pop();
   
       // Exibe comentários
       push();
       fill('black');
-      textSize(14);
+      textSize(textS2);
       text('Comentários: ' + comentarios, x + 110, y + i * spacing);
       pop();
     }

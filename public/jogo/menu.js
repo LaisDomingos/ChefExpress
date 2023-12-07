@@ -19,11 +19,12 @@ function menu() {
     }
 
     if (isMouseOver) {
+      let textS1 = width/70;
       image(menuImg, width * 0.91, height * 0.08, width / 12, height / 1.4);  
       push();
       fill('white');
       textAlign(CENTER, CENTER);
-      textSize(20)
+      textSize(textS1)
       text(dinheiro + "€",width * 0.95, height * 0.165)
       pop();
      

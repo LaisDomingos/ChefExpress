@@ -1,14 +1,17 @@
 let mostrarTelaPresente = false;
 let mostrarTelaTrocas = false;
 function janelaPratos(){
+    let textS1 = width/75;
+    let textS2 = width/80;
+    let textS3 = width/83;
     fill('#acefea');
     rect(width*0.1, height*0.02, width*0.7, height*0.9);
     fecharPratos.draw_ButtonFechar(width*0.8, height*0.03);
     push();
         fill('black');
-        textSize(18);
+        textSize(textS1);
         text('Escolha os pratos que deseja adicionar à lista de trocas.' , width*0.26, height*0.1);
-        textSize(15);
+        textSize(textS2);
         text('Ao comprar um presente no valor de 30€, você ganha um prato aleatório.' , width*0.24, height*0.87);
     pop();
     image(pratosIniciais[0], width * 0.18, height * 0.15, width / 18, height / 18);
@@ -43,7 +46,7 @@ function janelaPratos(){
     image(pratosGerais[23], width * 0.68, height * 0.67, width / 18, height / 18);
 
     push();
-   textSize(14);
+   textSize(textS3);
    fill('green');
    text(qtd0, width * 0.24, height * 0.33);
    text(qtd1, width * 0.34, height * 0.33);

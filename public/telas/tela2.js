@@ -19,14 +19,15 @@ function tela2Login(){
     pass.draw_Input(width * 0.37, height * 0.57, "Password:");
    
     login.draw_Button(200, 30, width*0.495, height*0.7, "Login", 20);
+    let textS1 = width/80;
     push();
         fill('#00bdae');
-        textSize(15);
+        textSize(textS1);
         text("Ainda não tem uma conta?", width * 0.38, height * 0.8)
     pop();
     push();
         fill('blue');
-        textSize(15);
+        textSize(textS1);
         textStyle(BOLD);
         text("Registrar", width * 0.53, height * 0.8)
     pop();
