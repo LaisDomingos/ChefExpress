@@ -12,8 +12,7 @@ function janelaPresente(){
     textSize(textS1);
     text('Você ganhou esse prato:' , width*0.26, height*0.1);
     pop();
-        
-    image(pratoPresente, width * 0.33, height * 0.3, width / 6, height /5);
+    image(pratoPresente, width * 0.4, height * 0.4, width / 8, height /7);
     comprarNovoP.draw_Button(200, 20, width*0.55, height*0.7, "Comprar presente", 13);
     } else{
         push();
