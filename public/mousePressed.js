@@ -31,6 +31,11 @@ function mousePressed() {
     }
   } 
   if(tela == 4){
+    if (comecarJogar.on_Click(mouseX, mouseY)) {
+      tela = 5;
+    } 
+  } 
+  if(tela == 5){
     if (isMouseOver && mostrarMenu) {
       if (mouseX > width * 0.924 && mouseX < width * 0.924 + width/16.2 && mouseY > height * 0.22 && mouseY < height * 0.22 + height / 5.5) {
         telaFuncionarios();

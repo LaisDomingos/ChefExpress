@@ -81,41 +81,43 @@ function setup() {
 }
 let imgLoading;
 function draw() {
-  background('#acefea');
+  if (!tudoCarregado){
+    background('#acefea');
   image(imgLoading, width*0.3, height*0.3, width/2, height/3);
-  if(tudoCarregado){
-    //console.log(imgCarregada);
-  if (tela == 1){
-    tela1();
-  } else if (tela == 2){
-    tela2Login();
-  } else if (tela == 3){
-    tela3Registro();
-  } else if (tela == 4){
-    destruirInputs2();
-    background(piso);  
-    getDinheiro();
-    if(dinheiro){
-      if(!cobranca){
-        postDinheiroServicos();
-        cobranca = true;
-      }
-    }
-    cenario();
-    menu();
-    balcao();
-    chamarClientes();
-    movimentoGarcon();
-    telasMenu();
-    getTempoPreparoValor();
-    getValorChef();
-    getRanking();
-    pagamento();  
-    getUltimasAvaliacoes();
-    getPratos();
-    qtdPratos();
-    mediaAvaliacao();
-    noLoop();
-  } 
-}
+  } else {
+    if (tela == 1){
+      tela1();
+    } else if (tela == 2){
+      tela2Login();
+    } else if (tela == 3){
+      tela3Registro();
+    } else if (tela == 4){
+      destruirInputs2();
+      tela4Regras();
+    } else if (tela == 5){
+        background(piso);  
+        getDinheiro();
+        if(dinheiro){
+          if(!cobranca){
+            postDinheiroServicos();
+            cobranca = true;
+          }
+        }
+        cenario();
+        menu();
+        balcao();
+        chamarClientes();
+        movimentoGarcon();
+        telasMenu();
+        getTempoPreparoValor();
+        getValorChef();
+        getRanking();
+        pagamento();  
+        getUltimasAvaliacoes();
+        getPratos();
+        qtdPratos();
+        mediaAvaliacao();
+        noLoop();
+      } 
+  }
 }

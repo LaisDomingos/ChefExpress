@@ -34,7 +34,7 @@ function menu() {
 }
 
 function mouseMoved() {
-  if(tela == 4){
+  if(tela == 5){
     menu();
     mostrarMenu = true;
   } 
