@@ -215,7 +215,6 @@ app.post('/postAjudante', (req, res) => {
   }
 });
 
-
 //getTempoPreparoValor - busca o tempo de preparo e valor do ajudante contratato
 app.get('/getTempoPreparoValor', (req, res) => {
   if (idUser) {
@@ -271,6 +270,7 @@ app.get('/getValorChef', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+
 //postAjudanteAtivo - atualiza se o ajudante está ativo ou não
 app.post('/postAjudanteAtivo', (req, res) => {
   const { ativo } = req.body;
@@ -415,6 +415,7 @@ app.post('/postAvaliacao', (req, res) => {
    res.json({ message: 'Avaliação registrada com sucesso' });
  });
 });
+
 //getUltimasAvaliacoes - busca as ultimas 9 avaliações feitas
 app.get('/getUltimasAvaliacoes', (req, res) => {
   if (idUser) {
@@ -454,6 +455,7 @@ app.post('/postMediaAvaliacao', (req, res) => {
   
 });
 
+//get10avaliacoes - pegas os 10 restaurantes mais bem avaliados
 app.get('/get10avaliacoes', (req, res) => {
   const query = 'SELECT nome, avaliacao, dinheiro FROM users ORDER BY avaliacao DESC LIMIT 10';
 
@@ -463,7 +465,22 @@ app.get('/get10avaliacoes', (req, res) => {
   });
 });
 
-
+//postTrocas - coloca na lista de trocas
+app.post('/postTrocas', (req, res) => {
+  const { idPratos, qtdPratos } = req.body;
+  if (idUser) {
+    const insertSql = 'INSERT INTO trocas (idUser, idPratos, qtdPrato) VALUES (?, ?, 1)';
+    dbase.query(insertSql, [idUser, idPratos, qtdPratos], (insertErr, insertResult) => {
+      if (insertErr) {
+        return res.status(500).json({ error: 'Erro no servidor' });
+      }
+      res.json({ message: 'Prato adicionado nas lista de trocas' });
+    });
+  } else {
+    res.status(401).json({ error: 'Usuário não autenticado' });
+  }
+});
+/*
 app.post('/checkUser', (req, res) => {
   let idUser = req.body.idUser;
 
@@ -559,7 +576,7 @@ function queryAsync(sql, values) {
     });
   });
 }
-
+*/
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

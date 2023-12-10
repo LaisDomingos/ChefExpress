@@ -73,6 +73,11 @@ function mousePressed() {
         
         mostrarTelaPresente = true;
       }
+      if(pratosLista.on_Click(mouseX, mouseY)){
+        let pratos = adicionarPratos();
+        console.log(pratos);
+        //postTrocas(pratos);
+      }
       if(verListaTrocas.on_Click(mouseX, mouseY)){
         criarInputs4();
         mostrarTelaTrocas = true;

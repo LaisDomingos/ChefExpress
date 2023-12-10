@@ -152,6 +152,84 @@ function janelaPratos(){
 
 }
 
+//let pratosSelecionados = [];
+function adicionarPratos(){
+    let pratosSelecionados = [];
+    if (check1.checkbox && check1.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 0, quantidade: qtd0 });
+    }
+    if (check2.checkbox && check2.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 1, quantidade: qtd1 });
+    }
+    if (check3.checkbox && check3.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 2, quantidade: qtd2 });
+    }
+    if (check4.checkbox && check4.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 3, quantidade: qtd3 });
+    }
+    if (check5.checkbox && check5.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 4, quantidade: qtd4});
+    }
+    if (check6.checkbox && check6.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 5, quantidade: qtd5 });
+    }
+    if (check7.checkbox && check7.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 6, quantidade: qtd6 });
+    }
+    if (check8.checkbox && check8.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 7, quantidade: qtd7 });
+    }
+    if (check9.checkbox && check9.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 8, quantidade: qtd8 });
+    }
+    if (check10.checkbox && check10.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 9, quantidade: qtd9 });
+    }
+    if (check11.checkbox && check11.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 10, quantidade: qtd10 });
+    }
+    if (check12.checkbox && check12.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 11, quantidade: qtd11 });
+    }
+    if (check13.checkbox && check13.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 12, quantidade: qtd12 });
+    }
+    if (check14.checkbox && check14.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 13, quantidade: qtd13 });
+    }
+    if (check15.checkbox && check15.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 14, quantidade: qtd14 });
+    }
+    if (check16.checkbox && check16.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 15, quantidade: qtd15 });
+    }
+    if (check17.checkbox && check17.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 16, quantidade: qtd16 });
+    }
+    if (check18.checkbox && check18.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 17, quantidade: qtd17 });
+    }
+    if (check19.checkbox && check19.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 18, quantidade: qtd18 });
+    }
+    if (check20.checkbox && check20.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 19, quantidade: qtd19 });
+    }
+    if (check21.checkbox && check21.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 20, quantidade: qtd20 });
+    }
+    if (check22.checkbox && check22.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 21, quantidade: qtd21 });
+    }
+    if (check23.checkbox && check23.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 22, quantidade: qtd22 });
+    }
+    if (check24.checkbox && check24.checkbox.checked()) {
+        pratosSelecionados.push({ idPrato: 23, quantidade: qtd23 });
+    }
+    
+    return pratosSelecionados;
+}
 function telaPratos() {
     mostrarTelaPratos = true;   
 }

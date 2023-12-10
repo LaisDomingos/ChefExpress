@@ -116,3 +116,17 @@ function postMediaAvaliacao(mediaAvaliacao){
   httpPost('/postMediaAvaliacao', dataToSend, 'json', (data) => {
   });
 }
+
+function postTrocas(pratosSelecionados) {
+  for (let i = 0; i < pratosSelecionados.length; i++) {
+    const idPrato = pratosSelecionados[i].idPrato;
+    const qtdPrato = pratosSelecionados[i].quantidade;
+
+    const dataToSend = {
+      idPratos: idPrato,
+      qtdPratos: qtdPrato
+    };
+    httpPost('/postTrocas', dataToSend, 'json', (data) => {
+    });
+  } 
+}
