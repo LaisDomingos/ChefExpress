@@ -1,4 +1,5 @@
 let loading = [];
+let carinhas = [];
 let tudoCarregado = false;
 function preload(){
   loading.push(loadImage('imagens/loading1.png', carregar));
@@ -161,6 +162,9 @@ function carregandoImg(){
   imgEstrela.push(loadImage('imagens/estrela4.svg', carregar));
   imgEstrela.push(loadImage('imagens/estrela5.svg', carregar));
   
+  carinhas.push(loadImage('imagens/irritado.png', carregar));
+  carinhas.push(loadImage('imagens/estressado.png', carregar));
+  carinhas.push(loadImage('imagens/irEmbora.png', carregar));
 }
 
 
@@ -187,7 +191,7 @@ function carregar() {
     imgLoading = loading[7];
   } else if(imagensCarregadas > 112 &&  imagensCarregadas <= 126){
     imgLoading = loading[8];
-  } else if (imagensCarregadas > 135){
+  } else if (imagensCarregadas > 136){
     tudoCarregado = true;
   }
 }

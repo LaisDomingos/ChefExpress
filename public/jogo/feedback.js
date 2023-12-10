@@ -53,3 +53,90 @@ function balaoCliente(){
 
     pop();
 }
+
+function estresses1(){
+    switch (cliente.mesa) {
+        case 1:
+            image(carinhas[0], width*0.23, height * 0.5, width / 40, height / 23);
+            break;
+        case 2:
+            image(carinhas[0], width*0.23, height * 0.15, width / 40, height / 23);
+            break;
+        case 3:
+            image(carinhas[0], width*0.38, height * 0.5, width / 40, height / 23);
+            break;
+        case 4:
+            image(carinhas[0], width*0.38, height * 0.15, width / 40, height / 23);
+            break;
+        case 5:
+            image(carinhas[0], width*0.58, height * 0.5, width / 40, height / 23);
+            break;
+        case 6:
+            image(carinhas[0], width*0.58, height * 0.15, width / 40, height / 23);
+            break;
+        case 7:
+            image(carinhas[0], width*0.73, height * 0.5, width / 40, height / 23);
+            break;
+        case 8:
+            image(carinhas[0], width*0.73, height * 0.15, width / 40, height / 23);
+            break;
+    }
+}
+
+function estresses2(){
+    switch (cliente.mesa) {
+        case 1:
+            image(carinhas[1], width*0.23, height * 0.5, width / 40, height / 23);
+            break;
+        case 2:
+            image(carinhas[1], width*0.23, height * 0.15, width / 40, height / 23);
+            break;
+        case 3:
+            image(carinhas[1], width*0.38, height * 0.5, width / 40, height / 23);
+            break;
+        case 4:
+            image(carinhas[1], width*0.38, height * 0.15, width / 40, height / 23);
+            break;
+        case 5:
+            image(carinhas[1], width*0.58, height * 0.5, width / 40, height / 23);
+            break;
+        case 6:
+            image(carinhas[1], width*0.58, height * 0.15, width / 40, height / 23);
+            break;
+        case 7:
+            image(carinhas[1], width*0.73, height * 0.5, width / 40, height / 23);
+            break;
+        case 8:
+            image(carinhas[1], width*0.73, height * 0.15, width / 40, height / 23);
+            break;
+    }
+}
+
+function estresses3(){
+    switch (cliente.mesa) {
+        case 1:
+            image(carinhas[2], width*0.23, height * 0.5, width / 30, height / 15);
+            break;
+        case 2:
+            image(carinhas[2], width*0.23, height * 0.15, width / 30, height / 15);
+            break;
+        case 3:
+            image(carinhas[2], width*0.38, height * 0.5, width / 30, height / 15);
+            break;
+        case 4:
+            image(carinhas[2], width*0.38, height * 0.15, width / 30, height / 15);
+            break;
+        case 5:
+            image(carinhas[2], width*0.58, height * 0.5, width / 30, height / 15);
+            break;
+        case 6:
+            image(carinhas[2], width*0.58, height * 0.15, width / 30, height / 15);
+            break;
+        case 7:
+            image(carinhas[2], width*0.73, height * 0.5, width / 30, height / 15);
+            break;
+        case 8:
+            image(carinhas[2], width*0.73, height * 0.15, width / 30, height / 15);
+            break;
+    }
+}

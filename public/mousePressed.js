@@ -113,6 +113,17 @@ function mousePressed() {
         mostrarTelaAvaliacoes = false;
       }    
     }
+    let rectX = width * 0.9;
+    let rectY = height * 0.82;
+    let rectWidth = width / 17;
+    let rectHeight = height / 6;
+    if (mouseX > rectX && mouseX < rectX + rectWidth && mouseY > rectY && mouseY < rectY + rectHeight) {
+      xGarcon = width * 0.82;
+      yGarcon = height * 0.52;
+      if(garcomComPedido){
+        garcomComPedido = false;
+      }
+    }
     //Movimento do garçom para as mesas
     movimentoAteMesa();
 

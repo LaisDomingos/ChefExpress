@@ -114,4 +114,10 @@ function balcao() {
 
 function drawLixo(){
     image(lixo, width*0.9, height*0.82, width/17, height/6);
+    push();
+    noFill();
+    strokeWeight(4);
+    stroke('red');
+    rect(width*0.9, height*0.82, width/17, height/6);
+    pop();
 }

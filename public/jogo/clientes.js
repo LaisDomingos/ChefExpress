@@ -301,11 +301,19 @@ function moverClientes() {
                 cliente.imagemFre = cliente.imagemMao;
                 cliente.pediu= true;             
             }
-            if(cliente.tempoNaMesa >= 50*60 ){
-                semComer = true;
-                sairMesa(cliente);
-                
-            } 
+            if(cliente.atendido){
+                if(cliente.tempoNaMesa >= 15*60 && cliente.tempoNaMesa <= 22*60){
+                    estresses1();
+                } else if(cliente.tempoNaMesa >= 23*60 && cliente.tempoNaMesa <= 40*60){
+                    estresses2();
+                } else if(cliente.tempoNaMesa >= 41*60 && cliente.tempoNaMesa <= 50*60 ){
+                    estresses3();
+                } else if(cliente.tempoNaMesa > 50*60 ){
+                    semComer = true;
+                    sairMesa(cliente);
+                } 
+            }
+            
             for (let i = 0; i < clientes.length; i++) {
                 let cliente = clientes[i];
                 let distancia = dist(xGarcon, yGarcon, cliente.x, cliente.y)
@@ -414,3 +422,4 @@ function sairMesa(cliente) {
         clientes.splice(index, 1);
     }
 }
+

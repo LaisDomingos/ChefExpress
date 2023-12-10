@@ -44,67 +44,112 @@ function janelaPratos(){
     image(pratosGerais[21], width * 0.48, height * 0.67, width / 18, height / 18);
     image(pratosGerais[22], width * 0.58, height * 0.67, width / 18, height / 18);
     image(pratosGerais[23], width * 0.68, height * 0.67, width / 18, height / 18);
-
     push();
-   textSize(textS3);
-   fill('green');
-   text(qtd0, width * 0.24, height * 0.33);
-   text(qtd1, width * 0.34, height * 0.33);
-   text(qtd2, width * 0.44, height * 0.33);
-   text(qtd3, width * 0.54, height * 0.33);
-   text(qtd4, width * 0.64, height * 0.33);
-   text(qtd5, width * 0.74, height * 0.33);
-   text(qtd6, width * 0.24, height * 0.46);
-   text(qtd7, width * 0.34, height * 0.46);
-   text(qtd8, width * 0.44, height * 0.46);
-   text(qtd9, width * 0.54, height * 0.46);
-   text(qtd10, width * 0.64, height * 0.46);
-   text(qtd11, width * 0.74, height * 0.46);
-   text(qtd12, width * 0.24, height * 0.59);
-   text(qtd13, width * 0.34, height * 0.59);
-   text(qtd14, width * 0.44, height * 0.59);
-   text(qtd15, width * 0.54, height * 0.59);
-   text(qtd16, width * 0.64, height * 0.59);
-   text(qtd17, width * 0.74, height * 0.59);
-   text(qtd18, width * 0.24, height * 0.72);
-   text(qtd19, width * 0.34, height * 0.72);
-   text(qtd20, width * 0.44, height * 0.72);
-   text(qtd21, width * 0.54, height * 0.72);
-   text(qtd22, width * 0.64, height * 0.72);
-   text(qtd23, width * 0.74, height * 0.72);
-   pop();
+        textSize(textS3);
+        fill('green');
+        text(qtd0, width * 0.24, height * 0.33);
+        text(qtd1, width * 0.34, height * 0.33);
+        text(qtd2, width * 0.44, height * 0.33);
+        text(qtd3, width * 0.54, height * 0.33);
+        text(qtd4, width * 0.64, height * 0.33);
+        text(qtd5, width * 0.74, height * 0.33);
+        text(qtd6, width * 0.24, height * 0.46);
+        text(qtd7, width * 0.34, height * 0.46);
+        text(qtd8, width * 0.44, height * 0.46);
+        text(qtd9, width * 0.54, height * 0.46);
+        text(qtd10, width * 0.64, height * 0.46);
+        text(qtd11, width * 0.74, height * 0.46);
+        text(qtd12, width * 0.24, height * 0.59);
+        text(qtd13, width * 0.34, height * 0.59);
+        text(qtd14, width * 0.44, height * 0.59);
+        text(qtd15, width * 0.54, height * 0.59);
+        text(qtd16, width * 0.64, height * 0.59);
+        text(qtd17, width * 0.74, height * 0.59);
+        text(qtd18, width * 0.24, height * 0.72);
+        text(qtd19, width * 0.34, height * 0.72);
+        text(qtd20, width * 0.44, height * 0.72);
+        text(qtd21, width * 0.54, height * 0.72);
+        text(qtd22, width * 0.64, height * 0.72);
+        text(qtd23, width * 0.74, height * 0.72);
+    pop();
     
-
-    check1.draw_checkbox(width * 0.21, height * 0.27);
-    check2.draw_checkbox(width * 0.31, height * 0.27);
-    check3.draw_checkbox(width * 0.41, height * 0.27);
-    check4.draw_checkbox(width * 0.51, height * 0.27);
-    check5.draw_checkbox(width * 0.61, height * 0.27);
-    check6.draw_checkbox(width * 0.71, height * 0.27);
-    check7.draw_checkbox(width * 0.21, height * 0.4);
-    check8.draw_checkbox(width * 0.31, height * 0.4);
-    check9.draw_checkbox(width * 0.41, height * 0.4);
-    check10.draw_checkbox(width * 0.51, height * 0.4);
-    check11.draw_checkbox(width * 0.61, height * 0.4);
-    check12.draw_checkbox(width * 0.71, height * 0.4);
-    check13.draw_checkbox(width * 0.21, height * 0.53);
-    check14.draw_checkbox(width * 0.31, height * 0.53);
-    check15.draw_checkbox(width * 0.41, height * 0.53);
-    check16.draw_checkbox(width * 0.51, height * 0.53);
-    check17.draw_checkbox(width * 0.61, height * 0.53);
-    check18.draw_checkbox(width * 0.71, height * 0.53);
-    check19.draw_checkbox(width * 0.21, height * 0.66);
-    check20.draw_checkbox(width * 0.31, height * 0.66);
-    check21.draw_checkbox(width * 0.41, height * 0.66);
-    check22.draw_checkbox(width * 0.51, height * 0.66);
-    check23.draw_checkbox(width * 0.61, height * 0.66);
-    check24.draw_checkbox(width * 0.71, height * 0.66);
+    if(qtd0 > 0) {
+        check1.draw_checkbox(width * 0.21, height * 0.27);
+    } 
+    if(qtd1 > 0) {
+        check2.draw_checkbox(width * 0.31, height * 0.27);
+    } 
+    if(qtd2 > 0) {
+        check3.draw_checkbox(width * 0.41, height * 0.27);
+    } 
+    if(qtd3 > 0) {
+        check4.draw_checkbox(width * 0.51, height * 0.27);
+    } 
+    if(qtd4 > 0) {
+        check5.draw_checkbox(width * 0.61, height * 0.27);
+    } 
+    if(qtd5 > 0) {
+        check6.draw_checkbox(width * 0.71, height * 0.27);
+    } 
+    if(qtd6 > 0) {
+        check7.draw_checkbox(width * 0.21, height * 0.4);
+    } 
+    if(qtd7 > 0) {
+        check8.draw_checkbox(width * 0.31, height * 0.4);
+    } 
+    if(qtd8 > 0) {
+        check9.draw_checkbox(width * 0.41, height * 0.4);
+    } 
+    if(qtd9 > 0) {
+        check10.draw_checkbox(width * 0.51, height * 0.4);  
+    } 
+    if(qtd10 > 0) {
+        check11.draw_checkbox(width * 0.61, height * 0.4);
+    } 
+    if(qtd11 > 0) {
+        check12.draw_checkbox(width * 0.71, height * 0.4);
+    } 
+    if(qtd12 > 0) {
+        check13.draw_checkbox(width * 0.21, height * 0.53);
+    } 
+    if(qtd13 > 0) {
+        check14.draw_checkbox(width * 0.31, height * 0.53);
+    } 
+    if(qtd14 > 0) {
+        check15.draw_checkbox(width * 0.41, height * 0.53);
+    } 
+    if(qtd15 > 0) {
+        check16.draw_checkbox(width * 0.51, height * 0.53);
+    } 
+    if(qtd16 > 0) {
+        check17.draw_checkbox(width * 0.61, height * 0.53);
+    }
+    if(qtd17 > 0) {
+        check18.draw_checkbox(width * 0.71, height * 0.53);
+    } 
+    if(qtd18 > 0) {
+        check19.draw_checkbox(width * 0.21, height * 0.66);
+    } 
+    if(qtd19 > 0) {
+        check20.draw_checkbox(width * 0.31, height * 0.66);
+    } 
+    if(qtd20 > 0) {
+        check21.draw_checkbox(width * 0.41, height * 0.66);
+    } 
+    if(qtd21 > 0) {
+        check22.draw_checkbox(width * 0.51, height * 0.66);
+    } 
+    if(qtd22 > 0) {
+        check23.draw_checkbox(width * 0.61, height * 0.66);
+    } 
+    if(qtd23 > 0) {
+        check24.draw_checkbox(width * 0.71, height * 0.66);
+    }
 
     pratosLista.draw_Button(200, 20, width*0.245, height*0.8, "Adiconar a lista de troca", 13);
     verListaTrocas.draw_Button(200, 20, width*0.67, height*0.8, "Lista de trocas", 13);
     presente.draw_Button(200, 20, width*0.45, height*0.8, "Comprar presente", 13);
 
-    //loop();
 }
 
 function telaPratos() {
