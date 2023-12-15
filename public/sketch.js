@@ -117,7 +117,10 @@ function draw() {
         getPratos();
         qtdPratos();
         mediaAvaliacao();
-        noLoop();
       } 
   }
+  if(!moverClientes){
+    noLoop();
+  }
+  
 }

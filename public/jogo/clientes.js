@@ -272,9 +272,9 @@ function gerarCliente() {
 }
 
 let semComer = false;
+
 function moverClientes() {
     let velocidade = 2;
-    
     for (let i = 0; i < clientes.length; i++) {
         cliente = clientes[i];
         if (!cliente.chegou) {
