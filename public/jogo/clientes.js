@@ -302,13 +302,13 @@ function moverClientes() {
                 cliente.pediu= true;             
             }
             if(cliente.atendido){
-                if(cliente.tempoNaMesa >= 15*60 && cliente.tempoNaMesa <= 22*60){
+                if(cliente.tempoNaMesa >= 10*60 && cliente.tempoNaMesa <= 22*60){
                     estresses1();
-                } else if(cliente.tempoNaMesa >= 23*60 && cliente.tempoNaMesa <= 40*60){
+                } else if(cliente.tempoNaMesa >= 18*60 && cliente.tempoNaMesa <= 40*60){
                     estresses2();
-                } else if(cliente.tempoNaMesa >= 41*60 && cliente.tempoNaMesa <= 50*60 ){
+                } else if(cliente.tempoNaMesa >= 25*60 && cliente.tempoNaMesa <= 50*60 ){
                     estresses3();
-                } else if(cliente.tempoNaMesa > 50*60 ){
+                } else if(cliente.tempoNaMesa > 35*60 ){
                     semComer = true;
                     sairMesa(cliente);
                 } 
@@ -422,4 +422,3 @@ function sairMesa(cliente) {
         clientes.splice(index, 1);
     }
 }
-

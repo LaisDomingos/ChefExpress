@@ -123,10 +123,10 @@ function postTrocas(pratosSelecionados) {
     const qtdPrato = pratosSelecionados[i].quantidade;
 
     const dataToSend = {
-      idPratos: idPrato,
-      qtdPratos: qtdPrato
+      idPrato: idPrato,
+      qtdPrato: qtdPrato 
     };
     httpPost('/postTrocas', dataToSend, 'json', (data) => {
     });
-  } 
+  }
 }

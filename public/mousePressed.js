@@ -76,7 +76,7 @@ function mousePressed() {
       if(pratosLista.on_Click(mouseX, mouseY)){
         let pratos = adicionarPratos();
         console.log(pratos);
-        //postTrocas(pratos);
+        postTrocas(pratos);
       }
       if(verListaTrocas.on_Click(mouseX, mouseY)){
         criarInputs4();

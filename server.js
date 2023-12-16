@@ -467,14 +467,16 @@ app.get('/get10avaliacoes', (req, res) => {
 
 //postTrocas - coloca na lista de trocas
 app.post('/postTrocas', (req, res) => {
-  const { idPratos, qtdPratos } = req.body;
+  const { idPrato, qtdPrato } = req.body; 
+  console.log("o que recebe: ", idPrato,qtdPrato)
+
   if (idUser) {
-    const insertSql = 'INSERT INTO trocas (idUser, idPratos, qtdPrato) VALUES (?, ?, 1)';
-    dbase.query(insertSql, [idUser, idPratos, qtdPratos], (insertErr, insertResult) => {
+    const insertSql = 'INSERT INTO trocas (idUser, idPratos, qtdPrato) VALUES (?, ?, ?)';
+    dbase.query(insertSql, [idUser, idPrato, qtdPrato], (insertErr, insertResult) => {
       if (insertErr) {
         return res.status(500).json({ error: 'Erro no servidor' });
       }
-      res.json({ message: 'Prato adicionado nas lista de trocas' });
+      res.json({ message: 'Prato adicionado na lista de trocas' });
     });
   } else {
     res.status(401).json({ error: 'Usuário não autenticado' });
