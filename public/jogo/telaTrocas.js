@@ -1,35 +1,58 @@
+let mostrarTelaIdPratos;
+let idUsersClicado; // Variável para armazenar o idUsers clicado
+let usersClicado; // Variável para armazenar o usuário clicado
+
 function janelaTrocas() {
   let textS1 = width / 70;
-  let textS2 = width / 85;
-  push();
-  fill('#acefea');
-  rect(width * 0.1, height * 0.02, width * 0.7, height * 0.9);
-  fecharTrocas.draw_ButtonFechar(width * 0.8, height * 0.03);
-  pop();
 
-  push();
-  fill('black');
-  textSize(textS1);
-  text('Usuários para trocas:', width * 0.20, height * 0.14);
-  pop();
+  if (!mostrarTelaIdPratos) {
+    let textS2 = width / 85;
+    push();
+    fill('#acefea');
+    rect(width * 0.1, height * 0.02, width * 0.7, height * 0.9);
+    fecharTrocas.draw_ButtonFechar(width * 0.8, height * 0.03);
+    pop();
 
-  let x = width * 0.22; // Iniciando em width*0.15
-  let y = height * 0.3;
+    push();
+    fill('black');
+    textSize(textS1);
+    text('Usuários para trocas:', width * 0.20, height * 0.14);
+    pop();
 
-  const spacingX = 150;
-  const spacingY = 50;
-  const elementsPerRow = 5; // Número de elementos por linha
+    let x = width * 0.22; // Iniciando em width*0.15
+    let y = height * 0.3;
 
-  for (let i = 0; i < usersTrocas.length; i++) {
-    let users = usersTrocas[i].nome;
-    let idUsers = usersTrocas[i].id;
-    let row = floor(i / elementsPerRow); // Calcula a linha atual
-    
-    let button = new Button();
-    button.draw_Button(100, 40, x + (i % elementsPerRow) * spacingX, y + row * spacingY, users, textS2);
-    if (button.on_Click(mouseX, mouseY) && mouseIsPressed) {
-      console.log(idUsers);
+    const spacingX = 150;
+    const spacingY = 50;
+    const elementsPerRow = 5; // Número de elementos por linha
+
+    for (let i = 0; i < usersTrocas.length; i++) {
+      let users = usersTrocas[i].nome;
+      let idUsers = usersTrocas[i].id;
+      let row = floor(i / elementsPerRow); // Calcula a linha atual
+      
+      let button = new Button();
+      button.draw_Button(100, 40, x + (i % elementsPerRow) * spacingX, y + row * spacingY, users, textS2);
+      
+      if (button.on_Click(mouseX, mouseY) && mouseIsPressed) {
+        mostrarTelaIdPratos = true;
+        idUsersClicado = idUsers; // Armazena o idUsers clicado
+        usersClicado = users; // Armazena o usuário clicado
+      }
     }
+  } else {
+    push();
+    fill('#acefea');
+    rect(width * 0.1, height * 0.02, width * 0.7, height * 0.9);
+    fecharIdTrocas.draw_ButtonFechar(width * 0.8, height * 0.03);
+    pop();
+
+    push();
+    fill('black');
+    textSize(textS1);
+    text(usersClicado + '-' + idUsersClicado , width * 0.20, height * 0.14); // Usa as variáveis clicadas
+    pop();
+    console.log(idUsersClicado);
   }
 }
 

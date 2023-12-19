@@ -111,6 +111,12 @@ function mousePressed() {
         performTrade();
       }*/
     }
+    if(mostrarTelaIdPratos){
+      if (fecharIdTrocas.on_Click(mouseX, mouseY)) {
+        mostrarTelaIdPratos = false;
+        //destruirInputs4();
+      }
+    }
    
     if(mostrarTelaRanking){
       if (fecharRanking.on_Click(mouseX, mouseY)) {

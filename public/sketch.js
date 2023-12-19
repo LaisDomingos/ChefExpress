@@ -56,6 +56,7 @@ function setup() {
   fecharAvaliacoes = new ButtonFechar();
   fecharRanking = new ButtonFechar();
   fecharTrocas = new ButtonFechar();
+  fecharIdTrocas = new ButtonFechar();
 
   addChef1 = new Button();
   addChef2 = new Button();
