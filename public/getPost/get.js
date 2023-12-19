@@ -76,3 +76,12 @@ function getPratos(){
 function getRanking(){
   loadJSON('/get10avaliacoes', gotData);
 }
+let usersTrocas;
+function getUsers(){
+  loadJSON('/getUsers', (data) => {
+    usersTrocas = data;
+    console.log('Users:', usersTrocas);
+  }, (error) => {
+    console.error('Erro ao obter os users:', error);
+  });
+}

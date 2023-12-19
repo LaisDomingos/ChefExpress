@@ -172,7 +172,7 @@ let imagensCarregadas = 0;
 
 function carregar() {
   imagensCarregadas++;
-  console.log(imagensCarregadas)
+  //console.log(imagensCarregadas)
   if(imagensCarregadas <= 14 ){
     imgLoading = loading[0];
   } else if(imagensCarregadas > 14 &&  imagensCarregadas <= 28){

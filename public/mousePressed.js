@@ -98,6 +98,7 @@ function mousePressed() {
       }
     }
     if(mostrarTelaTrocas){
+      getUsers();
       if (fecharTrocas.on_Click(mouseX, mouseY)) {
         mostrarTelaTrocas = false;
         destruirInputs4();

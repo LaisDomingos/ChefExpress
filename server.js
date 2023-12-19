@@ -468,10 +468,9 @@ app.get('/get10avaliacoes', (req, res) => {
 //postTrocas - coloca na lista de trocas
 app.post('/postTrocas', (req, res) => {
   const { idPrato, qtdPrato } = req.body; 
-  console.log("o que recebe: ", idPrato,qtdPrato)
 
   if (idUser) {
-    const insertSql = 'INSERT INTO trocas (idUser, idPratos, qtdPrato) VALUES (?, ?, ?)';
+    const insertSql = 'INSERT INTO trocas (idUser, idPratos, qtdPratos) VALUES (?, ?, ?)';
     dbase.query(insertSql, [idUser, idPrato, qtdPrato], (insertErr, insertResult) => {
       if (insertErr) {
         return res.status(500).json({ error: 'Erro no servidor' });
@@ -482,6 +481,24 @@ app.post('/postTrocas', (req, res) => {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
 });
+
+//getUsers - Busca os utilizadores
+app.get('/getUsers', (req, res) => {
+  const sql = 'SELECT nome FROM users';
+
+  dbase.query(sql, (err, result) => {
+    if (err) {
+      console.error('Erro ao obter os últimos users:', err);
+      return res.status(500).json({ error: 'Erro no servidor ao obter users' });
+    }
+
+    const nomes = result.map(user => user.nome);
+    //console.log(nomes);
+    res.json(nomes);
+  });
+});
+
+
 /*
 app.post('/checkUser', (req, res) => {
   let idUser = req.body.idUser;
