@@ -77,16 +77,6 @@ function getRanking(){
   loadJSON('/get10avaliacoes', gotData);
 }
 
-/*let usersTrocas = [];
-function getUsers(){
-  loadJSON('/getUsers', (data) => {
-    usersTrocas = data.nome;
-    console.log('Users:', usersTrocas);
-  }, (error) => {
-    console.error('Erro ao obter os users:', error);
-  });
-}*/
-// Adicione esta variável global para armazenar os botões
 let botoesTrocas = [];
 let usersTrocas = [];
 function getUsers() {
@@ -98,4 +88,12 @@ function getUsers() {
   });
 }
 
-
+let pratosUser = [];
+function getPratosUsers(idUserEscolhido) {
+  loadJSON(`/getPratosUsers?idUser=${idUserEscolhido}`, (data) => {
+    pratosUser = data;
+    console.log('Pratos User:', pratosUser);
+  }, (error) => {
+    console.error('Erro ao obter os users:', error);
+  });
+}

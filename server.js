@@ -506,7 +506,7 @@ app.get('/getUsers', (req, res) => {
 
   dbase.query(sql, (err, result) => {
     if (err) {
-      console.error('Erro ao obter os últimos users:', err);
+      console.error('Erro ao obter os users:', err);
       return res.status(500).json({ error: 'Erro no servidor ao obter users' });
     }
     const usersData = result.map(user => {
@@ -517,6 +517,33 @@ app.get('/getUsers', (req, res) => {
     });
 
     res.json(usersData);
+  });
+});
+
+//getPratosUsers - Busca os pratos dos utilizadores
+app.get('/getPratosUsers', (req, res) => {
+  const idUserEscolhido = req.query.idUser; // Você pode passar o idUser como um parâmetro de consulta
+
+  if (!idUserEscolhido) {
+    return res.status(400).json({ error: 'Parâmetro idUser ausente' });
+  }
+
+  const sql = 'SELECT idPratos, qtdPratos FROM trocas WHERE idUser = ?';
+
+  dbase.query(sql, [idUserEscolhido], (err, result) => {
+    if (err) {
+      console.error('Erro ao obter os pratos dos usuários:', err);
+      return res.status(500).json({ error: 'Erro no servidor ao obter pratos dos usuários' });
+    }
+
+    const pratosData = result.map(prato => {
+      return {
+        idPrato: prato.idPratos,
+        qtdPratos: prato.qtdPratos
+      };
+    });
+    console.log(pratosData)
+    res.json(pratosData);
   });
 });
 

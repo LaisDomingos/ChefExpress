@@ -81,7 +81,6 @@ function mousePressed() {
         adicionadoLista = true;
       }
       if(verListaTrocas.on_Click(mouseX, mouseY)){
-        //criarInputs4();
         mostrarTelaTrocas = true;
       }
     }
@@ -102,19 +101,11 @@ function mousePressed() {
     if(mostrarTelaTrocas){
       if (fecharTrocas.on_Click(mouseX, mouseY)) {
         mostrarTelaTrocas = false;
-        //destruirInputs4();
       }
-      /*if(findUserBtn.on_Click(mouseX, mouseY)){
-        findOtherUser();
-      }
-      if(tradeBtn.on_Click(mouseX, mouseY)){
-        performTrade();
-      }*/
     }
     if(mostrarTelaIdPratos){
       if (fecharIdTrocas.on_Click(mouseX, mouseY)) {
         mostrarTelaIdPratos = false;
-        //destruirInputs4();
       }
     }
    
