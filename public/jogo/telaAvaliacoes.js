@@ -9,46 +9,46 @@ let avaliacoes1 = [
     "Prazer em jantar aqui! Comida divina, atendimento calorosos.",
     "Experiência cinco estrelas! Comida e atendimento perfeito.",
     "Adorei cada momento! Recomendo."
-  ]; //Comida boa e atendimento bom
+]; //Comida boa e atendimento bom
   
-  let avaliacoes2 = [
-    "Comida deliciosa, atendimento razoável.",
-    "Gostei da qualidade da comida, atendimento mediano.",
-    "Comida saborosa, mas atendimento precisa melhorar.",
-    "Sabores surpreendentes, mas atendimento desatento. ",
-    "Pratos deliciosos, atendimento um pouco desatento.",
-    "Comida boa, atendimento ruim;",
-    "Pratos saborosos, mas o atendimento precisa melhorar.",
-    "Cozinha elogiável, atendimento é ponto fraco.",
-    "Comida muito saborosa, atendimento lento.",
-    "Pratos incríveis, mas atendimento deixou a desejar."
-  ]; //Comida boa e atendimento mais ou menos
+let avaliacoes2 = [
+  "Comida deliciosa, atendimento razoável.",
+  "Gostei da qualidade da comida, atendimento mediano.",
+  "Comida saborosa, mas atendimento precisa melhorar.",
+  "Sabores surpreendentes, mas atendimento desatento. ",
+  "Pratos deliciosos, atendimento um pouco desatento.",
+  "Comida boa, atendimento ruim;",
+  "Pratos saborosos, mas o atendimento precisa melhorar.",
+  "Cozinha elogiável, atendimento é ponto fraco.",
+  "Comida muito saborosa, atendimento lento.",
+  "Pratos incríveis, mas atendimento deixou a desejar."
+]; //Comida boa e atendimento mais ou menos
   
-  let avaliacoes3 = [
-    "Comida abaixo das expectativas, atendimento excepcional.",
-    "Pratos mais ou menos, atendimento é ponto positivo.",
-    "Atendimento eficiente, mas a comida ficou a desejar.",
-    "Gastronomia decepcionou, mas o atendimento bastante elogiável.",
-    "Sabores negativos, elogio ao atendimento, amigável e atencioso.",
-    "Comida abaixo do esperado, mas a equipe é dedicada e receptiva.",
-    "Pratos não atenderam no sabor, atendimento notavelmente bom.",
-    "Culinária ruim, mas a equipe fez o possível para garantir experiência.",
-    "Comida abaixo das expectativas, atendimento ponto forte.",
-    "Experiência negativa, destaque para atendimento."
-  ];//Comida ruim e atendimento bom
+let avaliacoes3 = [
+  "Comida abaixo das expectativas, atendimento excepcional.",
+  "Pratos mais ou menos, atendimento é ponto positivo.",
+  "Atendimento eficiente, mas a comida ficou a desejar.",
+  "Gastronomia decepcionou, mas o atendimento bastante elogiável.",
+  "Sabores negativos, elogio ao atendimento, amigável e atencioso.",
+  "Comida abaixo do esperado, mas a equipe é dedicada e receptiva.",
+  "Pratos não atenderam no sabor, atendimento notavelmente bom.",
+  "Culinária ruim, mas a equipe fez o possível para garantir experiência.",
+  "Comida abaixo das expectativas, atendimento ponto forte.",
+  "Experiência negativa, destaque para atendimento."
+];//Comida ruim e atendimento bom
   
-  let avaliacoes4 = [
-    "Comida e atendimento abaixo do esperado.",
-    "Comida ruim, atendimento insatisfatório.",
-    "Qualidade da comida e atendimento muito abaixo.",
-    "Comida pouco apetitosa e atendimento desinteressado.",
-    "Experiência negativa, não recomendo.",
-    "Comida abaixo do esperado em sabor, atendimento desatento.",
-    "Pratos não atenderam em sabor, atendimento ruim.",
-    "Culinária questionável, atendimento deixou a desejar. Experiência negativa.",
-    "Comida ruim, atendimento pouco acolhedor. Experiência sem prazer gastronômico.",
-    "Comida insatisfatória, atendimento pouco acolhedor. "
-  ];//Comida ruim e atendimento ruim
+let avaliacoes4 = [
+  "Comida e atendimento abaixo do esperado.",
+  "Comida ruim, atendimento insatisfatório.",
+  "Qualidade da comida e atendimento muito abaixo.",
+  "Comida pouco apetitosa e atendimento desinteressado.",
+  "Experiência negativa, não recomendo.",
+  "Comida abaixo do esperado em sabor, atendimento desatento.",
+  "Pratos não atenderam em sabor, atendimento ruim.",
+  "Culinária questionável, atendimento deixou a desejar. Experiência negativa.",
+  "Comida ruim, atendimento pouco acolhedor. Experiência sem prazer gastronômico.",
+  "Comida insatisfatória, atendimento pouco acolhedor. "
+];//Comida ruim e atendimento ruim
   
 let comentarios;
 let estrela;

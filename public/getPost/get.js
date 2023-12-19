@@ -50,8 +50,8 @@ function getValorChef() {//Busca o valor do chef contratado pelo usuário e o lu
     });
     loop();
 }
-let avaliacoes = [];
 
+let avaliacoes = [];
 function getUltimasAvaliacoes() {
   loadJSON('/getUltimasAvaliacoes', (data) => {
     avaliacoes = data;
@@ -76,7 +76,8 @@ function getPratos(){
 function getRanking(){
   loadJSON('/get10avaliacoes', gotData);
 }
-let usersTrocas;
+
+let usersTrocas = [];
 function getUsers(){
   loadJSON('/getUsers', (data) => {
     usersTrocas = data;

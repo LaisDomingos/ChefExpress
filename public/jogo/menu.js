@@ -68,7 +68,7 @@ function telasMenu(){
     mostrarTelaAvaliacoes = false;
     mostrarTelaPratos = false;
     retirarCheck();
-  }
+  } 
 
   if(mostrarTelaPresente){
     janelaPresente();
@@ -80,5 +80,6 @@ function telasMenu(){
     mostrarTelaPratos = false;
     retirarCheck();
   }
+  
   loop();
 }

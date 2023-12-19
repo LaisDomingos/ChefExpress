@@ -58,6 +58,7 @@ function mousePressed() {
     }
     
     if(mostrarTelaPratos){
+      getUsers();
       adicionadoLista = false;
       if (fecharPratos.on_Click(mouseX, mouseY)) {
         mostrarTelaPratos = false;
@@ -76,12 +77,11 @@ function mousePressed() {
       }
       if(pratosLista.on_Click(mouseX, mouseY)){
         let pratos = adicionarPratos();
-        //console.log(pratos);
         postTrocas(pratos);
         adicionadoLista = true;
       }
       if(verListaTrocas.on_Click(mouseX, mouseY)){
-        criarInputs4();
+        //criarInputs4();
         mostrarTelaTrocas = true;
       }
     }
@@ -100,17 +100,16 @@ function mousePressed() {
       }
     }
     if(mostrarTelaTrocas){
-      getUsers();
       if (fecharTrocas.on_Click(mouseX, mouseY)) {
         mostrarTelaTrocas = false;
-        destruirInputs4();
+        //destruirInputs4();
       }
-      if(findUserBtn.on_Click(mouseX, mouseY)){
+      /*if(findUserBtn.on_Click(mouseX, mouseY)){
         findOtherUser();
       }
       if(tradeBtn.on_Click(mouseX, mouseY)){
         performTrade();
-      }
+      }*/
     }
    
     if(mostrarTelaRanking){

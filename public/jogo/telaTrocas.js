@@ -1,24 +1,42 @@
 function janelaTrocas(){
+    let textS1 = width/70;
+    let textS2 = width/85;
     push();
     fill('#acefea');
     rect(width*0.1, height*0.02, width*0.7, height*0.9);
     fecharTrocas.draw_ButtonFechar(width*0.8, height*0.03);
     pop();
+
     push();
     fill('black');
-    textSize(15);
-    //text('Escolha um prato da lista de trocas que deseja receber. Você precisa ter um prato na lista de trocas, onde em troca você recebe o prato que selecionou.' , width*0.12, height*0.1);
+    textSize(textS1);
+    text('Usuários para trocas:', width * 0.20, height * 0.14);
     pop();
+  
+    let x = width * 0.15;
+    let y = height * 0.2;
+  
+    const spacing = 50;
 
-    myUserIdInput.draw_Input(width / 4, height /6, "Meu user:");
+    for (let i = 0; i < usersTrocas.length; i++) {
+      const users = usersTrocas[i].comentarios;
+      //console.log(users);
+      push();
+      fill('black');
+      textSize(textS2);
+      text(users, x + 110, y + i * spacing);
+      pop();
+    }
+
+    /*myUserIdInput.draw_Input(width / 4, height /6, "Meu user:");
     otherUserIdInput.draw_Input(width / 4, height /5, "Outro user:");
     yourPratoIdInput.draw_Input(width / 4, height /4, "Seu Prato:");
     otherUserPratoIdInput.draw_Input(width / 4, height /3, "Qual deseja receber em troca:");
     tradeBtn.draw_Button(200, 20, width*0.45, height*0.8, "Fazer Troca", 13);
-    findUserBtn.draw_Button(200, 20, width*0.67, height*0.8, "Achar User", 13);
+    findUserBtn.draw_Button(200, 20, width*0.67, height*0.8, "Achar User", 13);*/
 }
 
-function destruirInputs4(){
+/*function destruirInputs4(){
   myUserIdInput.destroy_Input();
     otherUserIdInput.destroy_Input();
     yourPratoIdInput.destroy_Input(); 
@@ -72,4 +90,37 @@ function performTrade() {
         console.log("Erro ao efetuar troca de itens.");
       }
     });
-}   
+} 
+/*function janelaTrocas() {
+  let textS1 = width/70;
+  let textS2 = width/85;
+    push();
+    fill('#acefea');
+    rect(width*0.1, height*0.02, width*0.7, height*0.9);
+    fecharTrocas.draw_ButtonFechar(width*0.8, height*0.03);
+    pop();
+  
+    push();
+    fill('black');
+    textSize(textS1);
+    text('Usuários para trocas:', width * 0.20, height * 0.14);
+    pop();
+  
+   
+    // Posição inicial para exibir as avaliações
+    let x = width * 0.15;
+    let y = height * 0.2;
+  
+    // Espaçamento vertical entre as avaliações
+    const spacing = 50;
+    // Itera sobre as avaliações e as exibe
+    for (let i = 0; i < usersTrocas.length; i++) {
+      const users = usersTrocas[i].comentarios;
+    
+      push();
+      fill('black');
+      textSize(textS2);
+      text(users, x + 110, y + i * spacing);
+      pop();
+    }
+  } */
