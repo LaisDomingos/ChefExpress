@@ -1,5 +1,6 @@
 let mostrarTelaPresente = false;
 let mostrarTelaTrocas = false;
+let adicionadoLista = false;
 function janelaPratos(){
     let textS1 = width/75;
     let textS2 = width/80;
@@ -13,6 +14,10 @@ function janelaPratos(){
         text('Escolha os pratos que deseja adicionar à lista de trocas.' , width*0.26, height*0.1);
         textSize(textS2);
         text('Ao comprar um presente no valor de 30€, você ganha um prato aleatório.' , width*0.24, height*0.87);
+        if(adicionadoLista){
+            fill('green');
+            text('Pratos adicionados a lista de trocas' , width*0.24, height*0.75);
+        }
     pop();
     image(pratosIniciais[0], width * 0.18, height * 0.15, width / 18, height / 18);
     image(pratosIniciais[1], width * 0.28, height * 0.15, width / 18, height / 18);
@@ -149,7 +154,7 @@ function janelaPratos(){
     pratosLista.draw_Button(200, 20, width*0.245, height*0.8, "Adiconar a lista de troca", 13);
     verListaTrocas.draw_Button(200, 20, width*0.67, height*0.8, "Lista de trocas", 13);
     presente.draw_Button(200, 20, width*0.45, height*0.8, "Comprar presente", 13);
-
+    
 }
 
 //let pratosSelecionados = [];

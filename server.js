@@ -468,14 +468,32 @@ app.get('/get10avaliacoes', (req, res) => {
 //postTrocas - coloca na lista de trocas
 app.post('/postTrocas', (req, res) => {
   const { idPrato, qtdPrato } = req.body; 
-
   if (idUser) {
-    const insertSql = 'INSERT INTO trocas (idUser, idPratos, qtdPratos) VALUES (?, ?, ?)';
-    dbase.query(insertSql, [idUser, idPrato, qtdPrato], (insertErr, insertResult) => {
-      if (insertErr) {
+    // Verifique se o jogador já possui este prato associado
+    const sql = 'SELECT * FROM trocas WHERE idUser = ? AND idPratos = ?';
+    dbase.query(sql, [idUser, idPrato], (checkErr, checkResult) => {
+      if (checkErr) {
         return res.status(500).json({ error: 'Erro no servidor' });
       }
-      res.json({ message: 'Prato adicionado na lista de trocas' });
+
+      if (checkResult.length > 0) {
+        const updateSql = 'UPDATE trocas SET qtdPrato = ? WHERE idUser = ? AND idPratos = ?';
+        dbase.query(updateSql, [idUser, qtdPrato, idPrato], (updateErr, updateResult) => {
+            if (updateErr) {
+                return res.status(500).json({ error: 'Erro no servidor' });
+            }
+            res.json({ message: 'Quantidade de pratos iguais alterada' });
+        });
+      } else {
+        // Se o prato não existir, insira um novo registro
+        const insertSql = 'INSERT INTO trocas (idUser, idPratos, qtdPratos) VALUES (?, ?, ?)';
+        dbase.query(insertSql, [idUser, idPrato, qtdPrato], (insertErr, insertResult) => {
+          if (insertErr) {
+            return res.status(500).json({ error: 'Erro no servidor' });
+          }
+          res.json({ message: 'Prato adicionado na lista de trocas' });
+        });
+      }
     });
   } else {
     res.status(401).json({ error: 'Usuário não autenticado' });
@@ -491,7 +509,6 @@ app.get('/getUsers', (req, res) => {
       console.error('Erro ao obter os últimos users:', err);
       return res.status(500).json({ error: 'Erro no servidor ao obter users' });
     }
-
     const nomes = result.map(user => user.nome);
     //console.log(nomes);
     res.json(nomes);

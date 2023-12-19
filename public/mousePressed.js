@@ -58,6 +58,7 @@ function mousePressed() {
     }
     
     if(mostrarTelaPratos){
+      adicionadoLista = false;
       if (fecharPratos.on_Click(mouseX, mouseY)) {
         mostrarTelaPratos = false;
         retirarCheck();
@@ -75,8 +76,9 @@ function mousePressed() {
       }
       if(pratosLista.on_Click(mouseX, mouseY)){
         let pratos = adicionarPratos();
-        console.log(pratos);
+        //console.log(pratos);
         postTrocas(pratos);
+        adicionadoLista = true;
       }
       if(verListaTrocas.on_Click(mouseX, mouseY)){
         criarInputs4();
