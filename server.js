@@ -502,16 +502,21 @@ app.post('/postTrocas', (req, res) => {
 
 //getUsers - Busca os utilizadores
 app.get('/getUsers', (req, res) => {
-  const sql = 'SELECT nome FROM users';
+  const sql = 'SELECT id,nome FROM users';
 
   dbase.query(sql, (err, result) => {
     if (err) {
       console.error('Erro ao obter os últimos users:', err);
       return res.status(500).json({ error: 'Erro no servidor ao obter users' });
     }
-    const nomes = result.map(user => user.nome);
-    //console.log(nomes);
-    res.json(nomes);
+    const usersData = result.map(user => {
+      return {
+        id: user.id,
+        nome: user.nome
+      };
+    });
+
+    res.json(usersData);
   });
 });
 
