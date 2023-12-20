@@ -38,8 +38,8 @@ let posicaoPrato13X;
 let posicaoPrato14X;
 
 function cenario(){
-    sair = new Button();
-    sair.draw_Button(100, 30, width*0.08, height*0.05, "Sair", 20);
+    //sair = new Button();
+    //sair.draw_Button(100, 30, width*0.08, height*0.05, "Sair", 20);
     entrada(); 
     mesas();
     drawLixo();
