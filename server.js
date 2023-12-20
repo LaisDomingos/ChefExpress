@@ -538,11 +538,11 @@ app.get('/getPratosUsers', (req, res) => {
 
     const pratosData = result.map(prato => {
       return {
-        idPrato: prato.idPratos,
+        idPratos: prato.idPratos,
         qtdPratos: prato.qtdPratos
       };
     });
-    console.log(pratosData)
+    //console.log(pratosData)
     res.json(pratosData);
   });
 });
