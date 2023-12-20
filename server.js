@@ -498,7 +498,7 @@ app.post('/postTrocas', (req, res) => {
   } else {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
-});
+})
 
 //getUsers - Busca os utilizadores
 app.get('/getUsers', (req, res) => {
