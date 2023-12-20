@@ -502,9 +502,9 @@ app.post('/postTrocas', (req, res) => {
 
 //getUsers - Busca os utilizadores
 app.get('/getUsers', (req, res) => {
-  const sql = 'SELECT id,nome FROM users';
+  const sql = 'SELECT id,nome FROM users WHERE id != ?';
 
-  dbase.query(sql, (err, result) => {
+  dbase.query(sql, [idUser], (err, result) => {
     if (err) {
       console.error('Erro ao obter os users:', err);
       return res.status(500).json({ error: 'Erro no servidor ao obter users' });
