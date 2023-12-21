@@ -1,9 +1,12 @@
 let mostrarTelaIdPratos;
 let idUsersClicado; // Variável para armazenar o idUsers clicado
 let usersClicado; // Variável para armazenar o usuário clicado
+let imgPratoClicado;
+let trocaEfetuada = false;
 
 function janelaTrocas() {
   let textS1 = width / 70;
+  let textS2 = width / 85;
 
   if (!mostrarTelaIdPratos) {
     let textS2 = width / 85;
@@ -52,13 +55,15 @@ function janelaTrocas() {
     fill('black');
     textSize(textS1);
     text("User escolhido: " + usersClicado + '  -  ' + 'Id do User: ' + idUsersClicado , width * 0.20, height * 0.14);
+    textSize(textS2);
+    text("Selecione qual deseja trocar" , width * 0.20, height * 0.18);
     const pratosPorLinha = 6;
     const larguraPrato = width / 18;
     const alturaPrato = height / 18;
     const espacamentoHorizontal = 0.05 * width;
     const espacamentoVertical = 0.05 * height;
-
-  for (let i = 0; i < pratosUser.length; i++) {
+    pop();
+    for (let i = 0; i < pratosUser.length; i++) {
     let idPrato = pratosUser[i].idPratos;
     let qtdPratos = pratosUser[i].qtdPratos;
     
@@ -68,20 +73,38 @@ function janelaTrocas() {
     let x = width * 0.18 + coluna * (larguraPrato + espacamentoHorizontal);
     let y = height * 0.28 + linha * (alturaPrato + espacamentoVertical);
 
-    push();
-    noFill();
-    stroke('red');
+    
     
     if (idPrato >= 0 && idPrato < pratosGerais.length) {
       image(pratosGerais[idPrato], x, y, larguraPrato, alturaPrato);
-      rect(x, y, larguraPrato, alturaPrato);
-
+      
       // Verifique se o mouse está sobre o retângulo atual
-      if (mouseX >= x && mouseX <= x + larguraPrato && mouseY >= y && mouseY <= y + alturaPrato) {
+      if (mouseX >= x && mouseX <= x + larguraPrato && mouseY >= y && mouseY <= y + alturaPrato && mouseIsPressed) {
         console.log("Clicado no idPrato:", idPrato);
+        imgPratoClicado = pratosGerais[idPrato];
+        trocaEfetuada = false;
       }
     }
+    
+  }
+  if (imgPratoClicado) {
+    image(imgPratoClicado, width * 0.3, height * 0.8, width / 18, height / 18);
+    push();
+    fill('black');
+    textSize(textS2);
+    text("Realiza uma troca utilizando o prato", width * 0.37, height * 0.8);
+    text("que você possui em maior quantidade", width * 0.37, height * 0.84);
     pop();
+    trocaBtn.draw_Button(100, 30, width*0.67, height*0.81, "Trocar", 13);
+  }
+  if (trocaEfetuada){
+    push();
+    fill('green');
+    textSize(textS2);
+    text("Troca realizada", width * 0.3, height * 0.8);
+    pop();
+    imgPratoClicado = false;
   }
   } 
+  
 }

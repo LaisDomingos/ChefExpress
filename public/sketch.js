@@ -75,6 +75,7 @@ function setup() {
  
   comprarNovoP = new Button();
 
+  trocaBtn = new Button();
   tradeBtn = new Button();
   findUserBtn = new Button();
   

@@ -75,6 +75,7 @@ function getPratos(){
 
 function getRanking(){
   loadJSON('/get10avaliacoes', gotData);
+  loop();
 }
 
 let botoesTrocas = [];
@@ -86,6 +87,7 @@ function getUsers() {
   }, (error) => {
     console.error('Erro ao obter os users:', error);
   });
+  loop();
 }
 
 let pratosUser = [];
@@ -96,4 +98,5 @@ function getPratosUsers(idUserEscolhido) {
   }, (error) => {
     console.error('Erro ao obter os users:', error);
   });
+  loop();
 }

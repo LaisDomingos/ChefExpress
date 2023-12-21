@@ -108,6 +108,10 @@ function mousePressed() {
       if (fecharIdTrocas.on_Click(mouseX, mouseY)) {
         mostrarTelaIdPratos = false;
       }
+      if(trocaBtn.on_Click(mouseX, mouseY)){
+        console.log("troca feita");
+        trocaEfetuada = true;
+      }
     }
    
     if(mostrarTelaRanking){

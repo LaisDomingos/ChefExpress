@@ -3,6 +3,7 @@ let mostrarTelaFuncionarios = false;
 let mostrarTelaPratos = false;
 let mostrarTelaAvaliacoes = false;
 let mostrarTelaRanking = false;
+let isMouseOver;
 
 function menu() {
     push();
