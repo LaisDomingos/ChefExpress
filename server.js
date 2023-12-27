@@ -465,8 +465,8 @@ app.get('/get10avaliacoes', (req, res) => {
   });
 });
 
-//postTrocas - coloca na lista de trocas
-app.post('/postTrocas', (req, res) => {
+//postListaTrocas - coloca na lista de trocas
+app.post('/postListaTrocas', (req, res) => {
   const { idPrato, qtdPrato } = req.body; 
   if (idUser) {
     // Verifique se o jogador já possui este prato associado
@@ -498,7 +498,7 @@ app.post('/postTrocas', (req, res) => {
   } else {
     res.status(401).json({ error: 'Usuário não autenticado' });
   }
-})
+});
 
 //getUsers - Busca os utilizadores
 app.get('/getUsers', (req, res) => {
@@ -522,7 +522,7 @@ app.get('/getUsers', (req, res) => {
 
 //getPratosUsers - Busca os pratos dos utilizadores
 app.get('/getPratosUsers', (req, res) => {
-  const idUserEscolhido = req.query.idUser; // Você pode passar o idUser como um parâmetro de consulta
+  const idUserEscolhido = req.query.idUserEscolhido; // Você pode passar o idUser como um parâmetro de consulta
 
   if (!idUserEscolhido) {
     return res.status(400).json({ error: 'Parâmetro idUser ausente' });
@@ -542,12 +542,38 @@ app.get('/getPratosUsers', (req, res) => {
         qtdPratos: prato.qtdPratos
       };
     });
-    //console.log(pratosData)
     res.json(pratosData);
   });
 });
 
+//postTrocarPratos - troca de pratos
+app.post('/postTrocarPratos', (req, res) => {
+  const { idPrato, idUserEscolhido } = req.body; 
+  console.log(idPrato, idUserEscolhido, idUser);
+  const sql = 'SELECT idPratos, qtdPratos FROM trocas WHERE idUser = ?';
+  dbase.query(sql, [idUser], (err, result) => {
+    if (err) {
+      console.error('Erro ao executar a consulta SQL:', err);
+      res.status(500).send('Erro interno do servidor');
+      return;
+    }
 
+    // Verifica se há resultados na consulta
+    if (result.length > 0) {
+      // Encontrar o idPrato com a maior qtdPratos
+      let idPratoComMaisQtd = result.reduce((maxPrato, prato) =>
+        prato.qtdPratos > maxPrato.qtdPratos ? prato : maxPrato
+      );
+
+      console.log('idPrato com mais qtdPratos:', idPratoComMaisQtd.idPrato);
+    } else {
+      console.log('Nenhum resultado encontrado para o idUser:', idUserEscolhido);
+    }
+
+    // Retorne a resposta ao cliente ou realize outras operações, se necessário
+    res.send('Operação concluída com sucesso');
+  });
+});
 /*
 app.post('/checkUser', (req, res) => {
   let idUser = req.body.idUser;

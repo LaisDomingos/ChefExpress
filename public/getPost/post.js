@@ -108,6 +108,7 @@ function postavaliacao(estrelas, comentarios) {
   httpPost('/postAvaliacao', dataToSend, 'json', (data) => {
   });
 }
+
 function postMediaAvaliacao(mediaAvaliacao){
   let dataToSend = {
     mediaAvaliacao: mediaAvaliacao
@@ -117,7 +118,7 @@ function postMediaAvaliacao(mediaAvaliacao){
   });
 }
 
-function postTrocas(pratosSelecionados) {
+function postListaTrocas(pratosSelecionados) {
   for (let i = 0; i < pratosSelecionados.length; i++) {
     const idPrato = pratosSelecionados[i].idPrato;
     const qtdPrato = pratosSelecionados[i].quantidade;
@@ -126,7 +127,17 @@ function postTrocas(pratosSelecionados) {
       idPrato: idPrato,
       qtdPrato: qtdPrato 
     };
-    httpPost('/postTrocas', dataToSend, 'json', (data) => {
+    httpPost('/postListaTrocas', dataToSend, 'json', (data) => {
     });
   }
+}
+
+function postTrocarPratos(idPrato, idUsersClicado) {
+  console.log(idPrato, idUsersClicado);
+  const dataToSend = {
+    idPrato: idPrato,
+    idUserEscolhido: idUsersClicado 
+  };
+  httpPost('/postTrocarPratos', dataToSend, 'json', (data) => {
+  });
 }

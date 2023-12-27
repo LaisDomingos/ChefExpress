@@ -78,7 +78,7 @@ function mousePressed() {
       }
       if(pratosLista.on_Click(mouseX, mouseY)){
         let pratos = adicionarPratos();
-        postTrocas(pratos);
+        postListaTrocas(pratos);
         adicionadoLista = true;
       }
       if(verListaTrocas.on_Click(mouseX, mouseY)){

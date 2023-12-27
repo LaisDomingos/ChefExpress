@@ -92,7 +92,7 @@ function getUsers() {
 
 let pratosUser = [];
 function getPratosUsers(idUserEscolhido) {
-  loadJSON(`/getPratosUsers?idUser=${idUserEscolhido}`, (data) => {
+  loadJSON(`/getPratosUsers?idUserEscolhido=${idUserEscolhido}`, (data) => {
     pratosUser = data;
     console.log('Pratos User:', pratosUser);
   }, (error) => {

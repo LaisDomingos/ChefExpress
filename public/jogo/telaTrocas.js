@@ -3,6 +3,7 @@ let idUsersClicado; // Variável para armazenar o idUsers clicado
 let usersClicado; // Variável para armazenar o usuário clicado
 let imgPratoClicado;
 let trocaEfetuada = false;
+let idPrato;
 
 function janelaTrocas() {
   let textS1 = width / 70;
@@ -64,7 +65,7 @@ function janelaTrocas() {
     const espacamentoVertical = 0.05 * height;
     pop();
     for (let i = 0; i < pratosUser.length; i++) {
-    let idPrato = pratosUser[i].idPratos;
+    idPrato = pratosUser[i].idPratos;
     let qtdPratos = pratosUser[i].qtdPratos;
     
     let linha = Math.floor(i / pratosPorLinha);
@@ -96,6 +97,9 @@ function janelaTrocas() {
     text("que você possui em maior quantidade", width * 0.37, height * 0.84);
     pop();
     trocaBtn.draw_Button(100, 30, width*0.67, height*0.81, "Trocar", 13);
+    if(trocaBtn.on_Click(mouseX,mouseY) && mouseIsPressed){
+      postTrocarPratos(idPrato,idUsersClicado);
+    }
   }
   if (trocaEfetuada){
     push();
