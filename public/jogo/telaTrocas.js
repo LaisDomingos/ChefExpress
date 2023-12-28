@@ -98,7 +98,8 @@ function janelaTrocas() {
     pop();
     trocaBtn.draw_Button(100, 30, width*0.67, height*0.81, "Trocar", 13);
     if(trocaBtn.on_Click(mouseX,mouseY) && mouseIsPressed){
-      postTrocarPratos(idPrato,idUsersClicado);
+      postTrocarPratosidUser(idPrato,idUsersClicado);
+      postTrocarPratosidEscolhido(idPrato,idUsersClicado);
     }
   }
   if (trocaEfetuada){

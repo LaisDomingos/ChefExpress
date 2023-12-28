@@ -547,9 +547,9 @@ app.get('/getPratosUsers', (req, res) => {
 });
 
 //postTrocarPratos - troca de pratos
-app.post('/postTrocarPratos', (req, res) => {
+app.post('/postTrocarPratosidUser', (req, res) => {
   const { idPrato, idUserEscolhido } = req.body;
-  console.log(idPrato, idUserEscolhido, idUser);
+  //console.log(idPrato, idUserEscolhido, idUser);
 
   const sql = 'SELECT idPratos, qtdPratos FROM trocas WHERE idUser = ? ORDER BY qtdPratos DESC LIMIT 1';
   dbase.query(sql, [idUser], (err, result) => {
@@ -563,26 +563,49 @@ app.post('/postTrocarPratos', (req, res) => {
     if (result.length > 0) {
       // O resultado é o idPrato com a maior qtdPrato
       const idPratoComMaisQtd = result[0].idPratos;
-      const sqlUpdateTrocas = 'UPDATE trocas SET qtdPratos = qtdPratos - 1 WHERE idPratos = ?';
-      dbase.query(sqlUpdateTrocas, [idPratoComMaisQtd], (errUpdate, resultUpdate) => {
-        if (errUpdate) {
-          console.error('Erro ao executar o UPDATE SQL:', errUpdate);
-          res.status(500).send('Erro interno do servidor');
-          return;
-        }
-        //console.log('Update Trocas realizado com sucesso para idPrato:', idPratoComMaisQtd);
-        // Atualize a coluna qtdPrato na tabela users_pratos
-        const sqlUpdatePratos = 'UPDATE users_pratos SET qtdPrato = qtdPrato - 1 WHERE idUser = ? AND idPratos = ?';
-        dbase.query(sqlUpdatePratos, [idUser, idPratoComMaisQtd], (errUpdatePratos, resultUpdatePratos) => {
-          if (errUpdatePratos) {
-            console.error('Erro ao executar o UPDATE SQL:', errUpdatePratos);
+      if (result[0].qtdPratos > 1 ) {
+        const sqlUpdateTrocas = 'UPDATE trocas SET qtdPratos = qtdPratos - 1 WHERE idUser = ? AND idPratos = ?';
+        dbase.query(sqlUpdateTrocas, [idUser, idPratoComMaisQtd], (errUpdate, resultUpdate) => {
+          if (errUpdate) {
+            console.error('Erro ao executar o UPDATE SQL:', errUpdate);
             res.status(500).send('Erro interno do servidor');
             return;
           }
-          //console.log('Update Pratos realizado com sucesso para idPrato:', idPratoComMaisQtd);
-          res.json({ message: 'Troca realizada' });
+          //console.log('Update Trocas realizado com sucesso para idPrato:', idPratoComMaisQtd);
+          // Atualize a coluna qtdPrato na tabela users_pratos
+          const sqlUpdatePratos = 'UPDATE users_pratos SET qtdPrato = qtdPrato - 1 WHERE idUser = ? AND idPratos = ?';
+          dbase.query(sqlUpdatePratos, [idUser, idPratoComMaisQtd], (errUpdatePratos, resultUpdatePratos) => {
+            if (errUpdatePratos) {
+              console.error('Erro ao executar o UPDATE SQL:', errUpdatePratos);
+              res.status(500).send('Erro interno do servidor');
+              return;
+            }
+            //console.log('Update Pratos realizado com sucesso para idPrato:', idPratoComMaisQtd);
+            res.json({ message: 'Troca realizada' });
+          });
         });
-      });
+      } else if (result[0].qtdPratos == 1) {
+        const sqlDeleteTrocas = 'DELETE FROM trocas WHERE idUser = ? AND idPratos = ?';
+        dbase.query(sqlDeleteTrocas, [idUser, idPratoComMaisQtd], (errUpdate, resultUpdate) => {
+          if (errUpdate) {
+            console.error('Erro ao executar o UPDATE SQL:', errUpdate);
+            res.status(500).send('Erro interno do servidor');
+            return;
+          }
+          //console.log('Update Trocas realizado com sucesso para idPrato:', idPratoComMaisQtd);
+          // Atualize a coluna qtdPrato na tabela users_pratos
+          const sqlDeletePratos = 'DELETE FROM users_pratos WHERE idUser = ? AND idPratos = ?';
+          dbase.query(sqlDeletePratos, [idUser, idPratoComMaisQtd], (errUpdatePratos, resultUpdatePratos) => {
+            if (errUpdatePratos) {
+              console.error('Erro ao executar o UPDATE SQL:', errUpdatePratos);
+              res.status(500).send('Erro interno do servidor');
+              return;
+            }
+            //console.log('Update Pratos realizado com sucesso para idPrato:', idPratoComMaisQtd);
+            res.json({ message: 'Troca realizada' });
+          });
+        });
+      }
     } else {
       //console.log('Nenhum resultado encontrado para o idUser:', idUser);
       res.json({ message: 'Não tem prato para trocar' });
@@ -590,8 +613,70 @@ app.post('/postTrocarPratos', (req, res) => {
   });
 });
 
+app.post('/postTrocarPratosidEscolhido', (req, res) => {
+  const { idPrato, idUserEscolhido } = req.body;
+  console.log(idPrato, idUserEscolhido);
 
+  const sql = 'SELECT idPratos, qtdPratos FROM trocas WHERE idUser = ? AND idPratos = ?';
+  dbase.query(sql, [idUserEscolhido, idPrato], (err, result) => {
+    if (err) {
+      console.error('Erro ao executar a consulta SQL:', err);
+      res.status(500).send('Erro interno do servidor');
+      return;
+    }
 
+    // Verifica se há resultados na consulta
+    if (result.length > 0) {
+      // O resultado é o idPrato com a maior qtdPrato
+      if (result[0].qtdPratos > 1 ) {
+        const sqlUpdateTrocas = 'UPDATE trocas SET qtdPratos = qtdPratos - 1 WHERE idUser = ? AND idPratos = ?';
+        dbase.query(sqlUpdateTrocas, [idUserEscolhido, idPrato], (errUpdate, resultUpdate) => {
+          if (errUpdate) {
+            console.error('Erro ao executar o UPDATE SQL:', errUpdate);
+            res.status(500).send('Erro interno do servidor');
+            return;
+          }
+          //console.log('Update Trocas realizado com sucesso para idPrato:', idPratoComMaisQtd);
+          // Atualize a coluna qtdPrato na tabela users_pratos
+          const sqlUpdatePratos = 'UPDATE users_pratos SET qtdPrato = qtdPrato - 1 WHERE idUser = ? AND idPratos = ?';
+          dbase.query(sqlUpdatePratos, [idUserEscolhido, idPrato], (errUpdatePratos, resultUpdatePratos) => {
+            if (errUpdatePratos) {
+              console.error('Erro ao executar o UPDATE SQL:', errUpdatePratos);
+              res.status(500).send('Erro interno do servidor');
+              return;
+            }
+            console.log('Update Pratos realizado com sucesso para idPrato:', idPrato);
+            res.json({ message: 'Troca realizada' });
+          });
+        });
+      } else if (result[0].qtdPratos == 1) {
+        const sqlDeleteTrocas = 'DELETE FROM trocas WHERE idUser = ? AND idPratos = ?';
+        dbase.query(sqlDeleteTrocas, [idUserEscolhido, idPrato], (errUpdate, resultUpdate) => {
+          if (errUpdate) {
+            console.error('Erro ao executar o UPDATE SQL:', errUpdate);
+            res.status(500).send('Erro interno do servidor');
+            return;
+          }
+          //console.log('Update Trocas realizado com sucesso para idPrato:', idPratoComMaisQtd);
+          // Atualize a coluna qtdPrato na tabela users_pratos
+          const sqlDeletePratos = 'DELETE FROM users_pratos WHERE idUser = ? AND idPratos = ?';
+          dbase.query(sqlDeletePratos, [idUserEscolhido, idPrato], (errUpdatePratos, resultUpdatePratos) => {
+            if (errUpdatePratos) {
+              console.error('Erro ao executar o UPDATE SQL:', errUpdatePratos);
+              res.status(500).send('Erro interno do servidor');
+              return;
+            }
+            console.log('Update Pratos realizado com sucesso para idPrato:', idPrato);
+            res.json({ message: 'Troca realizada' });
+          });
+        });
+      }
+    } else {
+      //console.log('Nenhum resultado encontrado para o idUser:', idUser);
+      res.json({ message: 'Não tem prato para trocar' });
+    }
+  });
+});
 
 /*
 app.post('/checkUser', (req, res) => {
