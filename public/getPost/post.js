@@ -132,12 +132,23 @@ function postListaTrocas(pratosSelecionados) {
   }
 }
 
+let trocaRealizada;
 function postTrocarPratos(idPrato, idUsersClicado) {
   console.log(idPrato, idUsersClicado);
   const dataToSend = {
     idPrato: idPrato,
-    idUserEscolhido: idUsersClicado 
+    idUserEscolhido: idUsersClicado,
   };
+
   httpPost('/postTrocarPratos', dataToSend, 'json', (data) => {
+    // Manipule a resposta do servidor aqui
+    if (data.message === 'Troca realizada') {
+      trocaRealizada = true;
+    } else {if (data.message === 'Não tem prato para trocar') {
+      trocaRealizada = false;
+    } else {
+      trocaRealizada = false;
+      console.log('Resposta desconhecida:', data);}
+    }
   });
 }

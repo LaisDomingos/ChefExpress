@@ -548,9 +548,10 @@ app.get('/getPratosUsers', (req, res) => {
 
 //postTrocarPratos - troca de pratos
 app.post('/postTrocarPratos', (req, res) => {
-  const { idPrato, idUserEscolhido } = req.body; 
+  const { idPrato, idUserEscolhido } = req.body;
   console.log(idPrato, idUserEscolhido, idUser);
-  const sql = 'SELECT idPratos, qtdPratos FROM trocas WHERE idUser = ?';
+
+  const sql = 'SELECT idPratos, qtdPratos FROM trocas WHERE idUser = ? ORDER BY qtdPratos DESC LIMIT 1';
   dbase.query(sql, [idUser], (err, result) => {
     if (err) {
       console.error('Erro ao executar a consulta SQL:', err);
@@ -560,20 +561,38 @@ app.post('/postTrocarPratos', (req, res) => {
 
     // Verifica se há resultados na consulta
     if (result.length > 0) {
-      // Encontrar o idPrato com a maior qtdPratos
-      let idPratoComMaisQtd = result.reduce((maxPrato, prato) =>
-        prato.qtdPratos > maxPrato.qtdPratos ? prato : maxPrato
-      );
-
-      console.log('idPrato com mais qtdPratos:', idPratoComMaisQtd.idPrato);
+      // O resultado é o idPrato com a maior qtdPrato
+      const idPratoComMaisQtd = result[0].idPratos;
+      const sqlUpdateTrocas = 'UPDATE trocas SET qtdPratos = qtdPratos - 1 WHERE idPratos = ?';
+      dbase.query(sqlUpdateTrocas, [idPratoComMaisQtd], (errUpdate, resultUpdate) => {
+        if (errUpdate) {
+          console.error('Erro ao executar o UPDATE SQL:', errUpdate);
+          res.status(500).send('Erro interno do servidor');
+          return;
+        }
+        //console.log('Update Trocas realizado com sucesso para idPrato:', idPratoComMaisQtd);
+        // Atualize a coluna qtdPrato na tabela users_pratos
+        const sqlUpdatePratos = 'UPDATE users_pratos SET qtdPrato = qtdPrato - 1 WHERE idUser = ? AND idPratos = ?';
+        dbase.query(sqlUpdatePratos, [idUser, idPratoComMaisQtd], (errUpdatePratos, resultUpdatePratos) => {
+          if (errUpdatePratos) {
+            console.error('Erro ao executar o UPDATE SQL:', errUpdatePratos);
+            res.status(500).send('Erro interno do servidor');
+            return;
+          }
+          //console.log('Update Pratos realizado com sucesso para idPrato:', idPratoComMaisQtd);
+          res.json({ message: 'Troca realizada' });
+        });
+      });
     } else {
-      console.log('Nenhum resultado encontrado para o idUser:', idUserEscolhido);
+      //console.log('Nenhum resultado encontrado para o idUser:', idUser);
+      res.json({ message: 'Não tem prato para trocar' });
     }
-
-    // Retorne a resposta ao cliente ou realize outras operações, se necessário
-    res.send('Operação concluída com sucesso');
   });
 });
+
+
+
+
 /*
 app.post('/checkUser', (req, res) => {
   let idUser = req.body.idUser;

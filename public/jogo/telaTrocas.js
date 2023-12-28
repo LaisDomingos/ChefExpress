@@ -105,7 +105,11 @@ function janelaTrocas() {
     push();
     fill('green');
     textSize(textS2);
-    text("Troca realizada", width * 0.3, height * 0.8);
+    if(trocaRealizada){
+      text("Troca realizada", width * 0.3, height * 0.8);
+    } else {
+      text("Você não possui prato para trocar", width * 0.3, height * 0.8);
+    }
     pop();
     imgPratoClicado = false;
   }
