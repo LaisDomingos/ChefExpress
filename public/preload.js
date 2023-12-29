@@ -12,7 +12,11 @@ function preload(){
   loading.push(loadImage('imagens/loading8.png', carregar));
   loading.push(loadImage('imagens/loading9.png', carregar));
 
+  somInicio = loadSound('sons/somInicio.mp3');
+  somRing = loadSound('sons/somRing.mp3');
+  somJogo = loadSound('sons/somJogo.mp3');
 }
+
 function carregandoImg(){
   imgLogo = loadImage('imagens/logoJogo.png', carregar);
   title = loadImage('imagens/title.png', carregar);
@@ -166,7 +170,6 @@ function carregandoImg(){
   carinhas.push(loadImage('imagens/estressado.png', carregar));
   carinhas.push(loadImage('imagens/irEmbora.png', carregar));
 }
-
 
 let imagensCarregadas = 0;
 

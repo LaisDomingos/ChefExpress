@@ -5,12 +5,14 @@ function mousePressed() {
   if (start.on_Click(mouseX, mouseY) && tela == 1) {
     tela = 2;
     criarInputs2();
+    somRing.play();
   } 
   if (tela == 2){
     if (mouseX > width * 0.53 && mouseX < width * 0.53 + 70 && mouseY > height * 0.77 && mouseY < height * 0.77 + 30) {
       tela = 3;
       destruirInputs2();
       criarInputs3();
+      somRing.play();
     } 
     if(buttonVoltar1.on_ClickVoltar(mouseX,mouseY)){
       tela = 1;
@@ -18,6 +20,7 @@ function mousePressed() {
     }
     if(login.on_Click(mouseX,mouseY)){
       loginBD();
+      somRing.play();
     }
   }
   if(tela == 3){
@@ -28,11 +31,13 @@ function mousePressed() {
     } 
     if (registrar.on_Click(mouseX, mouseY)) {
       registrarBD();
+      somRing.play();
     }
   } 
   if(tela == 4){
     if (comecarJogar.on_Click(mouseX, mouseY)) {
       tela = 5;
+      somRing.play();
     } 
   } 
   if(tela == 5){

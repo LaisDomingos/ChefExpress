@@ -1,6 +1,10 @@
 let tela = 1;
 let cobranca;
 
+let somInicio;
+let somRing;
+let somJogo;
+
 let dinheiro;
 let idUsuario;
 let tempoPreparo;
@@ -15,6 +19,9 @@ let ajudanteAtivo;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   carregandoImg();
+
+  somInicio.play();
+  
   cobranca = false;
 
   buttonVoltar1 = new ButtonVoltar();
@@ -80,12 +87,14 @@ function setup() {
   findUserBtn = new Button();
   
   setInterval(gerarCliente, 4000); 
+  
 }
 let imgLoading;
+
 function draw() {
   if (!tudoCarregado){
     background('#acefea');
-  image(imgLoading, width*0.3, height*0.3, width/2, height/3);
+    image(imgLoading, width*0.3, height*0.3, width/2, height/3);
   } else {
     if (tela == 1){
       tela1();
@@ -96,30 +105,34 @@ function draw() {
     } else if (tela == 4){
       destruirInputs2();
       tela4Regras();
-    } else if (tela == 5){
-        background(piso);  
-        getDinheiro();
-        if(dinheiro){
-          if(!cobranca){
-            postDinheiroServicos();
-            cobranca = true;
-          }
+    } else if (tela == 5){ 
+      if (!somJogo.isPlaying()) {
+        somJogo.play();
+        somJogo.setVolume(0.2);
+      }
+      background(piso);  
+      getDinheiro();
+      if(dinheiro){
+        if(!cobranca){
+          postDinheiroServicos();
+          cobranca = true;
         }
-        cenario();
-        menu();
-        balcao();
-        chamarClientes();
-        movimentoGarcon();
-        telasMenu();
-        getTempoPreparoValor();
-        getValorChef();
-        getRanking();
-        pagamento();  
-        getUltimasAvaliacoes();
-        getPratos();
-        qtdPratos();
-        mediaAvaliacao();
-      } 
+      }
+      cenario();
+      menu();
+      balcao();
+      chamarClientes();
+      movimentoGarcon();
+      telasMenu();
+      getTempoPreparoValor();
+      getValorChef();
+      getRanking();
+      pagamento();  
+      getUltimasAvaliacoes();
+      getPratos();
+      qtdPratos();
+      mediaAvaliacao();
+    } 
   }
   if(!moverClientes){
     noLoop();
