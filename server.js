@@ -645,7 +645,7 @@ app.post('/postTrocarPratosidEscolhido', (req, res) => {
               res.status(500).send('Erro interno do servidor');
               return;
             }
-            console.log('Update Pratos realizado com sucesso para idPrato:', idPrato);
+            //console.log('Update Pratos realizado com sucesso para idPrato:', idPrato);
             res.json({ message: 'Troca realizada' });
           });
         });
@@ -666,7 +666,7 @@ app.post('/postTrocarPratosidEscolhido', (req, res) => {
               res.status(500).send('Erro interno do servidor');
               return;
             }
-            console.log('Update Pratos realizado com sucesso para idPrato:', idPrato);
+            //console.log('Update Pratos realizado com sucesso para idPrato:', idPrato);
             res.json({ message: 'Troca realizada' });
           });
         });

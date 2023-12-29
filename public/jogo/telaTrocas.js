@@ -100,6 +100,7 @@ function janelaTrocas() {
     if(trocaBtn.on_Click(mouseX,mouseY) && mouseIsPressed){
       postTrocarPratosidUser(idPrato,idUsersClicado);
       postTrocarPratosidEscolhido(idPrato,idUsersClicado);
+      postPratos(idPrato);
     }
   }
   if (trocaEfetuada){
