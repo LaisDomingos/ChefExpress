@@ -546,7 +546,7 @@ app.get('/getPratosUsers', (req, res) => {
   });
 });
 
-//postTrocarPratos - troca de pratos
+//postTrocarPratosidUser- diminui os pratos do lado do idUser
 app.post('/postTrocarPratosidUser', (req, res) => {
   const { idPrato, idUserEscolhido } = req.body;
   //console.log(idPrato, idUserEscolhido, idUser);
@@ -558,11 +558,12 @@ app.post('/postTrocarPratosidUser', (req, res) => {
       res.status(500).send('Erro interno do servidor');
       return;
     }
-
+      
     // Verifica se há resultados na consulta
     if (result.length > 0) {
       // O resultado é o idPrato com a maior qtdPrato
       const idPratoComMaisQtd = result[0].idPratos;
+      idPratoTrocar = result[0].idPratos;
       if (result[0].qtdPratos > 1 ) {
         const sqlUpdateTrocas = 'UPDATE trocas SET qtdPratos = qtdPratos - 1 WHERE idUser = ? AND idPratos = ?';
         dbase.query(sqlUpdateTrocas, [idUser, idPratoComMaisQtd], (errUpdate, resultUpdate) => {
@@ -571,7 +572,7 @@ app.post('/postTrocarPratosidUser', (req, res) => {
             res.status(500).send('Erro interno do servidor');
             return;
           }
-          //console.log('Update Trocas realizado com sucesso para idPrato:', idPratoComMaisQtd);
+          //console.log(idPratoComMaisQtd);
           // Atualize a coluna qtdPrato na tabela users_pratos
           const sqlUpdatePratos = 'UPDATE users_pratos SET qtdPrato = qtdPrato - 1 WHERE idUser = ? AND idPratos = ?';
           dbase.query(sqlUpdatePratos, [idUser, idPratoComMaisQtd], (errUpdatePratos, resultUpdatePratos) => {
@@ -581,7 +582,7 @@ app.post('/postTrocarPratosidUser', (req, res) => {
               return;
             }
             //console.log('Update Pratos realizado com sucesso para idPrato:', idPratoComMaisQtd);
-            res.json({ message: 'Troca realizada' });
+            res.json({ message: 'Troca realizada', idPratoComMaisQtd, idUserEscolhido });
           });
         });
       } else if (result[0].qtdPratos == 1) {
@@ -592,7 +593,7 @@ app.post('/postTrocarPratosidUser', (req, res) => {
             res.status(500).send('Erro interno do servidor');
             return;
           }
-          //console.log('Update Trocas realizado com sucesso para idPrato:', idPratoComMaisQtd);
+          //console.log(idPratoComMaisQtd);
           // Atualize a coluna qtdPrato na tabela users_pratos
           const sqlDeletePratos = 'DELETE FROM users_pratos WHERE idUser = ? AND idPratos = ?';
           dbase.query(sqlDeletePratos, [idUser, idPratoComMaisQtd], (errUpdatePratos, resultUpdatePratos) => {
@@ -602,7 +603,7 @@ app.post('/postTrocarPratosidUser', (req, res) => {
               return;
             }
             //console.log('Update Pratos realizado com sucesso para idPrato:', idPratoComMaisQtd);
-            res.json({ message: 'Troca realizada' });
+            res.json({ message: 'Troca realizada', idPratoComMaisQtd });
           });
         });
       }
@@ -613,9 +614,10 @@ app.post('/postTrocarPratosidUser', (req, res) => {
   });
 });
 
+//postTrocarPratosidEscolhido- diminui os pratos do lado do idEscolhido
 app.post('/postTrocarPratosidEscolhido', (req, res) => {
   const { idPrato, idUserEscolhido } = req.body;
-  console.log(idPrato, idUserEscolhido);
+  //console.log(idPrato, idUserEscolhido);
 
   const sql = 'SELECT idPratos, qtdPratos FROM trocas WHERE idUser = ? AND idPratos = ?';
   dbase.query(sql, [idUserEscolhido, idPrato], (err, result) => {
@@ -678,103 +680,40 @@ app.post('/postTrocarPratosidEscolhido', (req, res) => {
   });
 });
 
-/*
-app.post('/checkUser', (req, res) => {
-  let idUser = req.body.idUser;
-
-  // Verifique se o usuário existe no banco de dados
-  let sqlCheckUser = "SELECT * FROM users_pratos WHERE idUser = ?;";
-
-  dbase.query(sqlCheckUser, [idUser], (err, resultCheckUser) => {
-    if (err) {
-      console.error("Erro na consulta SQL:", err);
-      res.status(500).send({ "ack": -1 }); // Erro na verificação do usuário
-    } else {
-
-      if (resultCheckUser.length > 0) {
-        // Usuário encontrado, você pode realizar ações adicionais se necessário
-        res.send({ "ack": 1 });
-      } else {
-        // Usuário não encontrado
-        res.send({ "ack": 0 });
+//postPratosTrocar - atualiza a quantidade se tiver esse prato quando troca, se não, adiciona
+app.post('/postPratosTrocar', (req, res) => {
+  const { idUserEscolhido, idPratoTrocar} = req.body;
+  //console.log("id escolhido:", idUserEscolhido);
+  //console.log("idPratoTrocar:", idPratoTrocar);
+    // Verifique se o jogador já possui este prato associado
+    const sql = 'SELECT * FROM users_pratos WHERE idUser = ? AND idPratos = ?';
+    dbase.query(sql, [idUserEscolhido, idPratoTrocar], (checkErr, checkResult) => {
+      if (checkErr) {
+        return res.status(500).json({ error: 'Erro no servidor' });
       }
-    }
-  });
-});
 
-const util = require('util');
-const beginTransaction = util.promisify(dbase.beginTransaction).bind(dbase);
-const commit = util.promisify(dbase.commit).bind(dbase);
-const rollback = util.promisify(dbase.rollback).bind(dbase);
-
-app.post('/tradeItems', async (req, res) => {
-  try {
-    const { user1Id, user2Id, prato1Id, prato2Id } = req.body;
-
-    // Iniciar a transação automaticamente
-    await beginTransaction();
-
-    try {
-      // Verificar se o usuário 1 possui o item que deseja trocar
-      const resultCheckItemUser1 = await queryAsync(`SELECT * FROM users_pratos WHERE idUser = ? AND idPratos = ? AND qtdPrato >= 1 FOR UPDATE`, [user1Id, prato1Id]);
-
-      if (resultCheckItemUser1.length > 0) {
-        // Subtrair 1 da qtdItem do item que o usuário 1 está trocando
-        await queryAsync(`UPDATE users_pratos SET qtdPrato = qtdPrato - 1 WHERE idUser = ? AND idPratos = ?`, [user1Id, prato1Id]);
-
-        // Adicionar 1 à qtdItem do item que o usuário 1 está trocando
-        await queryAsync(`UPDATE users_pratos SET qtdPrato = qtdPrato + 1 WHERE idUser = ? AND idPratos = ?`, [user1Id, prato2Id]);
-
-        // Confirmar a transação para o usuário 1
-        await commit();
-
-        // Iniciar uma nova transação para o usuário 2
-        await beginTransaction();
-
-        // Verificar se o usuário 2 possui o item que deseja trocar
-        const resultCheckItemUser2 = await queryAsync(`SELECT * FROM users_pratos WHERE idUser = ? AND idPratos = ? FOR UPDATE`, [user2Id, prato2Id]);
-
-        if (resultCheckItemUser2.length > 0) {
-          // Subtrair 1 da qtdItem do item que o usuário 2 está trocando
-          await queryAsync(`UPDATE users_pratos SET qtdPrato = qtdPrato - 1 WHERE idUser = ? AND idPratos = ?`, [user2Id, prato2Id]);
-          // Adicionar 1 à qtdItem do item que o usuário 2 está trocando
-          await queryAsync(`UPDATE users_pratos SET qtdPrato = qtdPrato + 1 WHERE idUser = ? AND idPratos = ?`, [user2Id, prato1Id]);
-        } else {
-          // Se o usuário 2 não possuir o item, adicioná-lo ao inventário
-          await queryAsync(`INSERT INTO users_pratos (idUser, idPratos, qtdPrato) VALUES (?, ?, 1)`, [user2Id, prato2Id]);
-        }
-
-        // Confirmar a transação para o usuário 2
-        await commit();
-
-        res.send({ "ack": 1 }); // Troca efetuada com sucesso
+      if (checkResult.length > 0) {
+        // O jogador já possui o prato na tabela "users_pratos"
+        // Atualize a coluna quantidade
+        const updateSql = 'UPDATE users_pratos SET qtdPrato = qtdPrato + 1 WHERE idUser = ? AND idPratos = ?';
+        dbase.query(updateSql, [idUserEscolhido, idPratoTrocar], (updateErr, updateResult) => {
+            if (updateErr) {
+                return res.status(500).json({ error: 'Erro no servidor' });
+            }
+            res.json({ message: 'Quantidade de pratos iguais alterada' });
+        });
       } else {
-        res.send({ "ack": 0 }); // Usuário 1 não possui o item para trocar
+        // Se o prato não existir, insira um novo registro
+        const insertSql = 'INSERT INTO users_pratos (idUser, idPratos, qtdPrato) VALUES (?, ?, 1)';
+        dbase.query(insertSql, [idUserEscolhido, idPratoTrocar], (insertErr, insertResult) => {
+            if (insertErr) {
+                return res.status(500).json({ error: 'Erro no servidor' });
+            }
+            res.json({ message: 'Novo prato adicionado' });
+        });
       }
-    } catch (errUser1) {
-      // Rollback em caso de erro para o usuário 1
-      await rollback();
-      console.error(errUser1);
-      res.status(500).send({ "ack": -1 }); // Erro na troca
-    }
-  } catch (err) {
-    // Rollback em caso de erro geral
-    await rollback();
-    console.error(err);
-    res.status(500).send({ "ack": -1 }); // Erro na troca
-  }
-});
-
-// Função para realizar consultas assíncronas no banco de dados
-function queryAsync(sql, values) {
-  return new Promise((resolve, reject) => {
-    dbase.query(sql, values, (err, result) => {
-      if (err) reject(err);
-      resolve(result);
     });
-  });
-}
-*/
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

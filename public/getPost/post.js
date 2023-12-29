@@ -144,6 +144,9 @@ function postTrocarPratosidUser(idPrato, idUsersClicado) {
     // Manipule a resposta do servidor aqui
     if (data.message === 'Troca realizada') {
       trocaRealizada = true;
+      let idPratoTrocar = data.idPratoComMaisQtd;
+      let idUserEscolhido = data.idUserEscolhido;
+      postPratosTrocar(idUserEscolhido, idPratoTrocar)
     } else if (data.message === 'Não tem prato para trocar') {
       trocaRealizada = false;
     } else {
@@ -162,5 +165,15 @@ function postTrocarPratosidEscolhido(idPrato, idUsersClicado) {
   };
 
   httpPost('/postTrocarPratosidEscolhido', dataToSend, 'json', (data) => {
+  });
+}
+
+function postPratosTrocar(idUserEscolhido, idPratoTrocar){
+  let dataToSend = {
+    idUserEscolhido: idUserEscolhido,
+    idPratoTrocar: idPratoTrocar
+  } 
+  httpPost('/postPratosTrocar', dataToSend, 'json', (data) => {
+    loop();
   });
 }
