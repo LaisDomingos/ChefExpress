@@ -13,7 +13,7 @@ const dbase = mysql.createConnection({ //Conecta ao BD
   port: "3306",
   user:"root",
   password:"root",
-  database: "chefexpress_user_teste"
+  database: "chefexpress"
 });
 
 dbase.connect(function(err){
