@@ -36,9 +36,4 @@ O ChefExpress foi desenvolvido como parte da disciplina de Desenvolvimento de Jo
    ```bash
    git clone https://github.com/seu-usuario/chefexpress.git
    cd chefexpress
-   
-##Contribuindo
 
-Se você encontrar bugs, tiver ideias para novos recursos ou melhorias, sinta-se à vontade para contribuir abrindo problemas (issues) ou enviando pull requests.
-
-Divirta-se jogando ChefExpress! 🍽️🎮
