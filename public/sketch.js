@@ -86,9 +86,9 @@ function setup() {
   tradeBtn = new Button();
   findUserBtn = new Button();
   
-  setInterval(gerarCliente, 4000); 
-  
+  //setInterval(gerarCliente, 4000); 
 }
+
 let imgLoading;
 
 function draw() {
@@ -106,6 +106,7 @@ function draw() {
       destruirInputs2();
       tela4Regras();
     } else if (tela == 5){ 
+      setInterval(gerarCliente, 4000); 
       if (!somJogo.isPlaying()) {
         somJogo.play();
         somJogo.setVolume(0.2);

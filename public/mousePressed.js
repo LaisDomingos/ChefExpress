@@ -41,10 +41,26 @@ function mousePressed() {
     } 
   } 
   if(tela == 5){
-    /*if(sair.on_Click(mouseX, mouseY)){
+    if(sair.on_Click(mouseX, mouseY)){
       tela = 1;
       idUsuario = '';
-    }*/
+      console.log(clientes.length);
+      /*mesa1O = false;
+      mesa2O = false;
+      mesa3O = false;
+      mesa4O = false;
+      mesa5O = false;
+      mesa6O = false;
+      mesa7O = false;
+      mesa8O = false;*/
+      /*for (let i = 0; i < clientes.length; i++) {
+        console.log(i);
+        sairMesa(clientes[i]);
+      }*/
+      clientes = [];
+      gerarCliente(); 
+      draw();
+    }
     if (isMouseOver && mostrarMenu) {
       if (mouseX > width * 0.924 && mouseX < width * 0.924 + width/16.2 && mouseY > height * 0.22 && mouseY < height * 0.22 + height / 5.5) {
         telaFuncionarios();

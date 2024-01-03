@@ -416,7 +416,6 @@ function sairMesa(cliente) {
                 break;
         }
     }
-    
     // Remove o cliente da lista para liberar recursos
     let index = clientes.indexOf(cliente);
     if (index !== -1) {
