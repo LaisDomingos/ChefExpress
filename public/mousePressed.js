@@ -44,21 +44,48 @@ function mousePressed() {
     if(sair.on_Click(mouseX, mouseY)){
       tela = 1;
       idUsuario = '';
-      console.log(clientes.length);
-      /*mesa1O = false;
+      clientes = [];
+      mesa1O = false;
       mesa2O = false;
       mesa3O = false;
       mesa4O = false;
       mesa5O = false;
       mesa6O = false;
       mesa7O = false;
-      mesa8O = false;*/
-      /*for (let i = 0; i < clientes.length; i++) {
-        console.log(i);
-        sairMesa(clientes[i]);
-      }*/
-      clientes = [];
-      gerarCliente(); 
+      mesa8O = false;
+      
+      espacoocupado1 = false;
+      espacoocupado2 = false;
+      espacoocupado3 = false;
+      espacoocupado4 = false;
+      espacoocupado5 = false;
+      espacoocupado6 = false;
+      espacoocupado7 = false;
+      espacoocupado8 = false;
+      espacoocupado9 = false;
+      espacoocupado10 = false;
+      espacoocupado11 = false;
+      espacoocupado12 = false;
+      espacoocupado13 = false;
+      espacoocupado14 = false;
+      espacoocupado15 = false;
+     
+      espaco1 = false;
+      espaco2 = false;
+      espaco3 = false;
+      espaco4 = false;
+      espaco5 = false;
+      espaco6 = false;
+      espaco7 = false;
+      espaco8 = false;
+      espaco9 = false;
+      espaco10 = false;
+      espaco11 = false;
+      espaco12 = false;
+      espaco13 = false;
+      espaco14 = false;
+      
+      setInterval(gerarCliente, 4000); 
       draw();
     }
     if (isMouseOver && mostrarMenu) {
