@@ -36,4 +36,15 @@ O ChefExpress foi desenvolvido como parte da disciplina de Desenvolvimento de Jo
    ```bash
    git clone https://github.com/seu-usuario/chefexpress.git
    cd chefexpress
+![Captura de Tela (385)](https://github.com/LaisDomingos/ChefExpress/assets/50579591/3bd90215-de16-4aa4-9638-e7ba7e8cfd3c)
+![Captura de Tela (386)](https://github.com/LaisDomingos/ChefExpress/assets/50579591/06b86a78-42da-42cd-a9b9-527946037b0c)
+![Captura de Tela (388)](https://github.com/LaisDomingos/ChefExpress/assets/50579591/5f81a1d4-d926-48ba-88ca-2d172aecfa50)
+![Captura de Tela (390)](https://github.com/LaisDomingos/ChefExpress/assets/50579591/95c8f0e4-0451-4dca-9b08-227a6ba2b4e9)
+![Captura de Tela (391)](https://github.com/LaisDomingos/ChefExpress/assets/50579591/a6efc202-82c4-498d-9b62-d6170c23dd2f)
+![Captura de Tela (392)](https://github.com/LaisDomingos/ChefExpress/assets/50579591/3c51d427-9bea-4dc6-812f-c35ca7b971de)
+
+
+
+
+
 
