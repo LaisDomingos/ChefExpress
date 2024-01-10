@@ -41,24 +41,6 @@ function mousePressed() {
     } 
   } 
   if(tela == 5){
-    /*if(sair.on_Click(mouseX, mouseY)){
-      limparBalcao();
-      tela = 1;
-      idUsuario = '';
-      clientes = [];
-      pratosGanhados = [];
-      mesa1O = false;
-      mesa2O = false;
-      mesa3O = false;
-      mesa4O = false;
-      mesa5O = false;
-      mesa6O = false;
-      mesa7O = false;
-      mesa8O = false;      
-      
-      setInterval(gerarCliente, 4000); 
-      draw();
-    }*/
     if (isMouseOver && mostrarMenu) {
       if (mouseX > width * 0.924 && mouseX < width * 0.924 + width/16.2 && mouseY > height * 0.22 && mouseY < height * 0.22 + height / 5.5) {
         telaFuncionarios();

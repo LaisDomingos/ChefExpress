@@ -38,8 +38,6 @@ let posicaoPrato13X;
 let posicaoPrato14X;
 
 function cenario(){
-    //sair = new Button();
-    //sair.draw_Button(100, 30, width*0.08, height*0.05, "Sair", 20);
     entrada(); 
     mesas();
     drawLixo();
@@ -117,40 +115,3 @@ function balcao() {
 function drawLixo(){
     image(lixo, width*0.9, height*0.82, width/17, height/6);
 }
-
-/*function limparBalcao() {
-    espaco1 = null;
-    espaco2 = null;
-    espaco3 = null;
-    espaco4 = null;
-    espaco5 = null;
-    espaco6 = null;
-    espaco7 = null;
-    espaco8 = null;
-    espaco9 = null;
-    espaco10 = null;
-    espaco11 = null;
-    espaco12 = null;
-    espaco13 = null;
-    espaco14 = null;
-
-    espacoocupado1 = false;
-    espacoocupado2 = false;
-    espacoocupado3 = false;
-    espacoocupado4 = false;
-    espacoocupado5 = false;
-    espacoocupado6 = false;
-    espacoocupado7 = false;
-    espacoocupado8 = false;
-    espacoocupado9 = false;
-    espacoocupado10 = false;
-    espacoocupado11 = false;
-    espacoocupado12 = false;
-    espacoocupado13 = false;
-    espacoocupado14 = false;
-
-    // Marcar todos os clientes como tendo seus pedidos atendidos
-    for (let i = 0; i < clientes.length; i++) {
-        clientes[i].jaAtendeuPedido = true;
-    }
-}*/
